@@ -2,6 +2,7 @@ import torch
 import sounddevice as sd
 import numpy as np
 import queue
+import math
 from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 from transformers import BlenderbotTokenizer, BlenderbotForConditionalGeneration
 from scipy.io.wavfile import write, read
@@ -101,11 +102,11 @@ class VoiceRecorder:
         self,
         file_name: str = None,
         sampling_rate: int = 16000,
-        block_duration: float = 0.5,
+        block_duration: float = 1.0,
         buffer_duration: int = 5,
     ) -> dict:
         block_size = int(block_duration * sampling_rate)
-        min_recorded_blocks = int(buffer_duration / block_duration)
+        min_recorded_blocks = math.ceil(buffer_duration / block_duration)
         audio_blocks = []
 
         print("> Recording stream start...")
@@ -126,7 +127,7 @@ class VoiceRecorder:
                     print("> Recording stopped!")
                     break
 
-        full_audio_data = np.concatenate(audio_blocks, axis=0)
+        full_audio_data = np.concatenate(audio_blocks, axis=0)[:, 0]
 
         if file_name:
             write(file_name, sampling_rate, full_audio_data)
@@ -134,7 +135,7 @@ class VoiceRecorder:
         return {"sampling_rate": sampling_rate, "raw": full_audio_data}
 
     def read(self, file_name: str) -> dict:
-        sample_rate, audio_data = read(f"{file_name}.wav")
+        sample_rate, audio_data = read(f"{file_name}")
         return {"sampling_rate": sample_rate, "raw": np.array(audio_data)}
 
     def play(self, file_name: str) -> None:
@@ -144,15 +145,6 @@ class VoiceRecorder:
 
 
 if __name__ == "__main__":
-    # # Test audio transcriber
-    # transcriber = AudioTranscriber()
-    # file_name = "sample_file"
-    # record_audio(file_name, duration = 10)
-    # play_audio_file(file_name)
-    # audio_input = read_audio_file(file_name)
-    # inference_result = transcriber.run_inference(audio_input)
-    # print(inference_result)
-
     # Test text generation
     # conversation_generator = ConversationGeneratorModel()
     # for _ in range(10):
@@ -165,4 +157,13 @@ if __name__ == "__main__":
     # Test VoiceRecorder
     voice_recorder = VoiceRecorder()
     audio_data = voice_recorder.record()
-    print(audio_data)
+
+    # Feed into voice transcriber
+    transcriber = AudioTranscriberModel()
+    inference_result = transcriber.run_inference(audio_data)
+    print(inference_result)
+
+    # Feed into conversation model
+    conversation = ConversationGeneratorModel()
+    response = conversation.run_inference(inference_result["text"])
+    print(response)
