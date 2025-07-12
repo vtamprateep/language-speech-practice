@@ -3,6 +3,7 @@ import sounddevice as sd
 import numpy as np
 import queue
 import math
+import copy
 from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 from transformers import BlenderbotTokenizer, BlenderbotForConditionalGeneration
 from scipy.io.wavfile import write, read
@@ -10,31 +11,78 @@ from sounddevice import CallbackFlags
 from typing import Any
 
 
-class AudioTranscriberModel:
-    def __init__(self, model_id="openai/whisper-tiny"):
-        device = "cpu"
-        torch_dtype = torch.float32
-        processor = AutoProcessor.from_pretrained(model_id)
+class TextToSpeechModel:
+
+    def __init__(self):
+        pass
+
+class SpeechToTextModel:
+
+    LANGUAGE: str = None
+    MODEL_ID: str = None
+    DEVICE: str = None
+    TRANSCRIBE_PIPE = None
+    TRANSLATE_PIPE = None
+
+    def __init__(
+        self,
+        language: str = None,
+        model_id: str = "openai/whisper-tiny",
+        device: str = "cpu"
+    ):
+        self.LANGUAGE = language
+        self.MODEL_ID = model_id
+        self.DEVICE = device
+
+        self._setup_pipeline(self.LANGUAGE)
+
+    def _setup_pipeline(self, language: str):
+        generate_kwargs = {"language": language} if language else {}
+
+        processor = AutoProcessor.from_pretrained(self.MODEL_ID)
         model = AutoModelForSpeechSeq2Seq.from_pretrained(
-            model_id,
-            torch_dtype=torch_dtype,
+            self.MODEL_ID,
+            torch_dtype=torch.float32,
             low_cpu_mem_usage=True,
             use_safetensors=True,
         )
-        model.to(device)
-
-        self.pipe = pipeline(
+        model.to(self.DEVICE)
+        
+        self.TRANSCRIBE_PIPE = pipeline(
             "automatic-speech-recognition",
             model=model,
             tokenizer=processor.tokenizer,
             feature_extractor=processor.feature_extractor,
-            torch_dtype=torch_dtype,
-            device=device,
+            torch_dtype=torch.float32,
+            device=self.DEVICE,
+            generate_kwargs={
+                "task": "transcribe",
+                **generate_kwargs
+            }
         )
 
-    def run_inference(self, input: dict) -> dict:
-        return self.pipe(inputs=input, return_timestamps=True)
+        if language:
+            self.TRANSLATE_PIPE = pipeline(
+            "automatic-speech-recognition",
+            model=model,
+            tokenizer=processor.tokenizer,
+            feature_extractor=processor.feature_extractor,
+            torch_dtype=torch.float32,
+            device=self.DEVICE,
+            generate_kwargs={
+                "task": "translate",
+                **generate_kwargs
+            }
+        )
 
+    def run_inference(self, input: dict, task: str = "transcribe") -> dict:
+        copy_input = copy.deepcopy(input)
+        if task == "transcribe":
+            return self.TRANSCRIBE_PIPE(inputs=copy_input, return_timestamps=True)
+        elif task == "translate":
+            return self.TRANSLATE_PIPE(inputs=copy_input, return_timestamps=True)
+        else:
+            return {}
 
 class ConversationGeneratorModel:
     MAX_INPUT_TOKENS = 128
@@ -156,14 +204,18 @@ if __name__ == "__main__":
 
     # Test VoiceRecorder
     voice_recorder = VoiceRecorder()
-    audio_data = voice_recorder.record()
+    # audio_data = voice_recorder.record(file_name="ch_sample.wav")
+    audio_data = voice_recorder.read("ch_sample.wav")
+    print("> Audio Data:", audio_data)
 
     # Feed into voice transcriber
-    transcriber = AudioTranscriberModel()
+    transcriber = SpeechToTextModel(language="chinese")
     inference_result = transcriber.run_inference(audio_data)
     print(inference_result)
+    translate_inference_result = transcriber.run_inference(audio_data, "translate")
+    print(translate_inference_result)
 
     # Feed into conversation model
     conversation = ConversationGeneratorModel()
-    response = conversation.run_inference(inference_result["text"])
+    response = conversation.run_inference(translate_inference_result["text"])
     print(response)
