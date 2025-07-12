@@ -1,0 +1,104 @@
+import torch
+import copy
+from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
+from transformers import BlenderbotTokenizer, BlenderbotForConditionalGeneration
+
+
+class TextToSpeechModel:
+    def __init__(self):
+        pass
+
+
+class SpeechToTextModel:
+    LANGUAGE: str = None
+    MODEL_ID: str = None
+    DEVICE: str = None
+    TRANSCRIBE_PIPE = None
+    TRANSLATE_PIPE = None
+
+    def __init__(
+        self,
+        language: str = None,
+        model_id: str = "openai/whisper-tiny",
+        device: str = "cpu",
+    ):
+        self.LANGUAGE = language
+        self.MODEL_ID = model_id
+        self.DEVICE = device
+
+        self._setup_pipeline(self.LANGUAGE)
+
+    def _setup_pipeline(self, language: str):
+        generate_kwargs = {"language": language} if language else {}
+
+        processor = AutoProcessor.from_pretrained(self.MODEL_ID)
+        model = AutoModelForSpeechSeq2Seq.from_pretrained(
+            self.MODEL_ID,
+            torch_dtype=torch.float32,
+            low_cpu_mem_usage=True,
+            use_safetensors=True,
+        )
+        model.to(self.DEVICE)
+
+        self.TRANSCRIBE_PIPE = pipeline(
+            "automatic-speech-recognition",
+            model=model,
+            tokenizer=processor.tokenizer,
+            feature_extractor=processor.feature_extractor,
+            torch_dtype=torch.float32,
+            device=self.DEVICE,
+            generate_kwargs={"task": "transcribe", **generate_kwargs},
+        )
+
+        if language:
+            self.TRANSLATE_PIPE = pipeline(
+                "automatic-speech-recognition",
+                model=model,
+                tokenizer=processor.tokenizer,
+                feature_extractor=processor.feature_extractor,
+                torch_dtype=torch.float32,
+                device=self.DEVICE,
+                generate_kwargs={"task": "translate", **generate_kwargs},
+            )
+
+    def run_inference(self, input: dict, task: str = "transcribe") -> dict:
+        copy_input = copy.deepcopy(input)
+        if task == "transcribe":
+            return self.TRANSCRIBE_PIPE(inputs=copy_input, return_timestamps=True)
+        elif task == "translate":
+            return self.TRANSLATE_PIPE(inputs=copy_input, return_timestamps=True)
+        else:
+            return {}
+
+
+class ConversationGeneratorModel:
+    MAX_INPUT_TOKENS = 128
+
+    def __init__(self, model_id: str = "facebook/blenderbot-400M-distill"):
+        self.tokenizer = BlenderbotTokenizer.from_pretrained(model_id)
+        self.model = BlenderbotForConditionalGeneration.from_pretrained(
+            model_id, use_safetensors=True
+        )
+        self.history = []
+
+    def _truncate_history(self) -> None:
+        input_length = 0
+        for i in range(len(self.history) - 1, -1, -1):
+            input_string = self.history[i]
+            input_token = self.tokenizer(input_string, return_tensors="pt")
+            input_length += input_token["input_ids"].size(dim=1)
+
+            if input_length > self.MAX_INPUT_TOKENS:
+                self.history.pop(i)
+
+    def run_inference(self, input: str) -> list:
+        self.history.append(f"User: {input}")
+        self._truncate_history()
+
+        context = "\n".join(self.history)
+        input_token = self.tokenizer(context, return_tensors="pt")
+        reply_ids = self.model.generate(**input_token)
+        response = self.tokenizer.decode(reply_ids[0], skip_special_tokens=True)
+
+        self.history.append(f"Bot: {response}")
+        return response
