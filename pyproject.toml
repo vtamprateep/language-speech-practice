@@ -6,9 +6,12 @@ readme = "README.md"
 requires-python = ">=3.9"
 dependencies = [
     "datasets[audio]>=3.6.0",
+    "kokoro>=0.7.16",
     "langchain>=0.3.26",
     "lefthook>=1.11.16",
+    "misaki[zh]>=0.9.4",
     "numpy<2",
+    "pip>=25.1.1",
     "ruff>=0.12.2",
     "scipy>=1.13.1",
     "sounddevice>=0.5.2",

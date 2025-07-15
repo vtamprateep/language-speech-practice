@@ -1,12 +1,9 @@
 import torch
 import copy
+import numpy as np
+from kokoro import KPipeline
 from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
 from transformers import BlenderbotTokenizer, BlenderbotForConditionalGeneration
-
-
-class TextToSpeechModel:
-    def __init__(self):
-        pass
 
 
 class SpeechToTextModel:
@@ -102,3 +99,34 @@ class ConversationGeneratorModel:
 
         self.history.append(f"Bot: {response}")
         return response
+
+
+class TextToSpeechModel:
+    """
+    🇺🇸 'a' => American English, 🇬🇧 'b' => British English
+    🇪🇸 'e' => Spanish es
+    🇫🇷 'f' => French fr-fr
+    🇮🇳 'h' => Hindi hi
+    🇮🇹 'i' => Italian it
+    🇯🇵 'j' => Japanese: pip install misaki[ja]
+    🇧🇷 'p' => Brazilian Portuguese pt-br
+    🇨🇳 'z' => Mandarin Chinese: pip install misaki[zh]
+    """
+
+    PIPE: KPipeline = None
+
+    def __init__(self, language: str) -> None:
+        self.PIPE = KPipeline(lang_code=language)
+
+    def run_inference(
+        self,
+        input: str,
+        voice: str = "af_heart",
+        speed: int = 1,
+        split_pattern: str = r"\n+",
+    ) -> None:
+        audio_segments = [
+            audio for _, _, audio in self.PIPE(input, voice, speed, split_pattern)
+        ]
+        audio_data = np.concatenate(audio_segments)
+        return audio_data
