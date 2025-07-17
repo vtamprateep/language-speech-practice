@@ -1,21 +1,21 @@
-import torch
 import copy
+from typing import Union, Any
+
 import numpy as np
-from kokoro import KPipeline
-from transformers import AutoModelForSpeechSeq2Seq, AutoProcessor, pipeline
-from transformers import BlenderbotTokenizer, BlenderbotForConditionalGeneration
+import torch
+from kokoro import KPipeline  # type: ignore
+from transformers import (AutoModelForSpeechSeq2Seq, AutoProcessor,
+                          BlenderbotForConditionalGeneration,
+                          BlenderbotTokenizer, pipeline)
+
+from util.languages import Language
 
 
 class SpeechToTextModel:
-    LANGUAGE: str = None
-    MODEL_ID: str = None
-    DEVICE: str = None
-    TRANSCRIBE_PIPE = None
-    TRANSLATE_PIPE = None
 
     def __init__(
         self,
-        language: str = None,
+        language: Language = Language.ENGLISH,
         model_id: str = "openai/whisper-tiny",
         device: str = "cpu",
     ):
@@ -25,7 +25,7 @@ class SpeechToTextModel:
 
         self._setup_pipeline(self.LANGUAGE)
 
-    def _setup_pipeline(self, language: str):
+    def _setup_pipeline(self, language: Language):
         generate_kwargs = {"language": language} if language else {}
 
         processor = AutoProcessor.from_pretrained(self.MODEL_ID)
@@ -58,7 +58,11 @@ class SpeechToTextModel:
                 generate_kwargs={"task": "translate", **generate_kwargs},
             )
 
-    def run_inference(self, input: dict, task: str = "transcribe") -> dict:
+    def run_inference(
+        self,
+        input: dict,
+        task: str = "transcribe"
+    ) -> Union[dict[str, Any], list[dict[str, Any]]]:
         copy_input = copy.deepcopy(input)
         if task == "transcribe":
             return self.TRANSCRIBE_PIPE(inputs=copy_input, return_timestamps=True)
@@ -76,7 +80,7 @@ class ConversationGeneratorModel:
         self.model = BlenderbotForConditionalGeneration.from_pretrained(
             model_id, use_safetensors=True
         )
-        self.history = []
+        self.history: list[str] = []
 
     def _truncate_history(self) -> None:
         input_length = 0
@@ -88,7 +92,7 @@ class ConversationGeneratorModel:
             if input_length > self.MAX_INPUT_TOKENS:
                 self.history.pop(i)
 
-    def run_inference(self, input: str) -> list:
+    def run_inference(self, input: str) -> str:
         self.history.append(f"User: {input}")
         self._truncate_history()
 

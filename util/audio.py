@@ -1,10 +1,11 @@
-import sounddevice as sd
-import numpy as np
-import queue
 import math
-from scipy.io.wavfile import write, read
+import queue
+from typing import Any, Optional
+
+import numpy as np
+import sounddevice as sd  # type: ignore
+from scipy.io.wavfile import read, write  # type: ignore
 from sounddevice import CallbackFlags
-from typing import Any
 
 
 class VoiceRecorder:
@@ -31,7 +32,7 @@ class VoiceRecorder:
 
     def record(
         self,
-        file_name: str = None,
+        file_name: Optional[str] = None,
         sampling_rate: int = 24000,
         block_duration: float = 1.0,
         buffer_duration: int = 5,

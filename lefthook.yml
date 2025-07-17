@@ -1,4 +1,8 @@
 pre-commit:
   commands:
-    lint:
+    python-ruff-check:
       run: uv run ruff check
+    python-mypy-check:
+      run: uv run mypy .
+    python-isort-check:
+      run: uv run isort . --check-only
