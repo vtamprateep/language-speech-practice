@@ -124,9 +124,12 @@ class TextToSpeechModel:
         voice: str = "af_heart",
         speed: int = 1,
         split_pattern: str = r"\n+",
-    ) -> None:
+    ) -> dict:
         audio_segments = [
             audio for _, _, audio in self.PIPE(input, voice, speed, split_pattern)
         ]
         audio_data = np.concatenate(audio_segments)
-        return audio_data
+        return {
+            "sampling_rate": 24000,  # KokoroTTS set to 24K sampling rate
+            "raw": audio_data,
+        }

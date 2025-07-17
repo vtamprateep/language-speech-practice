@@ -8,7 +8,6 @@ from typing import Any
 
 
 class VoiceRecorder:
-
     def __init__(self):
         self.audio_block_queue = queue.Queue()
 
@@ -33,7 +32,7 @@ class VoiceRecorder:
     def record(
         self,
         file_name: str = None,
-        sampling_rate: int = 16000,
+        sampling_rate: int = 24000,
         block_duration: float = 1.0,
         buffer_duration: int = 5,
     ) -> dict:
@@ -73,7 +72,6 @@ class VoiceRecorder:
         sample_rate, audio_data = read(f"{file_name}")
         return {"sampling_rate": sample_rate, "raw": np.array(audio_data)}
 
-    def play(self, file_name: str) -> None:
-        print(f"Playing audio file: {file_name}.wav")
-        sample_rate, audio_data = read(f"{file_name}.wav")
-        sd.play(audio_data, sample_rate, blocking=True)
+    def play(self, data: dict) -> None:
+        audio_data, sampling_rate = data["raw"], data["sampling_rate"]
+        sd.play(audio_data, sampling_rate, blocking=True)
