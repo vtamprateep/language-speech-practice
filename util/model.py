@@ -1,5 +1,5 @@
 import copy
-from typing import Union, Any
+from typing import Any, Union
 
 import numpy as np
 import torch
@@ -12,6 +12,7 @@ from util.languages import Language
 
 
 class SpeechToTextModel:
+    LANGUAGE_MODEL_CONFIG = {Language.ENGLISH: "en", Language.MANDARIN: "zh"}
 
     def __init__(
         self,
@@ -23,9 +24,9 @@ class SpeechToTextModel:
         self.MODEL_ID = model_id
         self.DEVICE = device
 
-        self._setup_pipeline(self.LANGUAGE)
+        self._setup_pipeline(self.LANGUAGE_MODEL_CONFIG[self.LANGUAGE])
 
-    def _setup_pipeline(self, language: Language):
+    def _setup_pipeline(self, language: str):
         generate_kwargs = {"language": language} if language else {}
 
         processor = AutoProcessor.from_pretrained(self.MODEL_ID)
@@ -59,9 +60,7 @@ class SpeechToTextModel:
             )
 
     def run_inference(
-        self,
-        input: dict,
-        task: str = "transcribe"
+        self, input: dict, task: str = "transcribe"
     ) -> Union[dict[str, Any], list[dict[str, Any]]]:
         copy_input = copy.deepcopy(input)
         if task == "transcribe":
@@ -117,10 +116,11 @@ class TextToSpeechModel:
     🇨🇳 'z' => Mandarin Chinese: pip install misaki[zh]
     """
 
+    LANGUAGE_MODEL_CONFIG = {Language.ENGLISH: "a", Language.MANDARIN: "z"}
     PIPE: KPipeline = None
 
-    def __init__(self, language: str) -> None:
-        self.PIPE = KPipeline(lang_code=language)
+    def __init__(self, language: Language) -> None:
+        self.PIPE = KPipeline(lang_code=self.LANGUAGE_MODEL_CONFIG[language])
 
     def run_inference(
         self,
