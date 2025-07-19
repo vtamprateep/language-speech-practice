@@ -19,34 +19,41 @@ class ConversationPractice:
     def _translate_text(self, input: str, target: Language) -> str:
         return TextTranslator.translate(input, target)
 
-    def start_session(self, turns: int):
+    def _get_user_response(self) -> str:
+        input("> Press any 'Enter' to start recording audio...")
+        audio_data = self.VOICE_RECORDER.record(sampling_rate=24000)
+        user_text_response = self.VOICE_TRANSCRIBER.run_inference(audio_data)
+        return user_text_response["text"]
+    
+    def _get_bot_response(self, user_text: str) -> str:
+        if self.LANGUAGE != Language.ENGLISH:
+            user_text = self._translate_text(user_text, Language.ENGLISH)
+
+        bot_text_response_english = self.CONVERSATION_GENERATOR.run_inference(user_text)
+        bot_text_response = self._translate_text(bot_text_response_english, self.LANGUAGE)
+        return bot_text_response
+
+    def start_session(self, turns: int) -> list[dict[str, str]]:
         count_turns = 0
+        transcript = []
         while count_turns < turns:
-            input("> Press any 'Enter' to start recording audio...")
-            user_audio_data = self.VOICE_RECORDER.record(
-                sampling_rate=24000
-            )  # KokoroTTS uses 24K sampling rate
-            inference_result = self.VOICE_TRANSCRIBER.run_inference(user_audio_data)
-            print(f"> You said: {inference_result['text']}")  # type: ignore
+            user_text = self._get_user_response()
+            print(f"> You said: {user_text}")
 
-            if self.LANGUAGE != Language.ENGLISH:
-                bot_response = self.CONVERSATION_GENERATOR.run_inference(
-                    self._translate_text(inference_result["text"], Language.ENGLISH)  # type: ignore
-                )
-            else:
-                bot_response = self.CONVERSATION_GENERATOR.run_inference(
-                    inference_result["text"]  # type: ignore
-                )
-
-            print(
-                f"> Bot responds: {self._translate_text(bot_response, self.LANGUAGE)}"
-            )
+            bot_text = self._get_bot_response(user_text)
+            print(f"> Bot responds: {bot_text}")
             bot_audio_data = self.TEXT_TO_SPEECH_MODEL.run_inference(
-                self._translate_text(bot_response, self.LANGUAGE)
+                self._translate_text(bot_text, self.LANGUAGE)
             )
             self.VOICE_RECORDER.play(bot_audio_data)
 
+            transcript.append({
+                "user": user_text,
+                "bot": bot_text
+            })
             count_turns += 1
+
+        return transcript
 
 
 if __name__ == "__main__":
