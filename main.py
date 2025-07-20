@@ -23,14 +23,16 @@ class ConversationPractice:
         input("> Press any 'Enter' to start recording audio...")
         audio_data = self.VOICE_RECORDER.record(sampling_rate=24000)
         user_text_response = self.VOICE_TRANSCRIBER.run_inference(audio_data)
-        return user_text_response["text"]
-    
+        return user_text_response["text"]  # type: ignore
+
     def _get_bot_response(self, user_text: str) -> str:
         if self.LANGUAGE != Language.ENGLISH:
             user_text = self._translate_text(user_text, Language.ENGLISH)
 
         bot_text_response_english = self.CONVERSATION_GENERATOR.run_inference(user_text)
-        bot_text_response = self._translate_text(bot_text_response_english, self.LANGUAGE)
+        bot_text_response = self._translate_text(
+            bot_text_response_english, self.LANGUAGE
+        )
         return bot_text_response
 
     def start_session(self, turns: int) -> list[dict[str, str]]:
@@ -47,10 +49,7 @@ class ConversationPractice:
             )
             self.VOICE_RECORDER.play(bot_audio_data)
 
-            transcript.append({
-                "user": user_text,
-                "bot": bot_text
-            })
+            transcript.append({"user": user_text, "bot": bot_text})
             count_turns += 1
 
         return transcript

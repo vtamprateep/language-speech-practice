@@ -4,7 +4,8 @@ from typing import Any, Union
 import numpy as np
 import torch
 from kokoro import KPipeline  # type: ignore
-from transformers import (AutoModelForSpeechSeq2Seq, AutoProcessor,
+from transformers import (AutoModelForCausalLM, AutoModelForSpeechSeq2Seq,
+                          AutoProcessor, AutoTokenizer,
                           BlenderbotForConditionalGeneration,
                           BlenderbotTokenizer, pipeline)
 
@@ -137,3 +138,68 @@ class TextToSpeechModel:
             "sampling_rate": 24000,  # KokoroTTS set to 24K sampling rate
             "raw": audio_data,
         }
+
+
+class QwenCausalLM:
+    def __init__(
+        self,
+        model_name: str = "Qwen/Qwen1.5-0.5B",
+        device: str = "cpu",
+        torch_dtype=torch.float32,
+        trust_remote_code: bool = False,
+        max_new_tokens: int = 50,
+    ):
+        self.device = device
+        self.max_new_tokens = max_new_tokens
+        self.tokenizer = AutoTokenizer.from_pretrained(
+            model_name, trust_remote_code=trust_remote_code
+        )
+
+        self.model = AutoModelForCausalLM.from_pretrained(
+            model_name,
+            trust_remote_code=trust_remote_code,
+            torch_dtype=torch_dtype,
+            device_map=device,
+        ).to(device)
+
+        self.pad_token_id = self.tokenizer.pad_token_id or self.tokenizer.eos_token_id
+        self.eos_token_id = self.tokenizer.eos_token_id
+
+    def run_inference(
+        self,
+        prompt: str,
+        messages: list = [],
+        temperature: float = 0.7,
+        top_p: float = 0.9,
+        do_sample: bool = True,
+        enable_thinking: bool = False,
+        return_full_text: bool = False,
+    ) -> str:
+        messages.append({"role": "user", "content": prompt})
+        text = self.tokenizer.apply_chat_template(
+            messages,
+            tokenize=False,
+            add_generation_prompt=True,
+            enable_thinking=enable_thinking,
+        )
+        inputs = self.tokenizer(text, return_tensors="pt").to(self.device)
+
+        output_ids = self.model.generate(
+            inputs.input_ids,
+            max_new_tokens=self.max_new_tokens,
+            temperature=temperature,
+            top_p=top_p,
+            do_sample=do_sample,
+            pad_token_id=self.pad_token_id,
+            eos_token_id=self.eos_token_id,
+        )
+
+        decoded = self.tokenizer.decode(output_ids[0], skip_special_tokens=True)
+
+        if return_full_text:
+            return decoded
+        else:
+            # Return just the new text after the prompt
+            prompt_len = inputs.input_ids.shape[-1]
+            new_tokens = output_ids[0][prompt_len:]
+            return self.tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
