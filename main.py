@@ -1,7 +1,7 @@
 from util.audio import VoiceRecorder
 from util.languages import Language
-from util.model import (ConversationGeneratorModel, SpeechToTextModel,
-                        TextToSpeechModel)
+from util.model import (ConversationGeneratorModel, QwenCausalLM,
+                        SpeechToTextModel, TextToSpeechModel)
 from util.translator import TextTranslator
 
 
@@ -56,5 +56,17 @@ class ConversationPractice:
 
 
 if __name__ == "__main__":
-    practice = ConversationPractice(Language.MANDARIN)
-    practice.start_session(5)
+    # practice = ConversationPractice(Language.MANDARIN)
+    # practice.start_session(5)
+
+    # Experiment with Causal LM with context setting
+    qwen = QwenCausalLM()
+    qwen.add_system_prompt(
+        (
+            "You are a chatbot helping the user practice mandarin."
+            " Respond in short sentences using only Mandarin as if"
+            " you are having a conversation with someone. Try to use as simple vocabulary as possible."
+        )
+    )
+    response = qwen.run_inference("你好吗?", return_full_text=True)
+    print(response)
