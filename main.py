@@ -1,20 +1,29 @@
 from util.audio import VoiceRecorder
 from util.languages import Language
-from util.model import (ConversationGeneratorModel, QwenCausalLM,
-                        SpeechToTextModel, TextToSpeechModel)
+from util.model import QwenCausalLM, SpeechToTextModel, TextToSpeechModel
 from util.translator import TextTranslator
 
 
-class ConversationPractice:
-    def __init__(self, languange: Language = Language.ENGLISH):
-        self.LANGUAGE = languange
+class MandarinConversationPractice:
+    """Conversation must be in Mandarin."""
+
+    def __init__(self):
+        self.LANGUAGE = Language.MANDARIN
         self._set_up()
 
     def _set_up(self) -> None:
         self.VOICE_RECORDER = VoiceRecorder()
         self.VOICE_TRANSCRIBER = SpeechToTextModel(self.LANGUAGE)
-        self.CONVERSATION_GENERATOR = ConversationGeneratorModel()
         self.TEXT_TO_SPEECH_MODEL = TextToSpeechModel(self.LANGUAGE)
+
+        self.CONVERSATION_GENERATOR = QwenCausalLM()
+        self.CONVERSATION_GENERATOR.add_system_prompt(
+            (
+                "You are having a conversation with me in Mandarin."
+                " Respond in short sentences. Converse with me in a way to help me practice"
+                " forming sentences with different grammar patterns."
+            )
+        )
 
     def _translate_text(self, input: str, target: Language) -> str:
         return TextTranslator.translate(input, target)
@@ -26,14 +35,18 @@ class ConversationPractice:
         return user_text_response["text"]  # type: ignore
 
     def _get_bot_response(self, user_text: str) -> str:
-        if self.LANGUAGE != Language.ENGLISH:
-            user_text = self._translate_text(user_text, Language.ENGLISH)
-
-        bot_text_response_english = self.CONVERSATION_GENERATOR.run_inference(user_text)
-        bot_text_response = self._translate_text(
-            bot_text_response_english, self.LANGUAGE
-        )
+        bot_text_response = self.CONVERSATION_GENERATOR.run_inference(user_text)
         return bot_text_response
+
+    def add_scenario(self, scenario: str) -> None:
+        self.CONVERSATION_GENERATOR.add_system_prompt(
+            f"This is the conversation role-playing scenario: {scenario}"
+        )
+
+    def prioritize_vocabulary(self, vocab_arr: list[str]) -> None:
+        self.CONVERSATION_GENERATOR.add_system_prompt(
+            f"Prioritize using the following vocabulary when it makes sense: {','.join(vocab_arr)}"
+        )
 
     def start_session(self, turns: int) -> list[dict[str, str]]:
         count_turns = 0
@@ -49,24 +62,20 @@ class ConversationPractice:
             )
             self.VOICE_RECORDER.play(bot_audio_data)
 
-            transcript.append({"user": user_text, "bot": bot_text})
+            transcript.append(
+                {
+                    "user": user_text,
+                    "user_english": self._translate_text(user_text, Language.ENGLISH),
+                    "bot": bot_text,
+                    "bot_english": self._translate_text(bot_text, Language.ENGLISH),
+                }
+            )
             count_turns += 1
 
         return transcript
 
 
 if __name__ == "__main__":
-    # practice = ConversationPractice(Language.MANDARIN)
-    # practice.start_session(5)
-
-    # Experiment with Causal LM with context setting
-    qwen = QwenCausalLM()
-    qwen.add_system_prompt(
-        (
-            "You are a chatbot helping the user practice mandarin."
-            " Respond in short sentences using only Mandarin as if"
-            " you are having a conversation with someone. Try to use as simple vocabulary as possible."
-        )
-    )
-    response = qwen.run_inference("你好吗?", return_full_text=True)
-    print(response)
+    practice = MandarinConversationPractice()
+    transcript = practice.start_session(1)
+    print(transcript)
