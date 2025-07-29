@@ -1,7 +1,6 @@
 from util.audio import VoiceRecorder
-from util.languages import Language
+from util.languages import Language, TextTranslator
 from util.model import QwenCausalLM, SpeechToTextModel, TextToSpeechModel
-from util.translator import TextTranslator
 
 
 class MandarinConversation:
@@ -31,7 +30,7 @@ class MandarinConversation:
     def _get_user_response(self) -> str:
         input("> Press any 'Enter' to start recording audio...")
         audio_data = self.VOICE_RECORDER.record(sampling_rate=24000)
-        user_text_response = self.VOICE_TRANSCRIBER.run_inference(audio_data)
+        user_text_response = self.VOICE_TRANSCRIBER.run_inference(audio_data)  # type: ignore
         return user_text_response["text"]  # type: ignore
 
     def _get_bot_response(self, user_text: str) -> str:

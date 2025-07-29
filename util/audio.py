@@ -7,6 +7,8 @@ import sounddevice as sd  # type: ignore
 from scipy.io.wavfile import read, write  # type: ignore
 from sounddevice import CallbackFlags
 
+from util.types import AudioData
+
 
 class VoiceRecorder:
     def __init__(self):
@@ -73,6 +75,6 @@ class VoiceRecorder:
         sample_rate, audio_data = read(f"{file_name}")
         return {"sampling_rate": sample_rate, "raw": np.array(audio_data)}
 
-    def play(self, data: dict) -> None:
-        audio_data, sampling_rate = data["raw"], data["sampling_rate"]
+    def play(self, data: AudioData) -> None:
+        audio_data, sampling_rate = data.raw, data.sampling_rate
         sd.play(audio_data, sampling_rate, blocking=True)

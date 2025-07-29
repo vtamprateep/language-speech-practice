@@ -1,5 +1,4 @@
-import copy
-from typing import Any, Union
+from typing import Any
 
 import numpy as np
 import torch
@@ -10,6 +9,7 @@ from transformers import (AutoModelForCausalLM, AutoModelForSpeechSeq2Seq,
                           BlenderbotTokenizer, pipeline)
 
 from util.languages import Language
+from util.types import AudioData
 
 
 class SpeechToTextModel:
@@ -61,15 +61,13 @@ class SpeechToTextModel:
             )
 
     def run_inference(
-        self, input: dict, task: str = "transcribe"
-    ) -> Union[dict[str, Any], list[dict[str, Any]]]:
-        copy_input = copy.deepcopy(input)
+        self, input: AudioData, task: str = "transcribe"
+    ) -> dict[str, Any] | list[dict[str, Any]]:
+        input_format = {"sampling_rate": input.sampling_rate, "raw": input.raw}
         if task == "transcribe":
-            return self.TRANSCRIBE_PIPE(inputs=copy_input, return_timestamps=True)
-        elif task == "translate":
-            return self.TRANSLATE_PIPE(inputs=copy_input, return_timestamps=True)
+            return self.TRANSCRIBE_PIPE(inputs=input_format, return_timestamps=True)
         else:
-            return {}
+            return self.TRANSLATE_PIPE(inputs=input_format, return_timestamps=True)
 
 
 class ConversationGeneratorModel:
@@ -129,19 +127,15 @@ class TextToSpeechModel:
         voice: str = "af_heart",
         speed: int = 1,
         split_pattern: str = r"\n+",
-    ) -> dict:
+    ) -> AudioData:
         audio_segments = [
             audio for _, _, audio in self.PIPE(input, voice, speed, split_pattern)
         ]
         audio_data = np.concatenate(audio_segments)
-        return {
-            "sampling_rate": 24000,  # KokoroTTS set to 24K sampling rate
-            "raw": audio_data,
-        }
+        return AudioData(24000, audio_data)
 
 
 class QwenCausalLM:
-
     _instance = None
 
     def __init__(
@@ -153,7 +147,9 @@ class QwenCausalLM:
         max_new_tokens: int = 50,
     ):
         if QwenCausalLM._instance is not None:
-            raise Exception("Use QwenCausalLM.get_instance() to access the singleton instance")
+            raise Exception(
+                "Use QwenCausalLM.get_instance() to access the singleton instance"
+            )
 
         self.device = device
         self.max_new_tokens = max_new_tokens
@@ -192,12 +188,7 @@ class QwenCausalLM:
     ) -> str:
         instance = cls.get_instance()
         return instance._run_inference(
-            prompt,
-            temperature,
-            top_p,
-            do_sample,
-            enable_thinking,
-            return_full_text
+            prompt, temperature, top_p, do_sample, enable_thinking, return_full_text
         )
 
     def _run_inference(
@@ -245,10 +236,12 @@ class QwenCausalLM:
     @classmethod
     def _add_user_prompt(cls, prompt: str) -> None:
         instance = cls.get_instance()
-        instance.messages.append({
+        instance.messages.append(
+            {
                 "role": "user",
                 "content": prompt,
-            })
+            }
+        )
 
     @classmethod
     def clear_history(cls) -> None:
