@@ -141,6 +141,9 @@ class TextToSpeechModel:
 
 
 class QwenCausalLM:
+
+    _instance = None
+
     def __init__(
         self,
         model_name: str = "Qwen/Qwen1.5-0.5B-Chat",
@@ -149,6 +152,9 @@ class QwenCausalLM:
         trust_remote_code: bool = True,
         max_new_tokens: int = 50,
     ):
+        if QwenCausalLM._instance is not None:
+            raise Exception("Use QwenCausalLM.get_instance() to access the singleton instance")
+
         self.device = device
         self.max_new_tokens = max_new_tokens
         self.tokenizer = AutoTokenizer.from_pretrained(
@@ -166,34 +172,42 @@ class QwenCausalLM:
         self.eos_token_id = self.tokenizer.eos_token_id
         self.messages: list[dict] = []
 
-    def add_system_prompt(self, prompt: str) -> None:
-        """Appends new message from perspective of the system."""
-        self.messages.append(
-            {
-                "role": "system",
-                "content": prompt,
-            }
-        )
+        QwenCausalLM._instance = self
 
-    def _add_user_prompt(self, prompt: str) -> None:
-        self.messages.append(
-            {
-                "role": "user",
-                "content": prompt,
-            }
-        )
+    @classmethod
+    def get_instance(cls):
+        if cls._instance is None:
+            cls()
+        return cls._instance
 
-    def clear_history(self) -> None:
-        self.messages = []
-
+    @classmethod
     def run_inference(
-        self,
+        cls,
         prompt: str,
         temperature: float = 0.7,
         top_p: float = 0.9,
         do_sample: bool = True,
         enable_thinking: bool = False,
         return_full_text: bool = False,
+    ) -> str:
+        instance = cls.get_instance()
+        return instance._run_inference(
+            prompt,
+            temperature,
+            top_p,
+            do_sample,
+            enable_thinking,
+            return_full_text
+        )
+
+    def _run_inference(
+        self,
+        prompt: str,
+        temperature: float,
+        top_p: float,
+        do_sample: bool,
+        enable_thinking: bool,
+        return_full_text: bool,
     ) -> str:
         self._add_user_prompt(prompt)
         text = self.tokenizer.apply_chat_template(
@@ -219,7 +233,24 @@ class QwenCausalLM:
         if return_full_text:
             return decoded
 
-        # Return just the new text after the prompt
         prompt_len = inputs.input_ids.shape[-1]
         new_tokens = output_ids[0][prompt_len:]
         return self.tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
+
+    @classmethod
+    def add_system_prompt(cls, prompt: str) -> None:
+        instance = cls.get_instance()
+        instance.messages.append({"role": "system", "content": prompt})
+
+    @classmethod
+    def _add_user_prompt(cls, prompt: str) -> None:
+        instance = cls.get_instance()
+        instance.messages.append({
+                "role": "user",
+                "content": prompt,
+            })
+
+    @classmethod
+    def clear_history(cls) -> None:
+        instance = cls.get_instance()
+        instance.messages = []
