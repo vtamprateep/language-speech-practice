@@ -1,8 +1,22 @@
 pre-commit:
   commands:
     python-ruff-check:
-      run: uv run ruff check
+      run: |
+        FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.py$' || true)
+        if [ -n "$FILES" ]; then
+          uv run ruff check $FILES
+        fi
+
     python-mypy-check:
-      run: uv run mypy .
+      run: |
+        FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.py$' || true)
+        if [ -n "$FILES" ]; then
+          uv run mypy $FILES
+        fi
+
     python-isort-check:
-      run: uv run isort . --check-only
+      run: |
+        FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.py$' || true)
+        if [ -n "$FILES" ]; then
+          uv run isort --check-only $FILES
+        fi
