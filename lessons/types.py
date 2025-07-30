@@ -16,5 +16,5 @@ class GrammarItem(TypedDict):
 class LessonModule(TypedDict):
     name: str
     vocabulary: List[VocabularyItem]
-    scenarios: List[str]
+    scenarios: str
     grammar: List[GrammarItem]
