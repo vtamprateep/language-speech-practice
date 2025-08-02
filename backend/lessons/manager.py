@@ -10,7 +10,7 @@ class LessonMode(Enum):
     TEXT = "TEXT"
 
 
-class LessonInstructor:
+class LessonManager:
     def __init__(self, config: LessonModule, mode: LessonMode):
         if mode == LessonMode.TEXT:
             self.dialogue_engine = MandarinText()  # type: ignore
