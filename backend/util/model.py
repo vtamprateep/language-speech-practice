@@ -4,10 +4,15 @@ import numpy as np
 import torch
 from deep_translator import GoogleTranslator  # type: ignore
 from kokoro import KPipeline  # type: ignore
-from transformers import (AutoModelForCausalLM, AutoModelForSpeechSeq2Seq,
-                          AutoProcessor, AutoTokenizer,
-                          BlenderbotForConditionalGeneration,
-                          BlenderbotTokenizer, pipeline)
+from transformers import (
+    AutoModelForCausalLM,
+    AutoModelForSpeechSeq2Seq,
+    AutoProcessor,
+    AutoTokenizer,
+    BlenderbotForConditionalGeneration,
+    BlenderbotTokenizer,
+    pipeline,
+)
 
 from .languages import Language
 from .types import AudioData, LanguageMode

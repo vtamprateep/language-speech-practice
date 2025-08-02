@@ -1,8 +1,13 @@
-from lessons.types import GrammarItem, VocabularyItem
 from util.audio import VoiceRecorder
 from util.languages import Language
-from util.model import (QwenCausalLM, SpeechToTextModel, TextToSpeechModel,
-                        TextTranslator)
+from util.model import (
+    QwenCausalLM,
+    SpeechToTextModel,
+    TextToSpeechModel,
+    TextTranslator,
+)
+
+from lessons.types import GrammarItem, VocabularyItem
 
 
 class MandarinSpeech:
