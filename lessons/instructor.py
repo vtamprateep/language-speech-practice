@@ -1,3 +1,4 @@
+import json
 from enum import Enum
 
 from lessons.mode import MandarinSpeech, MandarinText
@@ -20,3 +21,7 @@ class LessonInstructor:
         self.dialogue_engine.add_scenario(config["scenarios"])
         self.dialogue_engine.add_vocabulary(config["vocabulary"])
         self.dialogue_engine.add_grammar(config["grammar"])
+
+    def start(self):
+        transcript = self.dialogue_engine.start_session(5)
+        print(json.dumps(transcript))

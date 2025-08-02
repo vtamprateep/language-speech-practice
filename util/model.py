@@ -2,14 +2,15 @@ from typing import Any
 
 import numpy as np
 import torch
+from deep_translator import GoogleTranslator  # type: ignore
 from kokoro import KPipeline  # type: ignore
 from transformers import (AutoModelForCausalLM, AutoModelForSpeechSeq2Seq,
                           AutoProcessor, AutoTokenizer,
                           BlenderbotForConditionalGeneration,
                           BlenderbotTokenizer, pipeline)
 
-from util.languages import Language
-from util.types import AudioData
+from .languages import Language
+from .types import AudioData, LanguageMode
 
 
 class SpeechToTextModel:
@@ -247,3 +248,39 @@ class QwenCausalLM:
     def clear_history(cls) -> None:
         instance = cls.get_instance()
         instance.messages = []
+
+
+class TextTranslator:
+    """Uses Google Translate to convert text from one language to another."""
+
+    LANGUAGE_MODEL_CONFIG = {Language.ENGLISH: "en", Language.MANDARIN: "zh-TW"}
+
+    @staticmethod
+    def translate(text: str, target: Language = Language.ENGLISH) -> str:
+        return GoogleTranslator(
+            "auto", TextTranslator.LANGUAGE_MODEL_CONFIG[target]
+        ).translate(text)
+
+
+class MandarinTranslator:
+    """Class that can take any type of Mandarin inputs, convert them to English,
+    and then back to the target form and language.
+    """
+
+    def translate_to_english(self, input: str | AudioData) -> str:
+        if isinstance(input, AudioData):
+            voice_transcriber = SpeechToTextModel(Language.MANDARIN)
+            captioned_text = voice_transcriber.run_inference(input)["text"]  # type: ignore
+            return TextTranslator.translate(captioned_text, Language.MANDARIN)
+
+        return TextTranslator.translate(input, Language.MANDARIN)
+
+    def translate_to_mandarin(self, input: str, mode: LanguageMode) -> str | AudioData:
+        translated_text = TextTranslator.translate(input, Language.MANDARIN)
+
+        if mode == LanguageMode.TEXT:
+            return translated_text
+
+        tts_model = TextToSpeechModel(Language.MANDARIN)
+        translated_audio = tts_model.run_inference(translated_text)
+        return translated_audio
