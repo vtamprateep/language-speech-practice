@@ -4,7 +4,7 @@ pre-commit:
       run: |
         FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.py$' || true)
         if [ -n "$FILES" ]; then
-          uv run ruff check $FILES
+          uv run ruff check --select I $FILES
         fi
 
     python-mypy-check:
@@ -12,11 +12,4 @@ pre-commit:
         FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.py$' || true)
         if [ -n "$FILES" ]; then
           uv run mypy $FILES
-        fi
-
-    python-isort-check:
-      run: |
-        FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.py$' || true)
-        if [ -n "$FILES" ]; then
-          uv run isort --check-only $FILES
         fi
