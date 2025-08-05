@@ -1,6 +1,8 @@
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI, Request
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi.responses import JSONResponse
 from lessons.beginner import AT_RESTAURANT
 from lessons.mode import MandarinText
 from pydantic import BaseModel
@@ -15,6 +17,13 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+app.add_middleware(
+    middleware_class=CORSMiddleware,
+    allow_origins=["http://localhost:3000"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 
 @app.get("/configure/lesson")
@@ -31,8 +40,8 @@ class ChatInput(BaseModel):
     text: str
 
 
-@app.post("/user/chat")
+@app.post("/bot/chat")
 async def chat(request: Request, input: ChatInput):
     prompt = input.text
     bot_response = text_dialogue_engine["mandarin_text"]._get_bot_response(prompt)
-    return bot_response
+    return JSONResponse(content={"text": bot_response})

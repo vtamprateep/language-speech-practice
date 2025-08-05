@@ -19,15 +19,21 @@ export default function ChatPage() {
         setMessages(prev => [...prev, newMessage]);
         setInput('');
 
-        // Simulate a response or call API here
-        const botReply: Message = {
-            sender: 'bot',
-            text: `You said: "${input}"`,
-        };
+        try {
+			const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_SERVER_URL}/bot/chat`, {
+				method: 'POST',
+				headers: {
+					'Content-Type': 'application/json',
+				},
+				body: JSON.stringify({ text: newMessage.text }),
+			});
 
-        setTimeout(() => {
-            setMessages(prev => [...prev, botReply]);
-        }, 500);
+			const data = await res.json();
+			const botReply: Message = { sender: 'bot', text: data.text };
+			setMessages(prev => [...prev, botReply]);
+		} catch (err) {
+			console.error('Failed to fetch', err);
+		}
     };
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
