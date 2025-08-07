@@ -23,12 +23,14 @@ class MandarinSpeech:
         self.TEXT_TO_SPEECH_MODEL = TextToSpeechModel(self.LANGUAGE)
 
         self.CONVERSATION_GENERATOR = QwenCausalLM()
+        self.SESSION_UUID = self._get_session_id()
         self.CONVERSATION_GENERATOR.add_system_prompt(
             (
                 "You are having a conversation with me in Mandarin."
                 " Respond in short sentences. Converse with me in a way to help me practice"
                 " forming sentences with different grammar patterns."
-            )
+            ),
+            self.SESSION_UUID,
         )
 
     def _translate_text(self, input: str, target: Language) -> str:
@@ -41,44 +43,25 @@ class MandarinSpeech:
         return user_text_response["text"]  # type: ignore
 
     def _get_bot_response(self, user_text: str) -> str:
-        bot_text_response = self.CONVERSATION_GENERATOR.run_inference(user_text)
+        bot_text_response = self.CONVERSATION_GENERATOR.run_inference(
+            user_text, self.SESSION_UUID
+        )
         return bot_text_response
 
     def add_context(self, context: str) -> None:
         self.CONVERSATION_GENERATOR.add_system_prompt(
-            f"This is the conversation role-playing scenario: {context}"
+            f"This is the conversation role-playing scenario: {context}",
+            self.SESSION_UUID,
         )
 
     def prioritize_vocabulary(self, vocab_arr: list[str]) -> None:
         self.CONVERSATION_GENERATOR.add_system_prompt(
-            f"Prioritize using the following vocabulary when it makes sense: {','.join(vocab_arr)}"
+            f"Prioritize using the following vocabulary when it makes sense: {','.join(vocab_arr)}",
+            self.SESSION_UUID,
         )
 
-    def start_session(self, turns: int) -> list[dict[str, str]]:
-        count_turns = 0
-        transcript = []
-        while count_turns < turns:
-            user_text = self._get_user_response()
-            print(f"> You said: {user_text}")
-
-            bot_text = self._get_bot_response(user_text)
-            print(f"> Bot responds: {bot_text}")
-            bot_audio_data = self.TEXT_TO_SPEECH_MODEL.run_inference(
-                self._translate_text(bot_text, self.LANGUAGE)
-            )
-            self.VOICE_RECORDER.play(bot_audio_data)
-
-            transcript.append(
-                {
-                    "user": user_text,
-                    "user_english": self._translate_text(user_text, Language.ENGLISH),
-                    "bot": bot_text,
-                    "bot_english": self._translate_text(bot_text, Language.ENGLISH),
-                }
-            )
-            count_turns += 1
-
-        return transcript
+    def _get_session_id(self) -> str:
+        return QwenCausalLM.create_session()
 
 
 class MandarinText:
@@ -86,7 +69,7 @@ class MandarinText:
 
     def __init__(self):
         self.LANGUAGE = Language.MANDARIN
-        QwenCausalLM.get_instance()
+        self.SESSION_UUID = QwenCausalLM.create_session()
         QwenCausalLM.add_system_prompt(
             (
                 "You are my Mandarin practice partner."
@@ -102,12 +85,13 @@ class MandarinText:
         return input("> You: ")
 
     def _get_bot_response(self, user_text: str) -> str:
-        bot_text_response = QwenCausalLM.run_inference(user_text)
+        bot_text_response = QwenCausalLM.run_inference(user_text, self.SESSION_UUID)
         return bot_text_response
 
     def add_scenario(self, scenario: str) -> None:
         QwenCausalLM.add_system_prompt(
-            f"This is the conversation role-playing scenario from the perspective of the user: {scenario}"
+            f"This is the conversation role-playing scenario from the perspective of the user: {scenario}",
+            self.SESSION_UUID,
         )
 
     def add_vocabulary(self, vocab_arr: list[VocabularyItem]) -> None:
@@ -115,7 +99,8 @@ class MandarinText:
             (
                 "Prioritize using the following vocabulary when it makes sense:"
                 f" {','.join(item['chinese'] for item in vocab_arr)}"
-            )
+            ),
+            self.SESSION_UUID,
         )
 
     def add_grammar(self, grammar_arr: list[GrammarItem]) -> None:
@@ -124,25 +109,6 @@ class MandarinText:
                 f"Prioritize prompting me to use the following grammar patterns"
                 " in my response when it makes sense:"
                 f" {','.join(item['structure'] for item in grammar_arr)}"
-            )
+            ),
+            self.SESSION_UUID,
         )
-
-    def start_session(self, turns: int) -> list[dict[str, str]]:
-        count_turns = 0
-        transcript = []
-        while count_turns < turns:
-            user_text = self._get_user_response()
-            bot_text = self._get_bot_response(user_text)
-            print(f"> Bot: {bot_text}")
-
-            transcript.append(
-                {
-                    "user": user_text,
-                    "user_english": self._translate_text(user_text, Language.ENGLISH),
-                    "bot": bot_text,
-                    "bot_english": self._translate_text(bot_text, Language.ENGLISH),
-                }
-            )
-            count_turns += 1
-
-        return transcript

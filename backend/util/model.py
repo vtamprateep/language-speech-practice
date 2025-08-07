@@ -1,3 +1,4 @@
+import uuid
 from typing import Any
 
 import numpy as np
@@ -172,12 +173,13 @@ class QwenCausalLM:
 
         self.pad_token_id = self.tokenizer.pad_token_id or self.tokenizer.eos_token_id
         self.eos_token_id = self.tokenizer.eos_token_id
-        self.messages: list[dict] = []
+
+        self.session_messages: dict = dict()
 
         QwenCausalLM._instance = self
 
     @classmethod
-    def get_instance(cls):
+    def _get_instance(cls):
         if cls._instance is None:
             cls()
         return cls._instance
@@ -186,29 +188,37 @@ class QwenCausalLM:
     def run_inference(
         cls,
         prompt: str,
+        session_id: str,
         temperature: float = 0.7,
         top_p: float = 0.9,
         do_sample: bool = True,
         enable_thinking: bool = False,
         return_full_text: bool = False,
     ) -> str:
-        instance = cls.get_instance()
+        instance = cls._get_instance()
         return instance._run_inference(
-            prompt, temperature, top_p, do_sample, enable_thinking, return_full_text
+            prompt,
+            session_id,
+            temperature,
+            top_p,
+            do_sample,
+            enable_thinking,
+            return_full_text,
         )
 
     def _run_inference(
         self,
         prompt: str,
+        session_id: str,
         temperature: float,
         top_p: float,
         do_sample: bool,
         enable_thinking: bool,
         return_full_text: bool,
     ) -> str:
-        self._add_user_prompt(prompt)
+        self._add_user_prompt(prompt, session_id)
         text = self.tokenizer.apply_chat_template(
-            self.messages,
+            self.session_messages,
             tokenize=False,
             add_generation_prompt=True,
             enable_thinking=enable_thinking,
@@ -225,24 +235,36 @@ class QwenCausalLM:
             eos_token_id=self.eos_token_id,
         )
 
-        decoded = self.tokenizer.decode(output_ids[0], skip_special_tokens=True)
-
-        if return_full_text:
-            return decoded
+        decoded_full_text = self.tokenizer.decode(
+            output_ids[0], skip_special_tokens=True
+        )
 
         prompt_len = inputs.input_ids.shape[-1]
         new_tokens = output_ids[0][prompt_len:]
-        return self.tokenizer.decode(new_tokens, skip_special_tokens=True).strip()
+        decoded_new_tokens = self.tokenizer.decode(
+            new_tokens, skip_special_tokens=True
+        ).strip()
+
+        self.session_messages[session_id].append(
+            {"role": "assistant", "content": decoded_new_tokens}
+        )
+
+        if return_full_text:
+            return decoded_full_text
+
+        return decoded_new_tokens
 
     @classmethod
-    def add_system_prompt(cls, prompt: str) -> None:
-        instance = cls.get_instance()
-        instance.messages.append({"role": "system", "content": prompt})
+    def add_system_prompt(cls, prompt: str, session_id: str) -> None:
+        instance = cls._get_instance()
+        instance.session_messages[session_id].append(
+            {"role": "system", "content": prompt}
+        )
 
     @classmethod
-    def _add_user_prompt(cls, prompt: str) -> None:
-        instance = cls.get_instance()
-        instance.messages.append(
+    def _add_user_prompt(cls, prompt: str, session_id: str) -> None:
+        instance = cls._get_instance()
+        instance.session_messages[session_id].append(
             {
                 "role": "user",
                 "content": prompt,
@@ -250,9 +272,16 @@ class QwenCausalLM:
         )
 
     @classmethod
-    def clear_history(cls) -> None:
-        instance = cls.get_instance()
-        instance.messages = []
+    def delete_session(cls, session_id: str) -> None:
+        instance = cls._get_instance()
+        instance.session_messages.pop(session_id)
+
+    @classmethod
+    def create_session(cls) -> str:
+        session_uuid = str(uuid.uuid4())
+        instance = cls._get_instance()
+        instance.session_messages[session_uuid] = []
+        return session_uuid
 
 
 class TextTranslator:
