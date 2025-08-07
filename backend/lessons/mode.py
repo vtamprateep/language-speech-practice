@@ -112,3 +112,7 @@ class MandarinText:
             ),
             self.SESSION_UUID,
         )
+
+    def clear_session(self) -> None:
+        QwenCausalLM.delete_session(self.SESSION_UUID)
+        self.SESSION_UUID = QwenCausalLM.create_session()
