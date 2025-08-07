@@ -7,7 +7,7 @@ interface Message {
     text: string;
 }
 
-export default function ChatPage() {
+export default function ChatPage({ params }: { params: Promise<{ id: string }>}) {
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState('');
     const messagesEndRef = useRef<HTMLDivElement | null>(null);

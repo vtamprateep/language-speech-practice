@@ -15,7 +15,7 @@ export default function HomePage() {
                 {scenarios.map((scenario) => (
                     <Link
                         key={scenario.id}
-                        href={`/scenarios/${scenario.id}`}
+                        href={`/${scenario.id}`}
                         className="block border border-gray-200 rounded-lg p-4 hover:bg-gray-100 transition"
                     >
                         <h2 className="text-xl font-semibold">{scenario.title}</h2>
