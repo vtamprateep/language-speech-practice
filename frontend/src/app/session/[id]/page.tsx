@@ -12,68 +12,94 @@ interface Message {
 export default function ChatPage({ params }: { params: Promise<{ id: string }>}) {
     const { id } = React.use(params);
     const [dialogue, setDialogue] = useState<DialogueTurn[]>([]);
+    const [currentTurn, setCurrentTurn] = useState<DialogueTurn>()
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState('');
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
-    const sendMessage = async () => {
-        if (!input.trim()) return;
+    const evaluateTextSimilarity = async (text_1: string, text_2: string) => {
+        try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_SERVER_URL}/calculate_similarity`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    text_1: text_1,
+                    text_2: text_2
+                })
+            })
+            const data = await res.json();
+            return data.score;
+        } catch (err) {
+            console.error('Failed to fetch', err);
+        }
+    }
 
+    const sendBotMessage = async () => {
+        const nextTurn = dialogue[0];
+        const botMessage: Message = {
+            sender: "bot",
+            text: nextTurn.mandarin
+        }
+        setMessages(prev => [...prev, botMessage]);
+        setDialogue(dialogue.slice(1));
+        setCurrentTurn(nextTurn);
+    }
+
+    const sendUserMessage = async () => {
+        if (!input.trim()) return;
         const newMessage: Message = { sender: 'user', text: input };
+        var data;
+
+        // Evaluate if response close enough to target sentence
+        const similarityScore = await evaluateTextSimilarity(newMessage.text, currentTurn!.targetSentence);
+
+        if (similarityScore < 0.7) {
+            console.log("Not similar enough, try again!");
+            return;
+        }
+
         setMessages(prev => [...prev, newMessage]);
         setInput('');
-
-        // try {
-        //     const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_SERVER_URL}/bot/chat`, {
-        //         method: 'POST',
-        //         headers: {
-        //             'Content-Type': 'application/json',
-        //         },
-        //         body: JSON.stringify({ text: newMessage.text }),
-        //     });
-
-        //     const data = await res.json();
-        //     const botReply: Message = { sender: 'bot', text: data.text };
-        //     setMessages(prev => [...prev, botReply]);
-        // } catch (err) {
-        //     console.error('Failed to fetch', err);
-        // }
+        sendBotMessage();
     };
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
         if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
-            sendMessage();
+            sendUserMessage();
         }
     };
 
-    useEffect(() => { // Update chat to put next turn into view
-        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // useEffect(() => { // Update chat to put next turn into view
+    //     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
         
-        if (!dialogue || messages.length === 0) return;
+    //     if (messages.length <= 2) return;
 
-        const lastMessage = messages[messages.length - 1];
-        if (dialogue.length != 0 && lastMessage.sender != "bot") {
-            const nextTurn = dialogue[0];
-            const botMessage: Message = {
-                sender: "bot",
-                text: nextTurn.mandarin
-            }
-            setMessages(prev => [...prev, botMessage]);
-            setDialogue(dialogue.slice(1));
-        }
-    }, [messages]);
+    //     const lastMessage = messages[messages.length - 1];
+    //     if (dialogue.length != 0 && lastMessage.sender != "bot") {
+    //         const nextTurn = dialogue[0];
+    //         const botMessage: Message = {
+    //             sender: "bot",
+    //             text: nextTurn.mandarin
+    //         }
+    //         setMessages(prev => [...prev, botMessage]);
+    //         setDialogue(dialogue.slice(1));
+    //     }
+    // }, [messages]);
 
     useEffect(() => {  // On mount, grab appropriate dialogue
         const dialogue = guidedScenariosDialogue[id];
-        const firstTurn = dialogue.shift()!;
+        const firstTurn = dialogue[0];
         const botMessage: Message = {
             sender: "bot",
             text: firstTurn.mandarin
         };
 
         setMessages(prev => [...prev, botMessage]);
-        setDialogue(dialogue);
+        setCurrentTurn(firstTurn);
+        setDialogue(dialogue.slice(1));
     }, [])
 
     return (
@@ -104,7 +130,7 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
                     placeholder="Type your message..."
                 />
                 <button
-                    onClick={sendMessage}
+                    onClick={sendUserMessage}
                     className="ml-2 px-4 py-2 bg-blue-600 text-white rounded"
                 >
                     Send
