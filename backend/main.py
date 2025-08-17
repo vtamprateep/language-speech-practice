@@ -29,14 +29,14 @@ app.add_middleware(
 )
 
 
-@app.get("/configure/lesson")
-async def configure_lesson():
-    from lessons.beginner import AT_RESTAURANT
+# @app.get("/configure/lesson")
+# async def configure_lesson():
+#     from lessons.beginner import AT_RESTAURANT
 
-    text_dialogue_engine["mandarin_text"].add_grammar(AT_RESTAURANT["grammar"])
-    text_dialogue_engine["mandarin_text"].add_scenario(AT_RESTAURANT["scenarios"])
-    text_dialogue_engine["mandarin_text"].add_vocabulary(AT_RESTAURANT["vocabulary"])
-    return "Lesson configured!"
+#     text_dialogue_engine["mandarin_text"].add_grammar(AT_RESTAURANT["grammar"])
+#     text_dialogue_engine["mandarin_text"].add_scenario(AT_RESTAURANT["scenarios"])
+#     text_dialogue_engine["mandarin_text"].add_vocabulary(AT_RESTAURANT["vocabulary"])
+#     return "Lesson configured!"
 
 
 class ChatInput(BaseModel):
