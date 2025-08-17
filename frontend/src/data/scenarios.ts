@@ -5,7 +5,7 @@ export interface DialogueTurn {
     pinyin: string;
     english: string;
     userPrompt: string;
-
+    targetSentence: string;
 }
 
 
@@ -26,7 +26,8 @@ export const guidedScenariosDialogue: Record<string, DialogueTurn[]> = {
             "mandarin": "欢迎光临！几位？",
             "pinyin": "Huānyíng guānglín! Jǐ wèi?",
             "english": "Welcome! How many people?",
-            "userPrompt": "Respond that it’s just you."
+            "userPrompt": "Respond that it’s just you.",
+            "targetSentence": "It’s just me."
         },
         {
             "turn": 2,
@@ -34,7 +35,8 @@ export const guidedScenariosDialogue: Record<string, DialogueTurn[]> = {
             "mandarin": "请跟我来。这是菜单。你想喝点什么？",
             "pinyin": "Qǐng gēn wǒ lái. Zhè shì càidān. Nǐ xiǎng hē diǎn shénme?",
             "english": "Please follow me. Here's the menu. What would you like to drink?",
-            "userPrompt": "Respond in Mandarin by asking what drink options are available."
+            "userPrompt": "Respond in Mandarin by asking what drink options are available.",
+            "targetSentence": "What drinks do you have?"
         },
         {
             "turn": 3,
@@ -42,7 +44,8 @@ export const guidedScenariosDialogue: Record<string, DialogueTurn[]> = {
             "mandarin": "我们有茶，可乐，雪碧，还有橙汁。",
             "pinyin": "Wǒmen yǒu chá, kělè, xuěbì, hái yǒu chéngzhī.",
             "english": "We have tea, cola, Sprite, and orange juice.",
-            "userPrompt": "Order a tea, specifying if you want it hot or cold."
+            "userPrompt": "Order a tea, specifying if you want it hot or cold.",
+            "targetSentence": "I’d like a hot tea."
         },
         {
             "turn": 4,
@@ -50,7 +53,8 @@ export const guidedScenariosDialogue: Record<string, DialogueTurn[]> = {
             "mandarin": "好的，一杯热茶。你想好吃什么了吗？",
             "pinyin": "Hǎo de, yì bēi rè chá. Nǐ xiǎng hǎo chī shénme le ma?",
             "english": "Okay, one hot tea. Have you decided what to eat?",
-            "userPrompt": "Ask what the server recommends."
+            "userPrompt": "Ask what the server recommends.",
+            "targetSentence": "What do you recommend?"
         },
         {
             "turn": 5,
@@ -58,7 +62,8 @@ export const guidedScenariosDialogue: Record<string, DialogueTurn[]> = {
             "mandarin": "我推荐宫保鸡丁或者麻婆豆腐，都很受欢迎。",
             "pinyin": "Wǒ tuījiàn Gōngbǎo jīdīng huòzhě Mápó dòufu, dōu hěn shòu huānyíng.",
             "english": "I recommend Kung Pao Chicken or Mapo Tofu. Both are very popular.",
-            "userPrompt": "Say you’ll try the Kung Pao Chicken."
+            "userPrompt": "Say you’ll try the Kung Pao Chicken.",
+            "targetSentence": "I’ll have the Kung Pao Chicken."
         },
         {
             "turn": 6,
@@ -66,7 +71,8 @@ export const guidedScenariosDialogue: Record<string, DialogueTurn[]> = {
             "mandarin": "要不要来一碗米饭？",
             "pinyin": "Yào bù yào lái yì wǎn mǐfàn?",
             "english": "Would you like a bowl of rice with that?",
-            "userPrompt": "Say yes, you’d like a bowl of rice."
+            "userPrompt": "Say yes, you’d like a bowl of rice.",
+            "targetSentence": "Yes, I’d like a bowl of rice."
         },
         {
             "turn": 7,
@@ -74,7 +80,8 @@ export const guidedScenariosDialogue: Record<string, DialogueTurn[]> = {
             "mandarin": "辣不辣可以接受吗？",
             "pinyin": "Là bù là kěyǐ jiēshòu ma?",
             "english": "Is spicy food okay for you?",
-            "userPrompt": "Say a little spicy is okay."
+            "userPrompt": "Say a little spicy is okay.",
+            "targetSentence": "A little spicy is okay."
         },
         {
             "turn": 8,
@@ -82,7 +89,8 @@ export const guidedScenariosDialogue: Record<string, DialogueTurn[]> = {
             "mandarin": "好的，一份宫保鸡丁，一碗米饭，一杯热茶。请稍等。",
             "pinyin": "Hǎo de, yí fèn Gōngbǎo jīdīng, yì wǎn mǐfàn, yì bēi rè chá. Qǐng shāo děng.",
             "english": "Okay, one Kung Pao Chicken, one bowl of rice, one hot tea. Please wait a moment.",
-            "userPrompt": "Thank the server politely."
+            "userPrompt": "Thank the server politely.",
+            "targetSentence": "Thank you."
         },
         {
             "turn": 9,
@@ -90,7 +98,8 @@ export const guidedScenariosDialogue: Record<string, DialogueTurn[]> = {
             "mandarin": "菜来了，请慢用！",
             "pinyin": "Cài lái le, qǐng màn yòng!",
             "english": "Here is your food. Enjoy your meal!",
-            "userPrompt": "Say thank you and express that the food looks delicious."
+            "userPrompt": "Say thank you and express that the food looks delicious.",
+            "targetSentence": "Thank you, it looks delicious!"
         },
         {
             "turn": 10,
@@ -98,7 +107,8 @@ export const guidedScenariosDialogue: Record<string, DialogueTurn[]> = {
             "mandarin": "不客气，如果需要别的，随时叫我。",
             "pinyin": "Bù kèqì, rúguǒ xūyào bié de, suíshí jiào wǒ.",
             "english": "You’re welcome. If you need anything else, just let me know.",
-            "userPrompt": "Acknowledge politely and say you will."
+            "userPrompt": "Acknowledge politely and say you will.",
+            "targetSentence": "Okay, I will."
         }
     ]
 }
