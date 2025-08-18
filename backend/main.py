@@ -44,14 +44,19 @@ class ChatInput(BaseModel):
 
 class TextTranslate(BaseModel):
     text: str
-    language: Language
+    sourceLang: Language
+    targetLang: Language
 
 @app.put("/translate_text")
 async def translate_text(body: TextTranslate):
     model = core_models["TextTranslator"]
     return JSONResponse(
         content={
-            "text": model.translate(text=body.text, target=body.language)
+            "text": model.translate(
+                text=body.text,
+                source=body.sourceLang,
+                target=body.targetLang
+            )
         }
     )
     

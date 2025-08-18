@@ -2,6 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { guidedScenariosDialogue, DialogueTurn } from '@/data/scenarios';
+import { Language } from '@/lib/languages';
 
 interface Message {
     sender: 'user' | 'bot';
@@ -18,22 +19,45 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     const [isDisabled, setIsDisabled] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
-    const evaluateTextSimilarity = async (text_1: string, text_2: string) => {
+    const evaluateTextSimilarity = async (userText: string, targetText: string) => {
         try {
+            const userTextEnglish = await textToEnglish(userText);
             const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_SERVER_URL}/calculate_similarity`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    text_1: text_1,
-                    text_2: text_2
+                    text_1: userTextEnglish,
+                    text_2: targetText
                 })
             })
             const data = await res.json();
             return data.score;
         } catch (err) {
             console.error('Failed to fetch', err);
+        }
+    }
+
+    const textToEnglish = async (text: string) => {
+        const targetLanguage: Language = 'ENGLISH';
+        try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_SERVER_URL}/translate_text`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    text: text,
+                    sourceLang: "MANDARIN",
+                    targetLang: targetLanguage
+                })
+            })
+            const data = await res.json();
+            console.log(`Translated to ${data.text}`);
+            return data.text;
+        } catch (err) {
+            console.log('Failed to fetch', err);
         }
     }
 
