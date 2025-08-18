@@ -1,21 +1,22 @@
 from contextlib import asynccontextmanager
+from typing import Any
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
-from lessons.beginner import AT_RESTAURANT
-from lessons.mode import MandarinText
 from pydantic import BaseModel
-from util.model import SemanticMatcher
+from util.languages import Language
+from util.model import SemanticMatcher, TextTranslator
 
 # text_dialogue_engine = dict()
-core_models = dict()
+core_models: dict[str, Any] = dict()
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     # text_dialogue_engine["mandarin_text"] = MandarinText()
     core_models["SemanticMatcher"] = SemanticMatcher()
+    core_models["TextTranslator"] = TextTranslator()
     yield
 
 
@@ -29,16 +30,6 @@ app.add_middleware(
 )
 
 
-# @app.get("/configure/lesson")
-# async def configure_lesson():
-#     from lessons.beginner import AT_RESTAURANT
-
-#     text_dialogue_engine["mandarin_text"].add_grammar(AT_RESTAURANT["grammar"])
-#     text_dialogue_engine["mandarin_text"].add_scenario(AT_RESTAURANT["scenarios"])
-#     text_dialogue_engine["mandarin_text"].add_vocabulary(AT_RESTAURANT["vocabulary"])
-#     return "Lesson configured!"
-
-
 class ChatInput(BaseModel):
     text: str
 
@@ -50,14 +41,27 @@ class ChatInput(BaseModel):
 #     return JSONResponse(content={"text": bot_response})
 
 
+
+class TextTranslate(BaseModel):
+    text: str
+    language: Language
+
+@app.put("/translate_text")
+async def translate_text(body: TextTranslate):
+    model = core_models["TextTranslator"]
+    return JSONResponse(
+        content={
+            "text": model.translate(text=body.text, target=body.language)
+        }
+    )
+    
+
 class TextComparison(BaseModel):
     text_1: str
     text_2: str
 
-
 @app.put("/calculate_similarity")
 async def calculate_similarity(body: TextComparison):
-    print(body)
     model = core_models["SemanticMatcher"]
     text_1 = body.text_1
     text_2 = body.text_2
