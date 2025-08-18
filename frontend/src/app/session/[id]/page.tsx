@@ -15,6 +15,7 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     const [currentTurn, setCurrentTurn] = useState<DialogueTurn>()
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState('');
+    const [isDisabled, setIsDisabled] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
     const evaluateTextSimilarity = async (text_1: string, text_2: string) => {
@@ -62,7 +63,13 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
 
         setMessages(prev => [...prev, newMessage]);
         setInput('');
-        sendBotMessage();
+
+        if (dialogue.length === 0) {
+            setIsDisabled(true);
+        } else {
+            sendBotMessage();
+        }
+        
     };
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -97,10 +104,14 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
             text: firstTurn.mandarin
         };
 
-        setMessages(prev => [...prev, botMessage]);
+        setMessages([botMessage]);
         setCurrentTurn(firstTurn);
         setDialogue(dialogue.slice(1));
     }, [])
+
+    useEffect(() => {
+        messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
+    }, [messages])
 
     return (
         <div className="flex flex-col h-screen p-4">
@@ -127,6 +138,7 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
                     value={input}
                     onChange={e => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
+                    disabled={isDisabled}
                     placeholder="Type your message..."
                 />
                 <button
