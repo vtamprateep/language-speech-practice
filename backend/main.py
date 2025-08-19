@@ -67,6 +67,7 @@ class TextComparison(BaseModel):
 
 @app.put("/calculate_similarity")
 async def calculate_similarity(body: TextComparison):
+    print(body)
     model = core_models["SemanticMatcher"]
     text_1 = body.text_1
     text_2 = body.text_2

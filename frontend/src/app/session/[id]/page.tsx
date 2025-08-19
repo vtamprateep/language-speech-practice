@@ -15,22 +15,24 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     const { id } = React.use(params);
     const [dialogue, setDialogue] = useState<DialogueTurn[]>([]);
     const [currentPrompt, setCurrentPrompt] = useState<string>();
+    const [countIncorrect, setCountIncorrect] = useState<number>(0);
     const [currentTurn, setCurrentTurn] = useState<DialogueTurn>()
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState('');
     const [isDisabled, setIsDisabled] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
 
+    const [translationPopup, setTranslationPopup] = useState<string | null>(null);
+
     const evaluateTextSimilarity = async (userText: string, targetText: string) => {
         try {
-            const userTextEnglish = await textToEnglish(userText);
             const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_SERVER_URL}/calculate_similarity`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json'
                 },
                 body: JSON.stringify({
-                    text_1: userTextEnglish,
+                    text_1: userText,
                     text_2: targetText
                 })
             })
@@ -78,17 +80,22 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     const sendUserMessage = async () => {
         if (!input.trim()) return;
         const newMessage: Message = { sender: 'user', text: input };
-        var data;
+        const newMessageEnglish = await textToEnglish(newMessage.text);
+        
 
         // Evaluate if response close enough to target sentence
-        const similarityScore = await evaluateTextSimilarity(newMessage.text, currentTurn!.targetSentence);
+        const similarityScore = await evaluateTextSimilarity(newMessageEnglish, currentTurn!.targetSentence);
 
         if (similarityScore < 0.7) {
             console.log("Not similar enough, try again!");
+            setCountIncorrect(countIncorrect + 1);
+            setTranslationPopup(newMessageEnglish);
+            setTimeout(() => setTranslationPopup(null), 2000);
             return;
         }
 
         setMessages(prev => [...prev, newMessage]);
+        setCountIncorrect(0);
         setInput('');
 
         if (dialogue.length === 0) {
@@ -96,7 +103,6 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
         } else {
             sendBotMessage();
         }
-        
     };
 
     const handleKeyDown = (e: React.KeyboardEvent) => {
@@ -141,9 +147,22 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
                 ))}
                 <div ref={messagesEndRef} />
             </div>
+
+            {translationPopup && (
+                <div className="mb-2 p-2 bg-black bg-opacity-80 text-white rounded-md text-sm text-center animate-fade-in-out">
+                    🗣️ You said: {translationPopup}
+                </div>
+            )}
+
             {currentPrompt && (
                 <div className="mb-2 p-2 bg-yellow-100 border border-yellow-300 text-yellow-800 rounded-md text-sm">
                     🎯 Next Prompt: {currentPrompt}
+                </div>
+            )}
+
+            {countIncorrect >= 3 && currentTurn?.hint && (
+                <div className="mb-2 p-2 bg-green-100 border border-green-300 text-green-800 rounded-md text-sm">
+                    💡 Hint: {currentTurn.hint}
                 </div>
             )}
 
