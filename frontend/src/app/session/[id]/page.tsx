@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { guidedScenariosDialogue, DialogueTurn } from '@/data/scenarios';
 import { Language } from '@/lib/languages';
+import next from 'next';
 
 interface Message {
     sender: 'user' | 'bot';
@@ -13,6 +14,7 @@ interface Message {
 export default function ChatPage({ params }: { params: Promise<{ id: string }>}) {
     const { id } = React.use(params);
     const [dialogue, setDialogue] = useState<DialogueTurn[]>([]);
+    const [currentPrompt, setCurrentPrompt] = useState<string>();
     const [currentTurn, setCurrentTurn] = useState<DialogueTurn>()
     const [messages, setMessages] = useState<Message[]>([]);
     const [input, setInput] = useState('');
@@ -69,6 +71,7 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
         }
         setMessages(prev => [...prev, botMessage]);
         setDialogue(dialogue.slice(1));
+        setCurrentPrompt(nextTurn.userPrompt);
         setCurrentTurn(nextTurn);
     }
 
@@ -103,23 +106,6 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
         }
     };
 
-    // useEffect(() => { // Update chat to put next turn into view
-    //     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-        
-    //     if (messages.length <= 2) return;
-
-    //     const lastMessage = messages[messages.length - 1];
-    //     if (dialogue.length != 0 && lastMessage.sender != "bot") {
-    //         const nextTurn = dialogue[0];
-    //         const botMessage: Message = {
-    //             sender: "bot",
-    //             text: nextTurn.mandarin
-    //         }
-    //         setMessages(prev => [...prev, botMessage]);
-    //         setDialogue(dialogue.slice(1));
-    //     }
-    // }, [messages]);
-
     useEffect(() => {  // On mount, grab appropriate dialogue
         const dialogue = guidedScenariosDialogue[id];
         const firstTurn = dialogue[0];
@@ -130,6 +116,7 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
 
         setMessages([botMessage]);
         setCurrentTurn(firstTurn);
+        setCurrentPrompt(firstTurn.userPrompt);
         setDialogue(dialogue.slice(1));
     }, [])
 
@@ -154,6 +141,11 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
                 ))}
                 <div ref={messagesEndRef} />
             </div>
+            {currentPrompt && (
+                <div className="mb-2 p-2 bg-yellow-100 border border-yellow-300 text-yellow-800 rounded-md text-sm">
+                    🎯 Next Prompt: {currentPrompt}
+                </div>
+            )}
 
             <div className="flex">
                 <textarea
