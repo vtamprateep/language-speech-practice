@@ -3,7 +3,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { guidedScenariosDialogue, DialogueTurn } from '@/data/scenarios';
 import { Language } from '@/lib/languages';
-import next from 'next';
 
 interface Message {
     sender: 'user' | 'bot';
@@ -21,7 +20,6 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     const [input, setInput] = useState('');
     const [isDisabled, setIsDisabled] = useState(false);
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
-
     const [translationPopup, setTranslationPopup] = useState<string | null>(null);
 
     const evaluateTextSimilarity = async (userText: string, targetText: string) => {

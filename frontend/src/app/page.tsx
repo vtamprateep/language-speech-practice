@@ -17,7 +17,7 @@ export default function HomePage() {
                 {guidedScenarios.map((scenario) => (
                     <Link
                         key={scenario.id}
-                        href={`/session/${scenario.path}`}
+                        href={`/session/text/${scenario.path}`}
                         className="block border border-gray-200 rounded-lg p-4 hover:bg-gray-100 transition w-72 text-center"
                     >
                         <h2 className="text-xl font-semibold">{scenario.title}</h2>
