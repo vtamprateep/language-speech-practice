@@ -1,6 +1,9 @@
 import uuid
+from dataclasses import dataclass
+from enum import Enum
 from typing import Any
 
+import librosa
 import numpy as np
 import torch
 from deep_translator import GoogleTranslator  # type: ignore
@@ -17,11 +20,20 @@ from transformers import (
 )
 
 from .languages import Language
-from .type import AudioData, LanguageMode
 
 
-class SpeechToTextModel:
+@dataclass
+class AudioData:
+    sampling_rate: int
+    raw: np.ndarray
+
+
+class WhisperModel:
     LANGUAGE_MODEL_CONFIG = {Language.ENGLISH: "en", Language.MANDARIN: "zh"}
+
+    class TaskValues(Enum):
+        TRANSLATE = "translate"
+        TRANSCRIBE = "transcribe"
 
     def __init__(
         self,
@@ -33,49 +45,53 @@ class SpeechToTextModel:
         self.MODEL_ID = model_id
         self.DEVICE = device
 
-        self._setup_pipeline(self.LANGUAGE_MODEL_CONFIG[self.LANGUAGE])
-
-    def _setup_pipeline(self, language: str):
-        generate_kwargs = {"language": language} if language else {}
-
-        processor = AutoProcessor.from_pretrained(self.MODEL_ID)
-        model = AutoModelForSpeechSeq2Seq.from_pretrained(
+        self.processor = AutoProcessor.from_pretrained(self.MODEL_ID)
+        self.model = AutoModelForSpeechSeq2Seq.from_pretrained(
             self.MODEL_ID,
             torch_dtype=torch.float32,
             low_cpu_mem_usage=True,
             use_safetensors=True,
         )
-        model.to(self.DEVICE)
+        self.model.to(self.DEVICE)
 
-        self.TRANSCRIBE_PIPE = pipeline(
-            "automatic-speech-recognition",
-            model=model,
-            tokenizer=processor.tokenizer,
-            feature_extractor=processor.feature_extractor,
+        self._setup_pipeline(self.LANGUAGE_MODEL_CONFIG[self.LANGUAGE])
+
+    def _setup_pipeline(self, task: str, language: Language | None = None):
+        generate_kwargs = {"language": language} if language else {}
+        pipe = pipeline(
+            task="automatic-speech-recognition",
+            model=self.model,
+            tokenizer=self.processor.tokenizer,
+            feature_extractor=self.processor.feature_extractor,
             torch_dtype=torch.float32,
             device=self.DEVICE,
-            generate_kwargs={"task": "transcribe", **generate_kwargs},
+            generate_kwargs={"task": task, **generate_kwargs},
         )
+        return pipe
 
-        if language:
-            self.TRANSLATE_PIPE = pipeline(
-                "automatic-speech-recognition",
-                model=model,
-                tokenizer=processor.tokenizer,
-                feature_extractor=processor.feature_extractor,
-                torch_dtype=torch.float32,
-                device=self.DEVICE,
-                generate_kwargs={"task": "translate", **generate_kwargs},
-            )
+    def _resample_audio(self, input: AudioData, target_sample_rate: int) -> AudioData:
+        if input.sampling_rate == target_sample_rate:
+            return input
+
+        data = librosa.resample(
+            input.raw, orig_sr=input.sampling_rate, target_sr=target_sample_rate
+        )
+        return AudioData(target_sample_rate, data)
 
     def run_inference(
-        self, input: AudioData, task: str = "transcribe"
+        self,
+        input: AudioData,
+        task: TaskValues = "transcribe",  # type: ignore
+        source_language: Language | None = None,
     ) -> dict[str, Any] | list[dict[str, Any]]:
-        input_format = {"sampling_rate": input.sampling_rate, "raw": input.raw}
-        if task == "transcribe":
-            return self.TRANSCRIBE_PIPE(inputs=input_format, return_timestamps=True)
-        else:
-            return self.TRANSLATE_PIPE(inputs=input_format, return_timestamps=True)
+        input_resampled = self._resample_audio(input, 16000)
+        input_format = {
+            "sampling_rate": input_resampled.sampling_rate,
+            "raw": input_resampled.raw,
+        }
+
+        pipeline = self._setup_pipeline(task=task, language=source_language)  # type: ignore
+        return pipeline(inputs=input_format, return_timestamps=True)
 
 
 class ConversationGeneratorModel:
@@ -287,6 +303,7 @@ class QwenCausalLM:
 
 class SemanticMatcher:
     """Takes two sentences and calculate cosine similarity"""
+
     _instance = None
 
     def __init__(
@@ -297,20 +314,24 @@ class SemanticMatcher:
         self.model = AutoModel.from_pretrained(model_name)
 
     def _embed_text(self, text: str):
-        tokens = self.tokenizer(text, padding=True, truncation=True, return_tensors="pt")
+        tokens = self.tokenizer(
+            text, padding=True, truncation=True, return_tensors="pt"
+        )
         with torch.no_grad():
             output = self.model(**tokens)
 
         return output.last_hidden_state.mean(dim=1).numpy()[0]
-    
+
     def _cosine_similarity(self, vector_a, vector_b):
-        return np.dot(vector_a, vector_b) / (np.linalg.norm(vector_a) * np.linalg.norm(vector_b))
-    
+        return np.dot(vector_a, vector_b) / (
+            np.linalg.norm(vector_a) * np.linalg.norm(vector_b)
+        )
+
     def get_similarity(self, text_1: str, text_2: str):
         vector_a = self._embed_text(text_1)
         vector_b = self._embed_text(text_2)
         return self._cosine_similarity(vector_a, vector_b)
-        
+
 
 class TextTranslator:
     """Uses Google Translate to convert text from one language to another."""
@@ -318,11 +339,18 @@ class TextTranslator:
     LANGUAGE_MODEL_CONFIG = {Language.ENGLISH: "en", Language.MANDARIN: "zh-TW"}
 
     @staticmethod
-    def translate(text: str, source: Language, target: Language = Language.ENGLISH) -> str:
+    def translate(
+        text: str, source: Language, target: Language = Language.ENGLISH
+    ) -> str:
         return GoogleTranslator(
             TextTranslator.LANGUAGE_MODEL_CONFIG[source],
-            TextTranslator.LANGUAGE_MODEL_CONFIG[target]
+            TextTranslator.LANGUAGE_MODEL_CONFIG[target],
         ).translate(text)
+
+
+class LanguageMode(Enum):
+    AUDIO = "AUDIO"
+    TEXT = "TEXT"
 
 
 class MandarinTranslator:
@@ -332,7 +360,7 @@ class MandarinTranslator:
 
     def translate_to_english(self, input: str | AudioData) -> str:
         if isinstance(input, AudioData):
-            voice_transcriber = SpeechToTextModel(Language.MANDARIN)
+            voice_transcriber = WhisperModel(Language.MANDARIN)
             captioned_text = voice_transcriber.run_inference(input)["text"]  # type: ignore
             return TextTranslator.translate(captioned_text, Language.MANDARIN)
 

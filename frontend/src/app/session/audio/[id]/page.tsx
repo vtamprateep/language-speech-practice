@@ -3,6 +3,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { guidedScenariosDialogue, DialogueTurn } from '@/data/scenarios';
 import { Language } from '@/lib/languages';
+import { AudioRecorder } from '@/lib/input';
 
 interface Message {
     sender: 'user' | 'bot';
@@ -12,14 +13,14 @@ interface Message {
 
 export default function ChatPage({ params }: { params: Promise<{ id: string }>}) {
     const { id } = React.use(params);
+    const messagesEndRef = useRef<HTMLDivElement | null>(null);
+
     const [dialogue, setDialogue] = useState<DialogueTurn[]>([]);
     const [currentPrompt, setCurrentPrompt] = useState<string>();
     const [countIncorrect, setCountIncorrect] = useState<number>(0);
     const [currentTurn, setCurrentTurn] = useState<DialogueTurn>()
     const [messages, setMessages] = useState<Message[]>([]);
-    const [input, setInput] = useState('');
-    const [isDisabled, setIsDisabled] = useState(false);
-    const messagesEndRef = useRef<HTMLDivElement | null>(null);
+    const [audioData, setAudioData] = useState<Blob>();
     const [translationPopup, setTranslationPopup] = useState<string | null>(null);
 
     const evaluateTextSimilarity = async (userText: string, targetText: string) => {
@@ -75,40 +76,30 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
         setCurrentTurn(nextTurn);
     }
 
-    const sendUserMessage = async () => {
-        if (!input.trim()) return;
-        const newMessage: Message = { sender: 'user', text: input };
-        const newMessageEnglish = await textToEnglish(newMessage.text);
+    // const sendUserMessage = async () => {
+    //     if (!input.trim()) return;
+    //     const newMessage: Message = { sender: 'user', text: input };
+    //     const newMessageEnglish = await textToEnglish(newMessage.text);
         
 
-        // Evaluate if response close enough to target sentence
-        const similarityScore = await evaluateTextSimilarity(newMessageEnglish, currentTurn!.targetSentence);
+    //     // Evaluate if response close enough to target sentence
+    //     const similarityScore = await evaluateTextSimilarity(newMessageEnglish, currentTurn!.targetSentence);
 
-        if (similarityScore < 0.7) {
-            console.log("Not similar enough, try again!");
-            setCountIncorrect(countIncorrect + 1);
-            setTranslationPopup(newMessageEnglish);
-            setTimeout(() => setTranslationPopup(null), 2000);
-            return;
-        }
+    //     if (similarityScore < 0.7) {
+    //         console.log("Not similar enough, try again!");
+    //         setCountIncorrect(countIncorrect + 1);
+    //         setTranslationPopup(newMessageEnglish);
+    //         setTimeout(() => setTranslationPopup(null), 2000);
+    //         return;
+    //     }
 
-        setMessages(prev => [...prev, newMessage]);
-        setCountIncorrect(0);
-        setInput('');
+    //     setMessages(prev => [...prev, newMessage]);
+    //     setCountIncorrect(0);
 
-        if (dialogue.length === 0) {
-            setIsDisabled(true);
-        } else {
-            sendBotMessage();
-        }
-    };
-
-    const handleKeyDown = (e: React.KeyboardEvent) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-            e.preventDefault();
-            sendUserMessage();
-        }
-    };
+    //     if (dialogue.length >= 0) {
+    //         sendBotMessage();
+    //     }
+    // };
 
     useEffect(() => {  // On mount, grab appropriate dialogue
         const dialogue = guidedScenariosDialogue[id];
@@ -127,6 +118,13 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
     }, [messages])
+
+    useEffect(() => {
+        // Transcribe it to text mandarin
+        // Translate to english
+        // Check if translated text is close enough to target
+        // If so, append to message thread, send another bot message
+    }, [audioData])
 
     return (
         <div className="flex flex-col h-screen p-4">
@@ -164,23 +162,9 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
                 </div>
             )}
 
-            <div className="flex">
-                <textarea
-                    className="flex-1 p-2 border rounded resize-none"
-                    rows={1}
-                    value={input}
-                    onChange={e => setInput(e.target.value)}
-                    onKeyDown={handleKeyDown}
-                    disabled={isDisabled}
-                    placeholder="Type your message..."
-                />
-                <button
-                    onClick={sendUserMessage}
-                    className="ml-2 px-4 py-2 bg-blue-600 text-white rounded"
-                >
-                    Send
-                </button>
-            </div>
+            <AudioRecorder 
+                onRecordingComplete={setAudioData}
+            />
         </div>
     );
 }

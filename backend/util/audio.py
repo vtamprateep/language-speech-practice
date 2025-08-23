@@ -7,7 +7,7 @@ import sounddevice as sd  # type: ignore
 from scipy.io.wavfile import read, write  # type: ignore
 from sounddevice import CallbackFlags
 
-from .type import AudioData
+from .model import AudioData
 
 
 class VoiceRecorder:
