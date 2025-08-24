@@ -3,11 +3,84 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { guidedScenariosDialogue, DialogueTurn } from '@/data/scenarios';
 import { Language } from '@/lib/languages';
-import { AudioRecorder } from '@/lib/input';
+
 
 interface Message {
     sender: 'user' | 'bot';
     text: string;
+}
+
+interface AudioRecorderProps {
+    onRecordingComplete: (audioBlob: Blob) => void;
+    disabled?: boolean;
+}
+
+
+function AudioRecorder({ onRecordingComplete, disabled }: AudioRecorderProps) {
+    const [recording, setRecording] = useState(false);
+    const [audioUrl, setAudioUrl] = useState<string | null>(null);
+    const mediaRecorderRef = useRef<MediaRecorder | null>(null);
+    const audioChunksRef = useRef<Blob[]>([]);
+    const audioStreamRef = useRef<MediaStream | null>(null);
+
+    const startRecording = async () => {
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        audioStreamRef.current = stream;
+
+        mediaRecorderRef.current = new MediaRecorder(stream);
+        audioChunksRef.current = [];
+
+        mediaRecorderRef.current.ondataavailable = (event) => {
+            audioChunksRef.current.push(event.data);
+        };
+
+        mediaRecorderRef.current.start();
+        setRecording(true);
+    };
+
+    const stopRecording = async () => {
+        if (!mediaRecorderRef.current) return;
+
+        return new Promise<void>((resolve) => {
+            mediaRecorderRef.current!.onstop = () => {
+                const blob = new Blob(audioChunksRef.current, { type: "audio/wav" });
+                const url = URL.createObjectURL(blob);
+                setAudioUrl(url);
+                onRecordingComplete(blob);
+                setRecording(false);
+                resolve();
+            };
+
+            mediaRecorderRef.current!.stop();
+            audioStreamRef.current?.getTracks().forEach(track => track.stop());
+        });
+    };
+
+    const handleButtonClick = () => {
+        if (recording) {
+            stopRecording();
+        } else {
+            startRecording();
+        }
+    };
+
+    return (
+        <div className="flex flex-col items-center space-y-2">
+            <button
+                onClick={handleButtonClick}
+                disabled={disabled}
+                className={`px-4 py-2 rounded ${recording ? "bg-red-500 text-white" : "bg-green-500 text-white"}`}
+            >
+                {recording ? "Stop Recording" : "Start Recording"}
+            </button>
+
+            {audioUrl && (
+                <audio controls className="mt-2">
+                    <source src={audioUrl} type="audio/wav" />
+                </audio>
+            )}
+        </div>
+    );
 }
 
 
@@ -22,6 +95,7 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     const [messages, setMessages] = useState<Message[]>([]);
     const [audioData, setAudioData] = useState<Blob>();
     const [translationPopup, setTranslationPopup] = useState<string | null>(null);
+    const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
     const evaluateTextSimilarity = async (userText: string, targetText: string) => {
         try {
@@ -64,6 +138,27 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
         }
     }
 
+    const transcribeAudio = async (audioData: Blob ) => {
+        const targetLanguage: Language = 'ENGLISH';
+        try {
+            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_SERVER_URL}/transcribe_audio`, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                body: JSON.stringify({
+                    file: audioData,
+                    language: "MANDARIN"
+                })
+            })
+            const data = await res.json();
+            console.log(`Translated to ${data.text}`);
+            return data.text;
+        } catch (err) {
+            console.log('Failed to fetch', err);
+        }
+    }
+
     const sendBotMessage = async () => {
         const nextTurn = dialogue[0];
         const botMessage: Message = {
@@ -76,30 +171,32 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
         setCurrentTurn(nextTurn);
     }
 
-    // const sendUserMessage = async () => {
-    //     if (!input.trim()) return;
-    //     const newMessage: Message = { sender: 'user', text: input };
-    //     const newMessageEnglish = await textToEnglish(newMessage.text);
+    const sendUserAudio = async (data: Blob) => {
+        // Transcribe and translate audio, calc similarity
+        const transcribedAudio = await transcribeAudio(data);
+        const translatedText = await textToEnglish(transcribedAudio);
+        const similarityScore = await evaluateTextSimilarity(translatedText, currentTurn!.targetSentence);
+
+        setAudioData(undefined); // Reset input
+
+        if (similarityScore < 0.7) {
+            console.log("Not similar enough, try again!");
+            setCountIncorrect(countIncorrect + 1);
+            setTranslationPopup(translatedText);
+            setTimeout(() => setTranslationPopup(null), 2000);
+            return;
+        }
+
+        setMessages(prev => [...prev, transcribedAudio]);
+        setCountIncorrect(0);
         
 
-    //     // Evaluate if response close enough to target sentence
-    //     const similarityScore = await evaluateTextSimilarity(newMessageEnglish, currentTurn!.targetSentence);
-
-    //     if (similarityScore < 0.7) {
-    //         console.log("Not similar enough, try again!");
-    //         setCountIncorrect(countIncorrect + 1);
-    //         setTranslationPopup(newMessageEnglish);
-    //         setTimeout(() => setTranslationPopup(null), 2000);
-    //         return;
-    //     }
-
-    //     setMessages(prev => [...prev, newMessage]);
-    //     setCountIncorrect(0);
-
-    //     if (dialogue.length >= 0) {
-    //         sendBotMessage();
-    //     }
-    // };
+        if (dialogue.length === 0) {
+            setIsDisabled(true);
+        } else {
+            sendBotMessage();
+        }
+    }
 
     useEffect(() => {  // On mount, grab appropriate dialogue
         const dialogue = guidedScenariosDialogue[id];
@@ -120,10 +217,7 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     }, [messages])
 
     useEffect(() => {
-        // Transcribe it to text mandarin
-        // Translate to english
-        // Check if translated text is close enough to target
-        // If so, append to message thread, send another bot message
+        if (audioData) sendUserAudio(audioData);
     }, [audioData])
 
     return (
@@ -164,6 +258,7 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
 
             <AudioRecorder 
                 onRecordingComplete={setAudioData}
+                disabled={isDisabled}
             />
         </div>
     );
