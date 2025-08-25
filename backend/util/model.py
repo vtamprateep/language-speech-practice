@@ -127,7 +127,7 @@ class ConversationGeneratorModel:
         return response
 
 
-class TextToSpeechModel:
+class KokoroModel:
     """
     🇺🇸 'a' => American English, 🇬🇧 'b' => British English
     🇪🇸 'e' => Spanish es
@@ -140,20 +140,21 @@ class TextToSpeechModel:
     """
 
     LANGUAGE_MODEL_CONFIG = {Language.ENGLISH: "a", Language.MANDARIN: "z"}
-    PIPE: KPipeline = None
 
-    def __init__(self, language: Language) -> None:
-        self.PIPE = KPipeline(lang_code=self.LANGUAGE_MODEL_CONFIG[language])
+    def _setup_pipeline(self, language: Language):
+        return KPipeline(lang_code=self.LANGUAGE_MODEL_CONFIG[language])
 
     def run_inference(
         self,
         input: str,
+        language: Language,
         voice: str = "af_heart",
         speed: int = 1,
         split_pattern: str = r"\n+",
     ) -> AudioData:
+        pipeline = self._setup_pipeline(language)
         audio_segments = [
-            audio for _, _, audio in self.PIPE(input, voice, speed, split_pattern)
+            audio for _, _, audio in pipeline(input, voice, speed, split_pattern)
         ]
         audio_data = np.concatenate(audio_segments)
         return AudioData(24000, audio_data)
@@ -372,6 +373,6 @@ class MandarinTranslator:
         if mode == LanguageMode.TEXT:
             return translated_text
 
-        tts_model = TextToSpeechModel(Language.MANDARIN)
-        translated_audio = tts_model.run_inference(translated_text)
+        tts_model = KokoroModel()
+        translated_audio = tts_model.run_inference(translated_text, Language.MANDARIN)
         return translated_audio

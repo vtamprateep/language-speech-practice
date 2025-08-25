@@ -5,10 +5,16 @@ from typing import Any
 import soundfile as sf  # type: ignore
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse
+from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel
 from util.languages import Language
-from util.model import AudioData, SemanticMatcher, TextTranslator, WhisperModel
+from util.model import (
+    AudioData,
+    KokoroModel,
+    SemanticMatcher,
+    TextTranslator,
+    WhisperModel,
+)
 
 # text_dialogue_engine = dict()
 core_models: dict[str, Any] = dict()
@@ -20,6 +26,7 @@ async def lifespan(app: FastAPI):
     core_models["SemanticMatcher"] = SemanticMatcher()
     core_models["TextTranslator"] = TextTranslator()
     core_models["WhisperModel"] = WhisperModel()
+    core_models["KokoroModel"] = KokoroModel()
     yield
 
 
@@ -88,3 +95,25 @@ async def transcribe_audio(
         AudioData(sampling_rate=sample_rate, raw=data_arr), source_language=language
     )
     return JSONResponse(content={"text": result["text"]})
+
+
+class TTSRequest(BaseModel):
+    text: str
+    language: str
+
+
+@app.post("/generate_audio")
+async def generate_audio(body: TTSRequest):
+    model = core_models["KokoroModel"]
+    audio_data = model.run_inference(body.text, body.language)
+
+    # Write to an in-memory buffer as WAV
+    buffer = io.BytesIO()
+    sf.write(buffer, audio_data.raw, audio_data.sampling_rate, format="WAV")
+    buffer.seek(0)
+
+    return StreamingResponse(
+        buffer,
+        media_type="audio/wav",
+        headers={"Content-Disposition": "attachment; filename=output.wav"},
+    )
