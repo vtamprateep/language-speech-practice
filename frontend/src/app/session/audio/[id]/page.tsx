@@ -18,12 +18,14 @@ interface AudioRecorderProps {
 
 function AudioRecorder({ onRecordingComplete, disabled }: AudioRecorderProps) {
     const [recording, setRecording] = useState(false);
+    const [preparing, setPreparing] = useState(false);
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
     const audioStreamRef = useRef<MediaStream | null>(null);
 
     const startRecording = async () => {
+        setPreparing(true);
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         audioStreamRef.current = stream;
 
@@ -34,8 +36,9 @@ function AudioRecorder({ onRecordingComplete, disabled }: AudioRecorderProps) {
             audioChunksRef.current.push(event.data);
         };
 
-        mediaRecorderRef.current.start();
+        mediaRecorderRef.current.start(100);
         setRecording(true);
+        setPreparing(false);
     };
 
     const stopRecording = async () => {
@@ -43,7 +46,7 @@ function AudioRecorder({ onRecordingComplete, disabled }: AudioRecorderProps) {
 
         return new Promise<void>((resolve) => {
             mediaRecorderRef.current!.onstop = () => {
-                const blob = new Blob(audioChunksRef.current, { type: "audio/wav" });
+                const blob = new Blob(audioChunksRef.current, { type: "audio/webm" });
                 const url = URL.createObjectURL(blob);
                 setAudioUrl(url);
                 onRecordingComplete(blob);
@@ -139,17 +142,15 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     }
 
     const transcribeAudio = async (audioData: Blob ) => {
-        const targetLanguage: Language = 'ENGLISH';
+        const targetLanguage: Language = "MANDARIN";
         try {
+            const formData = new FormData();
+            formData.append("file", audioData, "audio.wav");
+            formData.append("language", targetLanguage);
+
             const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_SERVER_URL}/transcribe_audio`, {
                 method: 'POST',
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
-                body: JSON.stringify({
-                    file: audioData,
-                    language: "MANDARIN"
-                })
+                body: formData,
             })
             const data = await res.json();
             console.log(`Translated to ${data.text}`);
@@ -187,7 +188,11 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
             return;
         }
 
-        setMessages(prev => [...prev, transcribedAudio]);
+        const newMessage: Message = {
+            sender: "user",
+            text: transcribedAudio
+        }
+        setMessages(prev => [...prev, newMessage]);
         setCountIncorrect(0);
         
 
@@ -217,6 +222,7 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     }, [messages])
 
     useEffect(() => {
+        console.log(audioData);
         if (audioData) sendUserAudio(audioData);
     }, [audioData])
 

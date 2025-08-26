@@ -2,11 +2,13 @@ import io
 from contextlib import asynccontextmanager
 from typing import Any
 
+import numpy as np
 import soundfile as sf  # type: ignore
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel
+from pydub import AudioSegment  # type: ignore
 from util.languages import Language
 from util.model import (
     AudioData,
@@ -33,7 +35,7 @@ async def lifespan(app: FastAPI):
 app = FastAPI(lifespan=lifespan)
 app.add_middleware(
     middleware_class=CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -88,11 +90,15 @@ async def transcribe_audio(
     file: UploadFile = File(...), language: str = Form("ENGLISH")
 ):
     audio_bytes = await file.read()
-    data_arr, sample_rate = sf.read(io.BytesIO(audio_bytes))
+    audio = AudioSegment.from_file(io.BytesIO(audio_bytes), format="webm")
+
+    # Convert to numpy PCM float32
+    samples = np.array(audio.get_array_of_samples()).astype(np.float32)
+    sample_rate = audio.frame_rate
 
     model = core_models["WhisperModel"]
     result = model.run_inference(
-        AudioData(sampling_rate=sample_rate, raw=data_arr), source_language=language
+        AudioData(sampling_rate=sample_rate, raw=samples), source_language=language
     )
     return JSONResponse(content={"text": result["text"]})
 
