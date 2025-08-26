@@ -6,7 +6,7 @@ interface AudioRecorderProps {
     onRecordingComplete: (audioBlob: Blob) => void;
 }
 
-export function AudioRecorder({ onRecordingComplete }: AudioRecorderProps) {
+export default function AudioRecorder({ onRecordingComplete }: AudioRecorderProps) {
     const [recording, setRecording] = useState(false);
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
@@ -26,6 +26,7 @@ export function AudioRecorder({ onRecordingComplete }: AudioRecorderProps) {
 
         mediaRecorderRef.current.start();
         setRecording(true);
+        setAudioUrl(null);
     };
 
     const stopRecording = async () => {
@@ -33,7 +34,7 @@ export function AudioRecorder({ onRecordingComplete }: AudioRecorderProps) {
 
         return new Promise<void>((resolve) => {
             mediaRecorderRef.current!.onstop = () => {
-                const blob = new Blob(audioChunksRef.current, { type: "audio/wav" });
+                const blob = new Blob(audioChunksRef.current, { type: "audio/webm" });
                 const url = URL.createObjectURL(blob);
                 setAudioUrl(url);
                 onRecordingComplete(blob);
@@ -65,7 +66,7 @@ export function AudioRecorder({ onRecordingComplete }: AudioRecorderProps) {
 
             {audioUrl && (
                 <audio controls className="mt-2">
-                    <source src={audioUrl} type="audio/wav" />
+                    <source src={audioUrl} type="audio/webm" />
                 </audio>
             )}
         </div>

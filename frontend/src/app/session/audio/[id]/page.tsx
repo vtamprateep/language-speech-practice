@@ -3,87 +3,12 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { guidedScenariosDialogue, DialogueTurn } from '@/data/scenarios';
 import { Language } from '@/lib/languages';
+import AudioRecorder from '@/lib/input';
 
 
 interface Message {
     sender: 'user' | 'bot';
     text: string;
-}
-
-interface AudioRecorderProps {
-    onRecordingComplete: (audioBlob: Blob) => void;
-    disabled?: boolean;
-}
-
-
-function AudioRecorder({ onRecordingComplete, disabled }: AudioRecorderProps) {
-    const [recording, setRecording] = useState(false);
-    const [preparing, setPreparing] = useState(false);
-    const [audioUrl, setAudioUrl] = useState<string | null>(null);
-    const mediaRecorderRef = useRef<MediaRecorder | null>(null);
-    const audioChunksRef = useRef<Blob[]>([]);
-    const audioStreamRef = useRef<MediaStream | null>(null);
-
-    const startRecording = async () => {
-        setPreparing(true);
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-        audioStreamRef.current = stream;
-
-        mediaRecorderRef.current = new MediaRecorder(stream);
-        audioChunksRef.current = [];
-
-        mediaRecorderRef.current.ondataavailable = (event) => {
-            audioChunksRef.current.push(event.data);
-        };
-
-        mediaRecorderRef.current.start(100);
-        setRecording(true);
-        setPreparing(false);
-    };
-
-    const stopRecording = async () => {
-        if (!mediaRecorderRef.current) return;
-
-        return new Promise<void>((resolve) => {
-            mediaRecorderRef.current!.onstop = () => {
-                const blob = new Blob(audioChunksRef.current, { type: "audio/webm" });
-                const url = URL.createObjectURL(blob);
-                setAudioUrl(url);
-                onRecordingComplete(blob);
-                setRecording(false);
-                resolve();
-            };
-
-            mediaRecorderRef.current!.stop();
-            audioStreamRef.current?.getTracks().forEach(track => track.stop());
-        });
-    };
-
-    const handleButtonClick = () => {
-        if (recording) {
-            stopRecording();
-        } else {
-            startRecording();
-        }
-    };
-
-    return (
-        <div className="flex flex-col items-center space-y-2">
-            <button
-                onClick={handleButtonClick}
-                disabled={disabled}
-                className={`px-4 py-2 rounded ${recording ? "bg-red-500 text-white" : "bg-green-500 text-white"}`}
-            >
-                {recording ? "Stop Recording" : "Start Recording"}
-            </button>
-
-            {audioUrl && (
-                <audio controls className="mt-2">
-                    <source src={audioUrl} type="audio/wav" />
-                </audio>
-            )}
-        </div>
-    );
 }
 
 
@@ -98,7 +23,6 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     const [messages, setMessages] = useState<Message[]>([]);
     const [audioData, setAudioData] = useState<Blob>();
     const [translationPopup, setTranslationPopup] = useState<string | null>(null);
-    const [isDisabled, setIsDisabled] = useState<boolean>(false);
 
     const evaluateTextSimilarity = async (userText: string, targetText: string) => {
         try {
@@ -196,9 +120,7 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
         setCountIncorrect(0);
         
 
-        if (dialogue.length === 0) {
-            setIsDisabled(true);
-        } else {
+        if (dialogue.length > 0) {
             sendBotMessage();
         }
     }
@@ -264,7 +186,6 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
 
             <AudioRecorder 
                 onRecordingComplete={setAudioData}
-                disabled={isDisabled}
             />
         </div>
     );
