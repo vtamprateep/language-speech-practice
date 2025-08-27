@@ -92,8 +92,17 @@ async def transcribe_audio(
     audio_bytes = await file.read()
     audio = AudioSegment.from_file(io.BytesIO(audio_bytes), format="webm")
 
-    # Convert to numpy PCM float32
+    # Normalize for whisper
+    dtype_map = {
+        1: np.int8,
+        2: np.int16,
+        4: np.int32
+    }
+    dtype = dtype_map.get(audio.sample_width)
+    audio = audio.set_channels(1)          # mono
+    audio = audio.set_frame_rate(16000)    # 16kHz
     samples = np.array(audio.get_array_of_samples()).astype(np.float32)
+    samples /= np.iinfo(dtype).max  # type: ignore
     sample_rate = audio.frame_rate
 
     model = core_models["WhisperModel"]
