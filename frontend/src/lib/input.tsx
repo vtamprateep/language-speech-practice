@@ -6,14 +6,17 @@ interface AudioRecorderProps {
     onRecordingComplete: (audioBlob: Blob) => void;
 }
 
+
+
 export default function AudioRecorder({ onRecordingComplete }: AudioRecorderProps) {
-    const [recording, setRecording] = useState(false);
+    const [status, setStatus] = useState<"idle" | "preparing" | "recording">("idle");
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
     const audioChunksRef = useRef<Blob[]>([]);
     const audioStreamRef = useRef<MediaStream | null>(null);
 
     const startRecording = async () => {
+        setStatus("preparing");
         const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
         audioStreamRef.current = stream;
 
@@ -24,8 +27,9 @@ export default function AudioRecorder({ onRecordingComplete }: AudioRecorderProp
             audioChunksRef.current.push(event.data);
         };
 
+        mediaRecorderRef.current.onstart = () => setStatus("recording")
+
         mediaRecorderRef.current.start();
-        setRecording(true);
         setAudioUrl(null);
     };
 
@@ -38,7 +42,7 @@ export default function AudioRecorder({ onRecordingComplete }: AudioRecorderProp
                 const url = URL.createObjectURL(blob);
                 setAudioUrl(url);
                 onRecordingComplete(blob);
-                setRecording(false);
+                setStatus("idle");
                 resolve();
             };
 
@@ -48,9 +52,9 @@ export default function AudioRecorder({ onRecordingComplete }: AudioRecorderProp
     };
 
     const handleButtonClick = () => {
-        if (recording) {
+        if (status === "recording") {
             stopRecording();
-        } else {
+        } else if (status === "idle") {
             startRecording();
         }
     };
@@ -59,9 +63,17 @@ export default function AudioRecorder({ onRecordingComplete }: AudioRecorderProp
         <div className="flex flex-col items-center space-y-2">
             <button
                 onClick={handleButtonClick}
-                className={`px-4 py-2 rounded ${recording ? "bg-red-500 text-white" : "bg-green-500 text-white"}`}
+                disabled={status === "preparing"}
+                className={`
+                    px-4 py-2 rounded
+                    ${status === "recording" ? "bg-red-500 text-white" : ""}
+                    ${status === "idle" ? "bg-green-500 text-white" : ""}
+                    ${status === "preparing" ? "bg-gray-400 text-white cursor-not-allowed" : ""}
+                `}
             >
-                {recording ? "Stop Recording" : "Start Recording"}
+                {status === "idle" && "Start Recording"}
+                {status === "preparing" && "Preparing microphone…"}
+                {status === "recording" && "Stop Recording"}
             </button>
 
             {audioUrl && (
