@@ -42,7 +42,7 @@ export async function calculateSimilarity(body: TextComparison): Promise<{ score
 }
 
 // POST /transcribe_audio
-export async function transcribeAudio(file: Blob, language: string = "ENGLISH"): Promise<{ text: string }> {
+export async function transcribeAudio(file: Blob, language: string): Promise<{ text: string }> {
   const formData = new FormData();
   formData.append("file", file, "recording.webm");
   formData.append("language", language);

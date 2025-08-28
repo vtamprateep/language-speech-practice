@@ -123,11 +123,11 @@ async def generate_audio(body: TTSRequest):
 
     # Write to an in-memory buffer as WAV
     buffer = io.BytesIO()
-    sf.write(buffer, audio_data.raw, audio_data.sampling_rate, format="WAV")
+    sf.write(buffer, audio_data.raw, audio_data.sampling_rate, format="WEBM")
     buffer.seek(0)
 
     return StreamingResponse(
         buffer,
-        media_type="audio/wav",
-        headers={"Content-Disposition": "attachment; filename=output.wav"},
+        media_type="audio/webm",
+        headers={"Content-Disposition": "attachment; filename=output.webm"},
     )
