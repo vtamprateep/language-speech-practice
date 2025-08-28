@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { guidedScenariosDialogue, DialogueTurn } from '@/data/scenarios';
-import { Language } from '@/lib/languages';
+import { translateText, calculateSimilarity } from '@/lib/backend';
 
 interface Message {
     sender: 'user' | 'bot';
@@ -22,47 +22,6 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
     const [translationPopup, setTranslationPopup] = useState<string | null>(null);
 
-    const evaluateTextSimilarity = async (userText: string, targetText: string) => {
-        try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_SERVER_URL}/calculate_similarity`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    text_1: userText,
-                    text_2: targetText
-                })
-            })
-            const data = await res.json();
-            return data.score;
-        } catch (err) {
-            console.error('Failed to fetch', err);
-        }
-    }
-
-    const textToEnglish = async (text: string) => {
-        const targetLanguage: Language = 'ENGLISH';
-        try {
-            const res = await fetch(`${process.env.NEXT_PUBLIC_BACKEND_SERVER_URL}/translate_text`, {
-                method: 'PUT',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({
-                    text: text,
-                    sourceLang: "MANDARIN",
-                    targetLang: targetLanguage
-                })
-            })
-            const data = await res.json();
-            console.log(`Translated to ${data.text}`);
-            return data.text;
-        } catch (err) {
-            console.log('Failed to fetch', err);
-        }
-    }
-
     const sendBotMessage = async () => {
         const nextTurn = dialogue[0];
         const botMessage: Message = {
@@ -78,16 +37,23 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     const sendUserMessage = async () => {
         if (!input.trim()) return;
         const newMessage: Message = { sender: 'user', text: input };
-        const newMessageEnglish = await textToEnglish(newMessage.text);
+        const newMessageEnglish = await translateText({
+            text: input,
+            sourceLang: "MANDARIN",
+            targetLang: "ENGLISH"
+        });
         
 
         // Evaluate if response close enough to target sentence
-        const similarityScore = await evaluateTextSimilarity(newMessageEnglish, currentTurn!.targetSentence);
+        const similarityScore = await calculateSimilarity({
+            text_1: newMessageEnglish.text,
+            text_2: currentTurn!.targetSentence
+        });
 
-        if (similarityScore < 0.7) {
+        if (similarityScore.score < 0.7) {
             console.log("Not similar enough, try again!");
             setCountIncorrect(countIncorrect + 1);
-            setTranslationPopup(newMessageEnglish);
+            setTranslationPopup(newMessageEnglish.text);
             setTimeout(() => setTranslationPopup(null), 2000);
             return;
         }
