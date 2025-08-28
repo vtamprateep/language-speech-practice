@@ -17,7 +17,12 @@ export default function AudioRecorder({ onRecordingComplete }: AudioRecorderProp
 
     const startRecording = async () => {
         setStatus("preparing");
-        const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
+        const stream = await navigator.mediaDevices.getUserMedia({ audio: {
+            channelCount: 1, // mono
+            sampleRate: 16000, // optional, match your model’s preferred rate
+            echoCancellation: true, // optional, reduces background echo
+            noiseSuppression: true, // optional
+        }});
         audioStreamRef.current = stream;
 
         mediaRecorderRef.current = new MediaRecorder(stream);
@@ -29,7 +34,7 @@ export default function AudioRecorder({ onRecordingComplete }: AudioRecorderProp
 
         mediaRecorderRef.current.onstart = () => setStatus("recording")
 
-        mediaRecorderRef.current.start();
+        mediaRecorderRef.current.start(200); // Push chunks every 200 ms
         setAudioUrl(null);
     };
 
