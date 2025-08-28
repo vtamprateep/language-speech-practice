@@ -80,9 +80,8 @@ class TextComparison(BaseModel):
 async def calculate_similarity(body: TextComparison):
     print(body)
     model = core_models["SemanticMatcher"]
-    text_1 = body.text_1
-    text_2 = body.text_2
-    return JSONResponse(content={"score": str(model.get_similarity(text_1, text_2))})
+    score = model.get_similarity(body.text_1, body.text_2)
+    return JSONResponse(content={"score": score})
 
 
 @app.post("/transcribe_audio")
