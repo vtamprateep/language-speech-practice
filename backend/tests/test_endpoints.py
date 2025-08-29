@@ -1,9 +1,11 @@
 import io
 from unittest.mock import MagicMock
 
+import numpy as np
 from dependencies import get_models
 from fastapi.testclient import TestClient
 from main import app
+from util.model import AudioData
 
 # Dynamically create magic mock for each model to be loaded
 mock_models = MagicMock()
@@ -79,3 +81,18 @@ def test_transcribe_audio(monkeypatch):
     assert response.status_code == 200
     assert response.json()["text"] == "Test"
     mock_whisper_model.run_inference.assert_called_once()
+
+
+def test_generate_audio(monkeypatch):
+    mock_kokoro_model = MagicMock()
+    mock_kokoro_model.run_inference.return_value = AudioData(
+        sampling_rate=16000, raw=np.zeros(16000, dtype=np.float32)
+    )
+    mock_models.__getitem__.return_value = mock_kokoro_model
+
+    response = test_client.post(
+        url="/api/v1/generate_audio", json={"text": "Test", "language": "MANDARIN"}
+    )
+    assert response.status_code == 200
+    assert response.headers["content-type"] == "audio/webm"
+    assert "attachment; filename=output.webm" in response.headers["content-disposition"]
