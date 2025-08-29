@@ -4,6 +4,7 @@ from typing import Any
 
 import numpy as np
 import soundfile as sf  # type: ignore
+from api.v1 import endpoints
 from fastapi import FastAPI, File, Form, UploadFile
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse, StreamingResponse
@@ -24,7 +25,7 @@ core_models: dict[str, Any] = dict()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    # text_dialogue_engine["mandarin_text"] = MandarinText()
+    app.state.models = core_models
     core_models["SemanticMatcher"] = SemanticMatcher()
     core_models["TextTranslator"] = TextTranslator()
     core_models["WhisperModel"] = WhisperModel()
@@ -33,6 +34,7 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+app.include_router(endpoints.router)
 app.add_middleware(
     middleware_class=CORSMiddleware,
     allow_origins=["*"],
@@ -92,14 +94,10 @@ async def transcribe_audio(
     audio = AudioSegment.from_file(io.BytesIO(audio_bytes), format="webm")
 
     # Normalize for whisper
-    dtype_map = {
-        1: np.int8,
-        2: np.int16,
-        4: np.int32
-    }
+    dtype_map = {1: np.int8, 2: np.int16, 4: np.int32}
     dtype = dtype_map.get(audio.sample_width)
-    audio = audio.set_channels(1)          # mono
-    audio = audio.set_frame_rate(16000)    # 16kHz
+    audio = audio.set_channels(1)  # mono
+    audio = audio.set_frame_rate(16000)  # 16kHz
     samples = np.array(audio.get_array_of_samples()).astype(np.float32)
     samples /= np.iinfo(dtype).max  # type: ignore
     sample_rate = audio.frame_rate
