@@ -13,3 +13,8 @@ pre-commit:
         if [ -n "$FILES" ]; then
           uv run mypy $FILES
         fi
+pre-push:
+  commands:
+    python-pytests-check:
+      run: |
+        uv run pytests backend/tests
