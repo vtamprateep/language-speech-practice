@@ -71,7 +71,7 @@ function WaveformAudioPlayer({ src }: WaveformAudioPlayerProps) {
                     )
                 }
             </button>
-            <div ref={waveformRef} className="flex-1" />
+            <div ref={waveformRef} className="w-full" />
         </div>
     );
 }
@@ -171,14 +171,24 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
             <div className="flex-1 overflow-y-auto mb-4 space-y-2">
                 {messages.map((msg, i) => (
                     <div
-                        key={i}
-                        className={`max-w-md p-3 rounded-lg ${
-                            msg.sender === 'user'
-                                ? 'ml-auto bg-blue-500 text-white'
-                                : 'mr-auto bg-gray-200 text-black'
-                        }`}
+                        key={i} 
+                        className={`
+                            relative max-w-[75%] rounded-2xl shadow-md flex-shrink-0
+                            ${msg.sender === 'user' ? 'justify-end' : 'justify-start'} px-2
+                            animate-slide-in
+                        `}
                     >
-                        <WaveformAudioPlayer src={msg.audioUrl} />
+                        <div
+                            className={`
+                                relative max-w-[75%] rounded-2xl shadow-md flex-shrink-0
+                                ${msg.sender === 'user' ? 'bg-blue-500 text-white rounded-br-none' : 'bg-gray-200 text-black rounded-bl-none'}
+                                animate-slide-in
+                            `}
+                        >
+                            <div className="p-2">
+                                <WaveformAudioPlayer src={msg.audioUrl} />
+                            </div>
+                        </div>
                     </div>
                 ))}
                 <div ref={messagesEndRef} />
