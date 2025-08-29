@@ -1,18 +1,10 @@
-import io
 from contextlib import asynccontextmanager
 from typing import Any
 
-import numpy as np
-import soundfile as sf  # type: ignore
 from api.v1 import endpoints
-from fastapi import FastAPI, File, Form, UploadFile
+from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from fastapi.responses import JSONResponse, StreamingResponse
-from pydantic import BaseModel
-from pydub import AudioSegment  # type: ignore
-from util.languages import Language
 from util.model import (
-    AudioData,
     KokoroModel,
     SemanticMatcher,
     TextTranslator,
@@ -25,12 +17,14 @@ core_models: dict[str, Any] = dict()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    app.state.models = core_models
-    core_models["SemanticMatcher"] = SemanticMatcher()
-    core_models["TextTranslator"] = TextTranslator()
-    core_models["WhisperModel"] = WhisperModel()
-    core_models["KokoroModel"] = KokoroModel()
+    app.state.model = {
+        "SemanticMatcher": SemanticMatcher(),
+        "TextTranslator": TextTranslator(),
+        "WhisperModel": WhisperModel(),
+        "KokoroModel": KokoroModel(),
+    }
     yield
+    app.state.model.clear()
 
 
 app = FastAPI(lifespan=lifespan)
@@ -42,90 +36,3 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
-
-class ChatInput(BaseModel):
-    text: str
-
-
-# @app.post("/bot/chat")
-# async def chat(request: Request, input: ChatInput):
-#     prompt = input.text
-#     bot_response = text_dialogue_engine["mandarin_text"]._get_bot_response(prompt)
-#     return JSONResponse(content={"text": bot_response})
-
-
-class TextTranslate(BaseModel):
-    text: str
-    sourceLang: Language
-    targetLang: Language
-
-
-@app.put("/translate_text")
-async def translate_text(body: TextTranslate):
-    model = core_models["TextTranslator"]
-    return JSONResponse(
-        content={
-            "text": model.translate(
-                text=body.text, source=body.sourceLang, target=body.targetLang
-            )
-        }
-    )
-
-
-class TextComparison(BaseModel):
-    text_1: str
-    text_2: str
-
-
-@app.put("/calculate_similarity")
-async def calculate_similarity(body: TextComparison):
-    print(body)
-    model = core_models["SemanticMatcher"]
-    score = model.get_similarity(body.text_1, body.text_2)
-    return JSONResponse(content={"score": score})
-
-
-@app.post("/transcribe_audio")
-async def transcribe_audio(
-    file: UploadFile = File(...), language: str = Form("ENGLISH")
-):
-    audio_bytes = await file.read()
-    audio = AudioSegment.from_file(io.BytesIO(audio_bytes), format="webm")
-
-    # Normalize for whisper
-    dtype_map = {1: np.int8, 2: np.int16, 4: np.int32}
-    dtype = dtype_map.get(audio.sample_width)
-    audio = audio.set_channels(1)  # mono
-    audio = audio.set_frame_rate(16000)  # 16kHz
-    samples = np.array(audio.get_array_of_samples()).astype(np.float32)
-    samples /= np.iinfo(dtype).max  # type: ignore
-    sample_rate = audio.frame_rate
-
-    model = core_models["WhisperModel"]
-    result = model.run_inference(
-        AudioData(sampling_rate=sample_rate, raw=samples), source_language=language
-    )
-    return JSONResponse(content={"text": result["text"]})
-
-
-class TTSRequest(BaseModel):
-    text: str
-    language: str
-
-
-@app.post("/generate_audio")
-async def generate_audio(body: TTSRequest):
-    model = core_models["KokoroModel"]
-    audio_data = model.run_inference(body.text, body.language)
-
-    # Write to an in-memory buffer as WAV
-    buffer = io.BytesIO()
-    sf.write(buffer, audio_data.raw, audio_data.sampling_rate, format="WEBM")
-    buffer.seek(0)
-
-    return StreamingResponse(
-        buffer,
-        media_type="audio/webm",
-        headers={"Content-Disposition": "attachment; filename=output.webm"},
-    )
