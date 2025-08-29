@@ -35,7 +35,7 @@ class TextComparison(BaseModel):
     text_2: str
 
 
-@router.put("/api/v1/calculate_similarity")
+@router.post("/api/v1/calculate_similarity")
 async def calculate_similarity(body: TextComparison, model=Depends(get_models)):
     return JSONResponse(
         content={
