@@ -22,20 +22,18 @@ export default function HomePage() {
                         <h2 className="text-xl font-semibold">{scenario.title}</h2>
                         <p className="text-gray-600">{scenario.description}</p>
                             <Link
-                                href={`/session/text/${scenario.path}`}
+                                href={`/text/${scenario.path}`}
                                 className="px-3 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
                             >
                                 Text        
                             </Link>
                             <Link
-                                href={`/session/audio/${scenario.path}`}
+                                href={`/audio/${scenario.path}`}
                                 className="px-3 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
                             >
                                 Audio        
                             </Link>
                     </div>
-
-                    
                 ))}
             </div>
         </main>
