@@ -19,10 +19,10 @@ export interface TTSRequest {
 }
 
 
-// PUT /translate_text
+// POST /translate_text
 export async function translateText(body: TextTranslate): Promise<{ text: string }> {
-  const res = await fetch(`${API_BASE}/translate_text`, {
-    method: "PUT",
+  const res = await fetch(`${API_BASE}/api/v1/api/v1/translate_text`, {
+    method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
@@ -30,10 +30,10 @@ export async function translateText(body: TextTranslate): Promise<{ text: string
   return res.json();
 }
 
-// PUT /calculate_similarity
+// POST /calculate_similarity
 export async function calculateSimilarity(body: TextComparison): Promise<{ score: number }> {
-  const res = await fetch(`${API_BASE}/calculate_similarity`, {
-    method: "PUT",
+  const res = await fetch(`${API_BASE}/api/v1/calculate_similarity`, {
+    method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
   });
@@ -47,7 +47,7 @@ export async function transcribeAudio(file: Blob, language: string): Promise<{ t
   formData.append("file", file, "recording.webm");
   formData.append("language", language);
 
-  const res = await fetch(`${API_BASE}/transcribe_audio`, {
+  const res = await fetch(`${API_BASE}/api/v1/transcribe_audio`, {
     method: "POST",
     body: formData,
   });
@@ -57,7 +57,7 @@ export async function transcribeAudio(file: Blob, language: string): Promise<{ t
 
 // POST /generate_audio
 export async function generateAudio(body: TTSRequest): Promise<Blob> {
-  const res = await fetch(`${API_BASE}/generate_audio`, {
+  const res = await fetch(`${API_BASE}/api/v1/generate_audio`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),
