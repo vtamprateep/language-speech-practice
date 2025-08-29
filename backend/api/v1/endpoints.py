@@ -90,7 +90,6 @@ async def generate_audio(body: TTSRequest, model=Depends(get_models)):
     # Write to an in-memory buffer
     buffer = io.BytesIO()
     audio_segment.export(out_f=buffer, format="webm")
-    # sf.write(buffer, audio_data.raw, audio_data.sampling_rate, format="WEBM")
     buffer.seek(0)
 
     return StreamingResponse(
