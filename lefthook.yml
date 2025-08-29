@@ -15,6 +15,6 @@ pre-commit:
         fi
 pre-push:
   commands:
-    python-pytests-check:
+    python-pytest-check:
       run: |
-        uv run pytests backend/tests
+        uv run pytest backend/tests
