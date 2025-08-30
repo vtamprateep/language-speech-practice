@@ -1,38 +1,44 @@
 'use client';
 
-import { useState, useRef, useEffect } from 'react';
 import Link from "next/link"
 import { guidedScenarios } from "@/data/scenarios"
 
-
 export default function HomePage() {
-
     return (
-        <main className="min-h-screen flex flex-col items-center justify-center p-8 bg-white text-black">
-            <h1 className="text-3xl font-bold mb-6 text-center">
+        <main className="min-h-screen flex flex-col items-center p-8 bg-gradient-to-b from-gray-50 to-gray-100 text-gray-900">
+            <h1 className="text-3xl font-bold mb-8 text-center">
                 Choose a guided scenario to get started
             </h1>
 
-            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+            <div 
+                className="
+                    grid gap-6 
+                    auto-rows-max
+                    grid-cols-[repeat(auto-fit,minmax(18rem,0))]
+                    justify-center
+                "
+            >
                 {guidedScenarios.map((scenario) => (
                     <div
                         key={scenario.id}
-                        className="border border-gray-200 rounded-lg p-4 w-72 text-center shadow-sm hover:shadow-md transition"
+                        className="w-72 bg-white border border-gray-200 rounded-xl p-6 text-center shadow-sm hover:shadow-md transition"
                     >
-                        <h2 className="text-xl font-semibold">{scenario.title}</h2>
-                        <p className="text-gray-600">{scenario.description}</p>
+                        <h2 className="text-lg font-semibold mb-2">{scenario.title}</h2>
+                        <p className="text-gray-600 text-sm mb-4">{scenario.description}</p>
+                        <div className="flex justify-center gap-3">
                             <Link
                                 href={`/text/${scenario.path}`}
-                                className="px-3 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+                                className="px-3 py-1.5 rounded-lg border border-blue-500 text-blue-600 hover:bg-blue-50 transition"
                             >
-                                Text        
+                                Text
                             </Link>
                             <Link
                                 href={`/audio/${scenario.path}`}
-                                className="px-3 py-1 rounded-lg bg-blue-600 text-white hover:bg-blue-700 transition"
+                                className="px-3 py-1.5 rounded-lg border border-blue-500 text-blue-600 hover:bg-blue-50 transition"
                             >
-                                Audio        
+                                Audio
                             </Link>
+                        </div>
                     </div>
                 ))}
             </div>
