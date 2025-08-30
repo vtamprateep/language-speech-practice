@@ -4,17 +4,21 @@ pre-commit:
       run: |
         FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.py$' || true)
         if [ -n "$FILES" ]; then
-          cd backend; uv run ruff check --select I $FILES
+          FILES=$(echo "$FILES" | sed 's|^backend/||')
+          cd backend
+          uv run ruff check --select I $FILES
         fi
 
     python-mypy-check:
       run: |
         FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.py$' || true)
         if [ -n "$FILES" ]; then
-          cd backend; uv run mypy $FILES
+          FILES=$(echo "$FILES" | sed 's|^backend/||')
+          cd backend
+          uv run mypy $FILES
         fi
 pre-push:
   commands:
     python-pytest-check:
       run: |
-        uv run pytest backend/tests
+        cd backend; uv run pytest backend/tests

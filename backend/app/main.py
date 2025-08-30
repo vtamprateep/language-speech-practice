@@ -1,9 +1,10 @@
 from contextlib import asynccontextmanager
 from typing import Any
 
-from app.api.v1 import endpoints
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+
+from app.api.v1 import endpoints
 from app.util.model import (
     KokoroModel,
     SemanticMatcher,

@@ -2,9 +2,10 @@ import io
 from unittest.mock import MagicMock
 
 import numpy as np
-from app.dependencies import get_models
 from fastapi.testclient import TestClient
-from backend.app.main import app
+
+from app.dependencies import get_models
+from app.main import app
 from app.util.model import AudioData
 
 # Dynamically create magic mock for each model to be loaded
@@ -68,7 +69,7 @@ def test_transcribe_audio(monkeypatch):
             return [0, 1, 2, 3]
 
     monkeypatch.setattr(
-        "api.v1.endpoints.AudioSegment.from_file", lambda *a, **kw: FakeAudio()
+        "app.api.v1.endpoints.AudioSegment.from_file", lambda *a, **kw: FakeAudio()
     )
 
     response = test_client.post(

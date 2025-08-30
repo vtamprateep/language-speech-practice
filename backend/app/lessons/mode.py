@@ -1,13 +1,12 @@
-from util.audio import VoiceRecorder
-from util.languages import Language
-from util.model import (
+from lessons.types import GrammarItem, VocabularyItem  # type: ignore
+from util.audio import VoiceRecorder  # type: ignore
+from util.languages import Language  # type: ignore
+from util.model import (  # type: ignore
     QwenCausalLM,
     SpeechToTextModel,
     TextToSpeechModel,
     TextTranslator,
 )
-
-from lessons.types import GrammarItem, VocabularyItem
 
 
 class MandarinSpeech:
