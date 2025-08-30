@@ -1,10 +1,79 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
+import WaveSurfer from 'wavesurfer.js';
+
+interface WaveformAudioPlayerProps {
+    src: string;
+}
+
+export function WaveformAudioPlayer({ src }: WaveformAudioPlayerProps) {
+    const waveformRef = useRef<HTMLDivElement | null>(null);
+    const wavesurferRef = useRef<WaveSurfer | null>(null);
+    const [isPlaying, setIsPlaying] = useState(false);
+
+    useEffect(() => {
+        if (!waveformRef.current) return;
+
+        // Initialize wavesurfer
+        wavesurferRef.current = WaveSurfer.create({
+            container: waveformRef.current,
+            waveColor: '#ddd',
+            progressColor: '#3b82f6', // Tailor to your color scheme
+            cursorColor: 'transparent',
+            barWidth: 3,
+            barRadius: 3,
+            height: 40,
+            // responsive: true,
+        });
+
+        wavesurferRef.current.load(src);
+
+        wavesurferRef.current.on('finish', () => setIsPlaying(false));
+
+        return () => {
+            wavesurferRef.current?.destroy();
+        };
+    }, [src]);
+
+    const togglePlay = () => {
+        wavesurferRef.current?.playPause();
+        setIsPlaying(!isPlaying);
+    };
+
+    return (
+        <div className="flex items-center space-x-2">
+            <button
+                onClick={togglePlay}
+                className="
+                    w-10 h-10
+                    flex items-center justify-center
+                    bg-blue-500 text-white
+                    rounded-full
+                    shadow-md
+                    hover:bg-blue-600
+                    transition-colors duration-200
+                "
+            >
+                {isPlaying ? (
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 9v6m4-6v6" />
+                        </svg>
+                    ) : (
+                        <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 ml-0.5" fill="currentColor" viewBox="0 0 24 24" stroke="none">
+                            <path d="M5 3v18l15-9L5 3z" />
+                        </svg>
+                    )
+                }
+            </button>
+            <div ref={waveformRef} className="w-full" />
+        </div>
+    );
+}
 
 interface AudioRecorderProps {
     onRecordingComplete: (audioBlob: Blob) => void;
 }
 
-export default function AudioRecorder({ onRecordingComplete }: AudioRecorderProps) {
+export function AudioRecorder({ onRecordingComplete }: AudioRecorderProps) {
     const [status, setStatus] = useState<"idle" | "preparing" | "recording">("idle");
     const [audioUrl, setAudioUrl] = useState<string | null>(null);
     const mediaRecorderRef = useRef<MediaRecorder | null>(null);
@@ -62,26 +131,28 @@ export default function AudioRecorder({ onRecordingComplete }: AudioRecorderProp
 
     return (
         <div className="flex flex-col items-center space-y-2">
-            <button
-                onClick={handleButtonClick}
-                disabled={status === "preparing"}
-                className={`
-                    px-4 py-2 rounded
-                    ${status === "recording" ? "bg-red-500 text-white" : ""}
-                    ${status === "idle" ? "bg-green-500 text-white" : ""}
-                    ${status === "preparing" ? "bg-gray-400 text-white cursor-not-allowed" : ""}
-                `}
-            >
-                {status === "idle" && "Start Recording"}
-                {status === "preparing" && "Preparing microphone…"}
-                {status === "recording" && "Stop Recording"}
-            </button>
+            <div className="flex items-center space-x-4">
+                <button
+                    onClick={handleButtonClick}
+                    disabled={status === "preparing"}
+                    className="relative w-12 h-12 flex items-center justify-center"
+                >
+                    {/* Outer circle border */}
+                    <div className="absolute w-12 h-12 rounded-full border-2 border-white bg-black/20" />
 
-            {audioUrl && (
-                <audio controls className="mt-2">
-                    <source src={audioUrl} type="audio/webm" />
-                </audio>
-            )}
+                    {status === "idle" && (
+                        <div className="w-8 h-8 rounded-full bg-red-600" />
+                    )}
+
+                    {status === "recording" && (
+                        <div className="w-5 h-5 bg-red-600 rounded-sm" />
+                    )}
+
+                    {status === "preparing" && (
+                        <div className="w-8 h-8 rounded-full bg-gray-400 animate-pulse" />
+                    )}
+                </button>
+            </div>
         </div>
     );
 }
