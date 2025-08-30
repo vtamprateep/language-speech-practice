@@ -4,14 +4,14 @@ pre-commit:
       run: |
         FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.py$' || true)
         if [ -n "$FILES" ]; then
-          uv run ruff check --select I $FILES
+          cd backend; uv run ruff check --select I $FILES
         fi
 
     python-mypy-check:
       run: |
         FILES=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.py$' || true)
         if [ -n "$FILES" ]; then
-          uv run mypy $FILES
+          cd backend; uv run mypy $FILES
         fi
 pre-push:
   commands:
