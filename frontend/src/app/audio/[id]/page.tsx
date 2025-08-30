@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { guidedScenariosDialogue, DialogueTurn } from '@/data/scenarios';
-import AudioRecorder from '@/lib/input';
+import AudioRecorder from '@/lib/components/audio';
 import WaveSurfer from 'wavesurfer.js';
 
 import { translateText, transcribeAudio, calculateSimilarity, generateAudio } from '@/lib/backend';
