@@ -2,10 +2,10 @@ import io
 from unittest.mock import MagicMock
 
 import numpy as np
-from dependencies import get_models
+from app.dependencies import get_models
 from fastapi.testclient import TestClient
-from main import app
-from util.model import AudioData
+from backend.app.main import app
+from app.util.model import AudioData
 
 # Dynamically create magic mock for each model to be loaded
 mock_models = MagicMock()

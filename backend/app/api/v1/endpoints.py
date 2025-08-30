@@ -2,13 +2,13 @@ import io
 
 import numpy as np
 import soundfile as sf  # type: ignore
-from dependencies import get_models
+from app.dependencies import get_models
 from fastapi import APIRouter, Depends, File, Form, UploadFile
 from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel
 from pydub import AudioSegment  # type: ignore
-from util.languages import Language
-from util.model import AudioData
+from app.util.languages import Language
+from app.util.model import AudioData
 
 router = APIRouter()
 
