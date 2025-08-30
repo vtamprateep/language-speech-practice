@@ -23,7 +23,7 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
     const [audioData, setAudioData] = useState<Blob>();
     const [translationPopup, setTranslationPopup] = useState<string | null>(null);
 
-    const createMessage = async (user: "bot" | "user", text?: string, audioUrl?: string) => {
+    const createMessage = async (user: "bot" | "user", text?: string, audioUrl?: string, firstRender: boolean = false) => {
         if (!text && !audioUrl) throw new Error("Must provide at least one of text or audioUrl args");
 
         var message: VoiceMessage;
@@ -43,8 +43,12 @@ export default function ChatPage({ params }: { params: Promise<{ id: string }>})
                 audioUrl: URL.createObjectURL(audioBlob)
             }
         }
-        
-        setMessages(prev => [...prev, message]);
+
+        if (firstRender) {
+            setMessages([message]);
+        } else {
+            setMessages(prev => [...prev, message]);
+        }
     }
 
     const handleIncorrectAttempt = async (text: string) => {
