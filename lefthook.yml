@@ -21,4 +21,6 @@ pre-push:
   commands:
     python-pytest-check:
       run: |
-        cd backend; uv run pytest backend/tests
+        FILES=$(echo "$FILES" | sed 's|^backend/||')
+        cd backend
+        uv run pytest backend/tests
