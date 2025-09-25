@@ -31,13 +31,13 @@ export default function HomePage() {
                         <p className="text-gray-600 text-sm mb-4">{scenario.description}</p>
                         <div className="flex justify-center gap-3">
                             <Link
-                                href={`/text/${scenario.path}`}
+                                href={`/guided_dialogue/text/${scenario.path}`}
                                 className="px-3 py-1.5 rounded-lg border border-blue-500 text-blue-600 hover:bg-blue-50 transition"
                             >
                                 Text
                             </Link>
                             <Link
-                                href={`/audio/${scenario.path}`}
+                                href={`/guided_dialogue/audio/${scenario.path}`}
                                 className="px-3 py-1.5 rounded-lg border border-blue-500 text-blue-600 hover:bg-blue-50 transition"
                             >
                                 Audio
