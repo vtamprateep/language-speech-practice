@@ -86,6 +86,32 @@ export default function HomePage() {
                     </Link>
                 ))}
             </div>
+
+            {/* Grammar Rules Section */}
+            <h1 className="text-3xl font-bold mt-16 mb-8 text-center">
+                Grammar Rules
+            </h1>
+
+            <Link
+                href="/grammar"
+                className="
+                    w-72
+                    bg-white 
+                    border 
+                    border-purple-500 
+                    rounded-xl 
+                    p-6 
+                    text-center 
+                    shadow-sm 
+                    hover:shadow-md 
+                    transition
+                "
+            >
+                <span className="text-lg font-semibold">Browse Grammar Rules</span>
+                <p className="text-gray-600 text-sm mt-2">
+                    Explore explanations, examples, and practice sentences.
+                </p>
+            </Link>
         </main>
     );
 }
