@@ -1,7 +1,7 @@
 'use client';
 
 import { notFound } from 'next/navigation';
-import React, { useState} from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
     vocabulary_1,
     vocabulary_2,
@@ -63,7 +63,7 @@ function Flashcard({ item }: { item: VocabularyItem }) {
                     </div>
                 ) : (
                     <div className="absolute w-full h-full flex items-center justify-center bg-white rounded-xl backface-hidden">
-                        <span className="text-4xl font-bold">{item.s}</span>
+                        <span className="text-4xl font-bold text-black">{item.s}</span>
                     </div>
                     
                 )}
@@ -80,6 +80,17 @@ export default function FlashcardsPage({ params }: { params: Promise<{ level: st
 
     const [index, setIndex] = useState<number>(0);
 
+    function shuffle<T>(arr: T[]) {
+        for (var i = arr.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * (i + 1));
+            var temp = arr[i];
+            arr[i] = arr[j];
+            arr[j] = temp;
+        }
+
+        return arr
+    }
+
     function nextCard() {
         setIndex((i) => (i + 1) % vocabulary.length);
     }
@@ -87,6 +98,10 @@ export default function FlashcardsPage({ params }: { params: Promise<{ level: st
     function prevCard() {
         setIndex((i) => (i - 1 + vocabulary.length) % vocabulary.length);
     }
+
+    useEffect(() => {
+        shuffle(vocabulary);
+    }, [])
 
     return (
         <div className="flex flex-col items-center p-6 gap-6">
