@@ -8,22 +8,22 @@ import rawData7 from './vocabulary_raw/hsk_n7+.json' assert { type:"json" };
 
 
 export interface VocabularyForm { 
-    t: string; // traditional 
-    i: { // transcriptions 
-        y: string; // pinyin
-        b: string; // bopomofo
+    traditional: string;
+    transcriptions: {
+        pinyin: string;
+        bopomofo: string;
     }; 
-    m: string[]; // meanings 
-    c: string[]; // classifiers 
+    meanings: string[];
+    classifiers: string[];
 } 
 
 export interface VocabularyItem { 
-    s: string; // simplified 
-    r: string; // radical 
-    l: string[]; // level 
-    q: number; // frequency 
-    p: string[]; // parts of speech 
-    f: VocabularyForm[]; // forms 
+    simplified: string;
+    radical: string;
+    level: string[];
+    frequency: number;
+    pos: string[];
+    forms: VocabularyForm[];
 }
 
 export const vocabulary_1: VocabularyItem[] = rawData1 as VocabularyItem[];
