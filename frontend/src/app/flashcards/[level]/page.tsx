@@ -53,17 +53,17 @@ function Flashcard({ item }: { item: VocabularyItem }) {
                 {flipped ? (
                     <div className="absolute w-full h-full flex flex-col items-center justify-center bg-white rounded-xl backface-hidden p-4">
                         <p className="text-lg font-medium text-black">
-                            {item.f[0]?.i.y} ({item.f[0]?.i.b})
+                            {item.forms[0]?.transcriptions.pinyin} ({item.forms[0]?.transcriptions.bopomofo})
                         </p>
                         <ul className="mt-2 text-sm text-gray-700">
-                            {item.f[0]?.m.map((m, i) => (
-                                <li key={i}>{m}</li>
+                            {item.forms[0]?.meanings.map((meanings, transcriptions) => (
+                                <li key={transcriptions}>{meanings}</li>
                             ))}
                         </ul>
                     </div>
                 ) : (
                     <div className="absolute w-full h-full flex items-center justify-center bg-white rounded-xl backface-hidden">
-                        <span className="text-4xl font-bold text-black">{item.s}</span>
+                        <span className="text-4xl font-bold text-black">{item.simplified}</span>
                     </div>
                     
                 )}
