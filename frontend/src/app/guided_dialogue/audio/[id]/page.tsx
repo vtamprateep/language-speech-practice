@@ -2,7 +2,7 @@
 
 import React, { useState, useRef, useEffect } from 'react';
 import { guidedScenariosDialogue, DialogueTurn } from '@/data/scenarios';
-import { WaveformAudioPlayer, AudioRecorder } from '@/lib/components/audio';
+import { WaveformAudioPlayer, AudioRecorder } from '@/lib/components/ui/audio';
 
 import { translateText, transcribeAudio, calculateSimilarity, generateAudio } from '@/lib/backend';
 
