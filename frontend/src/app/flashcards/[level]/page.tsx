@@ -2,6 +2,7 @@
 
 import { notFound } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
+import { VocabularyFlashcard } from '@/components/features/flashcard';
 import { 
     vocabulary_1,
     vocabulary_2,
@@ -22,54 +23,6 @@ const vocabularyByLevel: Record<string, VocabularyItem[]> = {
     "5": vocabulary_5,
     "6": vocabulary_6,
     "7": vocabulary_7,
-}
-
-
-function Flashcard({ item }: { item: VocabularyItem }) {
-    const [flipped, setFlipped] = useState(false);
-  
-    return (
-        <div
-            className="
-                relative 
-                w-64 
-                h-40 
-                cursor-pointer 
-                perspective
-            "
-            onClick={() => setFlipped(!flipped)}
-        >
-            <div
-                className={`
-                    absolute 
-                    w-full 
-                    h-full 
-                    rounded-xl 
-                    shadow-lg 
-                    transition-transform 
-                    duration-500 
-                `}
-            >
-                {flipped ? (
-                    <div className="absolute w-full h-full flex flex-col items-center justify-center bg-white rounded-xl backface-hidden p-4">
-                        <p className="text-lg font-medium text-black">
-                            {item.forms[0]?.transcriptions.pinyin} ({item.forms[0]?.transcriptions.bopomofo})
-                        </p>
-                        <ul className="mt-2 text-sm text-gray-700">
-                            {item.forms[0]?.meanings.map((meanings, transcriptions) => (
-                                <li key={transcriptions}>{meanings}</li>
-                            ))}
-                        </ul>
-                    </div>
-                ) : (
-                    <div className="absolute w-full h-full flex items-center justify-center bg-white rounded-xl backface-hidden">
-                        <span className="text-4xl font-bold text-black">{item.simplified}</span>
-                    </div>
-                    
-                )}
-            </div>
-        </div>
-    );
 }
 
 
@@ -107,7 +60,17 @@ export default function FlashcardsPage({ params }: { params: Promise<{ level: st
         <div className="flex flex-col items-center p-6 gap-6">
             <h1 className="text-2xl font-bold">HSK Level {level} Flashcards</h1>
 
-            <Flashcard key={index} item={vocabulary[index]} />
+            <div
+                className="
+                    relative 
+                    w-64 
+                    h-40 
+                    cursor-pointer 
+                    perspective
+                "
+            >
+                <VocabularyFlashcard key={index} item={vocabulary[index]} />
+            </div>
 
             {/* Controls */}
             <div className="flex gap-4">
