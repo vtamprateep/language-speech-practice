@@ -1,6 +1,6 @@
 export interface DialogueTurn {
     turn: number;
-    speaker: "Server";
+    speaker: string;
     mandarin: string;
     pinyin: string;
     english: string;
@@ -16,6 +16,12 @@ export const guidedScenarios = [
         "path": "at-a-restaurant",
         "title": "At a restaurant",
         "description": "Practice ordering a meal in Mandarin."
+    },
+    {
+        "id": "2",
+        "path": "introducing-yourself",
+        "title": "Introducing yourself",
+        "description": "Learn how to greet one another."
     }
 ]
 
@@ -120,6 +126,28 @@ export const guidedScenariosDialogue: Record<string, DialogueTurn[]> = {
             "userPrompt": "Acknowledge politely and say you will.",
             "targetSentence": "Okay, I will.",
             "hint": "You can say '好，我会的' to acknowledge politely."
+        }
+    ],
+    "introducing-yourself": [
+        {
+            "turn": 1,
+            "speaker": "Other Person",
+            "mandarin": "你好！",
+            "pinyin": "Nǐ hǎo!",
+            "english": "Hello!",
+            "userPrompt": "Say hello back.",
+            "targetSentence": "Hello!",
+            "hint": "Keep it simple with '你好'."
+        },
+        {
+            "turn": 2,
+            "speaker": "Other Person",
+            "mandarin": "我是小王。你叫什麼名字？",
+            "pinyin": "Wǒ shì Xiǎo Wáng. Nǐ jiào shénme míngzì?",
+            "english": "I am Xiao Wang. What is your name?",
+            "userPrompt": "Introduce yourself by saying 'I am ___'.",
+            "targetSentence": "I am ___.",
+            "hint": "Use '我是' to say 'I am'."
         }
     ]
 }
