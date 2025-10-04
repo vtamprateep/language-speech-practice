@@ -7,12 +7,10 @@ import { Card, CardContent } from '../ui/card';
 
 import { translateText, transcribeAudio, calculateSimilarity, generateAudio } from '@/lib/backend';
 
-
 interface VoiceMessage {
     sender: 'user' | 'bot';
     audioUrl: string;
 }
-
 
 export default function GuidedDialogueAudio(
     { dialogueSet }: { dialogueSet: DialogueTurn[] }
@@ -28,13 +26,10 @@ export default function GuidedDialogueAudio(
     const createMessage = async (user: "bot" | "user", text?: string, audioUrl?: string, firstRender: boolean = false) => {
         if (!text && !audioUrl) throw new Error("Must provide at least one of text or audioUrl args");
 
-        var message: VoiceMessage;
+        let message: VoiceMessage;
 
         if (audioUrl) {
-            message = {
-                sender: user,
-                audioUrl: audioUrl
-            }
+            message = { sender: user, audioUrl };
         } else {
             const audioBlob = await generateAudio({
                 text: text!,
@@ -43,25 +38,21 @@ export default function GuidedDialogueAudio(
             message = {
                 sender: user,
                 audioUrl: URL.createObjectURL(audioBlob)
-            }
+            };
         }
 
-        if (firstRender) {
-            setMessages([message]);
-        } else {
-            setMessages(prev => [...prev, message]);
-        }
-    }
+        setMessages(prev =>
+            firstRender ? [message] : [...prev, message]
+        );
+    };
 
     const handleIncorrectAttempt = async (text: string) => {
-        console.log("Not similar enough, try again!");
         setCountIncorrect(countIncorrect + 1);
         setTranslationPopup(text);
-        setTimeout(() => setTranslationPopup(null), 2000);  
-    }
+        setTimeout(() => setTranslationPopup(null), 2000);
+    };
 
     const evaluateUserAudio = async (data: Blob) => {
-        // Transcribe and translate audio, calc similarity
         const audioText = await transcribeAudio(data, "MANDARIN");
         const translatedText = await translateText({
             text: audioText.text,
@@ -80,46 +71,41 @@ export default function GuidedDialogueAudio(
 
         await createMessage("user", undefined, URL.createObjectURL(data));
         setCountIncorrect(0);
-        
 
         if (dialogue.length > 1) {
             await createMessage("bot", dialogue[1].mandarin);
-            setDialogue(dialogue.slice(1))
+            setDialogue(dialogue.slice(1));
         }
-    }
+    };
 
-    useEffect(() => {  // On mount, grab appropriate dialogue
+    useEffect(() => {
         const copyDialogueSet = dialogueSet.slice();
         setDialogue(copyDialogueSet);
-        createMessage("bot", copyDialogueSet[0].mandarin, undefined, true); // Load first message
-    }, [])
+        createMessage("bot", copyDialogueSet[0].mandarin, undefined, true);
+    }, []);
 
     useEffect(() => {
         messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
-    }, [messages])
+    }, [messages]);
 
     useEffect(() => {
         if (audioData) evaluateUserAudio(audioData);
-    }, [audioData])
+    }, [audioData]);
 
     return (
         <div className="flex flex-col h-screen p-4">
             <ScrollArea className="flex-1 mb-4 pr-2">
                 {messages.map((msg, i) => (
                     <div
-                        key={i} 
-                        className={`
-                            relative max-w-[75%] rounded-2xl shadow-md flex-shrink-0
-                            ${msg.sender === 'user' ? 'justify-end' : 'justify-start'} px-2
-                            animate-slide-in
-                        `}
+                        key={i}
+                        className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'} animate-slide-in mb-2`}
                     >
                         <Card
-                            className={`
-                                relative max-w-[75%] rounded-2xl shadow-md flex-shrink-0
-                                ${msg.sender === 'user' ? 'bg-blue-500 text-white rounded-br-none' : 'bg-gray-200 text-black rounded-bl-none'}
-                                animate-slide-in
-                            `}
+                            className={`max-w-[75%] rounded-2xl ${
+                                msg.sender === 'user'
+                                    ? 'bg-blue-500 text-white rounded-br-none'
+                                    : 'bg-gray-200 text-black rounded-bl-none'
+                            }`}
                         >
                             <CardContent className="p-2">
                                 <WaveformAudioPlayer src={msg.audioUrl} />
@@ -131,28 +117,24 @@ export default function GuidedDialogueAudio(
             </ScrollArea>
 
             {translationPopup && (
-                <Alert className="mb-2 p-2 bg-black bg-opacity-80 text-white rounded-md text-sm text-center animate-fade-in-out">
+                <Alert className="mb-2 animate-fade-in-out">
                     <AlertDescription>🗣️ You said: {translationPopup}</AlertDescription>
-                    
                 </Alert>
             )}
 
             {dialogue[0]?.userPrompt && (
-                <Alert className="mb-2 p-2 bg-yellow-100 border border-yellow-300 text-yellow-800 rounded-md text-sm">
+                <Alert className="mb-2">
                     <AlertDescription>🎯 Next Prompt: {dialogue[0].userPrompt}</AlertDescription>
                 </Alert>
             )}
 
             {countIncorrect >= 3 && dialogue[0].hint && (
-                <Alert className="mb-2 p-2 bg-green-100 border border-green-300 text-green-800 rounded-md text-sm">
+                <Alert className="mb-2">
                     <AlertDescription>💡 Hint: {dialogue[0].hint}</AlertDescription>
-                    
                 </Alert>
             )}
 
-            <AudioRecorder 
-                onRecordingComplete={setAudioData}
-            />
+            <AudioRecorder onRecordingComplete={setAudioData} />
         </div>
     );
 }
