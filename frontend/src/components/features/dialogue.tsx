@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { guidedScenariosDialogue, DialogueTurn } from '@/data/scenarios';
+import { DialogueTurn } from '@/data/scenarios';
 import { WaveformAudioPlayer, AudioRecorder } from '@/lib/components/ui/audio';
 import { ScrollArea } from '../ui/scroll-area';
 import { Alert, AlertDescription } from '../ui/alert';
@@ -14,7 +14,7 @@ interface VoiceMessage {
 }
 
 
-export default function GuidedDialogueText(
+export default function GuidedDialogueAudio(
     { dialogueSet }: { dialogueSet: DialogueTurn[] }
 ) {
     const messagesEndRef = useRef<HTMLDivElement | null>(null);
@@ -89,11 +89,9 @@ export default function GuidedDialogueText(
     }
 
     useEffect(() => {  // On mount, grab appropriate dialogue
-        if (dialogueSet.length > 0) {
-            setDialogue(dialogueSet);
-            createMessage("bot", dialogueSet[0].mandarin); // Load first message
-        }
-        
+        const copyDialogueSet = dialogueSet.slice();
+        setDialogue(copyDialogueSet);
+        createMessage("bot", copyDialogueSet[0].mandarin, undefined, true); // Load first message
     }, [])
 
     useEffect(() => {
