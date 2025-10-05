@@ -40,7 +40,7 @@ class TextComparison(BaseModel):
 async def calculate_similarity(body: TextComparison, model=Depends(get_models)):
     return JSONResponse(
         content={
-            "score": model["SemanticMatcher"].get_similarity(body.text_1, body.text_2)
+            "score": str(model["SemanticMatcher"].get_similarity(body.text_1, body.text_2))
         }
     )
 

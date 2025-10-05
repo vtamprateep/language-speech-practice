@@ -21,7 +21,7 @@ export interface TTSRequest {
 
 // POST /translate_text
 export async function translateText(body: TextTranslate): Promise<{ text: string }> {
-  const res = await fetch(`${API_BASE}/api/v1/api/v1/translate_text`, {
+  const res = await fetch(`${API_BASE}/api/v1/translate_text`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body),

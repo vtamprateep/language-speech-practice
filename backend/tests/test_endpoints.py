@@ -36,7 +36,7 @@ def test_translate_text():
 
 def test_calculate_similarity():
     mock_semantic_matcher = MagicMock()
-    mock_semantic_matcher.get_similarity.return_value = 0.5
+    mock_semantic_matcher.get_similarity.return_value = "0.5"
     mock_models.__getitem__.return_value = mock_semantic_matcher
 
     response = test_client.post(
@@ -44,7 +44,7 @@ def test_calculate_similarity():
         json={"text_1": "Text 1", "text_2": "Text 2"},
     )
     assert response.status_code == 200
-    assert response.json()["score"] == 0.5
+    assert response.json()["score"] == "0.5"
     mock_semantic_matcher.get_similarity.assert_called_once()
 
 
