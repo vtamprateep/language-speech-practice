@@ -1,17 +1,8 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { guidedScenariosDialogue, DialogueTurn } from '@/data/scenarios';
-import { WaveformAudioPlayer, AudioRecorder } from '@/lib/components/ui/audio';
-import GuidedDialogueAudio from '@/components/features/dialogue';
-
-import { translateText, transcribeAudio, calculateSimilarity, generateAudio } from '@/lib/backend';
-
-
-interface VoiceMessage {
-    sender: 'user' | 'bot';
-    audioUrl: string;
-}
+import { GuidedDialogueAudio } from '@/components/features/dialogue';
 
 
 export default function PracticeDialoguePage({ params }: { params: Promise<{ id: string }>}) {
