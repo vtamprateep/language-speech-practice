@@ -4,6 +4,8 @@ import { WaveformAudioPlayer, AudioRecorder } from '@/lib/components/ui/audio';
 import { ScrollArea } from '../ui/scroll-area';
 import { Alert, AlertDescription } from '../ui/alert';
 import { Card, CardContent } from '../ui/card';
+import { Input } from '../ui/input';
+import { Button } from '../ui/button';
 
 import { translateText, transcribeAudio, calculateSimilarity, generateAudio } from '@/lib/backend';
 
@@ -257,22 +259,20 @@ export function GuidedDialogueText(
                 </div>
             )}
 
-            <div className="flex">
-                <textarea
-                    className="flex-1 p-2 border rounded resize-none"
-                    rows={1}
+            <div className="flex items-center">
+                <Input
                     value={input}
                     onChange={e => setInput(e.target.value)}
                     onKeyDown={handleKeyDown}
                     disabled={isDisabled}
                     placeholder="Type your message..."
                 />
-                <button
+                <Button
                     onClick={evaluateUserText}
-                    className="ml-2 px-4 py-2 bg-blue-600 text-white rounded"
+                    className="ml-2 px-4 py-2 rounded"
                 >
                     Send
-                </button>
+                </Button>
             </div>
         </div>
     );
