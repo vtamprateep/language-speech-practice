@@ -3,6 +3,7 @@
 import { notFound } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import { VocabularyFlashcard } from '@/components/features/flashcard';
+import { Button } from '@/components/ui/button';
 import { 
     vocabulary_1,
     vocabulary_2,
@@ -28,12 +29,13 @@ const vocabularyByLevel: Record<string, VocabularyItem[]> = {
 
 export default function FlashcardsPage({ params }: { params: Promise<{ level: string }>}) {
     const { level } = React.use(params);
+    const [readyToRender, setReadyToRender] = useState<boolean>(false);
     const vocabulary = vocabularyByLevel[level];
     if (!vocabulary) return notFound()
 
     const [index, setIndex] = useState<number>(0);
 
-    function shuffle<T>(arr: T[]) {
+    async function loadAndShuffle<T>(arr: T[]) {
         for (var i = arr.length - 1; i > 0; i--) {
             var j = Math.floor(Math.random() * (i + 1));
             var temp = arr[i];
@@ -53,10 +55,19 @@ export default function FlashcardsPage({ params }: { params: Promise<{ level: st
     }
 
     useEffect(() => {
-        shuffle(vocabulary);
+        loadAndShuffle(vocabulary);
+        setReadyToRender(true);
     }, [])
 
-    return (
+    if (!readyToRender) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <p className="text-gray-500">Loading flashcards...</p>
+            </div>
+        );
+    }
+
+    return (        
         <div className="flex flex-col items-center p-6 gap-6">
             <h1 className="text-2xl font-bold">HSK Level {level} Flashcards</h1>
 
@@ -74,18 +85,16 @@ export default function FlashcardsPage({ params }: { params: Promise<{ level: st
 
             {/* Controls */}
             <div className="flex gap-4">
-                <button
+                <Button
                     onClick={prevCard}
-                    className="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300"
                 >
                     Previous
-                </button>
-                <button
+                </Button>
+                <Button
                     onClick={nextCard}
-                    className="px-4 py-2 bg-gray-200 rounded-lg hover:bg-gray-300"
                 >
                     Next
-                </button>
+                </Button>
             </div>
 
             <p className="text-sm text-gray-500">

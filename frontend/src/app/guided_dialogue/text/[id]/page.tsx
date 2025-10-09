@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { guidedScenariosDialogue, DialogueTurn } from '@/data/scenarios';
-import { translateText, calculateSimilarity } from '@/lib/backend';
 import { GuidedDialogueText } from '@/components/features/dialogue';
 
 interface Message {
