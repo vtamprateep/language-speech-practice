@@ -177,27 +177,3 @@ class TextTranslator:
 class LanguageMode(Enum):
     AUDIO = "AUDIO"
     TEXT = "TEXT"
-
-
-class MandarinTranslator:
-    """Class that can take any type of Mandarin inputs, convert them to English,
-    and then back to the target form and language.
-    """
-
-    def translate_to_english(self, input: str | AudioData) -> str:
-        if isinstance(input, AudioData):
-            voice_transcriber = WhisperModel(Language.MANDARIN)
-            captioned_text = voice_transcriber.run_inference(input)["text"]  # type: ignore
-            return TextTranslator.translate(captioned_text, Language.MANDARIN)
-
-        return TextTranslator.translate(input, Language.MANDARIN)
-
-    def translate_to_mandarin(self, input: str, mode: LanguageMode) -> str | AudioData:
-        translated_text = TextTranslator.translate(input, Language.MANDARIN)
-
-        if mode == LanguageMode.TEXT:
-            return translated_text
-
-        tts_model = KokoroModel()
-        translated_audio = tts_model.run_inference(translated_text, Language.MANDARIN)
-        return translated_audio
