@@ -1,10 +1,51 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { VocabularyItem } from "@/data/vocabulary";
 import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "../ui/button";
 
 
-export function VocabularyFlashcard({ item }: { item: VocabularyItem }) {
+export function VocabularyFlashcard({ vocabulary }: { vocabulary: VocabularyItem[] }) {
+    const [index, setIndex] = useState<number>(0);
+
+    function nextCard() {
+        setIndex((i) => (i + 1) % vocabulary.length);
+    }
+
+    function prevCard() {
+        setIndex((i) => (i - 1 + vocabulary.length) % vocabulary.length);
+    }
+
+    return (
+        <div className="flex flex-col items-center p-6 gap-6">
+            <div>
+                <Flashcard item={vocabulary[index]} />
+            </div>
+            
+
+            {/* Controls */}
+            <div className="flex gap-4">
+                <Button
+                    onClick={prevCard}
+                >
+                    Back
+                </Button>
+                <Button
+                    onClick={nextCard}
+                >
+                    Next
+                </Button>
+            </div>
+        </div>
+        
+    );
+}
+
+function Flashcard({ item }: { item: VocabularyItem }) {
     const [flipped, setFlipped] = useState(false);
+    
+    useEffect(() => {
+        setFlipped(false);
+    }, [item])
 
     return (
         <Card

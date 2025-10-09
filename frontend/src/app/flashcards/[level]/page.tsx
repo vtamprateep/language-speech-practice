@@ -70,33 +70,9 @@ export default function FlashcardsPage({ params }: { params: Promise<{ level: st
     return (        
         <div className="flex flex-col items-center p-6 gap-6">
             <h1 className="text-2xl font-bold">HSK Level {level} Flashcards</h1>
-
-            <div
-                className="
-                    relative 
-                    w-64 
-                    h-40 
-                    cursor-pointer 
-                    perspective
-                "
-            >
-                <VocabularyFlashcard key={index} item={vocabulary[index]} />
+            <div>
+                <VocabularyFlashcard key={index} vocabulary={vocabulary} />
             </div>
-
-            {/* Controls */}
-            <div className="flex gap-4">
-                <Button
-                    onClick={prevCard}
-                >
-                    Previous
-                </Button>
-                <Button
-                    onClick={nextCard}
-                >
-                    Next
-                </Button>
-            </div>
-
             <p className="text-sm text-gray-500">
                 {index + 1} / {vocabulary.length}
             </p>
