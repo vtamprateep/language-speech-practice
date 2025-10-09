@@ -94,39 +94,6 @@ class WhisperModel:
         return pipeline(inputs=input_format, return_timestamps=True)
 
 
-class ConversationGeneratorModel:
-    MAX_INPUT_TOKENS = 128
-
-    def __init__(self, model_id: str = "facebook/blenderbot-400M-distill"):
-        self.tokenizer = BlenderbotTokenizer.from_pretrained(model_id)
-        self.model = BlenderbotForConditionalGeneration.from_pretrained(
-            model_id, use_safetensors=True
-        )
-        self.history: list[str] = []
-
-    def _truncate_history(self) -> None:
-        input_length = 0
-        for i in range(len(self.history) - 1, -1, -1):
-            input_string = self.history[i]
-            input_token = self.tokenizer(input_string, return_tensors="pt")
-            input_length += input_token["input_ids"].size(dim=1)
-
-            if input_length > self.MAX_INPUT_TOKENS:
-                self.history.pop(i)
-
-    def run_inference(self, input: str) -> str:
-        self.history.append(f"User: {input}")
-        self._truncate_history()
-
-        context = "\n".join(self.history)
-        input_token = self.tokenizer(context, return_tensors="pt")
-        reply_ids = self.model.generate(**input_token)
-        response = self.tokenizer.decode(reply_ids[0], skip_special_tokens=True)
-
-        self.history.append(f"Bot: {response}")
-        return response
-
-
 class KokoroModel:
     """
     🇺🇸 'a' => American English, 🇬🇧 'b' => British English
