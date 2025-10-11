@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { DialogueTurn } from '@/data/scenarios';
-import { WaveformAudioPlayer } from './audio/player';
+import { AudioPlayer } from './audio/player';
 import { RecordButton } from './audio/recorder';
 import { ScrollArea } from '../ui/scroll-area';
 import { Alert, AlertDescription } from '../ui/alert';
@@ -109,7 +109,7 @@ export function GuidedDialogueAudio(
                             }`}
                         >
                             <CardContent className="p-2">
-                                <WaveformAudioPlayer src={msg.audioUrl} />
+                                <AudioPlayer src={msg.audioUrl} />
                             </CardContent>
                         </Card>
                     </div>

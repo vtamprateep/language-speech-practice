@@ -1,11 +1,11 @@
 import { useState, useRef, useEffect } from "react";
 import WaveSurfer from 'wavesurfer.js';
 
-interface WaveformAudioPlayerProps {
+interface AudioPlayerProps {
     src: string;
 }
 
-export function WaveformAudioPlayer({ src }: WaveformAudioPlayerProps) {
+export function AudioPlayer({ src }: AudioPlayerProps) {
     const waveformRef = useRef<HTMLDivElement | null>(null);
     const wavesurferRef = useRef<WaveSurfer | null>(null);
     const [isPlaying, setIsPlaying] = useState(false);
@@ -22,11 +22,9 @@ export function WaveformAudioPlayer({ src }: WaveformAudioPlayerProps) {
             barWidth: 3,
             barRadius: 3,
             height: 40,
-            // responsive: true,
         });
 
         wavesurferRef.current.load(src);
-
         wavesurferRef.current.on('finish', () => setIsPlaying(false));
 
         return () => {
