@@ -3,8 +3,8 @@
 import { useState } from "react";
 import { LessonModule } from "@/data/lessons"; // adjust path to where you defined LessonModule
 import { VocabularyFlashcard } from "@/components/features/flashcard";
-import GrammarPractice from "@/components/GrammarPractice";
-import GuidedDialogue from "@/components/GuidedDialogue";
+import { GuidedDialogueText } from "@/components/features/dialogue";
+import { GuidedDialogueAudio } from "@/components/features/dialogue";
 
 interface LessonPageProps {
     lesson: LessonModule;

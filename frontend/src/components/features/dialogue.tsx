@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { DialogueTurn } from '@/data/scenarios';
-import { WaveformAudioPlayer, AudioRecorder } from '@/lib/components/ui/audio';
+import { WaveformAudioPlayer } from '@/lib/components/ui/audio';
+import { RecordButton } from './audio/recorder';
 import { ScrollArea } from '../ui/scroll-area';
 import { Alert, AlertDescription } from '../ui/alert';
 import { Card, CardContent } from '../ui/card';
@@ -134,7 +135,7 @@ export function GuidedDialogueAudio(
                 </Alert>
             )}
 
-            <AudioRecorder onRecordingComplete={setAudioData} />
+            <RecordButton onRecordingComplete={setAudioData} />
         </div>
     );
 }
