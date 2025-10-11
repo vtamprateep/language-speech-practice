@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { DialogueTurn } from '@/data/scenarios';
-import { WaveformAudioPlayer } from '@/lib/components/ui/audio';
+import { WaveformAudioPlayer } from './audio/player';
 import { RecordButton } from './audio/recorder';
 import { ScrollArea } from '../ui/scroll-area';
 import { Alert, AlertDescription } from '../ui/alert';
