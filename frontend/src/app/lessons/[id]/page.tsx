@@ -1,25 +1,27 @@
 "use client";
 
-import { useState } from "react";
-import { LessonModule } from "@/data/lessons"; // adjust path to where you defined LessonModule
+import { useState, useEffect } from "react";
+import { LessonModule, introducingYourselfLesson } from "@/data/lessons";
 import { VocabularyFlashcard } from "@/components/features/flashcard";
 import { GuidedDialogueText } from "@/components/features/dialogue";
-import { GuidedDialogueAudio } from "@/components/features/dialogue";
+import { GrammarDetail, GrammarPreviewCard } from "@/components/features/grammar";
 
-interface LessonPageProps {
-    lesson: LessonModule;
-}
 
-const LessonPage: React.FC<LessonPageProps> = ({ lesson }) => {
+export default function LessonPage({ lessonId }: { lessonId: string }) {
+    const [stepIndex, setStepIndex] = useState(0);
+    const [lesson, setLesson] = useState<LessonModule>(introducingYourselfLesson);
+
     const steps = [
-        { id: "vocabulary", label: "Vocabulary", content: <VocabularyFlashcard item={lesson.vocabulary} /> },
-        { id: "grammar", label: "Grammar", content: <GrammarPractice grammar={lesson.grammar} /> },
-        { id: "dialogue", label: "Dialogue", content: <GuidedDialogue dialogue={lesson.dialogue} /> },
+        { id: "vocabulary", label: "Vocabulary", content: <VocabularyFlashcard vocabulary={lesson.vocabulary} /> },
+        { id: "grammar", label: "Grammar", content: <GrammarDetail item={lesson.grammar[0]} /> }, // TODO: Need to create grammar module wrapper
+        { id: "dialogue", label: "Dialogue", content: <GuidedDialogueText dialogueSet={lesson.dialogue} /> },
     ];
 
-    const [stepIndex, setStepIndex] = useState(0);
-
     const progress = ((stepIndex + 1) / steps.length) * 100;
+
+    useEffect(() => {
+        // setLesson(introducingYourselfLesson); // Set to default lesson
+    }, []);
 
     return (
         <div className="flex min-h-screen">
@@ -77,5 +79,3 @@ const LessonPage: React.FC<LessonPageProps> = ({ lesson }) => {
         </div>
     );
 };
-
-export default LessonPage;
