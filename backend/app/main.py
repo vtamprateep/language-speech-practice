@@ -21,8 +21,8 @@ async def lifespan(app: FastAPI):
     app.state.model = {
         "SemanticMatcher": SemanticMatcher(),
         "TextTranslator": TextTranslator(),
-        "WhisperModel": WhisperModel(),
-        "KokoroModel": KokoroModel(),
+        # "WhisperModel": WhisperModel(),
+        # "KokoroModel": KokoroModel(),
     }
     yield
     app.state.model.clear()
