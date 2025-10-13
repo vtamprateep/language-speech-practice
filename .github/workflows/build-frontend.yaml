@@ -1,4 +1,4 @@
-name: CI - Build Check
+name: CI - Frontend Build Check
 
 on:
   pull_request:
