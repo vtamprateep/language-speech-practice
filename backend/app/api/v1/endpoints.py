@@ -8,7 +8,7 @@ from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel
 
 # from pydub import AudioSegment  # type: ignore
-from app.dependencies import get_models
+from app.dependencies import get_clients, get_models
 from app.util.languages import Language
 from app.util.model import AudioData
 
@@ -38,36 +38,18 @@ class TextComparison(BaseModel):
 
 
 @router.post("/api/v1/calculate_similarity")
-async def calculate_similarity(body: TextComparison, model=Depends(get_models)):
+async def calculate_similarity(body: TextComparison, client=Depends(get_clients)):
+    client = client["HFInferenceClient"]
+    score = client.sentence_similarity(
+        body.text_1,
+        [body.text_2],
+        model="sentence-transformers/all-MiniLM-L6-v2"
+    )
     return JSONResponse(
         content={
-            "score": str(model["SemanticMatcher"].get_similarity(body.text_1, body.text_2))
+            "score": str(score[0])
         }
     )
-
-
-# @router.post("/api/v1/transcribe_audio")
-# async def transcribe_audio(
-#     file: UploadFile = File(...),
-#     language: str = Form("ENGLISH"),
-#     model=Depends(get_models),
-# ):
-#     audio_bytes = await file.read()
-#     audio = AudioSegment.from_file(io.BytesIO(audio_bytes), format="webm")
-
-#     # Normalize for whisper
-#     dtype_map = {1: np.int8, 2: np.int16, 4: np.int32}
-#     dtype = dtype_map.get(audio.sample_width)
-#     audio = audio.set_channels(1)  # mono
-#     audio = audio.set_frame_rate(16000)  # 16kHz
-#     samples = np.array(audio.get_array_of_samples()).astype(np.float32)
-#     samples /= np.iinfo(dtype).max  # type: ignore
-#     sample_rate = audio.frame_rate
-
-#     result = model["WhisperModel"].run_inference(
-#         AudioData(sampling_rate=sample_rate, raw=samples), source_language=language
-#     )
-#     return JSONResponse(content={"text": result["text"]})
 
 
 class TTSRequest(BaseModel):
