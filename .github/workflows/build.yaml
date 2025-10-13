@@ -28,7 +28,7 @@ jobs:
         with:
           version: 9  # or match your project's version
 
-      - name: Debug: list repo root
+      - name: Debug list repo root
         run: ls -la
 
       - name: Install dependencies
