@@ -6,13 +6,12 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from app.api.v1 import endpoints
 from app.util.model import (
-    KokoroModel,
+    # KokoroModel,
     SemanticMatcher,
     TextTranslator,
-    WhisperModel,
+    # WhisperModel,
 )
 
-# text_dialogue_engine = dict()
 core_models: dict[str, Any] = dict()
 
 
