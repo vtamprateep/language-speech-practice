@@ -1,0 +1,41 @@
+name: CI - Backend Build Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  backend:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: backend  # your backend folder
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: 3.11  # match your backend
+
+      - name: Install uv
+        run: python -m pip install --upgrade uv
+
+      - name: Install dependencies
+        run: uv install  # installs dependencies from pyproject.toml
+
+      - name: Lint code (optional)
+        run: uv run ruff .  # assuming ruff is defined in your dev dependencies
+
+      - name: Run tests (optional)
+        run: uv run pytest --maxfail=1 --disable-warnings -q
+
+      - name: Check FastAPI startup
+        run: |
+          uv run uvicorn main:app --host 127.0.0.1 --port 8000 --lifespan off --reload --workers 1 &
+          sleep 5
+          pkill uvicorn
