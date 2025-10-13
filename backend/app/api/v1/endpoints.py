@@ -40,13 +40,14 @@ class TextComparison(BaseModel):
 @router.post("/api/v1/calculate_similarity")
 async def calculate_similarity(body: TextComparison, client=Depends(get_clients)):
     client = client["HFInferenceClient"]
-    score = client.sentence_similarity({
-        "source_sentence": body.text_1,
-        "sentences": [body.text_2]
-    })
+    score = client.sentence_similarity(
+        body.text_1,
+        [body.text_2],
+        model="sentence-transformers/all-MiniLM-L6-v2"
+    )
     return JSONResponse(
         content={
-            "score": str(score)
+            "score": str(score[0])
         }
     )
 
