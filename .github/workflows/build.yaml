@@ -28,6 +28,9 @@ jobs:
         with:
           version: 9  # or match your project's version
 
+      - name: Debug: list repo root
+        run: ls -la
+
       - name: Install dependencies
         run: pnpm install --frozen-lockfile
 
