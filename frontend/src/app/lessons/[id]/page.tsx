@@ -4,10 +4,10 @@ import { useState, useEffect } from "react";
 import { LessonModule, introducingYourselfLesson } from "@/data/lessons";
 import { VocabularyFlashcard } from "@/components/features/flashcard";
 import { GuidedDialogueText } from "@/components/features/dialogue";
-import { GrammarDetail, GrammarPreviewCard } from "@/components/features/grammar";
+import { GrammarDetail } from "@/components/features/grammar";
 
 
-export default function LessonPage({ lessonId }: { lessonId: string }) {
+export default function LessonPage({ params }: { params: Promise<{ id: string }> }) {
     const [stepIndex, setStepIndex] = useState(0);
     const [lesson, setLesson] = useState<LessonModule>(introducingYourselfLesson);
 

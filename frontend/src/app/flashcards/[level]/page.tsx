@@ -3,7 +3,6 @@
 import { notFound } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import { VocabularyFlashcard } from '@/components/features/flashcard';
-import { Button } from '@/components/ui/button';
 import { 
     vocabulary_1,
     vocabulary_2,
@@ -31,27 +30,16 @@ export default function FlashcardsPage({ params }: { params: Promise<{ level: st
     const { level } = React.use(params);
     const [readyToRender, setReadyToRender] = useState<boolean>(false);
     const vocabulary = vocabularyByLevel[level];
-    if (!vocabulary) return notFound()
-
-    const [index, setIndex] = useState<number>(0);
 
     async function loadAndShuffle<T>(arr: T[]) {
-        for (var i = arr.length - 1; i > 0; i--) {
-            var j = Math.floor(Math.random() * (i + 1));
-            var temp = arr[i];
+        for (let i = arr.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1));
+            const temp = arr[i];
             arr[i] = arr[j];
             arr[j] = temp;
         }
 
         return arr
-    }
-
-    function nextCard() {
-        setIndex((i) => (i + 1) % vocabulary.length);
-    }
-
-    function prevCard() {
-        setIndex((i) => (i - 1 + vocabulary.length) % vocabulary.length);
     }
 
     useEffect(() => {
@@ -71,11 +59,8 @@ export default function FlashcardsPage({ params }: { params: Promise<{ level: st
         <div className="flex flex-col items-center p-6 gap-6">
             <h1 className="text-2xl font-bold">HSK Level {level} Flashcards</h1>
             <div>
-                <VocabularyFlashcard key={index} vocabulary={vocabulary} />
+                <VocabularyFlashcard vocabulary={vocabulary} />
             </div>
-            <p className="text-sm text-gray-500">
-                {index + 1} / {vocabulary.length}
-            </p>
         </div>
     );
 }
