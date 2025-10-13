@@ -4,3 +4,6 @@ from fastapi import Request
 
 def get_models(request: Request):
     return request.app.state.model
+
+def get_clients(request: Request):
+    return request.app.state.clients

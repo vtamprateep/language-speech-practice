@@ -13,3 +13,4 @@ wheels/
 
 # Custom files to ignore
 sandbox.py
+.env

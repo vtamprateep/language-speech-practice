@@ -5,7 +5,6 @@ from typing import Any
 
 import librosa
 import numpy as np
-import torch
 from deep_translator import GoogleTranslator  # type: ignore
 
 # from kokoro import KPipeline  # type: ignore
@@ -60,38 +59,6 @@ class AudioData:
 #         ]
 #         audio_data = np.concatenate(audio_segments)
 #         return AudioData(24000, audio_data)
-
-
-class SemanticMatcher:
-    """Takes two sentences and calculate cosine similarity"""
-
-    _instance = None
-
-    def __init__(
-        self,
-        model_name: str = "sentence-transformers/all-MiniLM-L6-v2",
-    ):
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self.model = AutoModel.from_pretrained(model_name)
-
-    def _embed_text(self, text: str):
-        tokens = self.tokenizer(
-            text, padding=True, truncation=True, return_tensors="pt"
-        )
-        with torch.no_grad():
-            output = self.model(**tokens)
-
-        return output.last_hidden_state.mean(dim=1).numpy()[0]
-
-    def _cosine_similarity(self, vector_a, vector_b):
-        return np.dot(vector_a, vector_b) / (
-            np.linalg.norm(vector_a) * np.linalg.norm(vector_b)
-        )
-
-    def get_similarity(self, text_1: str, text_2: str):
-        vector_a = self._embed_text(text_1)
-        vector_b = self._embed_text(text_2)
-        return self._cosine_similarity(vector_a, vector_b)
 
 
 class TextTranslator:

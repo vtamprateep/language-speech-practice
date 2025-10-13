@@ -8,7 +8,7 @@ from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel
 
 # from pydub import AudioSegment  # type: ignore
-from app.dependencies import get_models
+from app.dependencies import get_clients, get_models
 from app.util.languages import Language
 from app.util.model import AudioData
 
@@ -38,10 +38,15 @@ class TextComparison(BaseModel):
 
 
 @router.post("/api/v1/calculate_similarity")
-async def calculate_similarity(body: TextComparison, model=Depends(get_models)):
+async def calculate_similarity(body: TextComparison, client=Depends(get_clients)):
+    client = client["HFInferenceClient"]
+    score = client.sentence_similarity({
+        "source_sentence": body.text_1,
+        "sentences": [body.text_2]
+    })
     return JSONResponse(
         content={
-            "score": str(model["SemanticMatcher"].get_similarity(body.text_1, body.text_2))
+            "score": str(score)
         }
     )
 
