@@ -21,7 +21,6 @@ jobs:
         uses: actions/setup-node@v5
         with:
           node-version: 21.7.2
-          cache: 'pnpm'
           cache-dependency-path: frontend/pnpm-lock.yaml
 
       - name: Set up pnpm
