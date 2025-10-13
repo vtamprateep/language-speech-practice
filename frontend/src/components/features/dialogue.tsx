@@ -181,7 +181,7 @@ export function GuidedDialogueText(
 
         // Evaluate if response close enough to target sentence
         const similarityScore = await calculateSimilarity({
-            text_1: input,
+            text_1: translatedText.text,
             text_2: dialogue[0].targetSentence
         });
 
