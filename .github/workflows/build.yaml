@@ -29,7 +29,7 @@ jobs:
           version: 9  # or match your project's version
 
       - name: Install dependencies
-        run: cd frontend && pnpm install --frozen-lockfile
+        run: pnpm install --frozen-lockfile
 
       - name: Build Next.js app
-        run: cd frontend && pnpm run build
+        run: pnpm run build
