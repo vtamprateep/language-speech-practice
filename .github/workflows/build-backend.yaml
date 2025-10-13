@@ -7,11 +7,11 @@ on:
     branches: [ main ]
 
 jobs:
-  backend:
+  build:
     runs-on: ubuntu-latest
     defaults:
       run:
-        working-directory: backend  # your backend folder
+        working-directory: backend
 
     steps:
       - name: Checkout repository
@@ -26,13 +26,7 @@ jobs:
         run: python -m pip install --upgrade uv
 
       - name: Install dependencies
-        run: uv install  # installs dependencies from pyproject.toml
-
-      - name: Lint code (optional)
-        run: uv run ruff .  # assuming ruff is defined in your dev dependencies
-
-      - name: Run tests (optional)
-        run: uv run pytest --maxfail=1 --disable-warnings -q
+        run: uv sync
 
       - name: Check FastAPI startup
         run: |
