@@ -1,12 +1,13 @@
 import io
 
 import numpy as np
-import soundfile as sf  # type: ignore
+
+# import soundfile as sf  # type: ignore
 from fastapi import APIRouter, Depends, File, Form, UploadFile
 from fastapi.responses import JSONResponse, StreamingResponse
 from pydantic import BaseModel
-from pydub import AudioSegment  # type: ignore
 
+# from pydub import AudioSegment  # type: ignore
 from app.dependencies import get_models
 from app.util.languages import Language
 from app.util.model import AudioData

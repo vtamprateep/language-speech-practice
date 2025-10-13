@@ -7,7 +7,8 @@ import librosa
 import numpy as np
 import torch
 from deep_translator import GoogleTranslator  # type: ignore
-from kokoro import KPipeline  # type: ignore
+
+# from kokoro import KPipeline  # type: ignore
 from transformers import (
     AutoModel,
     AutoModelForCausalLM,
