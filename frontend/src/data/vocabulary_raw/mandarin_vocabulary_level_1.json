@@ -1110,7 +1110,7 @@
         "topic":"個人資料",
         "vocabulary":"是",
         "pinyin":"shì ",
-        "partOfSpeech":undefined,
+        "partOfSpeech":null,
         "level":1,
         "topicEnglish":"Personal Information",
         "vocabularyEnglish":"yes"
@@ -2748,7 +2748,7 @@
         "topic":"與他人的關係",
         "vocabulary":"不客氣",
         "pinyin":"bùkèqì ",
-        "partOfSpeech":undefined,
+        "partOfSpeech":null,
         "level":1,
         "topicEnglish":"Relationships",
         "vocabularyEnglish":"You're welcome"
@@ -2757,7 +2757,7 @@
         "topic":"與他人的關係",
         "vocabulary":"對不起",
         "pinyin":"duìbuqǐ ",
-        "partOfSpeech":undefined,
+        "partOfSpeech":null,
         "level":1,
         "topicEnglish":"Relationships",
         "vocabularyEnglish":"sorry"
@@ -2784,7 +2784,7 @@
         "topic":"與他人的關係",
         "vocabulary":"請問",
         "pinyin":"qǐngwèn ",
-        "partOfSpeech":undefined,
+        "partOfSpeech":null,
         "level":1,
         "topicEnglish":"Relationships",
         "vocabularyEnglish":"Excuse me"
@@ -2793,7 +2793,7 @@
         "topic":"與他人的關係",
         "vocabulary":"怎麼樣",
         "pinyin":"zěnmeyàng ",
-        "partOfSpeech":undefined,
+        "partOfSpeech":null,
         "level":1,
         "topicEnglish":"Relationships",
         "vocabularyEnglish":"How about it"

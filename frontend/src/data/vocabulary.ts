@@ -44,12 +44,12 @@ export const vocabulary_7: VocabularyItem[] = rawData7 as VocabularyItem[];
 
 // For https://www.roc-taiwan.org/at_de/post/634.html
 export interface Vocabulary {
-    topic?: string;
+    topic: string | null;
     vocabulary: string;
     pinyin: string;
-    partOfSpeech?: string;
+    partOfSpeech: string | null;
     level: number;
-    topicEnglish?: string;
+    topicEnglish: string | null;
     vocabularyEnglish: string;
 }
 

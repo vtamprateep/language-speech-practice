@@ -2334,7 +2334,7 @@
         "topic":"與他人的關係",
         "vocabulary":"不好意思",
         "pinyin":"bùhǎoyìsi ",
-        "partOfSpeech":undefined,
+        "partOfSpeech":null,
         "level":2,
         "topicEnglish":"Relationships",
         "vocabularyEnglish":"Excuse me"
@@ -2343,7 +2343,7 @@
         "topic":"與他人的關係",
         "vocabulary":"怎麼了",
         "pinyin":"zěnmele ",
-        "partOfSpeech":undefined,
+        "partOfSpeech":null,
         "level":2,
         "topicEnglish":"Relationships",
         "vocabularyEnglish":"What's wrong"
@@ -2352,7 +2352,7 @@
         "topic":"與他人的關係",
         "vocabulary":"怎麼辦",
         "pinyin":"zěnmebàn ",
-        "partOfSpeech":undefined,
+        "partOfSpeech":null,
         "level":2,
         "topicEnglish":"Relationships",
         "vocabularyEnglish":"what to do"
