@@ -4,25 +4,21 @@ import { notFound } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import { VocabularyFlashcard } from '@/components/features/flashcard';
 import { 
-    vocabulary_1,
-    vocabulary_2,
-    vocabulary_3,
-    vocabulary_4,
-    vocabulary_5,
-    vocabulary_6,
-    vocabulary_7,
-    type VocabularyItem,
+    tradVocabulary1,
+    tradVocabulary2,
+    tradVocabulary3,
+    tradVocabulary4,
+    tradVocabulary5,
+    type Vocabulary,
 } from '@/data/vocabulary';
 
 
-const vocabularyByLevel: Record<string, VocabularyItem[]> = {
-    "1": vocabulary_1,
-    "2": vocabulary_2,
-    "3": vocabulary_3,
-    "4": vocabulary_4,
-    "5": vocabulary_5,
-    "6": vocabulary_6,
-    "7": vocabulary_7,
+const vocabularyByLevel: Record<string, Vocabulary[]> = {
+    "1": tradVocabulary1,
+    "2": tradVocabulary2,
+    "3": tradVocabulary3,
+    "4": tradVocabulary4,
+    "5": tradVocabulary5,
 }
 
 
@@ -57,7 +53,7 @@ export default function FlashcardsPage({ params }: { params: Promise<{ level: st
 
     return (        
         <div className="flex flex-col items-center p-6 gap-6">
-            <h1 className="text-2xl font-bold">HSK Level {level} Flashcards</h1>
+            <h1 className="text-2xl font-bold">Level {level} Flashcards</h1>
             <div>
                 <VocabularyFlashcard vocabulary={vocabulary} />
             </div>
