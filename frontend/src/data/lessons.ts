@@ -1,4 +1,4 @@
-import { VocabularyItem } from "./vocabulary";
+import { Vocabulary } from "./vocabulary";
 import { GrammarRule } from "./grammar";
 import { DialogueTurn } from "./scenarios";
 
@@ -7,7 +7,7 @@ export interface LessonModule {
     id: string;
     title: string;
     description: string;
-    vocabulary: VocabularyItem[];
+    vocabulary: Vocabulary[];
     grammar: GrammarRule[];
     dialogue: DialogueTurn[];
     scenarioId?: string;
@@ -26,135 +26,72 @@ export const introducingYourselfLesson: LessonModule = {
     id: "lesson-1",
     title: "Introducing Yourself",
     description: "Learn how to greet people and introduce yourself in Mandarin.",
-    vocabulary: [  // TODO: Each vocabulary should reference an ID, so we don't duplicate it
+    vocabulary: [
         {
-            simplified: "你",
-            radical: "亻",
-            level: ["HSK1"],
-            frequency: 5,
-            pos: ["pronoun"],
-            forms: [
-                {
-                    traditional: "你",
-                    transcriptions: {
-                        pinyin: "nǐ",
-                        bopomofo: "ㄋㄧˇ",
-                    },
-                    meanings: ["you"],
-                    classifiers: []
-                }
-            ]
+            topic: null,
+            vocabulary: "你",
+            pinyin: "nǐ",
+            partOfSpeech: "pronoun",
+            level: 1,
+            topicEnglish: null,
+            vocabularyEnglish: "you"
         },
         {
-            simplified: "我",
-            radical: "戈",
-            level: ["HSK1"],
-            frequency: 1,
-            pos: ["pronoun"],
-            forms: [
-                {
-                    traditional: "我",
-                    transcriptions: {
-                        pinyin: "wǒ",
-                        bopomofo: "ㄨㄛˇ",
-                    },
-                    meanings: ["I", "me"],
-                    classifiers: []
-                }
-            ]
+            topic: null,
+            vocabulary: "我",
+            pinyin: "wǒ",
+            partOfSpeech: "pronoun",
+            level: 1,
+            topicEnglish: null,
+            vocabularyEnglish: "I, me"
         },
         {
-            simplified: "他",
-            radical: "亻",
-            level: ["HSK1"],
-            frequency: 3,
-            pos: ["pronoun"],
-            forms: [
-                {
-                    traditional: "他",
-                    transcriptions: {
-                        pinyin: "tā",
-                        bopomofo: "ㄊㄚ",
-                    },
-                    meanings: ["he", "him"],
-                    classifiers: []
-                }
-            ]
+            topic: null,
+            vocabulary: "他",
+            pinyin: "tā",
+            partOfSpeech: "pronoun",
+            level: 1,
+            topicEnglish: null,
+            vocabularyEnglish: "he, him"
         },
         {
-            simplified: "她",
-            radical: "女",
-            level: ["HSK1"],
-            frequency: 4,
-            pos: ["pronoun"],
-            forms: [
-                {
-                    traditional: "她",
-                    transcriptions: {
-                        pinyin: "tā",
-                        bopomofo: "ㄊㄚ",
-                    },
-                    meanings: ["she", "her"],
-                    classifiers: []
-                }
-            ]
+            topic: null,
+            vocabulary: "她",
+            pinyin: "tā",
+            partOfSpeech: "pronoun",
+            level: 1,
+            topicEnglish: null,
+            vocabularyEnglish: "she, her"
         },
         {
-            simplified: "我们",
-            radical: "亻",
-            level: ["HSK1"],
-            frequency: 6,
-            pos: ["pronoun"],
-            forms: [
-                {
-                    traditional: "我們",
-                    transcriptions: {
-                        pinyin: "wǒmen",
-                        bopomofo: "ㄨㄛˇ ㄇㄣ˙",
-                    },
-                    meanings: ["we", "us"],
-                    classifiers: []
-                }
-            ]
+            topic: null,
+            vocabulary: "我们",
+            pinyin: "wǒmen",
+            partOfSpeech: "pronoun",
+            level: 1,
+            topicEnglish: null,
+            vocabularyEnglish: "we, us"
         },
         {
-            simplified: "他们",
-            radical: "亻",
-            level: ["HSK1"],
-            frequency: 7,
-            pos: ["pronoun"],
-            forms: [
-                {
-                    traditional: "他們",
-                    transcriptions: {
-                        pinyin: "tāmen",
-                        bopomofo: "ㄊㄚ ㄇㄣ˙",
-                    },
-                    meanings: ["they", "them (male or mixed)"],
-                    classifiers: []
-                }
-            ]
+            topic: null,
+            vocabulary: "他们",
+            pinyin: "tāmen",
+            partOfSpeech: "pronoun",
+            level: 1,
+            topicEnglish: null,
+            vocabularyEnglish: "they, them (male or mixed)"
         },
         {
-            simplified: "她们",
-            radical: "女",
-            level: ["HSK1"],
-            frequency: 8,
-            pos: ["pronoun"],
-            forms: [
-                {
-                    traditional: "她們",
-                    transcriptions: {
-                        pinyin: "tāmen",
-                        bopomofo: "ㄊㄚ ㄇㄣ˙",
-                    },
-                    meanings: ["they", "them (female)"],
-                    classifiers: []
-                }
-            ]
+            topic: null,
+            vocabulary: "她们",
+            pinyin: "tāmen",
+            partOfSpeech: "pronoun",
+            level: 1,
+            topicEnglish: null,
+            vocabularyEnglish: "they, them (female)"
         }
     ],
-    grammar: [  // TODO: Deduplicate entries by referencing ID
+    grammar: [
         {
             id: "grammar-1",
             title: "Using 是 to identify",
@@ -163,7 +100,7 @@ export const introducingYourselfLesson: LessonModule = {
             practice: ["我是___。", "你是___吗？"]
         }
     ],
-    dialogue: [  // TODO: Deduplicate entries by referencing ID
+    dialogue: [
         {
             turn: 1,
             speaker: "Other Person",
