@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react";
-import { VocabularyItem } from "@/data/vocabulary";
+import { Vocabulary } from "@/data/vocabulary";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "../ui/button";
 
 
-export function VocabularyFlashcard({ vocabulary }: { vocabulary: VocabularyItem[] }) {
+export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }) {
     const [index, setIndex] = useState<number>(0);
 
     function nextCard() {
@@ -40,7 +40,7 @@ export function VocabularyFlashcard({ vocabulary }: { vocabulary: VocabularyItem
     );
 }
 
-function Flashcard({ item }: { item: VocabularyItem }) {
+function Flashcard({ item }: { item: Vocabulary }) {
     const [flipped, setFlipped] = useState(false);
     
     useEffect(() => {
@@ -55,20 +55,15 @@ function Flashcard({ item }: { item: VocabularyItem }) {
             {flipped ? (
                 <CardContent className="absolute w-full h-full flex flex-col items-center justify-center backface-hidden p-4">
                     <p className="text-lg font-medium text-black">
-                        {item.forms[0]?.transcriptions.pinyin}{" "}
-                        <span className="text-gray-500">
-                            ({item.forms[0]?.transcriptions.bopomofo})
-                        </span>
+                        {item.pinyin}{" "}
                     </p>
-                    <ul className="mt-2 space-y-1 text-sm text-gray-700">
-                        {item.forms[0]?.meanings.map((meaning, idx) => (
-                            <li key={idx}>• {meaning}</li>
-                        ))}
-                    </ul>
+                    <p className="mt-2 space-y-1 text-sm text-gray-700">
+                        {item.vocabularyEnglish}
+                    </p>
                 </CardContent>
             ) : (
                 <CardContent className="absolute w-full h-full flex items-center justify-center backface-hidden">
-                    <span className="text-4xl font-bold text-black">{item.simplified}</span>
+                    <span className="text-4xl font-bold text-black">{item.vocabulary}</span>
                 </CardContent>
             )}
         </Card>

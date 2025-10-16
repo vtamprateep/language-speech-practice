@@ -5,7 +5,7 @@ import { guidedScenarios } from "@/data/scenarios"
 
 export default function HomePage() {
 
-    const hskLevels = ["1", "2", "3", "4", "5", "6", "7+"]
+    const vocabLevels = ["1", "2", "3", "4", "5"]
 
     return (
         <main className="min-h-screen flex flex-col items-center p-8 bg-gradient-to-b from-gray-50 to-gray-100 text-gray-900">
@@ -61,7 +61,7 @@ export default function HomePage() {
                     max-w-4xl w-full
                 "
             >
-                {hskLevels.map((level) => (
+                {vocabLevels.map((level) => (
                     <Link 
                         key={level} 
                         href={`/flashcards/${level}`} 
@@ -81,7 +81,7 @@ export default function HomePage() {
                             <span
                                 className="text-lg font-semibold mb-2"
                             >
-                                HSK {level}
+                                Level {level}
                             </span>
                     </Link>
                 ))}
