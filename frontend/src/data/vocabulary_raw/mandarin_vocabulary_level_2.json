@@ -1,0 +1,4484 @@
+[
+    {
+        "topic":"個人資料",
+        "vocabulary":"出生",
+        "pinyin":"chūshēng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"born"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"國",
+        "pinyin":"guó ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"country"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"不同",
+        "pinyin":"bùtóng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"different"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"地址",
+        "pinyin":"dìzhǐ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"address"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"市",
+        "pinyin":"shì",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"city"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"傳真",
+        "pinyin":"chuánzhēn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"fax"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"留言",
+        "pinyin":"liú​yán",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"message"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"日期",
+        "pinyin":"rìqí ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"date"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"時間",
+        "pinyin":"shíjiān ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"time"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"鐘頭",
+        "pinyin":"zhōngtóu ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"hour"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"晚",
+        "pinyin":"wǎn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Night"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"夜",
+        "pinyin":"yè ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"night"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"禮拜",
+        "pinyin":"lǐbài ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"worship"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"禮拜天",
+        "pinyin":"lǐbàitiān ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Sunday"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"前天",
+        "pinyin":"qiántiān ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"the day before yesterday"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"後天",
+        "pinyin":"hòutiān ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"the day after tomorrow"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"從前",
+        "pinyin":"cóngqián ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Once upon a time"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"夏",
+        "pinyin":"xià ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"summer"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"冬",
+        "pinyin":"dōng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"winter"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"秋",
+        "pinyin":"qiū ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Autumn"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"春",
+        "pinyin":"chūn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"spring"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"一會兒",
+        "pinyin":"yīhuǐér ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"a while"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"不久",
+        "pinyin":"bùjiǔ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"soon"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"剛剛",
+        "pinyin":"gānggāng ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"just"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"剛才",
+        "pinyin":"gāngcái ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Just now"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"當然",
+        "pinyin":"dāngrán ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"certainly"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"自己",
+        "pinyin":"zìjǐ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Own"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"別人",
+        "pinyin":"biérén ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"other people"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"年紀",
+        "pinyin":"niánjì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"age"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"男人",
+        "pinyin":"nánrén ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"man"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"女人",
+        "pinyin":"nǚrén ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"woman"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"大人",
+        "pinyin":"dàrén ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"grown ups"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"老人",
+        "pinyin":"lǎorén ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"elder"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"習慣",
+        "pinyin":"xíguàn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Habit"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"習慣 ",
+        "pinyin":"xíguàn ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Habit"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"家庭",
+        "pinyin":"jiātíng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"family"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"父親",
+        "pinyin":"fùqīn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Father"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"母親",
+        "pinyin":"mǔqīn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Mother"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"父母",
+        "pinyin":"fùmŭ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"parents"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"爺爺",
+        "pinyin":"yéye",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"grandfather"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"奶奶",
+        "pinyin":"nǎinai ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"grandmother"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"關係",
+        "pinyin":"guānxì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"relation"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"教堂",
+        "pinyin":"jiàotáng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"church"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"好 ",
+        "pinyin":"hǎo ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"good"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"真 ",
+        "pinyin":"zhēn ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"real"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"最",
+        "pinyin":"zuì ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"most"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"更",
+        "pinyin":"gèng ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Even"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"愉快",
+        "pinyin":"yúkuài ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"joy"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"開心",
+        "pinyin":"kāixīn ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"happy"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"著急",
+        "pinyin":"zhāojí ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"in a hurry"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"擔心",
+        "pinyin":"dānxīn ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Worry"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"生氣",
+        "pinyin":"shēngqì ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"angry"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"怕",
+        "pinyin":"pà ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Afraid"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"哭",
+        "pinyin":"kū ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"cry"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"難過",
+        "pinyin":"nánguò ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"sad"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"傷心",
+        "pinyin":"shāngxīn ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"sad"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"美",
+        "pinyin":"měi ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"beautiful"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"美麗",
+        "pinyin":"měilì ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"beauty"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"聰明",
+        "pinyin":"cōngmíng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"clever"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"認真",
+        "pinyin":"rènzhēn ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"serious"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"勇敢",
+        "pinyin":"yŏnggăn ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"brave"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"禮貌",
+        "pinyin":"lĭmào ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"polite"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"害羞",
+        "pinyin":"hàixiū ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"shy"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"應該",
+        "pinyin":"yīnggāi ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"should"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"相信",
+        "pinyin":"xiāngxìn ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"believe"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"經驗 ",
+        "pinyin":"jīngyàn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"experience"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"關心",
+        "pinyin":"guānxīn ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"care"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"辛苦",
+        "pinyin":"xīnkǔ ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Hard"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"願意",
+        "pinyin":"yuànyì ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"willing"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"心情",
+        "pinyin":"xīnqíng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Feeling"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"幸福",
+        "pinyin":"xìngfú ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"happiness"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"可憐",
+        "pinyin":"kělián ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Pitiful"
+    },
+    {
+        "topic":"個人資料",
+        "vocabulary":"差",
+        "pinyin":"chà ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"Difference"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"職業",
+        "pinyin":"zhíyè ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"Profession"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"教師",
+        "pinyin":"jiàoshī ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"teacher"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"經理",
+        "pinyin":"jīnglǐ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"manager"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"記者",
+        "pinyin":"jìzhě ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"reporter"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"服務員\/服務生",
+        "pinyin":"fú​wù​yuán\/fúwùshēng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"waiter\/waiter"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"顧客",
+        "pinyin":"gùkè ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"customer"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"教書",
+        "pinyin":"jiāoshū ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"teach"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"開會",
+        "pinyin":"kāihuì ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"meeting"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"下班",
+        "pinyin":"xiàbān ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"get off work"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"危險",
+        "pinyin":"wéixiǎn ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"Danger"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"安全",
+        "pinyin":"ānquán ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"Safety"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"安全 ",
+        "pinyin":"ānquán ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"Safety"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"成功",
+        "pinyin":"chénggōng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"success"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"報告",
+        "pinyin":"bàogào ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"Report"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"報告 ",
+        "pinyin":"bàogào ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"Report"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"打算",
+        "pinyin":"dǎsuàn ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"Intend"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"機會",
+        "pinyin":"jīhuì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"Chance"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"當",
+        "pinyin":"dāng ",
+        "partOfSpeech":"(Prep)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"when"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"如果",
+        "pinyin":"rúguǒ ",
+        "partOfSpeech":"(Conj)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"if"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"計畫\/劃 ",
+        "pinyin":"jìhuà",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"plan\/plan"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"計畫",
+        "pinyin":"jìhuà ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"plan"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"努力",
+        "pinyin":"nǔlì ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"effort"
+    },
+    {
+        "topic":"工作",
+        "vocabulary":"管理",
+        "pinyin":"guănlǐ ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Work",
+        "vocabularyEnglish":"manage"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"學院",
+        "pinyin":"xuéyuàn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"college"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"小學生",
+        "pinyin":"xiăoxuéshēng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"primary school student"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"大學生",
+        "pinyin":"dàxuéshēng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"undergrad"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"同學",
+        "pinyin":"tóngxué ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"classmate"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"校長",
+        "pinyin":"xiàozhǎng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"headmaster"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"放假",
+        "pinyin":"fàngjià",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"Have a holiday"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"畢業",
+        "pinyin":"bìyè ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"graduate"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"開學",
+        "pinyin":"kāixué ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"School starts"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"成績",
+        "pinyin":"chéngjī ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"score"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"學期",
+        "pinyin":"xuéqí ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"semester"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"學費",
+        "pinyin":"xuéfèi ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"tuition fee"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"暑假",
+        "pinyin":"shŭjià ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"summer vacation"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"寒假",
+        "pinyin":"hánjià ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"winter vacation"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"服務",
+        "pinyin":"fúwù ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"Serve"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"宿舍",
+        "pinyin":"sùshè",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"dormitory"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"操場",
+        "pinyin":"cāochăng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"playground"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"校園",
+        "pinyin":"xiàoyuán ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"campus"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"中文",
+        "pinyin":"zhōngwén ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"Chinese"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"文化",
+        "pinyin":"wénhuà ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"culture"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"語法",
+        "pinyin":"yǔfǎ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"grammar"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"漢語",
+        "pinyin":"hànyǔ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"Chinese"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"書法",
+        "pinyin":"shūfă ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"calligraphy"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"班",
+        "pinyin":"bān ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"class"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"班 ",
+        "pinyin":"bān ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"class"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"書桌",
+        "pinyin":"shūzhuō ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"desk"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"課",
+        "pinyin":"kè ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"class"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"字典",
+        "pinyin":"zìdiǎn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"dictionary"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"漢字",
+        "pinyin":"hànzì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"Chinese character"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"鉛筆",
+        "pinyin":"qiānbǐ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"pencil"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"尺",
+        "pinyin":"chǐ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"ruler"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"毛筆",
+        "pinyin":"máobĭ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"writing brush"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"教",
+        "pinyin":"jiào ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"teach"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"講",
+        "pinyin":"jiǎng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"speak"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"講話",
+        "pinyin":"jiǎnghuà ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"speech"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"告訴",
+        "pinyin":"gàosù ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"Tell"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"念\/唸",
+        "pinyin":"niàn ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"read\/read"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"練習 ",
+        "pinyin":"liànxí ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"practise"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"討論",
+        "pinyin":"tǎolùn ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"discuss"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"認為",
+        "pinyin":"rènwéi ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"think"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"解釋",
+        "pinyin":"jiěshì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"explain"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"同意",
+        "pinyin":"tóngyì ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"agree"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"了解\/瞭解",
+        "pinyin":"liǎojiě ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"understand\/understand"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"清楚",
+        "pinyin":"qīngchǔ ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"clear"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"無聊",
+        "pinyin":"wúliáo ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"boring"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"決定",
+        "pinyin":"juédìng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"Decide"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"遍",
+        "pinyin":"biàn ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"all over"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"交",
+        "pinyin":"jiāo ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"pay"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"借",
+        "pinyin":"jiè ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"borrow"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"算",
+        "pinyin":"suàn ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"Calculate"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"對",
+        "pinyin":"duì ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"right"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"錯",
+        "pinyin":"cuò ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"wrong"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"辦法",
+        "pinyin":"bànfǎ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"way"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"方法",
+        "pinyin":"fāngfǎ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"method"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"有用",
+        "pinyin":"yǒuyòng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"it works"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"進步",
+        "pinyin":"jìnbù ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"progress"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"忘",
+        "pinyin":"wàng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"forget"
+    },
+    {
+        "topic":"教育",
+        "vocabulary":"記",
+        "pinyin":"jì ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Education",
+        "vocabularyEnglish":"remember"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"公寓",
+        "pinyin":"gōngyù ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"apartment"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"大樓",
+        "pinyin":"dàlóu ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"building"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"臥室",
+        "pinyin":"wòshì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"bedroom"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"花園",
+        "pinyin":"huāyuán ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"garden"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"門口",
+        "pinyin":"ménkǒu ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"doorway"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"浴室",
+        "pinyin":"yùshì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"bathroom"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"樓梯",
+        "pinyin":"lóutī ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"stairs"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"牆",
+        "pinyin":"qiáng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"wall"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"洗衣機",
+        "pinyin":"xǐyījī ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"washing machine"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"冰箱",
+        "pinyin":"bīngxiāng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"refrigerator"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"燈",
+        "pinyin":"dēng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"lamp"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"打開",
+        "pinyin":"dǎkāi ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"Open"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"盒子",
+        "pinyin":"hézi",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"Box"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"鄰居",
+        "pinyin":"línjū ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"Neighbor"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"熱鬧",
+        "pinyin":"rènào ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"lively"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"吵",
+        "pinyin":"chǎo ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"Quarrel"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"滿意",
+        "pinyin":"mǎnyì ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"satisfy"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"乾淨",
+        "pinyin":"gānjìng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"clean"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"房租",
+        "pinyin":"fángzū ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"rent"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"租",
+        "pinyin":"zū ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"rent"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"開水",
+        "pinyin":"kāishuǐ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"boiling water"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"鄉下",
+        "pinyin":"xiāngxià ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"countryside"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"森林",
+        "pinyin":"sēnlín ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"forest"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"地",
+        "pinyin":"dì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"land"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"草",
+        "pinyin":"cǎo ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"Grass"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"枝",
+        "pinyin":"zhī ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"branch"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"隻",
+        "pinyin":"zhī ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"Only"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"動物",
+        "pinyin":"dòngwù ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"animal"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"牛",
+        "pinyin":"niú ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"ox"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"虎",
+        "pinyin":"hŭ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"Tiger"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"羊",
+        "pinyin":"yáng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"sheep"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"豬",
+        "pinyin":"zhū ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"pig"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"月亮",
+        "pinyin":"yuèliàng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"moon"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"星星",
+        "pinyin":"xīngxīng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"Star"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"雲",
+        "pinyin":"yún ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"cloud"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"地球",
+        "pinyin":"dìqiú ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"Earth"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"世界",
+        "pinyin":"shìjiè ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"world"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"環境",
+        "pinyin":"huánjìng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"environment"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"火",
+        "pinyin":"huǒ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"fire"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"晴天",
+        "pinyin":"qíngtiān ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"sunny"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"暖和",
+        "pinyin":"nuǎnhuo ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"warm"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"涼快",
+        "pinyin":"liángkuài ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"cool"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"溫暖",
+        "pinyin":"wēnnuăn ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"warmth"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"度",
+        "pinyin":"dù ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"Spend"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"溫度",
+        "pinyin":"wēndù ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"temperature"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"雨",
+        "pinyin":"yǔ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"rain"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"雪",
+        "pinyin":"xuě ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"Snow"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"空氣",
+        "pinyin":"kōngqì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"Air"
+    },
+    {
+        "topic":"房屋與家庭、環境",
+        "vocabulary":"間",
+        "pinyin":"jiān ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Family & Home",
+        "vocabularyEnglish":"between"
+    },
+    {
+        "topic":"日常生活",
+        "vocabulary":"睡",
+        "pinyin":"shuì ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Daily Life",
+        "vocabularyEnglish":"sleep"
+    },
+    {
+        "topic":"日常生活",
+        "vocabulary":"發生",
+        "pinyin":"fāshēng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Daily Life",
+        "vocabularyEnglish":"occur"
+    },
+    {
+        "topic":"日常生活",
+        "vocabulary":"發現",
+        "pinyin":"fāxiàn ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Daily Life",
+        "vocabularyEnglish":"Discover"
+    },
+    {
+        "topic":"日常生活",
+        "vocabulary":"發現 ",
+        "pinyin":"fāxiàn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Daily Life",
+        "vocabularyEnglish":"Discover"
+    },
+    {
+        "topic":"日常生活",
+        "vocabulary":"照顧",
+        "pinyin":"zhàogù ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Daily Life",
+        "vocabularyEnglish":"take care of"
+    },
+    {
+        "topic":"日常生活",
+        "vocabulary":"打掃",
+        "pinyin":"dǎsǎo ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Daily Life",
+        "vocabularyEnglish":"clean"
+    },
+    {
+        "topic":"日常生活",
+        "vocabulary":"餐",
+        "pinyin":"cān ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Daily Life",
+        "vocabularyEnglish":"meal"
+    },
+    {
+        "topic":"日常生活",
+        "vocabulary":"起來",
+        "pinyin":"qǐlái ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Daily Life",
+        "vocabularyEnglish":"stand up"
+    },
+    {
+        "topic":"日常生活",
+        "vocabulary":"搬",
+        "pinyin":"bān ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Daily Life",
+        "vocabularyEnglish":"move"
+    },
+    {
+        "topic":"日常生活",
+        "vocabulary":"掛",
+        "pinyin":"guà ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Daily Life",
+        "vocabularyEnglish":"hang"
+    },
+    {
+        "topic":"日常生活",
+        "vocabulary":"有空\/有空兒",
+        "pinyin":"yǒukòng\/yǒukòngr",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Daily Life",
+        "vocabularyEnglish":"Available\/available"
+    },
+    {
+        "topic":"日常生活",
+        "vocabulary":"過年",
+        "pinyin":"guònián ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Daily Life",
+        "vocabularyEnglish":"New Year"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"結束",
+        "pinyin":"jiéshù ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"Finish"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"完",
+        "pinyin":"wán ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"over"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"散步",
+        "pinyin":"sànbù ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"walk"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"爬",
+        "pinyin":"pá ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"climb"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"跳",
+        "pinyin":"tiào ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"Jump"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"座位",
+        "pinyin":"zuòwèi ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"seat"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"博物館",
+        "pinyin":"bówùguăn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"museum"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"節目",
+        "pinyin":"jiémù ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"programme"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"新聞",
+        "pinyin":"xīnwén ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"news"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"政治",
+        "pinyin":"zhèngzhì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"politics"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"體育",
+        "pinyin":"tǐyù ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"physical education"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"網站",
+        "pinyin":"wǎngzhàn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"website"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"還",
+        "pinyin":"hái ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"return"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"經常",
+        "pinyin":"jīngcháng ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"often"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"平常",
+        "pinyin":"píngcháng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"usually"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"總是",
+        "pinyin":"zǒngshì ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"always"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"已經",
+        "pinyin":"yǐjīng ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"already"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"各",
+        "pinyin":"gè ",
+        "partOfSpeech":"(Det)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"each"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"雜誌",
+        "pinyin":"zázhì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"Magazine"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"文章",
+        "pinyin":"wénzhāng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"article"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"故事",
+        "pinyin":"gùshì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"story"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"小說",
+        "pinyin":"xiǎoshuō ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"novel"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"美術",
+        "pinyin":"měishù ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"art"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"藝術",
+        "pinyin":"yìshù ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"Art"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"興趣",
+        "pinyin":"xìngqù ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"interest"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"收",
+        "pinyin":"shōu ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"receive"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"談",
+        "pinyin":"tán ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"talk"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"聊天\/聊天兒",
+        "pinyin":"liáotiān\/liáotiānr",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"chat\/chat"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"唱",
+        "pinyin":"chàng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"Sing"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"歌",
+        "pinyin":"gē",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"Song"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"早",
+        "pinyin":"zǎo ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"morning"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"遲到",
+        "pinyin":"chídào ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"be late"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"後來",
+        "pinyin":"hòulái ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"later"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"變",
+        "pinyin":"biàn ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"Change"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"跳舞",
+        "pinyin":"tiàowǔ ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"Dance"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"樂器",
+        "pinyin":"yuèqì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"musical instrument"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"吉他",
+        "pinyin":"jítā ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"Guitar"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"鋼琴",
+        "pinyin":"gāngqín ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"piano"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"可怕",
+        "pinyin":"kěpà ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"horrible"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"活動",
+        "pinyin":"huódòng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"Activity"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"就",
+        "pinyin":"jiù ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"At once"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"消息",
+        "pinyin":"xiāoxí ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"information"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"才",
+        "pinyin":"cái ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"talent"
+    },
+    {
+        "topic":"閒暇時間、娛樂",
+        "vocabulary":"又",
+        "pinyin":"yòu ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Leisure & Entertainment",
+        "vocabularyEnglish":"again"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"客人",
+        "pinyin":"kèrén ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"guest"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"不好意思",
+        "pinyin":"bùhǎoyìsi ",
+        "partOfSpeech":undefined,
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"Excuse me"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"怎麼了",
+        "pinyin":"zěnmele ",
+        "partOfSpeech":undefined,
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"What's wrong"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"怎麼辦",
+        "pinyin":"zěnmebàn ",
+        "partOfSpeech":undefined,
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"what to do"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"客氣",
+        "pinyin":"kèqì ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"polite"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"舞會",
+        "pinyin":"wŭhuì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"prom"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"最近",
+        "pinyin":"zuìjìn ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"recent"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"請客",
+        "pinyin":"qǐngkè ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"dinner"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"慶祝",
+        "pinyin":"qìngzhù ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"celebrate"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"聽說",
+        "pinyin":"tīngshuō ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"heard"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"感謝",
+        "pinyin":"gǎnxiè ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"grateful"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"見面",
+        "pinyin":"jiànmiàn ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"Meet"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"約",
+        "pinyin":"yuē ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"about"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"事",
+        "pinyin":"shì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"thing"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"事情",
+        "pinyin":"shìqíng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"matter"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"明信片",
+        "pinyin":"míngxìnpiàn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"postcard"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"卡片",
+        "pinyin":"kǎpiàn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"card"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"幫",
+        "pinyin":"bāng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"help"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"弄",
+        "pinyin":"nòng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"alley"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"檢查",
+        "pinyin":"jiǎnchá ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"examine"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"通知",
+        "pinyin":"tōngzhī ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"notify"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"通知 ",
+        "pinyin":"tōngzhī ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"notify"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"叫 ",
+        "pinyin":"jiào ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"Call"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"麻煩",
+        "pinyin":"máfán ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"trouble"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"偷",
+        "pinyin":"tōu ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"steal"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"錢包",
+        "pinyin":"qiánbāo ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"wallet"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"拉",
+        "pinyin":"lā ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"pull"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"小偷",
+        "pinyin":"xiǎotōu ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"Thief"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"滿",
+        "pinyin":"mǎn ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"Full"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"丟",
+        "pinyin":"diū ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"leave"
+    },
+    {
+        "topic":"與他人的關係",
+        "vocabulary":"啊",
+        "pinyin":"ā ",
+        "partOfSpeech":"(P)",
+        "level":2,
+        "topicEnglish":"Relationships",
+        "vocabularyEnglish":"ah"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"汽車",
+        "pinyin":"qìchē ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"car"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"輛",
+        "pinyin":"liàng ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"vehicle"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"船\/船兒",
+        "pinyin":"chuán\/chuánr",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"boat\/boat"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"停車場",
+        "pinyin":"tíngchēchăng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"PARKING LOT"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"搭",
+        "pinyin":"dā ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"take"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"起飛",
+        "pinyin":"qĭfēi ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"take off"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"出",
+        "pinyin":"chū ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"out"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"出來",
+        "pinyin":"chūlái ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"come out"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"進",
+        "pinyin":"jìn ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"Enter"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"進去",
+        "pinyin":"jìnqù ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"go in"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"回去",
+        "pinyin":"huíqù ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"go back"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"路口",
+        "pinyin":"lùkǒu ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"intersection"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"紅綠燈",
+        "pinyin":"hónglǜdēng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"traffic light"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"橋",
+        "pinyin":"qiáo ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"bridge"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"左",
+        "pinyin":"zuǒ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"Left"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"右",
+        "pinyin":"yòu",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"right"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"外",
+        "pinyin":"wài",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"outside"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"裡",
+        "pinyin":"lǐ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"inside"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"下 ",
+        "pinyin":"xià ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"Down"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"上 ",
+        "pinyin":"shàng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"superior"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"這邊",
+        "pinyin":"zhèbiān ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"This way"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"這些",
+        "pinyin":"zhèxiē ",
+        "partOfSpeech":"(Det)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"These"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"那些",
+        "pinyin":"nàxiē ",
+        "partOfSpeech":"(Det)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"Those ones"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"那邊",
+        "pinyin":"nàbiān ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"there"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"旅遊",
+        "pinyin":"lǚyóu ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"travel"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"動物園",
+        "pinyin":"dòngwùyuán ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"zoo"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"出發",
+        "pinyin":"chūfā ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"Set off"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"離開",
+        "pinyin":"líkāi ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"leave"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"向",
+        "pinyin":"xiàng ",
+        "partOfSpeech":"(Prep)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"Towards"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"南",
+        "pinyin":"nán",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"South"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"南部",
+        "pinyin":"nánbù ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"South"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"南邊",
+        "pinyin":"nánbiān",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"south"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"西",
+        "pinyin":"xī",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"West"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"西部",
+        "pinyin":"xībù ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"west"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"西邊",
+        "pinyin":"xībiān",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"west"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"北",
+        "pinyin":"běi",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"north"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"北部",
+        "pinyin":"běibù ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"north"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"北邊",
+        "pinyin":"běibiān",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"north"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"東",
+        "pinyin":"dōng",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"East"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"東部",
+        "pinyin":"dōngbù",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"east"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"東邊",
+        "pinyin":"dōngbiān",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"east"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"經過",
+        "pinyin":"jīngguò ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"go through"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"轉",
+        "pinyin":"zhuǎn ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"change"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"掉",
+        "pinyin":"diào ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"Lose"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"一直",
+        "pinyin":"yīzhí ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"Always"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"過去",
+        "pinyin":"guòqù ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"past"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"最後",
+        "pinyin":"zuìhòu ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"at last"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"動",
+        "pinyin":"dòng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"move"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"躺",
+        "pinyin":"tǎng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"lie"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"起",
+        "pinyin":"qǐ ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"rise"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"停",
+        "pinyin":"tíng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"stop"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"中心",
+        "pinyin":"zhōngxīn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"center"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"外國",
+        "pinyin":"wàiguó ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"foreign"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"護照",
+        "pinyin":"hùzhào ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"passport"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"行李",
+        "pinyin":"xínglĭ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"luggage"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"出口",
+        "pinyin":"chūkŏu ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"exit"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"油",
+        "pinyin":"yóu ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"Oil"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"鑰匙",
+        "pinyin":"yàoshi ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"key"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"袋子",
+        "pinyin":"dàizi ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"bag"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"公里",
+        "pinyin":"gōnglǐ ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"kilometer"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"方向",
+        "pinyin":"fāngxiàng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"direction"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"出現",
+        "pinyin":"chūxiàn ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"Appear"
+    },
+    {
+        "topic":"旅行",
+        "vocabulary":"交通",
+        "pinyin":"jiāotōng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Travel",
+        "vocabularyEnglish":"transportation"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"臉",
+        "pinyin":"liǎn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"Face"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"腿",
+        "pinyin":"tuǐ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"leg"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"腳",
+        "pinyin":"jiǎo ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"foot"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"心",
+        "pinyin":"xīn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"Heart"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"鼻(子)",
+        "pinyin":"bí(zi)",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"nose)"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"背",
+        "pinyin":"bèi ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"back"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"嘴巴",
+        "pinyin":"zuǐba",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"mouth"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"脖子",
+        "pinyin":"bózi ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"neck"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"健康 ",
+        "pinyin":"jiànkāng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"healthy"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"感覺",
+        "pinyin":"gǎnjué ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"Feel"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"感覺 ",
+        "pinyin":"gǎnjué ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"Feel"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"救護車",
+        "pinyin":"jiùhùchē",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"ambulance"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"咳嗽",
+        "pinyin":"késòu ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"cough"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"發燒",
+        "pinyin":"fāshāo ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"fever"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"疼",
+        "pinyin":"téng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"pain"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"保險",
+        "pinyin":"băoxiăn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"Insurance"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"病",
+        "pinyin":"bìng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"sick"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"看病",
+        "pinyin":"kànbìng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"see a doctor"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"病人",
+        "pinyin":"bìngrén ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"patient"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"掛號",
+        "pinyin":"guàhào ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"registered"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"牙刷",
+        "pinyin":"yáshuā ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"toothbrush"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"剪",
+        "pinyin":"jiăn ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"Cut"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"藥房",
+        "pinyin":"yàofáng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"pharmacy"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"恢復",
+        "pinyin":"huīfù ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"recover"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"救命",
+        "pinyin":"jiùmìng",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"Help"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"影響 ",
+        "pinyin":"yǐngxiǎng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"Influence"
+    },
+    {
+        "topic":"健康及身體照護",
+        "vocabulary":"影響",
+        "pinyin":"yǐngxiǎng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Health & Activity",
+        "vocabularyEnglish":"Influence"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"飽",
+        "pinyin":"bǎo ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"full"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"吃飽",
+        "pinyin":"chībǎo ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"Eat enough"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"簡單",
+        "pinyin":"jiǎndān ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"Simple"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"書店",
+        "pinyin":"shūdiàn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"bookstore"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"超級市場\/超市",
+        "pinyin":"chāojíshìchǎng\/chāoshì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"Supermarket\/Supermarket"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"戴",
+        "pinyin":"dài ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"Wear"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"試",
+        "pinyin":"shì ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"try"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"輕",
+        "pinyin":"qīng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"light"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"重",
+        "pinyin":"zhòng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"Heavy"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"流行",
+        "pinyin":"liúxíng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"Popularity"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"藍色",
+        "pinyin":"lánsè ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"blue"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"綠色",
+        "pinyin":"lǜsè ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"green"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"紅色",
+        "pinyin":"hóngsè ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"red"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"黑色",
+        "pinyin":"hēisè ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"black"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"手錶\/錶",
+        "pinyin":"shǒubiǎo\/biǎo",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"watch\/table"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"付",
+        "pinyin":"fù ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"pay"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"襯衫",
+        "pinyin":"chènshān ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"shirt"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"毛衣",
+        "pinyin":"máoyī ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"sweater"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"大衣",
+        "pinyin":"dàyī ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"coat"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"牛仔褲",
+        "pinyin":"niúzǎikù ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"jeans"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"雨衣",
+        "pinyin":"yŭyī ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"raincoat"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"內衣",
+        "pinyin":"nèiyī ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"underwear"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"帽子",
+        "pinyin":"màozi ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"hat"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"皮包",
+        "pinyin":"píbāo ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"leather bag"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"外套",
+        "pinyin":"wàitào ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"coat"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"乾",
+        "pinyin":"gān ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"Dry"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"舊",
+        "pinyin":"jiù ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"old"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"價格",
+        "pinyin":"jiàgé ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"price"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"價錢",
+        "pinyin":"jiàqián ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"Price"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"排隊",
+        "pinyin":"páiduì  ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"queue"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"信用卡",
+        "pinyin":"xìnyòngkǎ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"credit card"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"毛",
+        "pinyin":"máo ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"hair"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"比較",
+        "pinyin":"bǐjiào ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"Compare"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"樣子",
+        "pinyin":"yàngzi",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"appearance"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"特別",
+        "pinyin":"tèbié ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"special"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"一般",
+        "pinyin":"yībān ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"generally"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"圓",
+        "pinyin":"yuán ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"round"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"光",
+        "pinyin":"guāng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"Light"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"看見",
+        "pinyin":"kànjiàn ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"see"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"其他",
+        "pinyin":"qítā",
+        "partOfSpeech":"(Det)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"other"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"聲音",
+        "pinyin":"shēngyīn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"sound"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"大聲",
+        "pinyin":"dàshēng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"loud"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"好像",
+        "pinyin":"hǎoxiàng ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"like"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"像",
+        "pinyin":"xiàng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"picture"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"奇怪",
+        "pinyin":"qíguài ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"strangeness"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"死",
+        "pinyin":"sǐ ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"die"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"髒",
+        "pinyin":"zāng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"dirty"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"差不多",
+        "pinyin":"chàbùduō ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"almost"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"一共",
+        "pinyin":"yīgòng ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"total"
+    },
+    {
+        "topic":"購物",
+        "vocabulary":"需要",
+        "pinyin":"xūyào ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Shopping",
+        "vocabularyEnglish":"need"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"牛排",
+        "pinyin":"niúpái ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"steak"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"米",
+        "pinyin":"mǐ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"rice"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"三明治",
+        "pinyin":"sānmíngzhì ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"sandwich"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"西瓜",
+        "pinyin":"xīguā ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"watermelon"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"啤酒",
+        "pinyin":"píjiǔ ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"beer"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"紅茶",
+        "pinyin":"hóngchá ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"black tea"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"點菜",
+        "pinyin":"diǎncài ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"Order food"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"分",
+        "pinyin":"fēn ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"point"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"包",
+        "pinyin":"bāo ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"Bag"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"酸",
+        "pinyin":"suān ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"acid"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"苦",
+        "pinyin":"kǔ ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"bitter"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"鹹",
+        "pinyin":"xián ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"salty"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"辣",
+        "pinyin":"là ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"hot"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"點心",
+        "pinyin":"diǎnxīn ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"dessert"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"冰淇淋",
+        "pinyin":"bīngqílín ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"ice cream"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"餅乾",
+        "pinyin":"bǐnggān ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"cookie"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"漢堡",
+        "pinyin":"hànbǎo ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"hamburger"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"青菜",
+        "pinyin":"qīngcài ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"Green vegetables"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"鹽",
+        "pinyin":"yán ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"Salt"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"糖",
+        "pinyin":"táng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"sugar"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"煮",
+        "pinyin":"zhǔ ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"cook"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"碗 ",
+        "pinyin":"wǎn ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"bowl"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"盤",
+        "pinyin":"pán ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"plate"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"條",
+        "pinyin":"tiáo ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"strip"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"位",
+        "pinyin":"wèi ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"Bit"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"種",
+        "pinyin":"zhǒng ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"kind"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"口",
+        "pinyin":"kǒu ",
+        "partOfSpeech":"(M)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"mouth"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"夠",
+        "pinyin":"gòu ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"enough"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"任何",
+        "pinyin":"rènhé ",
+        "partOfSpeech":"(Det)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"any"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"味道",
+        "pinyin":"wèidào ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"smell"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"香",
+        "pinyin":"xiāng ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"fragrant"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"全部",
+        "pinyin":"quánbù ",
+        "partOfSpeech":"(Det)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"all"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"所有",
+        "pinyin":"suǒyǒu ",
+        "partOfSpeech":"(Det)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"all"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"許多",
+        "pinyin":"xǔduō ",
+        "partOfSpeech":"(Det)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"many"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"新鮮",
+        "pinyin":"xīnxiān ",
+        "partOfSpeech":"(VS)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"Fresh"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"烤",
+        "pinyin":"kǎo ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"bake"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"嚐",
+        "pinyin":"cháng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"taste"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"裝",
+        "pinyin":"zhuāng ",
+        "partOfSpeech":"(VA)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"Pack"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"刀(子)",
+        "pinyin":"dāo(zi)",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"knife)"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"叉(子)",
+        "pinyin":"chā(zi)",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"fork)"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"湯匙",
+        "pinyin":"tāngchí ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"spoon"
+    },
+    {
+        "topic":"飲食",
+        "vocabulary":"筷子",
+        "pinyin":"kuàizi ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Diet",
+        "vocabularyEnglish":"Chopsticks"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"沒有",
+        "pinyin":"méi(yǒu) ",
+        "partOfSpeech":"(P)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"No"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"別",
+        "pinyin":"bié ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"Don't"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"不用",
+        "pinyin":"bùyòng ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"Need not"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"不但",
+        "pinyin":"bùdàn ",
+        "partOfSpeech":"(Conj)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"Not only"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"只好",
+        "pinyin":"zhǐhǎo ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"Had to"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"正在",
+        "pinyin":"zhèngzài ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"are"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"馬上",
+        "pinyin":"mǎshàng ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"immediately"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"把",
+        "pinyin":"bǎ ",
+        "partOfSpeech":"(Prep)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"Bundle"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"被",
+        "pinyin":"bèi ",
+        "partOfSpeech":"(Prep)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"quilt"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"讓",
+        "pinyin":"ràng ",
+        "partOfSpeech":"(Prep)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"let"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"或",
+        "pinyin":"huò ",
+        "partOfSpeech":"(Conj)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"or"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"或是",
+        "pinyin":"huòshì ",
+        "partOfSpeech":"(Conj)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"Or"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"可能 ",
+        "pinyin":"kěnéng ",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"possible"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"然後",
+        "pinyin":"ránhòu ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"Then"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"但是",
+        "pinyin":"dànshì ",
+        "partOfSpeech":"(Conj)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"but"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"而且",
+        "pinyin":"érqiě ",
+        "partOfSpeech":"(Conj)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"and"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"雖然",
+        "pinyin":"suīrán ",
+        "partOfSpeech":"(Conj)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"Although"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"原來",
+        "pinyin":"yuánlái ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"turn out to be"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"也許",
+        "pinyin":"yěxǔ ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"Maybe"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"為了",
+        "pinyin":"wèile ",
+        "partOfSpeech":"(Prep)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"for"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"必須",
+        "pinyin":"bìxū ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"must"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"永遠",
+        "pinyin":"yǒngyuǎn ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"forever"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"邊\/邊兒",
+        "pinyin":"biān\/biānr",
+        "partOfSpeech":"(N)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"edge\/edge"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"那麼",
+        "pinyin":"nàme",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"So"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"這麼",
+        "pinyin":"zhème",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"so"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"本來",
+        "pinyin":"běnlái ",
+        "partOfSpeech":"(Adv)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"originally"
+    },
+    {
+        "topic":"其他",
+        "vocabulary":"要是",
+        "pinyin":"yàoshì ",
+        "partOfSpeech":"(Conj)",
+        "level":2,
+        "topicEnglish":"Other",
+        "vocabularyEnglish":"if"
+    }
+]
