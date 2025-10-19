@@ -7,7 +7,7 @@ export interface LessonModule {
     id: string;
     title: string;
     description: string;
-    vocabulary: Vocabulary[];
+    vocabularyId: number[]; // Hydrated with Vocabulary
     grammar: GrammarRule[];
     dialogue: DialogueTurn[];
     scenarioId?: string;
@@ -26,70 +26,17 @@ export const introducingYourselfLesson: LessonModule = {
     id: "lesson-1",
     title: "Introducing Yourself",
     description: "Learn how to greet people and introduce yourself in Mandarin.",
-    vocabulary: [
-        {
-            topic: null,
-            vocabulary: "你",
-            pinyin: "nǐ",
-            partOfSpeech: "pronoun",
-            level: 1,
-            topicEnglish: null,
-            vocabularyEnglish: "you"
-        },
-        {
-            topic: null,
-            vocabulary: "我",
-            pinyin: "wǒ",
-            partOfSpeech: "pronoun",
-            level: 1,
-            topicEnglish: null,
-            vocabularyEnglish: "I, me"
-        },
-        {
-            topic: null,
-            vocabulary: "他",
-            pinyin: "tā",
-            partOfSpeech: "pronoun",
-            level: 1,
-            topicEnglish: null,
-            vocabularyEnglish: "he, him"
-        },
-        {
-            topic: null,
-            vocabulary: "她",
-            pinyin: "tā",
-            partOfSpeech: "pronoun",
-            level: 1,
-            topicEnglish: null,
-            vocabularyEnglish: "she, her"
-        },
-        {
-            topic: null,
-            vocabulary: "我们",
-            pinyin: "wǒmen",
-            partOfSpeech: "pronoun",
-            level: 1,
-            topicEnglish: null,
-            vocabularyEnglish: "we, us"
-        },
-        {
-            topic: null,
-            vocabulary: "他们",
-            pinyin: "tāmen",
-            partOfSpeech: "pronoun",
-            level: 1,
-            topicEnglish: null,
-            vocabularyEnglish: "they, them (male or mixed)"
-        },
-        {
-            topic: null,
-            vocabulary: "她们",
-            pinyin: "tāmen",
-            partOfSpeech: "pronoun",
-            level: 1,
-            topicEnglish: null,
-            vocabularyEnglish: "they, them (female)"
-        }
+    vocabularyId: [
+        7787, // 你好
+        114, // 我
+        7788, // 你
+        7789, // 他
+        7790, // 她
+        124, // 是
+        490, // 不
+        125, // 的
+        126, // 誰
+        7791 // 名字
     ],
     grammar: [
         {

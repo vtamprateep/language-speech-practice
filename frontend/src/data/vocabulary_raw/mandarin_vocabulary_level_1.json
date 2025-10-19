@@ -4998,5 +4998,55 @@
         "topicEnglish":"Other",
         "vocabularyEnglish":"must",
         "id":500
+    },
+    {
+        "topic":"Greetings",
+        "vocabulary":"你好",
+        "pinyin":"nǐ hǎo",
+        "partOfSpeech":"phrase",
+        "level":1,
+        "topicEnglish":"Greetings",
+        "vocabularyEnglish":"hello; hi",
+        "id":7787
+    },
+    {
+        "topic":"Pronouns",
+        "vocabulary":"你",
+        "pinyin":"nǐ",
+        "partOfSpeech":"pronoun",
+        "level":1,
+        "topicEnglish":"Pronouns",
+        "vocabularyEnglish":"you",
+        "id":7788
+    },
+    {
+        "topic":"Pronouns",
+        "vocabulary":"他",
+        "pinyin":"tā",
+        "partOfSpeech":"pronoun",
+        "level":1,
+        "topicEnglish":"Pronouns",
+        "vocabularyEnglish":"he; him",
+        "id":7789
+    },
+    {
+        "topic":"Pronouns",
+        "vocabulary":"她",
+        "pinyin":"tā",
+        "partOfSpeech":"pronoun",
+        "level":1,
+        "topicEnglish":"Pronouns",
+        "vocabularyEnglish":"she; her",
+        "id":7790
+    },
+    {
+        "topic":"Personal Information",
+        "vocabulary":"名字",
+        "pinyin":"míngzi",
+        "partOfSpeech":"noun",
+        "level":1,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"name",
+        "id":7791
     }
 ]
