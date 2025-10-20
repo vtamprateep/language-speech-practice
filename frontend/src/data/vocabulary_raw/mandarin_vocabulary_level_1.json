@@ -6,7 +6,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Name(ㄗ˙)"
+        "vocabularyEnglish":"Name(ㄗ˙)",
+        "id":1
     },
     {
         "topic":"個人資料",
@@ -15,7 +16,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"surname"
+        "vocabularyEnglish":"surname",
+        "id":2
     },
     {
         "topic":"個人資料",
@@ -24,7 +26,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Name"
+        "vocabularyEnglish":"Name",
+        "id":3
     },
     {
         "topic":"個人資料",
@@ -33,7 +36,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Birthday"
+        "vocabularyEnglish":"Birthday",
+        "id":4
     },
     {
         "topic":"個人資料",
@@ -42,7 +46,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Come"
+        "vocabularyEnglish":"Come",
+        "id":5
     },
     {
         "topic":"個人資料",
@@ -51,7 +56,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"garden"
+        "vocabularyEnglish":"garden",
+        "id":6
     },
     {
         "topic":"個人資料",
@@ -60,7 +66,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"live"
+        "vocabularyEnglish":"live",
+        "id":7
     },
     {
         "topic":"個人資料",
@@ -69,7 +76,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"nation"
+        "vocabularyEnglish":"nation",
+        "id":8
     },
     {
         "topic":"個人資料",
@@ -78,7 +86,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"China"
+        "vocabularyEnglish":"China",
+        "id":9
     },
     {
         "topic":"個人資料",
@@ -87,7 +96,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Taiwan"
+        "vocabularyEnglish":"Taiwan",
+        "id":10
     },
     {
         "topic":"個人資料",
@@ -96,7 +106,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"USA"
+        "vocabularyEnglish":"USA",
+        "id":11
     },
     {
         "topic":"個人資料",
@@ -105,7 +116,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Japan"
+        "vocabularyEnglish":"Japan",
+        "id":12
     },
     {
         "topic":"個人資料",
@@ -114,7 +126,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"people"
+        "vocabularyEnglish":"people",
+        "id":13
     },
     {
         "topic":"個人資料",
@@ -123,7 +136,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"City"
+        "vocabularyEnglish":"City",
+        "id":14
     },
     {
         "topic":"個人資料",
@@ -132,7 +146,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"street"
+        "vocabularyEnglish":"street",
+        "id":15
     },
     {
         "topic":"個人資料",
@@ -141,7 +156,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"road"
+        "vocabularyEnglish":"road",
+        "id":16
     },
     {
         "topic":"個人資料",
@@ -150,7 +166,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Number"
+        "vocabularyEnglish":"Number",
+        "id":17
     },
     {
         "topic":"個人資料",
@@ -159,7 +176,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Number"
+        "vocabularyEnglish":"Number",
+        "id":18
     },
     {
         "topic":"個人資料",
@@ -168,7 +186,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Telephone"
+        "vocabularyEnglish":"Telephone",
+        "id":19
     },
     {
         "topic":"個人資料",
@@ -177,7 +196,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"cell phone"
+        "vocabularyEnglish":"cell phone",
+        "id":20
     },
     {
         "topic":"個人資料",
@@ -186,7 +206,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Call up"
+        "vocabularyEnglish":"Call up",
+        "id":21
     },
     {
         "topic":"個人資料",
@@ -195,7 +216,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"e-mail"
+        "vocabularyEnglish":"e-mail",
+        "id":22
     },
     {
         "topic":"個人資料",
@@ -204,7 +226,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"marry"
+        "vocabularyEnglish":"marry",
+        "id":23
     },
     {
         "topic":"個人資料",
@@ -213,7 +236,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Year"
+        "vocabularyEnglish":"Year",
+        "id":24
     },
     {
         "topic":"個人資料",
@@ -222,7 +246,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"last year"
+        "vocabularyEnglish":"last year",
+        "id":25
     },
     {
         "topic":"個人資料",
@@ -231,7 +256,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"next year"
+        "vocabularyEnglish":"next year",
+        "id":26
     },
     {
         "topic":"個人資料",
@@ -240,7 +266,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"This year"
+        "vocabularyEnglish":"This year",
+        "id":27
     },
     {
         "topic":"個人資料",
@@ -249,7 +276,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"moon"
+        "vocabularyEnglish":"moon",
+        "id":28
     },
     {
         "topic":"個人資料",
@@ -258,7 +286,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"day"
+        "vocabularyEnglish":"day",
+        "id":29
     },
     {
         "topic":"個人資料",
@@ -267,7 +296,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"when"
+        "vocabularyEnglish":"when",
+        "id":30
     },
     {
         "topic":"個人資料",
@@ -276,7 +306,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Hour"
+        "vocabularyEnglish":"Hour",
+        "id":31
     },
     {
         "topic":"個人資料",
@@ -285,7 +316,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"point"
+        "vocabularyEnglish":"point",
+        "id":32
     },
     {
         "topic":"個人資料",
@@ -294,7 +326,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"o'clock"
+        "vocabularyEnglish":"o'clock",
+        "id":33
     },
     {
         "topic":"個人資料",
@@ -303,7 +336,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"point"
+        "vocabularyEnglish":"point",
+        "id":34
     },
     {
         "topic":"個人資料",
@@ -312,7 +346,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"minute"
+        "vocabularyEnglish":"minute",
+        "id":35
     },
     {
         "topic":"個人資料",
@@ -321,7 +356,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"morning(ㄕㄤ˙)"
+        "vocabularyEnglish":"morning(ㄕㄤ˙)",
+        "id":36
     },
     {
         "topic":"個人資料",
@@ -330,7 +366,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"morning"
+        "vocabularyEnglish":"morning",
+        "id":37
     },
     {
         "topic":"個人資料",
@@ -339,7 +376,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"noon"
+        "vocabularyEnglish":"noon",
+        "id":38
     },
     {
         "topic":"個人資料",
@@ -348,7 +386,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"afternoon"
+        "vocabularyEnglish":"afternoon",
+        "id":39
     },
     {
         "topic":"個人資料",
@@ -357,7 +396,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Evening(ㄕㄤ˙)"
+        "vocabularyEnglish":"Evening(ㄕㄤ˙)",
+        "id":40
     },
     {
         "topic":"個人資料",
@@ -366,7 +406,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Week"
+        "vocabularyEnglish":"Week",
+        "id":41
     },
     {
         "topic":"個人資料",
@@ -375,7 +416,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Sunday\/Sunday"
+        "vocabularyEnglish":"Sunday\/Sunday",
+        "id":42
     },
     {
         "topic":"個人資料",
@@ -384,7 +426,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"weekend\/weekend"
+        "vocabularyEnglish":"weekend\/weekend",
+        "id":43
     },
     {
         "topic":"個人資料",
@@ -393,7 +436,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"sky"
+        "vocabularyEnglish":"sky",
+        "id":44
     },
     {
         "topic":"個人資料",
@@ -402,7 +446,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"sky"
+        "vocabularyEnglish":"sky",
+        "id":45
     },
     {
         "topic":"個人資料",
@@ -411,7 +456,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"yesterday"
+        "vocabularyEnglish":"yesterday",
+        "id":46
     },
     {
         "topic":"個人資料",
@@ -420,7 +466,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"today"
+        "vocabularyEnglish":"today",
+        "id":47
     },
     {
         "topic":"個人資料",
@@ -429,7 +476,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"tomorrow"
+        "vocabularyEnglish":"tomorrow",
+        "id":48
     },
     {
         "topic":"個人資料",
@@ -438,7 +486,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Now"
+        "vocabularyEnglish":"Now",
+        "id":49
     },
     {
         "topic":"個人資料",
@@ -447,7 +496,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"summer"
+        "vocabularyEnglish":"summer",
+        "id":50
     },
     {
         "topic":"個人資料",
@@ -456,7 +506,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"winter"
+        "vocabularyEnglish":"winter",
+        "id":51
     },
     {
         "topic":"個人資料",
@@ -465,7 +516,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"autumn"
+        "vocabularyEnglish":"autumn",
+        "id":52
     },
     {
         "topic":"個人資料",
@@ -474,7 +526,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"spring"
+        "vocabularyEnglish":"spring",
+        "id":53
     },
     {
         "topic":"個人資料",
@@ -483,7 +536,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Everyone"
+        "vocabularyEnglish":"Everyone",
+        "id":54
     },
     {
         "topic":"個人資料",
@@ -492,7 +546,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"age"
+        "vocabularyEnglish":"age",
+        "id":55
     },
     {
         "topic":"個人資料",
@@ -501,7 +556,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"young"
+        "vocabularyEnglish":"young",
+        "id":56
     },
     {
         "topic":"個人資料",
@@ -510,7 +566,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"old"
+        "vocabularyEnglish":"old",
+        "id":57
     },
     {
         "topic":"個人資料",
@@ -519,7 +576,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"male"
+        "vocabularyEnglish":"male",
+        "id":58
     },
     {
         "topic":"個人資料",
@@ -528,7 +586,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"boys"
+        "vocabularyEnglish":"boys",
+        "id":59
     },
     {
         "topic":"個人資料",
@@ -537,7 +596,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"female"
+        "vocabularyEnglish":"female",
+        "id":60
     },
     {
         "topic":"個人資料",
@@ -546,7 +606,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"girl"
+        "vocabularyEnglish":"girl",
+        "id":61
     },
     {
         "topic":"個人資料",
@@ -555,7 +616,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"gentlemen"
+        "vocabularyEnglish":"gentlemen",
+        "id":62
     },
     {
         "topic":"個人資料",
@@ -564,7 +626,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Mrs"
+        "vocabularyEnglish":"Mrs",
+        "id":63
     },
     {
         "topic":"個人資料",
@@ -573,7 +636,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Miss"
+        "vocabularyEnglish":"Miss",
+        "id":64
     },
     {
         "topic":"個人資料",
@@ -582,7 +646,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Child"
+        "vocabularyEnglish":"Child",
+        "id":65
     },
     {
         "topic":"個人資料",
@@ -591,7 +656,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Home"
+        "vocabularyEnglish":"Home",
+        "id":66
     },
     {
         "topic":"個人資料",
@@ -600,7 +666,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"family"
+        "vocabularyEnglish":"family",
+        "id":67
     },
     {
         "topic":"個人資料",
@@ -609,7 +676,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"dad"
+        "vocabularyEnglish":"dad",
+        "id":68
     },
     {
         "topic":"個人資料",
@@ -618,7 +686,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Mother"
+        "vocabularyEnglish":"Mother",
+        "id":69
     },
     {
         "topic":"個人資料",
@@ -627,7 +696,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"child"
+        "vocabularyEnglish":"child",
+        "id":70
     },
     {
         "topic":"個人資料",
@@ -636,7 +706,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"son"
+        "vocabularyEnglish":"son",
+        "id":71
     },
     {
         "topic":"個人資料",
@@ -645,7 +716,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"daughter"
+        "vocabularyEnglish":"daughter",
+        "id":72
     },
     {
         "topic":"個人資料",
@@ -654,7 +726,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"younger brother"
+        "vocabularyEnglish":"younger brother",
+        "id":73
     },
     {
         "topic":"個人資料",
@@ -663,7 +736,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"elder brother"
+        "vocabularyEnglish":"elder brother",
+        "id":74
     },
     {
         "topic":"個人資料",
@@ -672,7 +746,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"younger sister"
+        "vocabularyEnglish":"younger sister",
+        "id":75
     },
     {
         "topic":"個人資料",
@@ -681,7 +756,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"sister\/sister"
+        "vocabularyEnglish":"sister\/sister",
+        "id":76
     },
     {
         "topic":"個人資料",
@@ -690,7 +766,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"good"
+        "vocabularyEnglish":"good",
+        "id":77
     },
     {
         "topic":"個人資料",
@@ -699,7 +776,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"real"
+        "vocabularyEnglish":"real",
+        "id":78
     },
     {
         "topic":"個人資料",
@@ -708,7 +786,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"very"
+        "vocabularyEnglish":"very",
+        "id":79
     },
     {
         "topic":"個人資料",
@@ -717,7 +796,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"too"
+        "vocabularyEnglish":"too",
+        "id":80
     },
     {
         "topic":"個人資料",
@@ -726,7 +806,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Very"
+        "vocabularyEnglish":"Very",
+        "id":81
     },
     {
         "topic":"個人資料",
@@ -735,7 +816,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"laugh"
+        "vocabularyEnglish":"laugh",
+        "id":82
     },
     {
         "topic":"個人資料",
@@ -744,7 +826,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Happy"
+        "vocabularyEnglish":"Happy",
+        "id":83
     },
     {
         "topic":"個人資料",
@@ -753,7 +836,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"hapiness"
+        "vocabularyEnglish":"hapiness",
+        "id":84
     },
     {
         "topic":"個人資料",
@@ -762,7 +846,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"nervous"
+        "vocabularyEnglish":"nervous",
+        "id":85
     },
     {
         "topic":"個人資料",
@@ -771,7 +856,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"like"
+        "vocabularyEnglish":"like",
+        "id":86
     },
     {
         "topic":"個人資料",
@@ -780,7 +866,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"like"
+        "vocabularyEnglish":"like",
+        "id":87
     },
     {
         "topic":"個人資料",
@@ -789,7 +876,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"feel"
+        "vocabularyEnglish":"feel",
+        "id":88
     },
     {
         "topic":"個人資料",
@@ -798,7 +886,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Beautiful(ㄌㄧㄤ˙)"
+        "vocabularyEnglish":"Beautiful(ㄌㄧㄤ˙)",
+        "id":89
     },
     {
         "topic":"個人資料",
@@ -807,7 +896,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"nice"
+        "vocabularyEnglish":"nice",
+        "id":90
     },
     {
         "topic":"個人資料",
@@ -816,7 +906,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"cute"
+        "vocabularyEnglish":"cute",
+        "id":91
     },
     {
         "topic":"個人資料",
@@ -825,7 +916,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"fat"
+        "vocabularyEnglish":"fat",
+        "id":92
     },
     {
         "topic":"個人資料",
@@ -834,7 +926,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"high"
+        "vocabularyEnglish":"high",
+        "id":93
     },
     {
         "topic":"個人資料",
@@ -843,7 +936,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"short"
+        "vocabularyEnglish":"short",
+        "id":94
     },
     {
         "topic":"個人資料",
@@ -852,7 +946,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"thin"
+        "vocabularyEnglish":"thin",
+        "id":95
     },
     {
         "topic":"個人資料",
@@ -861,7 +956,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"No."
+        "vocabularyEnglish":"No.",
+        "id":96
     },
     {
         "topic":"個人資料",
@@ -870,7 +966,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"zero"
+        "vocabularyEnglish":"zero",
+        "id":97
     },
     {
         "topic":"個人資料",
@@ -879,7 +976,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"one"
+        "vocabularyEnglish":"one",
+        "id":98
     },
     {
         "topic":"個人資料",
@@ -888,7 +986,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"two"
+        "vocabularyEnglish":"two",
+        "id":99
     },
     {
         "topic":"個人資料",
@@ -897,7 +996,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"two"
+        "vocabularyEnglish":"two",
+        "id":100
     },
     {
         "topic":"個人資料",
@@ -906,7 +1006,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"three"
+        "vocabularyEnglish":"three",
+        "id":101
     },
     {
         "topic":"個人資料",
@@ -915,7 +1016,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Four"
+        "vocabularyEnglish":"Four",
+        "id":102
     },
     {
         "topic":"個人資料",
@@ -924,7 +1026,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"five"
+        "vocabularyEnglish":"five",
+        "id":103
     },
     {
         "topic":"個人資料",
@@ -933,7 +1036,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"six"
+        "vocabularyEnglish":"six",
+        "id":104
     },
     {
         "topic":"個人資料",
@@ -942,7 +1046,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"seven"
+        "vocabularyEnglish":"seven",
+        "id":105
     },
     {
         "topic":"個人資料",
@@ -951,7 +1056,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"eight"
+        "vocabularyEnglish":"eight",
+        "id":106
     },
     {
         "topic":"個人資料",
@@ -960,7 +1066,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Nine"
+        "vocabularyEnglish":"Nine",
+        "id":107
     },
     {
         "topic":"個人資料",
@@ -969,7 +1076,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"ten"
+        "vocabularyEnglish":"ten",
+        "id":108
     },
     {
         "topic":"個人資料",
@@ -978,7 +1086,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Hundred"
+        "vocabularyEnglish":"Hundred",
+        "id":109
     },
     {
         "topic":"個人資料",
@@ -987,7 +1096,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"thousand"
+        "vocabularyEnglish":"thousand",
+        "id":110
     },
     {
         "topic":"個人資料",
@@ -996,7 +1106,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Ten thousand"
+        "vocabularyEnglish":"Ten thousand",
+        "id":111
     },
     {
         "topic":"個人資料",
@@ -1005,7 +1116,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"Half"
+        "vocabularyEnglish":"Half",
+        "id":112
     },
     {
         "topic":"個人資料",
@@ -1014,7 +1126,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"indivual"
+        "vocabularyEnglish":"indivual",
+        "id":113
     },
     {
         "topic":"個人資料",
@@ -1023,7 +1136,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"I"
+        "vocabularyEnglish":"I",
+        "id":114
     },
     {
         "topic":"個人資料",
@@ -1032,7 +1146,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"you\/you"
+        "vocabularyEnglish":"you\/you",
+        "id":115
     },
     {
         "topic":"個人資料",
@@ -1041,7 +1156,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"you"
+        "vocabularyEnglish":"you",
+        "id":116
     },
     {
         "topic":"個人資料",
@@ -1050,7 +1166,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"he\/she"
+        "vocabularyEnglish":"he\/she",
+        "id":117
     },
     {
         "topic":"個人資料",
@@ -1059,7 +1176,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"us"
+        "vocabularyEnglish":"us",
+        "id":118
     },
     {
         "topic":"個人資料",
@@ -1068,7 +1186,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"you\/you"
+        "vocabularyEnglish":"you\/you",
+        "id":119
     },
     {
         "topic":"個人資料",
@@ -1077,7 +1196,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"they\/them"
+        "vocabularyEnglish":"they\/them",
+        "id":120
     },
     {
         "topic":"個人資料",
@@ -1086,7 +1206,8 @@
         "partOfSpeech":"(Prep)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"exist"
+        "vocabularyEnglish":"exist",
+        "id":121
     },
     {
         "topic":"個人資料",
@@ -1095,7 +1216,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"exist"
+        "vocabularyEnglish":"exist",
+        "id":122
     },
     {
         "topic":"個人資料",
@@ -1104,7 +1226,8 @@
         "partOfSpeech":"(Prep)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"from"
+        "vocabularyEnglish":"from",
+        "id":123
     },
     {
         "topic":"個人資料",
@@ -1113,7 +1236,8 @@
         "partOfSpeech":null,
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"yes"
+        "vocabularyEnglish":"yes",
+        "id":124
     },
     {
         "topic":"個人資料",
@@ -1122,7 +1246,8 @@
         "partOfSpeech":"(P)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"of"
+        "vocabularyEnglish":"of",
+        "id":125
     },
     {
         "topic":"個人資料",
@@ -1131,7 +1256,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Personal Information",
-        "vocabularyEnglish":"who"
+        "vocabularyEnglish":"who",
+        "id":126
     },
     {
         "topic":"工作",
@@ -1140,7 +1266,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"Hospital"
+        "vocabularyEnglish":"Hospital",
+        "id":127
     },
     {
         "topic":"工作",
@@ -1149,7 +1276,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"office"
+        "vocabularyEnglish":"office",
+        "id":128
     },
     {
         "topic":"工作",
@@ -1158,7 +1286,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"factory"
+        "vocabularyEnglish":"factory",
+        "id":129
     },
     {
         "topic":"工作",
@@ -1167,7 +1296,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"Worker"
+        "vocabularyEnglish":"Worker",
+        "id":130
     },
     {
         "topic":"工作",
@@ -1176,7 +1306,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"teacher"
+        "vocabularyEnglish":"teacher",
+        "id":131
     },
     {
         "topic":"工作",
@@ -1185,7 +1316,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"doctor"
+        "vocabularyEnglish":"doctor",
+        "id":132
     },
     {
         "topic":"工作",
@@ -1194,7 +1326,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"Nurse"
+        "vocabularyEnglish":"Nurse",
+        "id":133
     },
     {
         "topic":"工作",
@@ -1203,7 +1336,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"driver"
+        "vocabularyEnglish":"driver",
+        "id":134
     },
     {
         "topic":"工作",
@@ -1212,7 +1346,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"boss\/boss"
+        "vocabularyEnglish":"boss\/boss",
+        "id":135
     },
     {
         "topic":"工作",
@@ -1221,7 +1356,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"colleague"
+        "vocabularyEnglish":"colleague",
+        "id":136
     },
     {
         "topic":"工作",
@@ -1230,7 +1366,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"company"
+        "vocabularyEnglish":"company",
+        "id":137
     },
     {
         "topic":"工作",
@@ -1239,7 +1376,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"purchase"
+        "vocabularyEnglish":"purchase",
+        "id":138
     },
     {
         "topic":"工作",
@@ -1248,7 +1386,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"Sell"
+        "vocabularyEnglish":"Sell",
+        "id":139
     },
     {
         "topic":"工作",
@@ -1257,7 +1396,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"computer"
+        "vocabularyEnglish":"computer",
+        "id":140
     },
     {
         "topic":"工作",
@@ -1266,7 +1406,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"Work"
+        "vocabularyEnglish":"Work",
+        "id":141
     },
     {
         "topic":"工作",
@@ -1275,7 +1416,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"work"
+        "vocabularyEnglish":"work",
+        "id":142
     },
     {
         "topic":"工作",
@@ -1284,7 +1426,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"Prepare"
+        "vocabularyEnglish":"Prepare",
+        "id":143
     },
     {
         "topic":"工作",
@@ -1293,7 +1436,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Work",
-        "vocabularyEnglish":"busy"
+        "vocabularyEnglish":"busy",
+        "id":144
     },
     {
         "topic":"教育",
@@ -1302,7 +1446,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"School"
+        "vocabularyEnglish":"School",
+        "id":145
     },
     {
         "topic":"教育",
@@ -1311,7 +1456,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"primary school"
+        "vocabularyEnglish":"primary school",
+        "id":146
     },
     {
         "topic":"教育",
@@ -1320,7 +1466,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"middle school"
+        "vocabularyEnglish":"middle school",
+        "id":147
     },
     {
         "topic":"教育",
@@ -1329,7 +1476,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"University"
+        "vocabularyEnglish":"University",
+        "id":148
     },
     {
         "topic":"教育",
@@ -1338,7 +1486,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"grade"
+        "vocabularyEnglish":"grade",
+        "id":149
     },
     {
         "topic":"教育",
@@ -1347,7 +1496,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"student"
+        "vocabularyEnglish":"student",
+        "id":150
     },
     {
         "topic":"教育",
@@ -1356,7 +1506,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"go to school"
+        "vocabularyEnglish":"go to school",
+        "id":151
     },
     {
         "topic":"教育",
@@ -1365,7 +1516,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Attend class"
+        "vocabularyEnglish":"Attend class",
+        "id":152
     },
     {
         "topic":"教育",
@@ -1374,7 +1526,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"After class"
+        "vocabularyEnglish":"After class",
+        "id":153
     },
     {
         "topic":"教育",
@@ -1383,7 +1536,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Operation"
+        "vocabularyEnglish":"Operation",
+        "id":154
     },
     {
         "topic":"教育",
@@ -1392,7 +1546,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"homework"
+        "vocabularyEnglish":"homework",
+        "id":155
     },
     {
         "topic":"教育",
@@ -1401,7 +1556,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Ask for leave"
+        "vocabularyEnglish":"Ask for leave",
+        "id":156
     },
     {
         "topic":"教育",
@@ -1410,7 +1566,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"take an exam"
+        "vocabularyEnglish":"take an exam",
+        "id":157
     },
     {
         "topic":"教育",
@@ -1419,7 +1576,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"take an exam"
+        "vocabularyEnglish":"take an exam",
+        "id":158
     },
     {
         "topic":"教育",
@@ -1428,7 +1586,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"library"
+        "vocabularyEnglish":"library",
+        "id":159
     },
     {
         "topic":"教育",
@@ -1437,7 +1596,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"classroom"
+        "vocabularyEnglish":"classroom",
+        "id":160
     },
     {
         "topic":"教育",
@@ -1446,7 +1606,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Restroom\/Toilet"
+        "vocabularyEnglish":"Restroom\/Toilet",
+        "id":161
     },
     {
         "topic":"教育",
@@ -1455,7 +1616,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Restaurant\/restaurant"
+        "vocabularyEnglish":"Restaurant\/restaurant",
+        "id":162
     },
     {
         "topic":"教育",
@@ -1464,7 +1626,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"history"
+        "vocabularyEnglish":"history",
+        "id":163
     },
     {
         "topic":"教育",
@@ -1473,7 +1636,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"math"
+        "vocabularyEnglish":"math",
+        "id":164
     },
     {
         "topic":"教育",
@@ -1482,7 +1646,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"language"
+        "vocabularyEnglish":"language",
+        "id":165
     },
     {
         "topic":"教育",
@@ -1491,7 +1656,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"science"
+        "vocabularyEnglish":"science",
+        "id":166
     },
     {
         "topic":"教育",
@@ -1500,7 +1666,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"English"
+        "vocabularyEnglish":"English",
+        "id":167
     },
     {
         "topic":"教育",
@@ -1509,7 +1676,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Chinese\/Chinese"
+        "vocabularyEnglish":"Chinese\/Chinese",
+        "id":168
     },
     {
         "topic":"教育",
@@ -1518,7 +1686,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"blackboard"
+        "vocabularyEnglish":"blackboard",
+        "id":169
     },
     {
         "topic":"教育",
@@ -1527,7 +1696,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Pen"
+        "vocabularyEnglish":"Pen",
+        "id":170
     },
     {
         "topic":"教育",
@@ -1536,7 +1706,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Paper"
+        "vocabularyEnglish":"Paper",
+        "id":171
     },
     {
         "topic":"教育",
@@ -1545,7 +1716,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"textbook"
+        "vocabularyEnglish":"textbook",
+        "id":172
     },
     {
         "topic":"教育",
@@ -1554,7 +1726,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Book"
+        "vocabularyEnglish":"Book",
+        "id":173
     },
     {
         "topic":"教育",
@@ -1563,7 +1736,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Character"
+        "vocabularyEnglish":"Character",
+        "id":174
     },
     {
         "topic":"教育",
@@ -1572,7 +1746,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"sentence"
+        "vocabularyEnglish":"sentence",
+        "id":175
     },
     {
         "topic":"教育",
@@ -1581,7 +1756,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Notice"
+        "vocabularyEnglish":"Notice",
+        "id":176
     },
     {
         "topic":"教育",
@@ -1590,7 +1766,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Write"
+        "vocabularyEnglish":"Write",
+        "id":177
     },
     {
         "topic":"教育",
@@ -1599,7 +1776,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"listen"
+        "vocabularyEnglish":"listen",
+        "id":178
     },
     {
         "topic":"教育",
@@ -1608,7 +1786,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"read"
+        "vocabularyEnglish":"read",
+        "id":179
     },
     {
         "topic":"教育",
@@ -1617,7 +1796,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"read"
+        "vocabularyEnglish":"read",
+        "id":180
     },
     {
         "topic":"教育",
@@ -1626,7 +1806,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"explain"
+        "vocabularyEnglish":"explain",
+        "id":181
     },
     {
         "topic":"教育",
@@ -1635,7 +1816,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"say"
+        "vocabularyEnglish":"say",
+        "id":182
     },
     {
         "topic":"教育",
@@ -1644,7 +1826,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"study"
+        "vocabularyEnglish":"study",
+        "id":183
     },
     {
         "topic":"教育",
@@ -1653,7 +1836,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"study"
+        "vocabularyEnglish":"study",
+        "id":184
     },
     {
         "topic":"教育",
@@ -1662,7 +1846,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"practise"
+        "vocabularyEnglish":"practise",
+        "id":185
     },
     {
         "topic":"教育",
@@ -1671,7 +1856,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"ask"
+        "vocabularyEnglish":"ask",
+        "id":186
     },
     {
         "topic":"教育",
@@ -1680,7 +1866,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"question"
+        "vocabularyEnglish":"question",
+        "id":187
     },
     {
         "topic":"教育",
@@ -1689,7 +1876,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Why"
+        "vocabularyEnglish":"Why",
+        "id":188
     },
     {
         "topic":"教育",
@@ -1698,7 +1886,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"answer"
+        "vocabularyEnglish":"answer",
+        "id":189
     },
     {
         "topic":"教育",
@@ -1707,7 +1896,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"join"
+        "vocabularyEnglish":"join",
+        "id":190
     },
     {
         "topic":"教育",
@@ -1716,7 +1906,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Know"
+        "vocabularyEnglish":"Know",
+        "id":191
     },
     {
         "topic":"教育",
@@ -1725,7 +1916,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Understand"
+        "vocabularyEnglish":"Understand",
+        "id":192
     },
     {
         "topic":"教育",
@@ -1734,7 +1926,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"able"
+        "vocabularyEnglish":"able",
+        "id":193
     },
     {
         "topic":"教育",
@@ -1743,7 +1936,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"meeting"
+        "vocabularyEnglish":"meeting",
+        "id":194
     },
     {
         "topic":"教育",
@@ -1752,7 +1946,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Can"
+        "vocabularyEnglish":"Can",
+        "id":195
     },
     {
         "topic":"教育",
@@ -1761,7 +1956,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"rest"
+        "vocabularyEnglish":"rest",
+        "id":196
     },
     {
         "topic":"教育",
@@ -1770,7 +1966,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"interesting"
+        "vocabularyEnglish":"interesting",
+        "id":197
     },
     {
         "topic":"教育",
@@ -1779,7 +1976,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Decide"
+        "vocabularyEnglish":"Decide",
+        "id":198
     },
     {
         "topic":"教育",
@@ -1788,7 +1986,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"open"
+        "vocabularyEnglish":"open",
+        "id":199
     },
     {
         "topic":"教育",
@@ -1797,7 +1996,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"picture"
+        "vocabularyEnglish":"picture",
+        "id":200
     },
     {
         "topic":"教育",
@@ -1806,7 +2006,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"painting\/painting"
+        "vocabularyEnglish":"painting\/painting",
+        "id":201
     },
     {
         "topic":"教育",
@@ -1815,7 +2016,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"painting"
+        "vocabularyEnglish":"painting",
+        "id":202
     },
     {
         "topic":"教育",
@@ -1824,7 +2026,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"mean"
+        "vocabularyEnglish":"mean",
+        "id":203
     },
     {
         "topic":"教育",
@@ -1833,7 +2036,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Remember"
+        "vocabularyEnglish":"Remember",
+        "id":204
     },
     {
         "topic":"教育",
@@ -1842,7 +2046,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"Some"
+        "vocabularyEnglish":"Some",
+        "id":205
     },
     {
         "topic":"教育",
@@ -1851,7 +2056,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Education",
-        "vocabularyEnglish":"A little bit\/a little bit"
+        "vocabularyEnglish":"A little bit\/a little bit",
+        "id":206
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1860,7 +2066,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"house"
+        "vocabularyEnglish":"house",
+        "id":207
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1869,7 +2076,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"Room"
+        "vocabularyEnglish":"Room",
+        "id":208
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1878,7 +2086,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"kitchen"
+        "vocabularyEnglish":"kitchen",
+        "id":209
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1887,7 +2096,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"living room"
+        "vocabularyEnglish":"living room",
+        "id":210
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1896,7 +2106,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"Door"
+        "vocabularyEnglish":"Door",
+        "id":211
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1905,7 +2116,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"window\/window"
+        "vocabularyEnglish":"window\/window",
+        "id":212
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1914,7 +2126,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"building"
+        "vocabularyEnglish":"building",
+        "id":213
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1923,7 +2136,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"upstairs"
+        "vocabularyEnglish":"upstairs",
+        "id":214
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1932,7 +2146,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"downstairs"
+        "vocabularyEnglish":"downstairs",
+        "id":215
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1941,7 +2156,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"elevator"
+        "vocabularyEnglish":"elevator",
+        "id":216
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1950,7 +2166,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"furniture"
+        "vocabularyEnglish":"furniture",
+        "id":217
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1959,7 +2176,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"Chair"
+        "vocabularyEnglish":"Chair",
+        "id":218
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1968,7 +2186,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"table)"
+        "vocabularyEnglish":"table)",
+        "id":219
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1977,7 +2196,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"sofa"
+        "vocabularyEnglish":"sofa",
+        "id":220
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1986,7 +2206,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"bed"
+        "vocabularyEnglish":"bed",
+        "id":221
     },
     {
         "topic":"房屋與家庭、環境",
@@ -1995,7 +2216,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"open"
+        "vocabularyEnglish":"open",
+        "id":222
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2004,7 +2226,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"close"
+        "vocabularyEnglish":"close",
+        "id":223
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2013,7 +2236,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"TV set)"
+        "vocabularyEnglish":"TV set)",
+        "id":224
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2022,7 +2246,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"air conditioner"
+        "vocabularyEnglish":"air conditioner",
+        "id":225
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2031,7 +2256,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"bath"
+        "vocabularyEnglish":"bath",
+        "id":226
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2040,7 +2266,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"Quiet"
+        "vocabularyEnglish":"Quiet",
+        "id":227
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2049,7 +2276,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"good"
+        "vocabularyEnglish":"good",
+        "id":228
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2058,7 +2286,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"river"
+        "vocabularyEnglish":"river",
+        "id":229
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2067,7 +2296,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"ocean"
+        "vocabularyEnglish":"ocean",
+        "id":230
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2076,7 +2306,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"seaside"
+        "vocabularyEnglish":"seaside",
+        "id":231
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2085,7 +2316,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"lake"
+        "vocabularyEnglish":"lake",
+        "id":232
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2094,7 +2326,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"Mountain"
+        "vocabularyEnglish":"Mountain",
+        "id":233
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2103,7 +2336,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"Tree"
+        "vocabularyEnglish":"Tree",
+        "id":234
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2112,7 +2346,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"flower\/flower"
+        "vocabularyEnglish":"flower\/flower",
+        "id":235
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2121,7 +2356,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"horse"
+        "vocabularyEnglish":"horse",
+        "id":236
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2130,7 +2366,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"dog"
+        "vocabularyEnglish":"dog",
+        "id":237
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2139,7 +2376,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"bird"
+        "vocabularyEnglish":"bird",
+        "id":238
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2148,7 +2386,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"cat"
+        "vocabularyEnglish":"cat",
+        "id":239
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2157,7 +2396,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"chicken"
+        "vocabularyEnglish":"chicken",
+        "id":240
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2166,7 +2406,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"fish\/fish"
+        "vocabularyEnglish":"fish\/fish",
+        "id":241
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2175,7 +2416,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"sun"
+        "vocabularyEnglish":"sun",
+        "id":242
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2184,7 +2426,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"water"
+        "vocabularyEnglish":"water",
+        "id":243
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2193,7 +2436,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"weather"
+        "vocabularyEnglish":"weather",
+        "id":244
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2202,7 +2446,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"cold"
+        "vocabularyEnglish":"cold",
+        "id":245
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2211,7 +2456,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"hot"
+        "vocabularyEnglish":"hot",
+        "id":246
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2220,7 +2466,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"rain"
+        "vocabularyEnglish":"rain",
+        "id":247
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2229,7 +2476,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"snow"
+        "vocabularyEnglish":"snow",
+        "id":248
     },
     {
         "topic":"房屋與家庭、環境",
@@ -2238,7 +2486,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Family & Home",
-        "vocabularyEnglish":"wind"
+        "vocabularyEnglish":"wind",
+        "id":249
     },
     {
         "topic":"日常生活",
@@ -2247,7 +2496,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Daily Life",
-        "vocabularyEnglish":"wear"
+        "vocabularyEnglish":"wear",
+        "id":250
     },
     {
         "topic":"日常生活",
@@ -2256,7 +2506,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Daily Life",
-        "vocabularyEnglish":"sleep"
+        "vocabularyEnglish":"sleep",
+        "id":251
     },
     {
         "topic":"日常生活",
@@ -2265,7 +2516,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Daily Life",
-        "vocabularyEnglish":"get up"
+        "vocabularyEnglish":"get up",
+        "id":252
     },
     {
         "topic":"日常生活",
@@ -2274,7 +2526,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Daily Life",
-        "vocabularyEnglish":"coffee"
+        "vocabularyEnglish":"coffee",
+        "id":253
     },
     {
         "topic":"日常生活",
@@ -2283,7 +2536,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Daily Life",
-        "vocabularyEnglish":"Tea"
+        "vocabularyEnglish":"Tea",
+        "id":254
     },
     {
         "topic":"日常生活",
@@ -2292,7 +2546,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Daily Life",
-        "vocabularyEnglish":"wash"
+        "vocabularyEnglish":"wash",
+        "id":255
     },
     {
         "topic":"日常生活",
@@ -2301,7 +2556,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Daily Life",
-        "vocabularyEnglish":"convenient"
+        "vocabularyEnglish":"convenient",
+        "id":256
     },
     {
         "topic":"日常生活",
@@ -2310,7 +2566,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Daily Life",
-        "vocabularyEnglish":"Life"
+        "vocabularyEnglish":"Life",
+        "id":257
     },
     {
         "topic":"日常生活",
@@ -2319,7 +2576,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Daily Life",
-        "vocabularyEnglish":"use"
+        "vocabularyEnglish":"use",
+        "id":258
     },
     {
         "topic":"日常生活",
@@ -2328,7 +2586,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Daily Life",
-        "vocabularyEnglish":"new year"
+        "vocabularyEnglish":"new year",
+        "id":259
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2337,7 +2596,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"start"
+        "vocabularyEnglish":"start",
+        "id":260
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2346,7 +2606,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"sports"
+        "vocabularyEnglish":"sports",
+        "id":261
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2355,7 +2616,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"sports"
+        "vocabularyEnglish":"sports",
+        "id":262
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2364,7 +2626,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"swim"
+        "vocabularyEnglish":"swim",
+        "id":263
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2373,7 +2636,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Kick"
+        "vocabularyEnglish":"Kick",
+        "id":264
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2382,7 +2646,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"football"
+        "vocabularyEnglish":"football",
+        "id":265
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2391,7 +2656,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"beat"
+        "vocabularyEnglish":"beat",
+        "id":266
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2400,7 +2666,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"basketball"
+        "vocabularyEnglish":"basketball",
+        "id":267
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2409,7 +2676,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"tennis"
+        "vocabularyEnglish":"tennis",
+        "id":268
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2418,7 +2686,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"baseball"
+        "vocabularyEnglish":"baseball",
+        "id":269
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2427,7 +2696,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Contest"
+        "vocabularyEnglish":"Contest",
+        "id":270
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2436,7 +2706,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Contest"
+        "vocabularyEnglish":"Contest",
+        "id":271
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2445,7 +2716,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"ride"
+        "vocabularyEnglish":"ride",
+        "id":272
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2454,7 +2726,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Bicycle\/bicycle"
+        "vocabularyEnglish":"Bicycle\/bicycle",
+        "id":273
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2463,7 +2736,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"run"
+        "vocabularyEnglish":"run",
+        "id":274
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2472,7 +2746,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"running"
+        "vocabularyEnglish":"running",
+        "id":275
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2481,7 +2756,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Walk"
+        "vocabularyEnglish":"Walk",
+        "id":276
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2490,7 +2766,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"walk"
+        "vocabularyEnglish":"walk",
+        "id":277
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2499,7 +2776,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Movie"
+        "vocabularyEnglish":"Movie",
+        "id":278
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2508,7 +2786,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Cinema"
+        "vocabularyEnglish":"Cinema",
+        "id":279
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2517,7 +2796,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"ticket"
+        "vocabularyEnglish":"ticket",
+        "id":280
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2526,7 +2806,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"music"
+        "vocabularyEnglish":"music",
+        "id":281
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2535,7 +2816,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Performance"
+        "vocabularyEnglish":"Performance",
+        "id":282
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2544,7 +2826,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"look"
+        "vocabularyEnglish":"look",
+        "id":283
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2553,7 +2836,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Internet access"
+        "vocabularyEnglish":"Internet access",
+        "id":284
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2562,7 +2846,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"before"
+        "vocabularyEnglish":"before",
+        "id":285
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2571,7 +2856,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"after"
+        "vocabularyEnglish":"after",
+        "id":286
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2580,7 +2866,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"wait"
+        "vocabularyEnglish":"wait",
+        "id":287
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2589,7 +2876,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"lose"
+        "vocabularyEnglish":"lose",
+        "id":288
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2598,7 +2886,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"win"
+        "vocabularyEnglish":"win",
+        "id":289
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2607,7 +2896,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"sometimes"
+        "vocabularyEnglish":"sometimes",
+        "id":290
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2616,7 +2906,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Frequent"
+        "vocabularyEnglish":"Frequent",
+        "id":291
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2625,7 +2916,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Long"
+        "vocabularyEnglish":"Long",
+        "id":292
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2634,7 +2926,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"First"
+        "vocabularyEnglish":"First",
+        "id":293
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2643,7 +2936,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Again"
+        "vocabularyEnglish":"Again",
+        "id":294
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2652,7 +2946,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Every"
+        "vocabularyEnglish":"Every",
+        "id":295
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2661,7 +2956,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Second-rate"
+        "vocabularyEnglish":"Second-rate",
+        "id":296
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2670,7 +2966,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"newspaper"
+        "vocabularyEnglish":"newspaper",
+        "id":297
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2679,7 +2976,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"photo"
+        "vocabularyEnglish":"photo",
+        "id":298
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2688,7 +2986,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"Book"
+        "vocabularyEnglish":"Book",
+        "id":299
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2697,7 +2996,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"sing\/sing"
+        "vocabularyEnglish":"sing\/sing",
+        "id":300
     },
     {
         "topic":"閒暇時間、娛樂",
@@ -2706,7 +3006,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Leisure & Entertainment",
-        "vocabularyEnglish":"play\/play"
+        "vocabularyEnglish":"play\/play",
+        "id":301
     },
     {
         "topic":"與他人的關係",
@@ -2715,7 +3016,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"friend"
+        "vocabularyEnglish":"friend",
+        "id":302
     },
     {
         "topic":"與他人的關係",
@@ -2724,7 +3026,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"introduce"
+        "vocabularyEnglish":"introduce",
+        "id":303
     },
     {
         "topic":"與他人的關係",
@@ -2733,7 +3036,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"know"
+        "vocabularyEnglish":"know",
+        "id":304
     },
     {
         "topic":"與他人的關係",
@@ -2742,7 +3046,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"Thanks"
+        "vocabularyEnglish":"Thanks",
+        "id":305
     },
     {
         "topic":"與他人的關係",
@@ -2751,7 +3056,8 @@
         "partOfSpeech":null,
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"You're welcome"
+        "vocabularyEnglish":"You're welcome",
+        "id":306
     },
     {
         "topic":"與他人的關係",
@@ -2760,7 +3066,8 @@
         "partOfSpeech":null,
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"sorry"
+        "vocabularyEnglish":"sorry",
+        "id":307
     },
     {
         "topic":"與他人的關係",
@@ -2769,7 +3076,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"It doesn't matter (ㄒㄧ˙)"
+        "vocabularyEnglish":"It doesn't matter (ㄒㄧ˙)",
+        "id":308
     },
     {
         "topic":"與他人的關係",
@@ -2778,7 +3086,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"goodbye"
+        "vocabularyEnglish":"goodbye",
+        "id":309
     },
     {
         "topic":"與他人的關係",
@@ -2787,7 +3096,8 @@
         "partOfSpeech":null,
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"Excuse me"
+        "vocabularyEnglish":"Excuse me",
+        "id":310
     },
     {
         "topic":"與他人的關係",
@@ -2796,7 +3106,8 @@
         "partOfSpeech":null,
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"How about it"
+        "vocabularyEnglish":"How about it",
+        "id":311
     },
     {
         "topic":"與他人的關係",
@@ -2805,7 +3116,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"Gift"
+        "vocabularyEnglish":"Gift",
+        "id":312
     },
     {
         "topic":"與他人的關係",
@@ -2814,7 +3126,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"welcome"
+        "vocabularyEnglish":"welcome",
+        "id":313
     },
     {
         "topic":"與他人的關係",
@@ -2823,7 +3136,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"party"
+        "vocabularyEnglish":"party",
+        "id":314
     },
     {
         "topic":"與他人的關係",
@@ -2832,7 +3146,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"Do"
+        "vocabularyEnglish":"Do",
+        "id":315
     },
     {
         "topic":"與他人的關係",
@@ -2841,7 +3156,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"letter"
+        "vocabularyEnglish":"letter",
+        "id":316
     },
     {
         "topic":"與他人的關係",
@@ -2850,7 +3166,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"envelope"
+        "vocabularyEnglish":"envelope",
+        "id":317
     },
     {
         "topic":"與他人的關係",
@@ -2859,7 +3176,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"send"
+        "vocabularyEnglish":"send",
+        "id":318
     },
     {
         "topic":"與他人的關係",
@@ -2868,7 +3186,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"catch"
+        "vocabularyEnglish":"catch",
+        "id":319
     },
     {
         "topic":"與他人的關係",
@@ -2877,7 +3196,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"post office"
+        "vocabularyEnglish":"post office",
+        "id":320
     },
     {
         "topic":"與他人的關係",
@@ -2886,7 +3206,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"bank"
+        "vocabularyEnglish":"bank",
+        "id":321
     },
     {
         "topic":"與他人的關係",
@@ -2895,7 +3216,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"police"
+        "vocabularyEnglish":"police",
+        "id":322
     },
     {
         "topic":"與他人的關係",
@@ -2904,7 +3226,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"bad"
+        "vocabularyEnglish":"bad",
+        "id":323
     },
     {
         "topic":"與他人的關係",
@@ -2913,7 +3236,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"help"
+        "vocabularyEnglish":"help",
+        "id":324
     },
     {
         "topic":"與他人的關係",
@@ -2922,7 +3246,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"Change"
+        "vocabularyEnglish":"Change",
+        "id":325
     },
     {
         "topic":"與他人的關係",
@@ -2931,7 +3256,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"thing"
+        "vocabularyEnglish":"thing",
+        "id":326
     },
     {
         "topic":"與他人的關係",
@@ -2940,7 +3266,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"Call"
+        "vocabularyEnglish":"Call",
+        "id":327
     },
     {
         "topic":"與他人的關係",
@@ -2949,7 +3276,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"try to find"
+        "vocabularyEnglish":"try to find",
+        "id":328
     },
     {
         "topic":"與他人的關係",
@@ -2958,7 +3286,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"what\/what"
+        "vocabularyEnglish":"what\/what",
+        "id":329
     },
     {
         "topic":"與他人的關係",
@@ -2967,7 +3296,8 @@
         "partOfSpeech":"(P)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"?"
+        "vocabularyEnglish":"?",
+        "id":330
     },
     {
         "topic":"與他人的關係",
@@ -2976,7 +3306,8 @@
         "partOfSpeech":"(P)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"Woolen cloth"
+        "vocabularyEnglish":"Woolen cloth",
+        "id":331
     },
     {
         "topic":"與他人的關係",
@@ -2985,7 +3316,8 @@
         "partOfSpeech":"(P)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"Hello(ㄨㄟˊ)\/Hey"
+        "vocabularyEnglish":"Hello(ㄨㄟˊ)\/Hey",
+        "id":332
     },
     {
         "topic":"與他人的關係",
@@ -2994,7 +3326,8 @@
         "partOfSpeech":"(P)",
         "level":1,
         "topicEnglish":"Relationships",
-        "vocabularyEnglish":"Bar"
+        "vocabularyEnglish":"Bar",
+        "id":333
     },
     {
         "topic":"旅行",
@@ -3003,7 +3336,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"taxi"
+        "vocabularyEnglish":"taxi",
+        "id":334
     },
     {
         "topic":"旅行",
@@ -3012,7 +3346,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"subway"
+        "vocabularyEnglish":"subway",
+        "id":335
     },
     {
         "topic":"旅行",
@@ -3021,7 +3356,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"station"
+        "vocabularyEnglish":"station",
+        "id":336
     },
     {
         "topic":"旅行",
@@ -3030,7 +3366,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"train"
+        "vocabularyEnglish":"train",
+        "id":337
     },
     {
         "topic":"旅行",
@@ -3039,7 +3376,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"airplane"
+        "vocabularyEnglish":"airplane",
+        "id":338
     },
     {
         "topic":"旅行",
@@ -3048,7 +3386,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"Airport\/Airport"
+        "vocabularyEnglish":"Airport\/Airport",
+        "id":339
     },
     {
         "topic":"旅行",
@@ -3057,7 +3396,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"bus\/bus"
+        "vocabularyEnglish":"bus\/bus",
+        "id":340
     },
     {
         "topic":"旅行",
@@ -3066,7 +3406,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"car(child)"
+        "vocabularyEnglish":"car(child)",
+        "id":341
     },
     {
         "topic":"旅行",
@@ -3075,7 +3416,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"drive"
+        "vocabularyEnglish":"drive",
+        "id":342
     },
     {
         "topic":"旅行",
@@ -3084,7 +3426,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"bring"
+        "vocabularyEnglish":"bring",
+        "id":343
     },
     {
         "topic":"旅行",
@@ -3093,7 +3436,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"go"
+        "vocabularyEnglish":"go",
+        "id":344
     },
     {
         "topic":"旅行",
@@ -3102,7 +3446,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"go out"
+        "vocabularyEnglish":"go out",
+        "id":345
     },
     {
         "topic":"旅行",
@@ -3111,7 +3456,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"Come in"
+        "vocabularyEnglish":"Come in",
+        "id":346
     },
     {
         "topic":"旅行",
@@ -3120,7 +3466,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"return"
+        "vocabularyEnglish":"return",
+        "id":347
     },
     {
         "topic":"旅行",
@@ -3129,7 +3476,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"road"
+        "vocabularyEnglish":"road",
+        "id":348
     },
     {
         "topic":"旅行",
@@ -3138,7 +3486,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"crossroads"
+        "vocabularyEnglish":"crossroads",
+        "id":349
     },
     {
         "topic":"旅行",
@@ -3147,7 +3496,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"middle"
+        "vocabularyEnglish":"middle",
+        "id":350
     },
     {
         "topic":"旅行",
@@ -3156,7 +3506,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"opposite"
+        "vocabularyEnglish":"opposite",
+        "id":351
     },
     {
         "topic":"旅行",
@@ -3165,7 +3516,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"nearby"
+        "vocabularyEnglish":"nearby",
+        "id":352
     },
     {
         "topic":"旅行",
@@ -3174,7 +3526,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"beside"
+        "vocabularyEnglish":"beside",
+        "id":353
     },
     {
         "topic":"旅行",
@@ -3183,7 +3536,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"later)"
+        "vocabularyEnglish":"later)",
+        "id":354
     },
     {
         "topic":"旅行",
@@ -3192,7 +3546,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"Front)"
+        "vocabularyEnglish":"Front)",
+        "id":355
     },
     {
         "topic":"旅行",
@@ -3201,7 +3556,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"left"
+        "vocabularyEnglish":"left",
+        "id":356
     },
     {
         "topic":"旅行",
@@ -3210,7 +3566,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"right"
+        "vocabularyEnglish":"right",
+        "id":357
     },
     {
         "topic":"旅行",
@@ -3219,7 +3576,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"Outside"
+        "vocabularyEnglish":"Outside",
+        "id":358
     },
     {
         "topic":"旅行",
@@ -3228,7 +3586,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"in"
+        "vocabularyEnglish":"in",
+        "id":359
     },
     {
         "topic":"旅行",
@@ -3237,7 +3596,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"under)"
+        "vocabularyEnglish":"under)",
+        "id":360
     },
     {
         "topic":"旅行",
@@ -3246,7 +3606,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"above)"
+        "vocabularyEnglish":"above)",
+        "id":361
     },
     {
         "topic":"旅行",
@@ -3255,7 +3616,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"this"
+        "vocabularyEnglish":"this",
+        "id":362
     },
     {
         "topic":"旅行",
@@ -3264,7 +3626,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"That"
+        "vocabularyEnglish":"That",
+        "id":363
     },
     {
         "topic":"旅行",
@@ -3273,7 +3636,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"where"
+        "vocabularyEnglish":"where",
+        "id":364
     },
     {
         "topic":"旅行",
@@ -3282,7 +3646,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"here\/here"
+        "vocabularyEnglish":"here\/here",
+        "id":365
     },
     {
         "topic":"旅行",
@@ -3291,7 +3656,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"there\/there"
+        "vocabularyEnglish":"there\/there",
+        "id":366
     },
     {
         "topic":"旅行",
@@ -3300,7 +3666,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"where\/where"
+        "vocabularyEnglish":"where\/where",
+        "id":367
     },
     {
         "topic":"旅行",
@@ -3309,7 +3676,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"how"
+        "vocabularyEnglish":"how",
+        "id":368
     },
     {
         "topic":"旅行",
@@ -3318,7 +3686,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"travel"
+        "vocabularyEnglish":"travel",
+        "id":369
     },
     {
         "topic":"旅行",
@@ -3327,7 +3696,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"hotel"
+        "vocabularyEnglish":"hotel",
+        "id":370
     },
     {
         "topic":"旅行",
@@ -3336,7 +3706,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"hostel"
+        "vocabularyEnglish":"hostel",
+        "id":371
     },
     {
         "topic":"旅行",
@@ -3345,7 +3716,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"place"
+        "vocabularyEnglish":"place",
+        "id":372
     },
     {
         "topic":"旅行",
@@ -3354,7 +3726,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"visit"
+        "vocabularyEnglish":"visit",
+        "id":373
     },
     {
         "topic":"旅行",
@@ -3363,7 +3736,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"Far"
+        "vocabularyEnglish":"Far",
+        "id":374
     },
     {
         "topic":"旅行",
@@ -3372,7 +3746,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"close"
+        "vocabularyEnglish":"close",
+        "id":375
     },
     {
         "topic":"旅行",
@@ -3381,7 +3756,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"quick"
+        "vocabularyEnglish":"quick",
+        "id":376
     },
     {
         "topic":"旅行",
@@ -3390,7 +3766,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"slow"
+        "vocabularyEnglish":"slow",
+        "id":377
     },
     {
         "topic":"旅行",
@@ -3399,7 +3776,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"stand"
+        "vocabularyEnglish":"stand",
+        "id":378
     },
     {
         "topic":"旅行",
@@ -3408,7 +3786,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"sit"
+        "vocabularyEnglish":"sit",
+        "id":379
     },
     {
         "topic":"旅行",
@@ -3417,7 +3796,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"Leave"
+        "vocabularyEnglish":"Leave",
+        "id":380
     },
     {
         "topic":"旅行",
@@ -3426,7 +3806,8 @@
         "partOfSpeech":"(Prep)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"Past"
+        "vocabularyEnglish":"Past",
+        "id":381
     },
     {
         "topic":"旅行",
@@ -3435,7 +3816,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"deliver"
+        "vocabularyEnglish":"deliver",
+        "id":382
     },
     {
         "topic":"旅行",
@@ -3444,7 +3826,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"map"
+        "vocabularyEnglish":"map",
+        "id":383
     },
     {
         "topic":"旅行",
@@ -3453,7 +3836,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"Pass"
+        "vocabularyEnglish":"Pass",
+        "id":384
     },
     {
         "topic":"旅行",
@@ -3462,7 +3846,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"take"
+        "vocabularyEnglish":"take",
+        "id":385
     },
     {
         "topic":"旅行",
@@ -3471,7 +3856,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"put"
+        "vocabularyEnglish":"put",
+        "id":386
     },
     {
         "topic":"旅行",
@@ -3480,7 +3866,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"arrive"
+        "vocabularyEnglish":"arrive",
+        "id":387
     },
     {
         "topic":"旅行",
@@ -3489,7 +3876,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"camera"
+        "vocabularyEnglish":"camera",
+        "id":388
     },
     {
         "topic":"旅行",
@@ -3498,7 +3886,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"taking photos"
+        "vocabularyEnglish":"taking photos",
+        "id":389
     },
     {
         "topic":"旅行",
@@ -3507,7 +3896,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Travel",
-        "vocabularyEnglish":"landscape"
+        "vocabularyEnglish":"landscape",
+        "id":390
     },
     {
         "topic":"健康及身體照護",
@@ -3516,7 +3906,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"Eye"
+        "vocabularyEnglish":"Eye",
+        "id":391
     },
     {
         "topic":"健康及身體照護",
@@ -3525,7 +3916,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"Body"
+        "vocabularyEnglish":"Body",
+        "id":392
     },
     {
         "topic":"健康及身體照護",
@@ -3534,7 +3926,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"head"
+        "vocabularyEnglish":"head",
+        "id":393
     },
     {
         "topic":"健康及身體照護",
@@ -3543,7 +3936,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"hair"
+        "vocabularyEnglish":"hair",
+        "id":394
     },
     {
         "topic":"健康及身體照護",
@@ -3552,7 +3946,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"ear"
+        "vocabularyEnglish":"ear",
+        "id":395
     },
     {
         "topic":"健康及身體照護",
@@ -3561,7 +3956,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"hand"
+        "vocabularyEnglish":"hand",
+        "id":396
     },
     {
         "topic":"健康及身體照護",
@@ -3570,7 +3966,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"finger(head)"
+        "vocabularyEnglish":"finger(head)",
+        "id":397
     },
     {
         "topic":"健康及身體照護",
@@ -3579,7 +3976,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"abdomen"
+        "vocabularyEnglish":"abdomen",
+        "id":398
     },
     {
         "topic":"健康及身體照護",
@@ -3588,7 +3986,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"tired"
+        "vocabularyEnglish":"tired",
+        "id":399
     },
     {
         "topic":"健康及身體照護",
@@ -3597,7 +3996,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"healthy"
+        "vocabularyEnglish":"healthy",
+        "id":400
     },
     {
         "topic":"健康及身體照護",
@@ -3606,7 +4006,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"cold"
+        "vocabularyEnglish":"cold",
+        "id":401
     },
     {
         "topic":"健康及身體照護",
@@ -3615,7 +4016,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"Get ill"
+        "vocabularyEnglish":"Get ill",
+        "id":402
     },
     {
         "topic":"健康及身體照護",
@@ -3624,7 +4026,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"Injuried"
+        "vocabularyEnglish":"Injuried",
+        "id":403
     },
     {
         "topic":"健康及身體照護",
@@ -3633,7 +4036,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"Hungry"
+        "vocabularyEnglish":"Hungry",
+        "id":404
     },
     {
         "topic":"健康及身體照護",
@@ -3642,7 +4046,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"thirsty"
+        "vocabularyEnglish":"thirsty",
+        "id":405
     },
     {
         "topic":"健康及身體照護",
@@ -3651,7 +4056,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"Comfortable(ㄈㄨ˙)"
+        "vocabularyEnglish":"Comfortable(ㄈㄨ˙)",
+        "id":406
     },
     {
         "topic":"健康及身體照護",
@@ -3660,7 +4066,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"medicine"
+        "vocabularyEnglish":"medicine",
+        "id":407
     },
     {
         "topic":"健康及身體照護",
@@ -3669,7 +4076,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"Glasses"
+        "vocabularyEnglish":"Glasses",
+        "id":408
     },
     {
         "topic":"健康及身體照護",
@@ -3678,7 +4086,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Health & Activity",
-        "vocabularyEnglish":"pain"
+        "vocabularyEnglish":"pain",
+        "id":409
     },
     {
         "topic":"購物",
@@ -3687,7 +4096,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"think"
+        "vocabularyEnglish":"think",
+        "id":410
     },
     {
         "topic":"購物",
@@ -3696,7 +4106,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"hope"
+        "vocabularyEnglish":"hope",
+        "id":411
     },
     {
         "topic":"購物",
@@ -3705,7 +4116,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"cheap(一˙)"
+        "vocabularyEnglish":"cheap(一˙)",
+        "id":412
     },
     {
         "topic":"購物",
@@ -3714,7 +4126,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"expensive"
+        "vocabularyEnglish":"expensive",
+        "id":413
     },
     {
         "topic":"購物",
@@ -3723,7 +4136,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"easy"
+        "vocabularyEnglish":"easy",
+        "id":414
     },
     {
         "topic":"購物",
@@ -3732,7 +4146,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"Disaster"
+        "vocabularyEnglish":"Disaster",
+        "id":415
     },
     {
         "topic":"購物",
@@ -3741,7 +4156,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"want"
+        "vocabularyEnglish":"want",
+        "id":416
     },
     {
         "topic":"購物",
@@ -3750,7 +4166,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"tasty"
+        "vocabularyEnglish":"tasty",
+        "id":417
     },
     {
         "topic":"購物",
@@ -3759,7 +4176,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"shop"
+        "vocabularyEnglish":"shop",
+        "id":418
     },
     {
         "topic":"購物",
@@ -3768,7 +4186,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"shop"
+        "vocabularyEnglish":"shop",
+        "id":419
     },
     {
         "topic":"購物",
@@ -3777,7 +4196,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"market"
+        "vocabularyEnglish":"market",
+        "id":420
     },
     {
         "topic":"購物",
@@ -3786,7 +4206,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"important"
+        "vocabularyEnglish":"important",
+        "id":421
     },
     {
         "topic":"購物",
@@ -3795,7 +4216,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"Give"
+        "vocabularyEnglish":"Give",
+        "id":422
     },
     {
         "topic":"購物",
@@ -3804,7 +4226,8 @@
         "partOfSpeech":"(Prep)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"Give"
+        "vocabularyEnglish":"Give",
+        "id":423
     },
     {
         "topic":"購物",
@@ -3813,7 +4236,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"have"
+        "vocabularyEnglish":"have",
+        "id":424
     },
     {
         "topic":"購物",
@@ -3822,7 +4246,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"Kilogram"
+        "vocabularyEnglish":"Kilogram",
+        "id":425
     },
     {
         "topic":"購物",
@@ -3831,7 +4256,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"color"
+        "vocabularyEnglish":"color",
+        "id":426
     },
     {
         "topic":"購物",
@@ -3840,7 +4266,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"yellow"
+        "vocabularyEnglish":"yellow",
+        "id":427
     },
     {
         "topic":"購物",
@@ -3849,7 +4276,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"White"
+        "vocabularyEnglish":"White",
+        "id":428
     },
     {
         "topic":"購物",
@@ -3858,7 +4286,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"clothes(ㄈㄨ˙)"
+        "vocabularyEnglish":"clothes(ㄈㄨ˙)",
+        "id":429
     },
     {
         "topic":"購物",
@@ -3867,7 +4296,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"sock"
+        "vocabularyEnglish":"sock",
+        "id":430
     },
     {
         "topic":"購物",
@@ -3876,7 +4306,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"Pants"
+        "vocabularyEnglish":"Pants",
+        "id":431
     },
     {
         "topic":"購物",
@@ -3885,7 +4316,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"skirt"
+        "vocabularyEnglish":"skirt",
+        "id":432
     },
     {
         "topic":"購物",
@@ -3894,7 +4326,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"shoe"
+        "vocabularyEnglish":"shoe",
+        "id":433
     },
     {
         "topic":"購物",
@@ -3903,7 +4336,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"pair"
+        "vocabularyEnglish":"pair",
+        "id":434
     },
     {
         "topic":"購物",
@@ -3912,7 +4346,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"big"
+        "vocabularyEnglish":"big",
+        "id":435
     },
     {
         "topic":"購物",
@@ -3921,7 +4356,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"long"
+        "vocabularyEnglish":"long",
+        "id":436
     },
     {
         "topic":"購物",
@@ -3930,7 +4366,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"Small"
+        "vocabularyEnglish":"Small",
+        "id":437
     },
     {
         "topic":"購物",
@@ -3939,7 +4376,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"short"
+        "vocabularyEnglish":"short",
+        "id":438
     },
     {
         "topic":"購物",
@@ -3948,7 +4386,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"new"
+        "vocabularyEnglish":"new",
+        "id":439
     },
     {
         "topic":"購物",
@@ -3957,7 +4396,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"money"
+        "vocabularyEnglish":"money",
+        "id":440
     },
     {
         "topic":"購物",
@@ -3966,7 +4406,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"Yuan"
+        "vocabularyEnglish":"Yuan",
+        "id":441
     },
     {
         "topic":"購物",
@@ -3975,7 +4416,8 @@
         "partOfSpeech":"(Prep)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"Compare"
+        "vocabularyEnglish":"Compare",
+        "id":442
     },
     {
         "topic":"購物",
@@ -3984,7 +4426,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"How many"
+        "vocabularyEnglish":"How many",
+        "id":443
     },
     {
         "topic":"購物",
@@ -3993,7 +4436,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"careful"
+        "vocabularyEnglish":"careful",
+        "id":444
     },
     {
         "topic":"購物",
@@ -4002,7 +4446,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Shopping",
-        "vocabularyEnglish":"Same"
+        "vocabularyEnglish":"Same",
+        "id":445
     },
     {
         "topic":"飲食",
@@ -4011,7 +4456,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"milk"
+        "vocabularyEnglish":"milk",
+        "id":446
     },
     {
         "topic":"飲食",
@@ -4020,7 +4466,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"Meat"
+        "vocabularyEnglish":"Meat",
+        "id":447
     },
     {
         "topic":"飲食",
@@ -4029,7 +4476,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"Egg"
+        "vocabularyEnglish":"Egg",
+        "id":448
     },
     {
         "topic":"飲食",
@@ -4038,7 +4486,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"vegetable"
+        "vocabularyEnglish":"vegetable",
+        "id":449
     },
     {
         "topic":"飲食",
@@ -4047,7 +4496,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"dumpling"
+        "vocabularyEnglish":"dumpling",
+        "id":450
     },
     {
         "topic":"飲食",
@@ -4056,7 +4506,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"meal"
+        "vocabularyEnglish":"meal",
+        "id":451
     },
     {
         "topic":"飲食",
@@ -4065,7 +4516,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"noodle"
+        "vocabularyEnglish":"noodle",
+        "id":452
     },
     {
         "topic":"飲食",
@@ -4074,7 +4526,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"Soup"
+        "vocabularyEnglish":"Soup",
+        "id":453
     },
     {
         "topic":"飲食",
@@ -4083,7 +4536,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"steamed stuffed bun"
+        "vocabularyEnglish":"steamed stuffed bun",
+        "id":454
     },
     {
         "topic":"飲食",
@@ -4092,7 +4546,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"cake"
+        "vocabularyEnglish":"cake",
+        "id":455
     },
     {
         "topic":"飲食",
@@ -4101,7 +4556,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"bread"
+        "vocabularyEnglish":"bread",
+        "id":456
     },
     {
         "topic":"飲食",
@@ -4110,7 +4566,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"fruit"
+        "vocabularyEnglish":"fruit",
+        "id":457
     },
     {
         "topic":"飲食",
@@ -4119,7 +4576,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"apple"
+        "vocabularyEnglish":"apple",
+        "id":458
     },
     {
         "topic":"飲食",
@@ -4128,7 +4586,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"banana"
+        "vocabularyEnglish":"banana",
+        "id":459
     },
     {
         "topic":"飲食",
@@ -4137,7 +4596,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"food"
+        "vocabularyEnglish":"food",
+        "id":460
     },
     {
         "topic":"飲食",
@@ -4146,7 +4606,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"drinks"
+        "vocabularyEnglish":"drinks",
+        "id":461
     },
     {
         "topic":"飲食",
@@ -4155,7 +4616,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"juice"
+        "vocabularyEnglish":"juice",
+        "id":462
     },
     {
         "topic":"飲食",
@@ -4164,7 +4626,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"liquor"
+        "vocabularyEnglish":"liquor",
+        "id":463
     },
     {
         "topic":"飲食",
@@ -4173,7 +4636,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"cup"
+        "vocabularyEnglish":"cup",
+        "id":464
     },
     {
         "topic":"飲食",
@@ -4182,7 +4646,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"cup"
+        "vocabularyEnglish":"cup",
+        "id":465
     },
     {
         "topic":"飲食",
@@ -4191,7 +4656,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"please"
+        "vocabularyEnglish":"please",
+        "id":466
     },
     {
         "topic":"飲食",
@@ -4200,7 +4666,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"eat"
+        "vocabularyEnglish":"eat",
+        "id":467
     },
     {
         "topic":"飲食",
@@ -4209,7 +4676,8 @@
         "partOfSpeech":"(VA)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"drink"
+        "vocabularyEnglish":"drink",
+        "id":468
     },
     {
         "topic":"飲食",
@@ -4218,7 +4686,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"many"
+        "vocabularyEnglish":"many",
+        "id":469
     },
     {
         "topic":"飲食",
@@ -4227,7 +4696,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"many"
+        "vocabularyEnglish":"many",
+        "id":470
     },
     {
         "topic":"飲食",
@@ -4236,7 +4706,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"few"
+        "vocabularyEnglish":"few",
+        "id":471
     },
     {
         "topic":"飲食",
@@ -4245,7 +4716,8 @@
         "partOfSpeech":"(VS)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"sweet"
+        "vocabularyEnglish":"sweet",
+        "id":472
     },
     {
         "topic":"飲食",
@@ -4254,7 +4726,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"menu"
+        "vocabularyEnglish":"menu",
+        "id":473
     },
     {
         "topic":"飲食",
@@ -4263,7 +4736,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"chocolate"
+        "vocabularyEnglish":"chocolate",
+        "id":474
     },
     {
         "topic":"飲食",
@@ -4272,7 +4746,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"Several"
+        "vocabularyEnglish":"Several",
+        "id":475
     },
     {
         "topic":"飲食",
@@ -4281,7 +4756,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"piece"
+        "vocabularyEnglish":"piece",
+        "id":476
     },
     {
         "topic":"飲食",
@@ -4290,7 +4766,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"bowl"
+        "vocabularyEnglish":"bowl",
+        "id":477
     },
     {
         "topic":"飲食",
@@ -4299,7 +4776,8 @@
         "partOfSpeech":"(N)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"plate"
+        "vocabularyEnglish":"plate",
+        "id":478
     },
     {
         "topic":"飲食",
@@ -4308,7 +4786,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"piece"
+        "vocabularyEnglish":"piece",
+        "id":479
     },
     {
         "topic":"飲食",
@@ -4317,7 +4796,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"bottle"
+        "vocabularyEnglish":"bottle",
+        "id":480
     },
     {
         "topic":"飲食",
@@ -4326,7 +4806,8 @@
         "partOfSpeech":"(M)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"pieces"
+        "vocabularyEnglish":"pieces",
+        "id":481
     },
     {
         "topic":"飲食",
@@ -4335,7 +4816,8 @@
         "partOfSpeech":"(Det)",
         "level":1,
         "topicEnglish":"Diet",
-        "vocabularyEnglish":"half\/half"
+        "vocabularyEnglish":"half\/half",
+        "id":482
     },
     {
         "topic":"其他",
@@ -4344,7 +4826,8 @@
         "partOfSpeech":"(Conj)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"because"
+        "vocabularyEnglish":"because",
+        "id":483
     },
     {
         "topic":"其他",
@@ -4353,7 +4836,8 @@
         "partOfSpeech":"(Conj)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"so"
+        "vocabularyEnglish":"so",
+        "id":484
     },
     {
         "topic":"其他",
@@ -4362,7 +4846,8 @@
         "partOfSpeech":"(Conj)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"But"
+        "vocabularyEnglish":"But",
+        "id":485
     },
     {
         "topic":"其他",
@@ -4371,7 +4856,8 @@
         "partOfSpeech":"(Conj)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"and"
+        "vocabularyEnglish":"and",
+        "id":486
     },
     {
         "topic":"其他",
@@ -4380,7 +4866,8 @@
         "partOfSpeech":"(Conj)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"and"
+        "vocabularyEnglish":"and",
+        "id":487
     },
     {
         "topic":"其他",
@@ -4389,7 +4876,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"Together"
+        "vocabularyEnglish":"Together",
+        "id":488
     },
     {
         "topic":"其他",
@@ -4398,7 +4886,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"without"
+        "vocabularyEnglish":"without",
+        "id":489
     },
     {
         "topic":"其他",
@@ -4407,7 +4896,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"No"
+        "vocabularyEnglish":"No",
+        "id":490
     },
     {
         "topic":"其他",
@@ -4416,7 +4906,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"also"
+        "vocabularyEnglish":"also",
+        "id":491
     },
     {
         "topic":"其他",
@@ -4425,7 +4916,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"All"
+        "vocabularyEnglish":"All",
+        "id":492
     },
     {
         "topic":"其他",
@@ -4434,7 +4926,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"Only"
+        "vocabularyEnglish":"Only",
+        "id":493
     },
     {
         "topic":"其他",
@@ -4443,7 +4936,8 @@
         "partOfSpeech":"(P)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"have to"
+        "vocabularyEnglish":"have to",
+        "id":494
     },
     {
         "topic":"其他",
@@ -4452,7 +4946,8 @@
         "partOfSpeech":"(P)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"Got it"
+        "vocabularyEnglish":"Got it",
+        "id":495
     },
     {
         "topic":"其他",
@@ -4461,7 +4956,8 @@
         "partOfSpeech":"(P)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"With"
+        "vocabularyEnglish":"With",
+        "id":496
     },
     {
         "topic":"其他",
@@ -4470,7 +4966,8 @@
         "partOfSpeech":"(P)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"Pass"
+        "vocabularyEnglish":"Pass",
+        "id":497
     },
     {
         "topic":"其他",
@@ -4479,7 +4976,8 @@
         "partOfSpeech":"(Conj)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"still"
+        "vocabularyEnglish":"still",
+        "id":498
     },
     {
         "topic":"其他",
@@ -4488,7 +4986,8 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"possible"
+        "vocabularyEnglish":"possible",
+        "id":499
     },
     {
         "topic":"其他",
@@ -4497,6 +4996,57 @@
         "partOfSpeech":"(Adv)",
         "level":1,
         "topicEnglish":"Other",
-        "vocabularyEnglish":"must"
+        "vocabularyEnglish":"must",
+        "id":500
+    },
+    {
+        "topic":"Greetings",
+        "vocabulary":"你好",
+        "pinyin":"nǐ hǎo",
+        "partOfSpeech":"phrase",
+        "level":1,
+        "topicEnglish":"Greetings",
+        "vocabularyEnglish":"hello; hi",
+        "id":7787
+    },
+    {
+        "topic":"Pronouns",
+        "vocabulary":"你",
+        "pinyin":"nǐ",
+        "partOfSpeech":"pronoun",
+        "level":1,
+        "topicEnglish":"Pronouns",
+        "vocabularyEnglish":"you",
+        "id":7788
+    },
+    {
+        "topic":"Pronouns",
+        "vocabulary":"他",
+        "pinyin":"tā",
+        "partOfSpeech":"pronoun",
+        "level":1,
+        "topicEnglish":"Pronouns",
+        "vocabularyEnglish":"he; him",
+        "id":7789
+    },
+    {
+        "topic":"Pronouns",
+        "vocabulary":"她",
+        "pinyin":"tā",
+        "partOfSpeech":"pronoun",
+        "level":1,
+        "topicEnglish":"Pronouns",
+        "vocabularyEnglish":"she; her",
+        "id":7790
+    },
+    {
+        "topic":"Personal Information",
+        "vocabulary":"名字",
+        "pinyin":"míngzi",
+        "partOfSpeech":"noun",
+        "level":1,
+        "topicEnglish":"Personal Information",
+        "vocabularyEnglish":"name",
+        "id":7791
     }
 ]

@@ -1,26 +1,56 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { LessonModule, introducingYourselfLesson } from "@/data/lessons";
+
+// Components
 import { VocabularyFlashcard } from "@/components/features/flashcard";
 import { GuidedDialogueText } from "@/components/features/dialogue";
 import { GrammarDetail } from "@/components/features/grammar";
+
+// Data imports
+import { LessonModule, introducingYourselfLesson } from "@/data/lessons";
+import { Vocabulary, tradVocabulary1 } from "@/data/vocabulary";
+import { GrammarRule, grammarRules } from "@/data/grammar";
+import { DialogueTurn, guidedScenariosDialogue } from "@/data/scenarios";
 
 
 export default function LessonPage({ params }: { params: Promise<{ id: string }> }) {
     const [stepIndex, setStepIndex] = useState(0);
     const [lesson, setLesson] = useState<LessonModule>(introducingYourselfLesson);
 
+    const [vocabulary, setVocabulary] = useState<Vocabulary[]>();
+    const [grammar, setGrammar] = useState<GrammarRule[]>();
+    const [dialogue, setDialogue] = useState<DialogueTurn[]>();
+
     const steps = [
-        { id: "vocabulary", label: "Vocabulary", content: <VocabularyFlashcard vocabulary={lesson.vocabulary} /> },
-        { id: "grammar", label: "Grammar", content: <GrammarDetail item={lesson.grammar[0]} /> }, // TODO: Need to create grammar module wrapper
-        { id: "dialogue", label: "Dialogue", content: <GuidedDialogueText dialogueSet={lesson.dialogue} /> },
+        { id: "vocabulary", label: "Vocabulary", content: vocabulary ? <VocabularyFlashcard vocabulary={vocabulary} /> : null },
+        { id: "grammar", label: "Grammar", content: grammar ? <GrammarDetail item={grammar[0]} /> : null },
+        { id: "dialogue", label: "Dialogue", content: dialogue ? <GuidedDialogueText dialogueSet={dialogue} /> : null },
     ];
 
     const progress = ((stepIndex + 1) / steps.length) * 100;
 
     useEffect(() => {
-        // setLesson(introducingYourselfLesson); // Set to default lesson
+        if (!lesson) return;
+
+        // Resolve vocabulary
+        const resolvedVocab = lesson.vocabularyId
+            .map((vocabId) => tradVocabulary1.find((v) => v.id === vocabId))
+            .filter((v): v is Vocabulary => Boolean(v));
+
+        // Resolve grammar rules
+        const resolvedGrammar = lesson.grammarId
+            .map((grammarRef) => grammarRules.find((g) => g.id === grammarRef))
+            .filter((g): g is GrammarRule => Boolean(g));
+
+        // Resolve dialogue turns
+        const resolvedDialogue = guidedScenariosDialogue[lesson.dialogueId];
+
+        // Update state
+        setVocabulary(resolvedVocab);
+        setGrammar(resolvedGrammar);
+        setDialogue(resolvedDialogue);
+
     }, []);
 
     return (
