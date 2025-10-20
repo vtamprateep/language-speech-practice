@@ -8,8 +8,8 @@ export interface LessonModule {
     title: string;
     description: string;
     vocabularyId: number[]; // Hydrated with Vocabulary
-    grammar: GrammarRule[];
-    dialogue: DialogueTurn[];
+    grammarId: number[]; // Hydrated with GrammarRule
+    dialogueId: string;
     scenarioId?: string;
 }
 
@@ -38,36 +38,6 @@ export const introducingYourselfLesson: LessonModule = {
         126, // 誰
         7791 // 名字
     ],
-    grammar: [
-        {
-            id: "grammar-1",
-            title: "Using 是 to identify",
-            description: "The verb '是' (shì) is used to link a subject and a noun or identity.",
-            examples: ["我是学生。", "他是老师。"],
-            practice: ["我是___。", "你是___吗？"]
-        }
-    ],
-    dialogue: [
-        {
-            turn: 1,
-            speaker: "Other Person",
-            mandarin: "你好！",
-            pinyin: "Nǐ hǎo!",
-            english: "Hello!",
-            userPrompt: "Say hello back.",
-            targetSentence: "Hello!",
-            hint: "Keep it simple with '你好'."
-        },
-        {
-            turn: 2,
-            speaker: "Other Person",
-            mandarin: "我是小王。你叫什麼名字？",
-            pinyin: "Wǒ shì Xiǎo Wáng. Nǐ jiào shénme míngzì?",
-            english: "I am Xiao Wang. What is your name?",
-            userPrompt: "Introduce yourself by saying 'I am ___'.",
-            targetSentence: "I am ___.",
-            hint: "Use '我是' to say 'I am'."
-        }
-    ],
-    scenarioId: "introducing-yourself"
+    grammarId: [1, 2],
+    dialogueId: "introducing-yourself",
 }
