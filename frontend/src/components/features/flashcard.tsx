@@ -16,7 +16,7 @@ export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }
     const [choices, setChoices] = useState<string[]>([]);
 
     function nextCard() {
-        let nextIndex = (index + 1) % vocabulary.length;
+        const nextIndex = (index + 1) % vocabulary.length;
         setIndex(nextIndex);
         setCurrentItem(vocabulary[nextIndex]);
     }
