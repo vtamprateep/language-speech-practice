@@ -1,8 +1,10 @@
 import { useState } from 'react';
-import { type GrammarRule } from '@/data/grammar';
+import { GrammarPracticeItem, type GrammarRule } from '@/data/grammar';
 import { ScrollArea } from '../ui/scroll-area';
 import { Card, CardHeader, CardTitle, CardContent } from '../ui/card';
 import { Separator } from '../ui/separator';
+import { Button } from '../ui/button';
+import { Input } from '../ui/input';
 
 
 export function GrammarPreviewCard({ item, callback }: { item: GrammarRule, callback?: (item: GrammarRule) => void }) {
@@ -49,11 +51,7 @@ export function GrammarDetail({ item }: { item: GrammarRule }) {
 
                             <section>
                                 <h3 className="text-lg font-semibold mb-2">Practice Sentences</h3>
-                                <ol className="list-decimal pl-6 space-y-2 text-sm text-muted-foreground">
-                                    {item.practice.map((p, i) => (
-                                        <li key={i}>{p}</li>
-                                    ))}
-                                </ol>
+                                <GrammarPractice practice={item.practice} />
                             </section>
                         </div>
                     </CardContent>
@@ -65,4 +63,58 @@ export function GrammarDetail({ item }: { item: GrammarRule }) {
             )}
         </ScrollArea>
     )
+}
+
+
+function GrammarPractice({ practice }: { practice: GrammarPracticeItem[] }) {
+    const [index, setIndex] = useState(0);
+    const [userInput, setUserInput] = useState('');
+    const [feedback, setFeedback] = useState<string | null>(null);
+
+    const handleCheck = () => {
+        // Simple feedback: if user typed exactly what is in practice sentence
+        if (userInput.trim() === practice[index].answer.trim()) {
+            setFeedback('✅ Correct!');
+        } else {
+            setFeedback(`❌ Try again. Correct: ${practice[index]}`);
+        }
+    };
+
+    const handleNext = () => {
+        setFeedback(null);
+        setUserInput('');
+        setIndex((i) => Math.min(i + 1, practice.length - 1));
+    };
+
+    const handlePrev = () => {
+        setFeedback(null);
+        setUserInput('');
+        setIndex((i) => Math.max(i - 1, 0));
+    };
+
+    return (
+        <div className="space-y-3">
+            <p className="text-sm text-muted-foreground">{practice[index].prompt}</p>
+            {/* <p className="text-sm text-muted-foreground">{practice[index].fragments}</p> */}
+
+            <p className="text-sm text-muted-foreground">
+                Sentence Fragments: {practice[index].fragments.join(', ')}
+            </p>
+
+            <div className="flex gap-2">
+                <Input
+                    placeholder="Type your answer..."
+                    value={userInput}
+                    onChange={(e) => setUserInput(e.target.value)}
+                />
+                <Button onClick={handleCheck}>Check</Button>
+            </div>
+            {feedback && <p className="text-sm">{feedback}</p>}
+
+            <div className="flex gap-2 mt-2">
+                <Button onClick={handlePrev} disabled={index === 0}>Previous</Button>
+                <Button onClick={handleNext} disabled={index === practice.length - 1}>Next</Button>
+            </div>
+        </div>
+    );
 }
