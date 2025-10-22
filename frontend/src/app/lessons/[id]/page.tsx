@@ -12,6 +12,7 @@ import { LessonModule, introducingYourselfLesson } from "@/data/lessons";
 import { Vocabulary, tradVocabulary1 } from "@/data/vocabulary";
 import { GrammarRule, grammarRules } from "@/data/grammar";
 import { DialogueTurn, guidedScenariosDialogue } from "@/data/scenarios";
+import { Button } from "@/components/ui/button";
 
 
 export default function LessonPage({ params }: { params: Promise<{ id: string }> }) {
@@ -20,11 +21,12 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
 
     const [vocabulary, setVocabulary] = useState<Vocabulary[]>();
     const [grammar, setGrammar] = useState<GrammarRule[]>();
+    const [grammarIndex, setGrammarIndex] = useState<number>(0);
     const [dialogue, setDialogue] = useState<DialogueTurn[]>();
 
     const steps = [
         { id: "vocabulary", label: "Vocabulary", content: vocabulary ? <VocabularyFlashcard vocabulary={vocabulary} /> : null },
-        { id: "grammar", label: "Grammar", content: grammar ? <GrammarDetail item={grammar[0]} /> : null },
+        { id: "grammar", label: "Grammar", content: grammar ? <GrammarBrowser grammarRules={grammar} /> : null },
         { id: "dialogue", label: "Dialogue", content: dialogue ? <GuidedDialogueText dialogueSet={dialogue} /> : null },
     ];
 
@@ -109,3 +111,37 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
         </div>
     );
 };
+
+
+interface GrammarBrowserProps {
+    grammarRules: GrammarRule[];
+}
+
+function GrammarBrowser({ grammarRules }: GrammarBrowserProps) {
+    const [index, setIndex] = useState(0);
+
+    if (!grammarRules || grammarRules.length === 0)
+        return <p>No grammar rules found.</p>;
+
+    return (
+        <div className="flex flex-col gap-6">
+            <GrammarDetail item={grammarRules[index]} />
+            <div className="flex flex-col items-center gap-2 mt-4">
+                <div className="flex items-center gap-2 mt-4">
+                    <Button
+                        onClick={() => setIndex((i) => Math.max(i - 1, 0))}
+                        disabled={index === 0}
+                    >
+                        Previous
+                    </Button>
+                    <Button
+                        onClick={() => setIndex((i) => Math.min(i + 1, grammarRules.length - 1))}
+                        disabled={index === grammarRules.length - 1}
+                    >
+                        Next
+                    </Button>
+                </div>
+            </div>
+        </div>
+    );
+}
