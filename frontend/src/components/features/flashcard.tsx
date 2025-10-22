@@ -22,7 +22,7 @@ export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }
     }
 
     function prevCard() {
-        let nextIndex = (index + 1) % vocabulary.length;
+        const nextIndex = (index + 1) % vocabulary.length;
         setIndex(nextIndex);
         setCurrentItem(vocabulary[nextIndex]);
     }
