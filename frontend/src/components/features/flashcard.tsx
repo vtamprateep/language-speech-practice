@@ -5,11 +5,15 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
 
+type Mode = "typing" | "multiple-choice";
+
 export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }) {
     const [index, setIndex] = useState<number>(0);
+    const [mode, setMode] = useState<Mode>("multiple-choice");
     const [currentItem, setCurrentItem] = useState<Vocabulary>(vocabulary[index]);
     const [userInput, setUserInput] = useState<string>("");
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+    const [choices, setChoices] = useState<string[]>([]);
 
     function nextCard() {
         let nextIndex = (index + 1) % vocabulary.length;
@@ -23,8 +27,11 @@ export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }
         setCurrentItem(vocabulary[nextIndex]);
     }
 
-    function checkAnswer() {
-        if (userInput.trim() === currentItem.vocabulary) {
+    function checkAnswer(userInput: string) {
+        const expectedAnswer = 
+            mode === "typing" ? currentItem.vocabulary : currentItem.vocabularyEnglish;
+
+        if (userInput.trim() === expectedAnswer) {
             setIsCorrect(true);
         } else {
             setIsCorrect(false);
@@ -35,6 +42,23 @@ export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }
         // Reset input and feedback on card change
         setUserInput("");
         setIsCorrect(null);
+
+        // Randomly pick mode to keep things interesting
+        const randomMode: Mode = Math.random() < 0.5 ? "typing" : "multiple-choice";
+        setMode(randomMode);
+
+        if (randomMode === "multiple-choice") {
+            const wrongAnswers = vocabulary
+                .filter((v) => v.id !== currentItem.id)
+                .sort(() => 0.5 - Math.random()) // shuffle
+                .slice(0, 3)
+                .map((v) => v.vocabularyEnglish);
+
+            const allOptions = [...wrongAnswers, currentItem.vocabularyEnglish]
+                .sort(() => 0.5 - Math.random()); // shuffle again
+
+            setChoices(allOptions);
+        }
     }, [index]);
 
     return (
@@ -44,25 +68,61 @@ export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }
             </div>
 
             {/* User Interaction */}
+            {mode === "typing" ? (
+                <div className="flex flex-col items-center gap-2">
+                    <Input
+                        type="text"
+                        value={userInput}
+                        onChange={(e) => setUserInput(e.target.value)}
+                        onKeyDown={(e) => e.key === "Enter" && checkAnswer(userInput)}
+                        placeholder="Type the character here"
+                    />
+                    <Button onClick={() => checkAnswer(userInput)}>Check Answer</Button>
 
-            <div className="flex flex-col items-center gap-2">
-                <Input
-                    type="text"
-                    value={userInput}
-                    onChange={(e) => setUserInput(e.target.value)}
-                    onKeyDown={(e) => e.key === "Enter" && checkAnswer()}
-                    placeholder="Type the character here"
-                    // className="w-64 text-center border rounded px-2 py-1 text-xl"
-                />
-                <Button onClick={checkAnswer}>Check Answer</Button>
+                    {/* Feedback */}
+                    {isCorrect !== null && (
+                        <p className={`mt-2 font-medium ${isCorrect ? "text-green-600" : "text-red-600"}`}>
+                            {isCorrect ? "Correct!" : `Incorrect. Here's the pinyin: ${currentItem.pinyin}`}
+                        </p>
+                    )}
+                </div>
+            ) : (
+                // --- Multiple Choice Mode ---
+                <div className="flex flex-col gap-2 w-72">
+                    {choices.map((choice) => (
+                        <Button
+                            key={choice}
+                            variant={
+                                isCorrect === null
+                                    ? "outline"
+                                    : choice === currentItem.vocabularyEnglish
+                                    ? "default"
+                                    : "outline"
+                            }
+                            onClick={() => checkAnswer(choice)}
+                            disabled={isCorrect !== null}
+                            className={`text-left ${
+                                isCorrect !== null && choice === currentItem.vocabularyEnglish
+                                    ? "border-green-500 text-green-700"
+                                    : ""
+                            }`}
+                        >
+                            {choice}
+                        </Button>
+                    ))}
 
-                {/* Feedback */}
-                {isCorrect !== null && (
-                    <p className={`mt-2 font-medium ${isCorrect ? "text-green-600" : "text-red-600"}`}>
-                        {isCorrect ? "Correct!" : `Incorrect. Here's the pinyin: ${currentItem.pinyin}`}
-                    </p>
-                )}
-            </div>
+                    {isCorrect !== null && (
+                        <p
+                            className={`mt-2 text-center font-medium ${
+                                isCorrect ? "text-green-600" : "text-red-600"
+                            }`}
+                        >
+                            {isCorrect ? "Correct!" : "Incorrect"}
+                        </p>
+                    )}
+                </div>
+            )}
+            
 
             {/* Controls */}
             <div className="flex gap-4">
@@ -80,6 +140,10 @@ export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }
         </div>
         
     );
+}
+
+function MultipleChoice({choices} : { choices: string[]}) {
+    
 }
 
 function Flashcard({ item }: { item: Vocabulary }) {
