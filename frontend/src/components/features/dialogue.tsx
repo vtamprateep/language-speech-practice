@@ -219,8 +219,8 @@ export function GuidedDialogueText(
     }, [messages])
 
     return (
-        <div className="flex flex-col h-screen p-4">
-            <ScrollArea className="flex-1 mb-4 pr-2">
+        <div className="flex flex-col h-full p-4">
+            <ScrollArea className="flex-1 overflow-y-auto mb-4 pr-2">
                 {messages.map((msg, i) => (
                     <div
                         key={i}

@@ -78,7 +78,7 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
             </aside>
 
             {/* Main content */}
-            <main className="flex-1 p-6">
+            <main className="flex-col flex flex-1 p-6">
                 {/* Progress bar */}
                 <div className="w-full bg-gray-200 rounded-full h-2 mb-6">
                     <div
@@ -88,7 +88,7 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
                 </div>
 
                 {/* Current step content */}
-                <div className="mb-8">{steps[stepIndex].content}</div>
+                <div className="flex-1 overflow-hidden mb-8">{steps[stepIndex].content}</div>
 
                 {/* Navigation buttons */}
                 <div className="flex justify-between">
