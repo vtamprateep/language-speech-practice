@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, use } from "react";
 
 // Components
 import { VocabularyFlashcard } from "@/components/features/flashcard";
@@ -8,7 +8,7 @@ import { GuidedDialogueText } from "@/components/features/dialogue";
 import { GrammarDetail } from "@/components/features/grammar";
 
 // Data imports
-import { LessonModule, introducingYourselfLesson } from "@/data/lessons";
+import { LessonModule, allLessons } from "@/data/lessons";
 import { Vocabulary, tradVocabulary1 } from "@/data/vocabulary";
 import { GrammarRule, grammarRules } from "@/data/grammar";
 import { DialogueTurn, guidedScenariosDialogue } from "@/data/scenarios";
@@ -16,19 +16,40 @@ import { Button } from "@/components/ui/button";
 
 
 export default function LessonPage({ params }: { params: Promise<{ id: string }> }) {
+    const lessonId = use(params);
+
     const [stepIndex, setStepIndex] = useState(0);
-    const [lesson, setLesson] = useState<LessonModule>(introducingYourselfLesson);
+    const [lesson, setLesson] = useState<LessonModule | undefined>(
+        allLessons.find((lesson) => lesson.id == lessonId.id)
+    );
 
     const [vocabulary, setVocabulary] = useState<Vocabulary[]>();
     const [grammar, setGrammar] = useState<GrammarRule[]>();
-    const [grammarIndex, setGrammarIndex] = useState<number>(0);
     const [dialogue, setDialogue] = useState<DialogueTurn[]>();
 
     const steps = [
-        { id: "vocabulary", label: "Vocabulary", content: vocabulary ? <VocabularyFlashcard vocabulary={vocabulary} /> : null },
-        { id: "grammar", label: "Grammar", content: grammar ? <GrammarBrowser grammarRules={grammar} /> : null },
-        { id: "dialogue", label: "Dialogue", content: dialogue ? <GuidedDialogueText dialogueSet={dialogue} /> : null },
-    ];
+        vocabulary && vocabulary.length > 0
+            ? {
+                id: "vocabulary",
+                label: "Vocabulary",
+                content: <VocabularyFlashcard vocabulary={vocabulary} />,
+            }
+            : null,
+        grammar && grammar.length > 0
+            ? {
+                id: "grammar",
+                label: "Grammar",
+                content: <GrammarBrowser grammarRules={grammar} />,
+            }
+            : null,
+        dialogue && dialogue.length > 0
+            ? {
+                id: "dialogue",
+                label: "Dialogue",
+                content: <GuidedDialogueText dialogueSet={dialogue} />,
+            }
+            : null,
+    ].filter(Boolean);
 
     const progress = ((stepIndex + 1) / steps.length) * 100;
 
@@ -37,16 +58,22 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
 
         // Resolve vocabulary
         const resolvedVocab = lesson.vocabularyId
-            .map((vocabId) => tradVocabulary1.find((v) => v.id === vocabId))
-            .filter((v): v is Vocabulary => Boolean(v));
+            ? lesson.vocabularyId
+                .map((vocabId) => tradVocabulary1.find((v) => v.id === vocabId))
+                .filter((v): v is Vocabulary => Boolean(v))
+            : [];
 
         // Resolve grammar rules
         const resolvedGrammar = lesson.grammarId
-            .map((grammarRef) => grammarRules.find((g) => g.id === grammarRef))
-            .filter((g): g is GrammarRule => Boolean(g));
+            ? lesson.grammarId
+                .map((grammarRef) => grammarRules.find((g) => g.id === grammarRef))
+                .filter((g): g is GrammarRule => Boolean(g))
+            : [];
 
         // Resolve dialogue turns
-        const resolvedDialogue = guidedScenariosDialogue[lesson.dialogueId];
+        const resolvedDialogue = lesson.dialogueId ?
+            guidedScenariosDialogue[lesson.dialogueId] : undefined
+        ;
 
         // Update state
         setVocabulary(resolvedVocab);
@@ -59,18 +86,18 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
         <div className="flex min-h-screen">
             {/* Sidebar navigation */}
             <aside className="w-64 bg-gray-100 border-r p-4">
-                <h2 className="text-lg font-semibold mb-4">{lesson.title}</h2>
-                <p className="text-sm text-gray-600 mb-6">{lesson.description}</p>
+                <h2 className="text-lg font-semibold mb-4">{lesson?.title}</h2>
+                <p className="text-sm text-gray-600 mb-6">{lesson?.description}</p>
                 <ul className="space-y-2">
                     {steps.map((step, idx) => (
-                        <li key={step.id}>
+                        <li key={step?.id}>
                             <button
                                 onClick={() => setStepIndex(idx)}
                                 className={`w-full text-left px-3 py-2 rounded-md ${
                                     stepIndex === idx ? "bg-blue-500 text-white" : "hover:bg-gray-200"
                                 }`}
                             >
-                                {idx + 1}. {step.label}
+                                {idx + 1}. {step?.label}
                             </button>
                         </li>
                     ))}
@@ -88,7 +115,7 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
                 </div>
 
                 {/* Current step content */}
-                <div className="flex-1 overflow-hidden mb-8">{steps[stepIndex].content}</div>
+                <div className="flex-1 overflow-hidden mb-8">{steps[stepIndex]?.content}</div>
 
                 {/* Navigation buttons */}
                 <div className="flex justify-between">
