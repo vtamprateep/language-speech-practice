@@ -1,16 +1,11 @@
-import { Vocabulary } from "./vocabulary";
-import { GrammarRule } from "./grammar";
-import { DialogueTurn } from "./scenarios";
-
-
 export interface LessonModule {
     id: string;
     title: string;
     description: string;
     vocabularyId: number[]; // Hydrated with Vocabulary
-    grammarId: number[]; // Hydrated with GrammarRule
-    dialogueId: string;
-    scenarioId?: string;
+    grammarId: number[] | null; // Hydrated with GrammarRule
+    dialogueId: string | null;
+    scenarioId?: string | null;
 }
 
 
@@ -21,47 +16,50 @@ export interface LessonCollection {
     lessons: LessonModule[];
 }
 
-
-export const introducingYourselfLesson: LessonModule = {
-    id: "lesson-1",
-    title: "Introducing Yourself",
-    description: "Learn how to greet people and introduce yourself in Mandarin.",
-    vocabularyId: [
-        7787, // 你好
-        114, // 我
-        7788, // 你
-        7789, // 他
-        7790, // 她
-        124, // 是
-        490, // 不
-        125, // 的
-        126, // 誰
-        7791 // 名字
-    ],
-    grammarId: [1, 2],
-    dialogueId: "introducing-yourself",
-}
-
-
-export const gettingStartedLessons = [
+export const allLessons: LessonModule[] = [
     {
         id: "lesson-1",
-        name: "Pronouns & People Words",
-        objective: "Introduce basic personal pronouns and people-related vocabulary.",
-        vocabularyId: [114, 115, 7789, 7790, 118, 119, 120, 13, 302, 67, 62, 64], // 我, 你/妳, 他, 她, 我們, 你們/妳們, 他們/她們, 人, 朋友, 家人, 先生, 小姐
-        grammarPoints: ["Using personal pronouns", "Plural form with 們"],
-        speakingFocus: "Referring to oneself and others accurately.",
-        outcome: "Learners can identify and use basic pronouns to refer to themselves and others."
+        title: "Getting Started",
+        description: "Introduce basic personal pronouns and starter vocabulary.",
+        vocabularyId: [
+            7787, // 你好
+            114, // 我
+            7788, // 你
+            7789, // 他
+            7790, // 她
+            490, // 不
+            125, // 的
+            126, // 誰
+            7791 // 名字
+        ],
+        grammarId: [2],
+        dialogueId: null,
     },
     {
         id: "lesson-2",
-        name: "Essential Verbs: To Be & To Have",
-        objective: "Teach foundational verbs 是 and 有, and how to use them in simple statements.",
-        vocabularyId: [124, 424, 489, 121, 490, 7791, 329, 126, 24, 4], // 是, 有, 沒有, 在, 不, 名字, 什麼/甚麼, 誰, 年, 生日
-        grammarPoints: ["Using 是 for identification", "Negation with 不 or 沒有", "Possession with 有 and 沒有"],
-        speakingFocus: "Making simple statements about identity or possession.",
-        outcome: "Learners can construct sentences like 我是學生 or 我有一個朋友."
+        title: "Essential Verbs: To Be & To Have",
+        description: "Teach foundational verbs 是 and 有, and how to use them in simple statements.",
+        vocabularyId: [
+            124, // 是
+            424, // 有
+            489, // 沒有
+            121, // 在
+            490, // 不
+            7791, // 名字
+            329, // 什麼/甚麼
+            126, // 誰
+        ],
+        grammarId: [], //["Using 是 for identification", "Negation with 不 or 沒有", "Possession with 有 and 沒有"],
+        dialogueId: null,
     },
+    // {
+    //     id: "lesson-3",
+    //     title: ""
+    // }
+]
+
+
+export const gettingStartedLessons = [
     {
         id: "lesson-3",
         name: "Greetings & Polite Expressions",
@@ -117,3 +115,9 @@ export const gettingStartedLessons = [
         outcome: "Learners can introduce themselves including name, nationality, occupation, and interests."
     }
 ];
+
+export const lessonKeys = allLessons.map((lesson) => ({
+    id: lesson.id,
+    title: lesson.title,
+    description: lesson.description
+}));
