@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { guidedScenarios } from "@/data/scenarios"
+import { lessonKeys } from "@/data/lessons";
 
 export default function HomePage() {
 
@@ -23,16 +24,21 @@ export default function HomePage() {
                         justify-center
                     "
                 >
-                    {/* Example Lesson Modules — replace with dynamic list later */}
-                    <Link
-                        href="/lessons/introducing-yourself"
-                        className="bg-white border border-blue-500 rounded-xl p-6 shadow-sm hover:shadow-md transition text-left"
-                    >
-                        <h2 className="text-xl font-semibold mb-2 text-blue-600">Lesson 1: Introducing Yourself</h2>
-                        <p className="text-gray-600 text-sm">
-                            Learn how to greet people and introduce yourself in Mandarin.
-                        </p>
-                    </Link>
+                    {lessonKeys.map((lesson, index) => (
+                        <Link
+                            key={lesson.id}
+                            href={`/lessons/${lesson.id}`}
+                            className="bg-white border border-blue-500 rounded-xl p-6 shadow-sm hover:shadow-md transition text-left"
+                        >
+                            <h2 className="text-xl font-semibold mb-2 text-blue-600">
+                                Lesson {index + 1}: {lesson.title}
+                            </h2>
+                            <p className="text-gray-600 text-sm">
+                                {lesson.description}
+                            </p>
+                        </Link>
+                    ))}
+                    
                 </div>
             </section>
 
