@@ -1,33 +1,19 @@
 'use client';
 
-import { notFound } from 'next/navigation';
 import React, { useState, useEffect } from 'react';
 import { VocabularyFlashcard } from '@/components/features/flashcard';
 import { 
-    tradVocabulary1,
-    tradVocabulary2,
-    tradVocabulary3,
-    tradVocabulary4,
-    tradVocabulary5,
-    type Vocabulary,
+    allVocabulary,
+    type Vocabulary
 } from '@/data/vocabulary';
-
-
-const vocabularyByLevel: Record<string, Vocabulary[]> = {
-    "1": tradVocabulary1,
-    "2": tradVocabulary2,
-    "3": tradVocabulary3,
-    "4": tradVocabulary4,
-    "5": tradVocabulary5,
-}
 
 
 export default function FlashcardsPage({ params }: { params: Promise<{ level: string }>}) {
     const { level } = React.use(params);
     const [readyToRender, setReadyToRender] = useState<boolean>(false);
-    const vocabulary = vocabularyByLevel[level];
+    const [vocabulary, setVocabulary] = useState<Vocabulary[]>([]);
 
-    async function loadAndShuffle<T>(arr: T[]) {
+    function loadAndShuffle<T>(arr: T[]) {
         for (let i = arr.length - 1; i > 0; i--) {
             const j = Math.floor(Math.random() * (i + 1));
             const temp = arr[i];
@@ -35,11 +21,14 @@ export default function FlashcardsPage({ params }: { params: Promise<{ level: st
             arr[j] = temp;
         }
 
-        return arr
+        return arr;        
     }
 
     useEffect(() => {
-        loadAndShuffle(vocabulary);
+
+        setVocabulary(
+            loadAndShuffle(allVocabulary.filter((vocab) => String(vocab.level) == level))
+        );
         setReadyToRender(true);
     }, [])
 
