@@ -30,7 +30,8 @@ export const allLessons: LessonModule[] = [
             490, // 不
             125, // 的
             126, // 誰
-            7791 // 名字
+            7791, // 名字
+            7798, // 我們 (we)
         ],
         grammarId: [],
         dialogueId: null,
@@ -58,14 +59,17 @@ export const allLessons: LessonModule[] = [
         "description": "Introduce basic nouns to form simple 'to be' and 'to have' sentences.",
         "vocabularyId": [
             150,  // 人 (person)
+            132,  // 醫生 (doctor)
             7792, // 老師 (teacher)
             7793, // 學生 (student)
             7794, // 家 (home)
             7795, // 書 (book)
             7796, // 水 (water)
-            7797  // 狗 (dog)
+            7797, // 狗 (dog)
+            7799, // 朋友 (friend)
+            7800  // 中國人 (Chinese person)
         ],
-        "grammarId": [3],
+        "grammarId": [2],
         "dialogueId": null
     }
 ]
