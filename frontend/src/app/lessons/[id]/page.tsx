@@ -9,7 +9,7 @@ import { GrammarDetail } from "@/components/features/grammar";
 
 // Data imports
 import { LessonModule, allLessons } from "@/data/lessons";
-import { Vocabulary, tradVocabulary1 } from "@/data/vocabulary";
+import { Vocabulary, allVocabulary } from "@/data/vocabulary";
 import { GrammarRule, grammarRules } from "@/data/grammar";
 import { DialogueTurn, guidedScenariosDialogue } from "@/data/scenarios";
 import { Button } from "@/components/ui/button";
@@ -59,7 +59,7 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
         // Resolve vocabulary
         const resolvedVocab = lesson.vocabularyId
             ? lesson.vocabularyId
-                .map((vocabId) => tradVocabulary1.find((v) => v.id === vocabId))
+                .map((vocabId) => allVocabulary.find((v) => v.id === vocabId))
                 .filter((v): v is Vocabulary => Boolean(v))
             : [];
 

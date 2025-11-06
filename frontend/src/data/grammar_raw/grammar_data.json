@@ -1,0 +1,323 @@
+[
+    {
+        "id": 1,
+        "title": "Basic sentence order: Subject + Verb (+ Object)",
+        "description": "The basic Chinese sentence structure is Subject + Verb + Object.",
+        "examples": [
+            "我愛你 (Wǒ ài nǐ.) — I love you.",
+            "他吃蘋果 (Tā chī píngguǒ.) — He eats an apple."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘I like you.’", "fragments": ["我", "喜歡", "你"], "answer": "我喜歡你" },
+            { "id": 2, "prompt": "Reorder: 吃 / 他 / 米飯", "fragments": ["吃", "他", "米飯"], "answer": "他吃米飯" },
+            { "id": 3, "prompt": "Make a sentence: 我 + 看書", "fragments": ["我", "看書"], "answer": "我看書" },
+            { "id": 4, "prompt": "Translate: ‘She eats fruit.’", "fragments": ["她", "吃", "水果"], "answer": "她吃水果" },
+            { "id": 5, "prompt": "Reorder: 愛 / 我 / 他", "fragments": ["愛", "我", "他"], "answer": "他愛我" }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "A 是 B — ‘A is B’",
+        "description": "Use 是 to link a subject and a noun, meaning ‘to be’.",
+        "examples": [
+            "我是學生 (Wǒ shì xuéshēng.) — I am a student.",
+            "他是老師 (Tā shì lǎoshī.) — He is a teacher."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘She is a doctor.’", "fragments": ["她", "是", "醫生"], "answer": "她是醫生" },
+            { "id": 2, "prompt": "Translate: ‘You are Chinese.’", "fragments": ["你", "是", "中國人"], "answer": "你是中國人" },
+            { "id": 3, "prompt": "Reorder: 是 / 他 / 學生", "fragments": ["是", "他", "學生"], "answer": "他是學生" },
+            { "id": 4, "prompt": "Make a sentence: We are friends.", "fragments": ["我們", "是", "朋友"], "answer": "我們是朋友" },
+            { "id": 5, "prompt": "Translate: ‘I am a teacher.’", "fragments": ["我", "是", "老師"], "answer": "我是老師" }
+        ]
+    },
+    {
+        "id": 3,
+        "title": "Negation with 不 (bù)",
+        "description": "Use 不 before a verb or adjective to negate it: 不 + Verb/Adj.",
+        "examples": [
+            "我不是中國人 (Wǒ bú shì Zhōngguó rén.) — I am not Chinese.",
+            "他不高興 (Tā bù gāoxìng.) — He is not happy."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘I am not a teacher.’", "fragments": ["我", "不是", "老師"], "answer": "我不是老師" },
+            { "id": 2, "prompt": "Translate: ‘He is not tall.’", "fragments": ["他", "不", "高"], "answer": "他不高" },
+            { "id": 3, "prompt": "Reorder: 不 / 我 / 喜歡 / 咖啡", "fragments": ["不", "我", "喜歡", "咖啡"], "answer": "我不喜歡咖啡" },
+            { "id": 4, "prompt": "Make a sentence: She is not busy.", "fragments": ["她", "不", "忙"], "answer": "她不忙" },
+            { "id": 5, "prompt": "Translate: ‘We are not students.’", "fragments": ["我們", "不是", "學生"], "answer": "我們不是學生" }
+        ]
+    },
+    {
+        "id": 4,
+        "title": "Possession with 的 (de)",
+        "description": "Use 的 to show possession or description: X 的 Y.",
+        "examples": [
+            "我的名字是李明 (Wǒ de míngzì shì Lǐ Míng.) — My name is Li Ming.",
+            "這是她的書 (Zhè shì tā de shū.) — This is her book."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘My name is Wang.’", "fragments": ["我的", "名字", "是", "王"], "answer": "我的名字是王" },
+            { "id": 2, "prompt": "Make a sentence: His book.", "fragments": ["他的", "書"], "answer": "他的書" },
+            { "id": 3, "prompt": "Translate: ‘Her friend.’", "fragments": ["她的", "朋友"], "answer": "她的朋友" },
+            { "id": 4, "prompt": "Reorder: 的 / 貓 / 我", "fragments": ["的", "貓", "我"], "answer": "我的貓" },
+            { "id": 5, "prompt": "Make a sentence: This is my teacher.", "fragments": ["這是", "我的", "老師"], "answer": "這是我的老師" }
+        ]
+    },
+    {
+        "id": 5,
+        "title": "Yes–No Questions with 嗎 (ma)",
+        "description": "Add 嗎 at the end of a statement to turn it into a yes–no question.",
+        "examples": [
+            "你是學生嗎？ (Nǐ shì xuéshēng ma?) — Are you a student?",
+            "他喜歡咖啡嗎？ (Tā xǐhuān kāfēi ma?) — Does he like coffee?"
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Make a question: Are you a teacher?", "fragments": ["你", "是", "老師", "嗎"], "answer": "你是老師嗎？" },
+            { "id": 2, "prompt": "Translate: ‘Is he busy?’", "fragments": ["他", "忙", "嗎"], "answer": "他忙嗎？" },
+            { "id": 3, "prompt": "Reorder: 嗎 / 他 / 是 / 醫生", "fragments": ["嗎", "他", "是", "醫生"], "answer": "他是醫生嗎？" },
+            { "id": 4, "prompt": "Make a question: Are they students?", "fragments": ["他們", "是", "學生", "嗎"], "answer": "他們是學生嗎？" },
+            { "id": 5, "prompt": "Translate: ‘Do you like tea?’", "fragments": ["你", "喜歡", "茶", "嗎"], "answer": "你喜歡茶嗎？" }
+        ]
+    },
+    {
+        "id": 6,
+        "title": "Question words: 誰, 什麼, 哪裡",
+        "description": "Use 誰 (who), 什麼 (what), 哪裡 (where) in place of the unknown part of the sentence.",
+        "examples": [
+            "你是誰？ (Nǐ shì shéi?) — Who are you?",
+            "你喜歡什麼？ (Nǐ xǐhuān shénme?) — What do you like?",
+            "你去哪裡？ (Nǐ qù nǎlǐ?) — Where are you going?"
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘Who is he?’", "fragments": ["他", "是", "誰"], "answer": "他是誰？" },
+            { "id": 2, "prompt": "Translate: ‘What are you eating?’", "fragments": ["你", "吃", "什麼"], "answer": "你吃什麼？" },
+            { "id": 3, "prompt": "Translate: ‘Where do you live?’", "fragments": ["你", "住", "哪裡"], "answer": "你住哪裡？" },
+            { "id": 4, "prompt": "Make a question: Who is your teacher?", "fragments": ["你的", "老師", "是", "誰"], "answer": "你的老師是誰？" },
+            { "id": 5, "prompt": "Reorder: 哪裡 / 去 / 你", "fragments": ["哪裡", "去", "你"], "answer": "你去哪裡？" }
+        ]
+    },
+    {
+        "id": 7,
+        "title": "也 (yě) — ‘also’",
+        "description": "Use 也 before a verb to mean ‘also’.",
+        "examples": [
+            "我也是學生 (Wǒ yě shì xuéshēng.) — I am also a student.",
+            "他也喜歡茶 (Tā yě xǐhuān chá.) — He also likes tea."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘I also like coffee.’", "fragments": ["我", "也", "喜歡", "咖啡"], "answer": "我也喜歡咖啡" },
+            { "id": 2, "prompt": "Translate: ‘She is also a teacher.’", "fragments": ["她", "也", "是", "老師"], "answer": "她也是老師" },
+            { "id": 3, "prompt": "Make a sentence: We also want to go.", "fragments": ["我們", "也", "想", "去"], "answer": "我們也想去" },
+            { "id": 4, "prompt": "Reorder: 是 / 也 / 他 / 學生", "fragments": ["是", "也", "他", "學生"], "answer": "他也是學生" },
+            { "id": 5, "prompt": "Translate: ‘They also eat rice.’", "fragments": ["他們", "也", "吃", "米飯"], "answer": "他們也吃米飯" }
+        ]
+    },
+    {
+        "id": 8,
+        "title": "有 (yǒu) — ‘to have’",
+        "description": "Use 有 to express possession: Subject + 有 + Object.",
+        "examples": [
+            "我有書 (Wǒ yǒu shū.) — I have a book.",
+            "他有三個兄弟 (Tā yǒu sān gè xiōngdì.) — He has three brothers."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘I have a cat.’", "fragments": ["我", "有", "貓"], "answer": "我有貓" },
+            { "id": 2, "prompt": "Translate: ‘She has a brother.’", "fragments": ["她", "有", "哥哥"], "answer": "她有哥哥" },
+            { "id": 3, "prompt": "Reorder: 有 / 我 / 錢", "fragments": ["有", "我", "錢"], "answer": "我有錢" },
+            { "id": 4, "prompt": "Make a sentence: He has a car.", "fragments": ["他", "有", "車"], "answer": "他有車" },
+            { "id": 5, "prompt": "Translate: ‘We have time.’", "fragments": ["我們", "有", "時間"], "answer": "我們有時間" }
+        ]
+    },
+    {
+        "id": 9,
+        "title": "沒有 (méiyǒu) — negation of 有",
+        "description": "Use 沒有 to express not having something.",
+        "examples": [
+            "我沒有錢 (Wǒ méiyǒu qián.) — I don’t have money.",
+            "他沒有哥哥 (Tā méiyǒu gēgē.) — He doesn’t have a brother."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘I don’t have a cat.’", "fragments": ["我", "沒有", "貓"], "answer": "我沒有貓" },
+            { "id": 2, "prompt": "Translate: ‘He doesn’t have money.’", "fragments": ["他", "沒有", "錢"], "answer": "他沒有錢" },
+            { "id": 3, "prompt": "Reorder: 沒有 / 我 / 時間", "fragments": ["沒有", "我", "時間"], "answer": "我沒有時間" },
+            { "id": 4, "prompt": "Make a sentence: She doesn’t have a book.", "fragments": ["她", "沒有", "書"], "answer": "她沒有書" },
+            { "id": 5, "prompt": "Translate: ‘We don’t have coffee.’", "fragments": ["我們", "沒有", "咖啡"], "answer": "我們沒有咖啡" }
+        ]
+    },
+    {
+        "id": 10,
+        "title": "的 for adjectives",
+        "description": "When describing nouns with adjectives, 的 is sometimes used to connect them.",
+        "examples": [
+            "漂亮的花 (Piàoliang de huā.) — Beautiful flower.",
+            "大的房子 (Dà de fángzi.) — Big house."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘red apple.’", "fragments": ["紅色", "的", "蘋果"], "answer": "紅色的蘋果" },
+            { "id": 2, "prompt": "Make a phrase: beautiful cat.", "fragments": ["漂亮", "的", "貓"], "answer": "漂亮的貓" },
+            { "id": 3, "prompt": "Reorder: 的 / 大 / 房子", "fragments": ["的", "大", "房子"], "answer": "大的房子" },
+            { "id": 4, "prompt": "Translate: ‘small dog.’", "fragments": ["小", "的", "狗"], "answer": "小的狗" },
+            { "id": 5, "prompt": "Make a phrase: cute teacher.", "fragments": ["可愛", "的", "老師"], "answer": "可愛的老師" }
+        ]
+    },
+    {
+        "id": 11,
+        "title": "了 (le) for completed action",
+        "description": "Use 了 to indicate a completed action after a verb.",
+        "examples": [
+            "我吃了飯 (Wǒ chī le fàn.) — I ate.",
+            "他去了北京 (Tā qù le Běijīng.) — He went to Beijing."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘I drank water.’", "fragments": ["我", "喝", "了", "水"], "answer": "我喝了水" },
+            { "id": 2, "prompt": "Make a sentence: She watched a movie.", "fragments": ["她", "看", "了", "電影"], "answer": "她看了電影" },
+            { "id": 3, "prompt": "Reorder: 了 / 我 / 去 / 商店", "fragments": ["了", "我", "去", "商店"], "answer": "我去了商店" },
+            { "id": 4, "prompt": "Translate: ‘They ate noodles.’", "fragments": ["他們", "吃", "了", "麵"], "answer": "他們吃了麵" },
+            { "id": 5, "prompt": "Make a sentence: He slept.", "fragments": ["他", "睡", "了"], "answer": "他睡了" }
+        ]
+    },
+    {
+        "id": 12,
+        "title": "正在 (zhèngzài) — ongoing action",
+        "description": "Use 正在 before a verb to indicate an action is ongoing.",
+        "examples": [
+            "我正在吃飯 (Wǒ zhèngzài chī fàn.) — I am eating.",
+            "他正在看書 (Tā zhèngzài kàn shū.) — He is reading."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘I am drinking tea.’", "fragments": ["我", "正在", "喝", "茶"], "answer": "我正在喝茶" },
+            { "id": 2, "prompt": "Translate: ‘She is studying.’", "fragments": ["她", "正在", "學習"], "answer": "她正在學習" },
+            { "id": 3, "prompt": "Reorder: 看 / 正在 / 他 / 電視", "fragments": ["看", "正在", "他", "電視"], "answer": "他正在看電視" },
+            { "id": 4, "prompt": "Make a sentence: They are cooking.", "fragments": ["他們", "正在", "做飯"], "answer": "他們正在做飯" },
+            { "id": 5, "prompt": "Translate: ‘We are talking.’", "fragments": ["我們", "正在", "說話"], "answer": "我們正在說話" }
+        ]
+    },
+    {
+        "id": 13,
+        "title": "和 (hé) — ‘and’",
+        "description": "Use 和 to connect two nouns, not sentences.",
+        "examples": [
+            "我和你 (Wǒ hé nǐ.) — You and I.",
+            "我喜歡茶和咖啡 (Wǒ xǐhuān chá hé kāfēi.) — I like tea and coffee."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘Tea and coffee.’", "fragments": ["茶", "和", "咖啡"], "answer": "茶和咖啡" },
+            { "id": 2, "prompt": "Translate: ‘He and I are friends.’", "fragments": ["他", "和", "我", "是", "朋友"], "answer": "他和我是朋友" },
+            { "id": 3, "prompt": "Reorder: 和 / 我 / 她 / 去 / 商店", "fragments": ["和", "我", "她", "去", "商店"], "answer": "我和她去商店" },
+            { "id": 4, "prompt": "Make a sentence: Apples and bananas.", "fragments": ["蘋果", "和", "香蕉"], "answer": "蘋果和香蕉" },
+            { "id": 5, "prompt": "Translate: ‘Mom and dad.’", "fragments": ["媽媽", "和", "爸爸"], "answer": "媽媽和爸爸" }
+        ]
+    },
+    {
+        "id": 14,
+        "title": "有…嗎? — Questions with 有",
+        "description": "To ask if someone has something, add 嗎 after 有 sentences.",
+        "examples": [
+            "你有書嗎？ (Nǐ yǒu shū ma?) — Do you have a book?",
+            "他有妹妹嗎？ (Tā yǒu mèimei ma?) — Does he have a younger sister?"
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘Do you have a cat?’", "fragments": ["你", "有", "貓", "嗎"], "answer": "你有貓嗎？" },
+            { "id": 2, "prompt": "Make a question: Does she have money?", "fragments": ["她", "有", "錢", "嗎"], "answer": "她有錢嗎？" },
+            { "id": 3, "prompt": "Reorder: 有 / 你 / 時間 / 嗎", "fragments": ["有", "你", "時間", "嗎"], "answer": "你有時間嗎？" },
+            { "id": 4, "prompt": "Translate: ‘Do they have a car?’", "fragments": ["他們", "有", "車", "嗎"], "answer": "他們有車嗎？" },
+            { "id": 5, "prompt": "Translate: ‘Do we have class today?’", "fragments": ["我們", "今天", "有", "課", "嗎"], "answer": "我們今天有課嗎？" }
+        ]
+    },
+    {
+        "id": 15,
+        "title": "在 (zài) — Location",
+        "description": "Use 在 to indicate where something or someone is.",
+        "examples": [
+            "我在家 (Wǒ zài jiā.) — I am at home.",
+            "他在學校 (Tā zài xuéxiào.) — He is at school."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘I am at school.’", "fragments": ["我", "在", "學校"], "answer": "我在學校" },
+            { "id": 2, "prompt": "Translate: ‘She is at home.’", "fragments": ["她", "在", "家"], "answer": "她在家" },
+            { "id": 3, "prompt": "Reorder: 公園 / 在 / 他", "fragments": ["公園", "在", "他"], "answer": "他在公園" },
+            { "id": 4, "prompt": "Make a sentence: We are at work.", "fragments": ["我們", "在", "工作"], "answer": "我們在工作" },
+            { "id": 5, "prompt": "Translate: ‘The cat is on the chair.’", "fragments": ["貓", "在", "椅子", "上"], "answer": "貓在椅子上" }
+        ]
+    },
+    {
+        "id": 16,
+        "title": "有點 and 很 — degree of adjectives",
+        "description": "Use 有點 to mean ‘a bit’ (negative tone) and 很 to mean ‘very’.",
+        "examples": [
+            "有點貴 (Yǒudiǎn guì.) — A bit expensive.",
+            "很漂亮 (Hěn piàoliang.) — Very pretty."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘A bit cold.’", "fragments": ["有點", "冷"], "answer": "有點冷" },
+            { "id": 2, "prompt": "Translate: ‘Very big.’", "fragments": ["很", "大"], "answer": "很大" },
+            { "id": 3, "prompt": "Reorder: 貴 / 有點", "fragments": ["貴", "有點"], "answer": "有點貴" },
+            { "id": 4, "prompt": "Make a sentence: This tea is very good.", "fragments": ["這個", "茶", "很", "好"], "answer": "這個茶很好" },
+            { "id": 5, "prompt": "Translate: ‘He is a bit tired.’", "fragments": ["他", "有點", "累"], "answer": "他有點累" }
+        ]
+    },
+    {
+        "id": 17,
+        "title": "想 (xiǎng) — want, think, miss",
+        "description": "想 can mean ‘to want’, ‘to think’, or ‘to miss’, depending on context.",
+        "examples": [
+            "我想吃飯 (Wǒ xiǎng chī fàn.) — I want to eat.",
+            "我想你 (Wǒ xiǎng nǐ.) — I miss you."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘I want coffee.’", "fragments": ["我", "想", "咖啡"], "answer": "我想咖啡" },
+            { "id": 2, "prompt": "Translate: ‘She wants to sleep.’", "fragments": ["她", "想", "睡覺"], "answer": "她想睡覺" },
+            { "id": 3, "prompt": "Reorder: 想 / 我 / 你", "fragments": ["想", "我", "你"], "answer": "我想你" },
+            { "id": 4, "prompt": "Make a sentence: We want to go home.", "fragments": ["我們", "想", "回家"], "answer": "我們想回家" },
+            { "id": 5, "prompt": "Translate: ‘They want to study Chinese.’", "fragments": ["他們", "想", "學", "中文"], "answer": "他們想學中文" }
+        ]
+    },
+    {
+        "id": 18,
+        "title": "給 (gěi) — to give",
+        "description": "Use 給 to indicate giving something to someone: A 給 B + Object.",
+        "examples": [
+            "我給你禮物 (Wǒ gěi nǐ lǐwù.) — I give you a gift.",
+            "他給媽媽打電話 (Tā gěi māma dǎ diànhuà.) — He calls his mom."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘He gave me money.’", "fragments": ["他", "給", "我", "錢"], "answer": "他給我錢" },
+            { "id": 2, "prompt": "Translate: ‘I gave her a book.’", "fragments": ["我", "給", "她", "書"], "answer": "我給她書" },
+            { "id": 3, "prompt": "Reorder: 給 / 老師 / 我 / 信", "fragments": ["給", "老師", "我", "信"], "answer": "我給老師信" },
+            { "id": 4, "prompt": "Make a sentence: We give dad a present.", "fragments": ["我們", "給", "爸爸", "禮物"], "answer": "我們給爸爸禮物" },
+            { "id": 5, "prompt": "Translate: ‘She gave the child candy.’", "fragments": ["她", "給", "孩子", "糖"], "answer": "她給孩子糖" }
+        ]
+    },
+    {
+        "id": 19,
+        "title": "會 (huì) — can, know how to",
+        "description": "Use 會 to express ability or learned skill.",
+        "examples": [
+            "我會說中文 (Wǒ huì shuō Zhōngwén.) — I can speak Chinese.",
+            "他會游泳 (Tā huì yóuyǒng.) — He can swim."
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘I can write Chinese.’", "fragments": ["我", "會", "寫", "中文"], "answer": "我會寫中文" },
+            { "id": 2, "prompt": "Translate: ‘She can drive.’", "fragments": ["她", "會", "開車"], "answer": "她會開車" },
+            { "id": 3, "prompt": "Reorder: 游泳 / 他 / 會", "fragments": ["游泳", "他", "會"], "answer": "他會游泳" },
+            { "id": 4, "prompt": "Make a sentence: We can cook.", "fragments": ["我們", "會", "做飯"], "answer": "我們會做飯" },
+            { "id": 5, "prompt": "Translate: ‘They can sing.’", "fragments": ["他們", "會", "唱歌"], "answer": "他們會唱歌" }
+        ]
+    },
+    {
+        "id": 20,
+        "title": "能 (néng) — can, be able to (circumstantial)",
+        "description": "Use 能 to express ability depending on circumstances (like permission or possibility).",
+        "examples": [
+            "我今天不能去 (Wǒ jīntiān bù néng qù.) — I can’t go today.",
+            "你能幫我嗎？ (Nǐ néng bāng wǒ ma?) — Can you help me?"
+        ],
+        "practice": [
+            { "id": 1, "prompt": "Translate: ‘I can go.’", "fragments": ["我", "能", "去"], "answer": "我能去" },
+            { "id": 2, "prompt": "Translate: ‘She can’t come.’", "fragments": ["她", "不能", "來"], "answer": "她不能來" },
+            { "id": 3, "prompt": "Reorder: 幫我 / 你 / 能 / 嗎", "fragments": ["幫我", "你", "能", "嗎"], "answer": "你能幫我嗎？" },
+            { "id": 4, "prompt": "Make a sentence: We can’t eat this.", "fragments": ["我們", "不能", "吃", "這個"], "answer": "我們不能吃這個" },
+            { "id": 5, "prompt": "Translate: ‘Can he go out?’", "fragments": ["他", "能", "出去", "嗎"], "answer": "他能出去嗎？" }
+        ]
+    }
+]

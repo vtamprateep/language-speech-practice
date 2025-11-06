@@ -128,11 +128,13 @@ export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }
             <div className="flex gap-4">
                 <Button
                     onClick={prevCard}
+                    disabled={index == 0}
                 >
                     Back
                 </Button>
                 <Button
                     onClick={nextCard}
+                    disabled={index == vocabulary.length - 1}
                 >
                     Next
                 </Button>
