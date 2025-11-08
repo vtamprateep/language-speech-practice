@@ -53,5 +53,13 @@
         ],
         "grammarId": [2],
         "dialogueId": null
+    },
+    {
+        "id": "lesson-4",
+        "title": "Talking About Family",
+        "description": "Learn words for family members and how to describe relationships.",
+        "vocabularyId": [68, 69, 74, 7792, 73, 75, 67, 70, 1002, 7793],
+        "grammarId": [],
+        "dialogueId": null
     }
 ]
