@@ -11,7 +11,7 @@ import { GrammarDetail } from "@/components/features/grammar";
 import { LessonModule, allLessons } from "@/data/lessons";
 import { Vocabulary, allVocabulary } from "@/data/vocabulary";
 import { GrammarRule, grammarRules } from "@/data/grammar";
-import { DialogueTurn, guidedScenariosDialogue } from "@/data/scenarios";
+import { DialogueTurn, allDialogue } from "@/data/dialogue";
 import { Button } from "@/components/ui/button";
 
 
@@ -72,13 +72,13 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
 
         // Resolve dialogue turns
         const resolvedDialogue = lesson.dialogueId ?
-            guidedScenariosDialogue[lesson.dialogueId] : undefined
+            allDialogue.find((obj) => obj.id == lesson.dialogueId) : undefined
         ;
 
         // Update state
         setVocabulary(resolvedVocab);
         setGrammar(resolvedGrammar);
-        setDialogue(resolvedDialogue);
+        setDialogue(resolvedDialogue?.dialogue);
 
     }, []);
 

@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { guidedScenariosDialogue, DialogueTurn } from '@/data/scenarios';
+import { allDialogue, DialogueTurn } from '@/data/dialogue';
 import { GuidedDialogueText } from '@/components/features/dialogue';
 
 interface Message {
@@ -15,8 +15,8 @@ export default function PracticalDialoguePage({ params }: { params: Promise<{ id
     const [dialogue, setDialogue] = useState<DialogueTurn[]>([]);
 
     useEffect(() => {  // On mount, grab appropriate dialogue
-        const loadedDialogue = guidedScenariosDialogue[id];
-        setDialogue(loadedDialogue);
+        const loadedDialogue = allDialogue.find((obj) => obj.id == id);
+        setDialogue(loadedDialogue!.dialogue);
     }, [])
 
     return (
