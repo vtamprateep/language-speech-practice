@@ -1,7 +1,7 @@
 'use client';
 
 import Link from "next/link"
-import { guidedScenarios } from "@/data/scenarios"
+import { allDialogue } from "@/data/dialogue"
 import { lessonKeys } from "@/data/lessons";
 
 export default function HomePage() {
@@ -87,13 +87,13 @@ export default function HomePage() {
                             Practice natural conversations through guided scenarios.
                         </p>
                         <div className="flex justify-center gap-3 flex-wrap">
-                            {guidedScenarios.slice(0, 2).map((scenario) => (
+                            {allDialogue.map((dialogue) => (
                                 <Link
-                                    key={scenario.id}
-                                    href={`/guided_dialogue/text/${scenario.path}`}
+                                    key={dialogue.id}
+                                    href={`/guided_dialogue/text/${dialogue.id}`}
                                     className="px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition"
                                 >
-                                    {scenario.title}
+                                    {dialogue.title}
                                 </Link>
                             ))}
                         </div>

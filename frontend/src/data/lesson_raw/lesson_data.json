@@ -51,7 +51,31 @@
             7799,
             7800
         ],
-        "grammarId": [2],
+        "grammarId": [1],
         "dialogueId": null
+    },
+    {
+        "id": "lesson-4",
+        "title": "Talking About Family",
+        "description": "Learn words for family members and how to describe relationships.",
+        "vocabularyId": [68, 69, 74, 7792, 73, 75, 67, 70, 1002, 7793],
+        "grammarId": [],
+        "dialogueId": null
+    },
+    {
+        "id": "lesson-5",
+        "title": "Numbers and Measure Words",
+        "description": "Learn basic numbers from one to ten and count objects.",
+        "vocabularyId": [98, 99, 100, 101, 102, 103, 104, 105, 106, 107, 108, 1371],
+        "grammarId": [2, 3],
+        "dialogueId": null
+    },
+    {
+        "id": "lesson-6",
+        "title": "People & Professions",
+        "description": "Learn common words for people and professions you encounter every day.",
+        "vocabularyId": [131, 150, 132, 133, 322, 134, 302, 136],
+        "grammarId": [],
+        "dialogueId": "2-getting-to-know-someone"
     }
 ]

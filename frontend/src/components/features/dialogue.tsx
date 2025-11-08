@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import { DialogueTurn } from '@/data/scenarios';
+import { DialogueTurn } from '@/data/dialogue';
 import { AudioPlayer } from './audio/player';
 import { RecordButton } from './audio/recorder';
 import { ScrollArea } from '../ui/scroll-area';
