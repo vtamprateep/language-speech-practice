@@ -76,6 +76,6 @@
         "description": "Learn common words for people and professions you encounter every day.",
         "vocabularyId": [131, 150, 132, 133, 322, 134, 302, 136],
         "grammarId": [],
-        "dialogueId": null
+        "dialogueId": "2-getting-to-know-someone"
     }
 ]
