@@ -5,6 +5,10 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
+    "hanziconv>=0.3.2",
+    "jupyter>=1.1.1",
+    "notebook>=7.4.7",
+    "pandas>=2.3.3",
     "python-dotenv>=1.2.1",
     "supabase>=2.24.0",
 ]
