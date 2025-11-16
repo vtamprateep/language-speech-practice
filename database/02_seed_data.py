@@ -1,9 +1,10 @@
 """Seed database tables with data from data files"""
 
 import json
-from dotenv import load_dotenv
-from supabase import create_client, Client
 import os
+
+from dotenv import load_dotenv
+from supabase import Client, create_client
 
 
 def seed_vocabulary(client: Client, seed_path: str):
