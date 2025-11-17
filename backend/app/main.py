@@ -16,14 +16,23 @@ core_models: dict[str, Any] = dict()
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
-    settings = await fastenv.load_dotenv(".env")
+    # For local development
+    try:
+        settings = await fastenv.load_dotenv(".env")
+    except:
+        settings = { # type: ignore
+            "SUPABASE_DATABASE_URL": os.environ["SUPABASE_DATABASE_URL"],
+            "SUPABASE_DATABASE_SERVICE_KEY": os.environ["SUPABASE_DATABASE_SERVICE_KEY"],
+            "HF_TOKEN": os.environ["HF_TOKEN"],
+        }
+
     app.state.model = {
         "TextTranslator": TextTranslator(),
     }
     app.state.clients = {
         "HFInferenceClient": InferenceClient(
             provider="hf-inference",
-            api_key=os.environ["HF_TOKEN"]
+            api_key=settings["HF_TOKEN"]
         ),
         "SupabaseClient": create_client(
             settings["SUPABASE_DATABASE_URL"],
