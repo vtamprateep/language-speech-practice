@@ -1,4 +1,5 @@
 pre-commit:
+  skip_restore: true
   commands:
     python-ruff-check:
       run: |
@@ -6,7 +7,7 @@ pre-commit:
         if [ -n "$FILES" ]; then
           FILES=$(echo "$FILES" | sed 's|^backend/||')
           cd backend
-          uv run ruff check --select I $FILES
+          uv run ruff check --select I $FILES --fix
         fi
 
     python-mypy-check:

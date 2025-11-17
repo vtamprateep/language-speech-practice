@@ -1,11 +1,9 @@
-import io
 from unittest.mock import MagicMock
 
-import numpy as np
+from fastapi.testclient import TestClient
+
 from app.dependencies import get_clients, get_models
 from app.main import app
-from app.util.model import AudioData
-from fastapi.testclient import TestClient
 
 # Dynamically create magic mock for each model to be loaded
 mock_models = MagicMock()
@@ -47,3 +45,39 @@ def test_calculate_similarity():
     assert response.status_code == 200
     assert response.json()["score"] == "1.0"
     mock_hf_client.sentence_similarity.assert_called_once()
+
+
+def test_get_vocabulary_by_level():
+    # Mock client and chain of calls
+    mock_supabase_client = MagicMock()
+    mock_supabase_client.table.return_value = mock_supabase_client
+    mock_supabase_client.select.return_value = mock_supabase_client
+    mock_supabase_client.eq.return_value = mock_supabase_client
+
+    mock_clients.__getitem__.return_value = mock_supabase_client
+
+    test_client.get(
+        url="/api/v1/get_vocabulary_by_level",
+        params={"level": 1}
+    )
+
+    mock_supabase_client.table.assert_called_with("vocabulary")
+    mock_supabase_client.eq.assert_called_with("level", 1)
+
+
+def test_get_vocabulary_by_id():
+    # Mock client and chain of calls
+    mock_supabase_client = MagicMock()
+    mock_supabase_client.table.return_value = mock_supabase_client
+    mock_supabase_client.select.return_value = mock_supabase_client
+    mock_supabase_client.eq.return_value = mock_supabase_client
+
+    mock_clients.__getitem__.return_value = mock_supabase_client
+
+    test_client.get(
+        url="/api/v1/get_vocabulary_by_id",
+        params={"arr_id": [0, 1]}
+    )
+
+    mock_supabase_client.table.assert_called_with("vocabulary")
+    mock_supabase_client.in_.assert_called_with("id", [0, 1])
