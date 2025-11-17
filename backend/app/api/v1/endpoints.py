@@ -6,8 +6,8 @@ from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from app.dependencies import get_clients, get_models
-from app.util.languages import Language
 from app.util.format import to_camel_case
+from app.util.languages import Language
 
 LOG = logging.getLogger(__name__)
 router = APIRouter()
