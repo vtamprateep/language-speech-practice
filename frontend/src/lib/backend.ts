@@ -18,6 +18,19 @@ export interface TTSRequest {
   language: string;
 }
 
+export interface Vocabulary {
+  topic: string | null;
+  traditional: string;
+  simplified: string;
+  pinyin: string;
+  partOfSpeech: string | null;
+  level: number;
+  topicEnglish: string | null;
+  english: string;
+  id: number;
+  relativeFreqPct: number;
+}
+
 
 // POST /translate_text
 export async function translateText(body: TextTranslate): Promise<{ text: string }> {
@@ -64,4 +77,14 @@ export async function generateAudio(body: TTSRequest): Promise<Blob> {
   });
   if (!res.ok) throw new Error("Failed to generate audio");
   return res.blob(); // WAV blob you can play or download
+}
+
+// GET /get_vocabulary_by_level
+export async function getVocabularyByLevel(level: string): Promise<Vocabulary[]> {
+  const res = await fetch(`${API_BASE}/api/v1/get_vocabulary_by_level?level=${level}`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" }
+  });
+  if (!res.ok) throw new Error("Failed to get vocabulary");
+  return res.json();
 }
