@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Vocabulary } from "@/data/vocabulary";
+import { Vocabulary } from "@/lib/backend";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "../ui/button";
 import { Input } from "../ui/input";
@@ -29,7 +29,7 @@ export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }
 
     function checkAnswer(userInput: string) {
         const expectedAnswer = 
-            mode === "typing" ? currentItem.vocabulary : currentItem.vocabularyEnglish;
+            mode === "typing" ? currentItem.traditional : currentItem.english;
 
         if (userInput.trim() === expectedAnswer) {
             setIsCorrect(true);
@@ -52,9 +52,9 @@ export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }
                 .filter((v) => v.id !== currentItem.id)
                 .sort(() => 0.5 - Math.random()) // shuffle
                 .slice(0, 3)
-                .map((v) => v.vocabularyEnglish);
+                .map((v) => v.english);
 
-            const allOptions = [...wrongAnswers, currentItem.vocabularyEnglish]
+            const allOptions = [...wrongAnswers, currentItem.english]
                 .sort(() => 0.5 - Math.random()); // shuffle again
 
             setChoices(allOptions);
@@ -95,14 +95,14 @@ export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }
                             variant={
                                 isCorrect === null
                                     ? "outline"
-                                    : choice === currentItem.vocabularyEnglish
+                                    : choice === currentItem.english
                                     ? "default"
                                     : "outline"
                             }
                             onClick={() => checkAnswer(choice)}
                             disabled={isCorrect !== null}
                             className={`text-left ${
-                                isCorrect !== null && choice === currentItem.vocabularyEnglish
+                                isCorrect !== null && choice === currentItem.english
                                     ? "border-green-500 text-green-700"
                                     : ""
                             }`}
@@ -166,12 +166,12 @@ function Flashcard({ item }: { item: Vocabulary }) {
                         {item.pinyin}{" "}
                     </p>
                     <p className="mt-2 space-y-1 text-sm text-gray-700">
-                        {item.vocabularyEnglish}
+                        {item.english}
                     </p>
                 </CardContent>
             ) : (
                 <CardContent className="absolute w-full h-full flex items-center justify-center backface-hidden">
-                    <span className="text-4xl font-bold text-black">{item.vocabulary}</span>
+                    <span className="text-4xl font-bold text-black">{item.traditional}</span>
                 </CardContent>
             )}
         </Card>

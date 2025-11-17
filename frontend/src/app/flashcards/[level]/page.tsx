@@ -2,10 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import { VocabularyFlashcard } from '@/components/features/flashcard';
-import { 
-    allVocabulary,
-    type Vocabulary
-} from '@/data/vocabulary';
+import { Vocabulary, getVocabularyByLevel } from '@/lib/backend';
 
 
 export default function FlashcardsPage({ params }: { params: Promise<{ level: string }>}) {
@@ -25,11 +22,12 @@ export default function FlashcardsPage({ params }: { params: Promise<{ level: st
     }
 
     useEffect(() => {
-
-        setVocabulary(
-            loadAndShuffle(allVocabulary.filter((vocab) => String(vocab.level) == level))
-        );
-        setReadyToRender(true);
+        getVocabularyByLevel(level)
+            .then((data) => {
+                loadAndShuffle(data);
+                setVocabulary(data);
+            })
+            .finally(() => setReadyToRender(true));
     }, [])
 
     if (!readyToRender) {
