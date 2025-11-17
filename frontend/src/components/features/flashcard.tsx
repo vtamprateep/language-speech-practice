@@ -144,9 +144,6 @@ export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }
     );
 }
 
-function MultipleChoice({choices} : { choices: string[]}) {
-    
-}
 
 function Flashcard({ item }: { item: Vocabulary }) {
     const [flipped, setFlipped] = useState(false);
