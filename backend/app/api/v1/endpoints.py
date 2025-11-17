@@ -1,14 +1,13 @@
-import io
+
 import logging
 
-import numpy as np
-from fastapi import APIRouter, Depends, File, Form, UploadFile
-from fastapi.responses import JSONResponse, StreamingResponse
+from fastapi import APIRouter, Depends
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from app.dependencies import get_clients, get_models
 from app.util.languages import Language
-from app.util.model import AudioData
+
 
 LOG = logging.getLogger(__name__)
 router = APIRouter()
@@ -54,6 +53,26 @@ async def calculate_similarity(body: TextComparison, client=Depends(get_clients)
     )
 
 
-class TTSRequest(BaseModel):
-    text: str
-    language: str
+@router.get("/api/v1/get_vocabulary_by_level")
+async def get_vocabulary_by_level(level: int, client=Depends(get_clients)):
+    range_start = 0
+    client = client["SupabaseClient"]
+    output = []
+
+    # Supabase has 1,000 record limit, loop to collect all records
+    while True:
+        response = (
+            client.table("vocabulary")
+            .select("*")
+            .eq("level", level)
+            .range(range_start, range_start + 999)
+            .execute()
+        )
+        output += response.data
+
+        if len(response.data) < 1000:
+            break
+
+        range_start += 1000
+
+    return response.data

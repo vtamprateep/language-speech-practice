@@ -8,12 +8,15 @@ from huggingface_hub import InferenceClient
 
 from app.api.v1 import endpoints
 from app.util.model import TextTranslator
+from supabase import create_client
+import fastenv
 
 core_models: dict[str, Any] = dict()
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
+    settings = await fastenv.load_dotenv(".env")
     app.state.model = {
         "TextTranslator": TextTranslator(),
     }
@@ -21,6 +24,10 @@ async def lifespan(app: FastAPI):
         "HFInferenceClient": InferenceClient(
             provider="hf-inference",
             api_key=os.environ["HF_TOKEN"]
+        ),
+        "SupabaseClient": create_client(
+            settings["SUPABASE_DATABASE_URL"],
+            settings["SUPABASE_DATABASE_SERVICE_KEY"]
         )
     }
     yield

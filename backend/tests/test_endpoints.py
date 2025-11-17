@@ -47,3 +47,22 @@ def test_calculate_similarity():
     assert response.status_code == 200
     assert response.json()["score"] == "1.0"
     mock_hf_client.sentence_similarity.assert_called_once()
+
+
+def test_get_vocabulary_by_level():
+    # Mock client and chain of calls
+    mock_supabase_client = MagicMock()
+    mock_supabase_client.table.return_value = mock_supabase_client
+    mock_supabase_client.select.return_value = mock_supabase_client
+    mock_supabase_client.eq.return_value = mock_supabase_client
+
+    mock_clients.__getitem__.return_value = mock_supabase_client
+
+    test_client.get(
+        url="/api/v1/get_vocabulary_by_level",
+        params={"level": 1}
+    )
+
+    mock_supabase_client.table.assert_called_with("vocabulary")
+    mock_supabase_client.eq.assert_called_with("level", 1)
+
