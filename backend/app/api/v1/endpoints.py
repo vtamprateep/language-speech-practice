@@ -7,6 +7,7 @@ from pydantic import BaseModel
 
 from app.dependencies import get_clients, get_models
 from app.util.languages import Language
+from app.util.format import to_camel_case
 
 LOG = logging.getLogger(__name__)
 router = APIRouter()
@@ -74,4 +75,8 @@ async def get_vocabulary_by_level(level: int, client=Depends(get_clients)):
 
         range_start += 1000
 
-    return response.data
+    # Format to camelCase
+    return [
+        {to_camel_case(k): v for k, v in entry.items()}
+        for entry in output
+    ]
