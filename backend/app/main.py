@@ -2,14 +2,14 @@ import os
 from contextlib import asynccontextmanager
 from typing import Any
 
+import fastenv
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from huggingface_hub import InferenceClient
+from supabase import create_client
 
 from app.api.v1 import endpoints
 from app.util.model import TextTranslator
-from supabase import create_client
-import fastenv
 
 core_models: dict[str, Any] = dict()
 

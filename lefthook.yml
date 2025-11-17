@@ -1,4 +1,5 @@
 pre-commit:
+  skip_restore: true
   commands:
     python-ruff-check:
       run: |
