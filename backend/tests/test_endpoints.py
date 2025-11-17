@@ -64,3 +64,20 @@ def test_get_vocabulary_by_level():
     mock_supabase_client.table.assert_called_with("vocabulary")
     mock_supabase_client.eq.assert_called_with("level", 1)
 
+
+def test_get_vocabulary_by_id():
+    # Mock client and chain of calls
+    mock_supabase_client = MagicMock()
+    mock_supabase_client.table.return_value = mock_supabase_client
+    mock_supabase_client.select.return_value = mock_supabase_client
+    mock_supabase_client.eq.return_value = mock_supabase_client
+
+    mock_clients.__getitem__.return_value = mock_supabase_client
+
+    test_client.get(
+        url="/api/v1/get_vocabulary_by_id",
+        params={"arr_id": [0, 1]}
+    )
+
+    mock_supabase_client.table.assert_called_with("vocabulary")
+    mock_supabase_client.in_.assert_called_with("id", [0, 1])

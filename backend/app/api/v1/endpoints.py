@@ -1,7 +1,7 @@
 
 import logging
 
-from fastapi import APIRouter, Depends
+from fastapi import APIRouter, Depends, Query
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
@@ -65,6 +65,35 @@ async def get_vocabulary_by_level(level: int, client=Depends(get_clients)):
             client.table("vocabulary")
             .select("*")
             .eq("level", level)
+            .range(range_start, range_start + 999)
+            .execute()
+        )
+        output += response.data
+
+        if len(response.data) < 1000:
+            break
+
+        range_start += 1000
+
+    # Format to camelCase
+    return [
+        {to_camel_case(k): v for k, v in entry.items()}
+        for entry in output
+    ]
+
+
+@router.get("/api/v1/get_vocabulary_by_id")
+async def get_vocabulary_by_id(arr_id: list[int] = Query(...), client=Depends(get_clients)):
+    range_start = 0
+    client = client["SupabaseClient"]
+    output = []
+
+    # Supabase has 1,000 record limit, loop to collect all records
+    while True:
+        response = (
+            client.table("vocabulary")
+            .select("*")
+            .in_("id", arr_id)
             .range(range_start, range_start + 999)
             .execute()
         )
