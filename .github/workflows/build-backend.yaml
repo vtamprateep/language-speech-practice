@@ -31,7 +31,7 @@ jobs:
       - name: Check FastAPI startup
         run: |
           # Start the server in the background
-          uv run uvicorn main:app --host 127.0.0.1 --port 8000 --lifespan off & SERVER_PID=$!
+          uv run uvicorn app.main:app --host 127.0.0.1 --port 8000 --lifespan off & SERVER_PID=$!
 
           echo "Waiting for FastAPI to start..."
 
