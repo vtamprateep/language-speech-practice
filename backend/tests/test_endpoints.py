@@ -14,7 +14,10 @@ test_client = TestClient(app)
 
 
 # Utility function to mock chain of calls in supabase client
-def create_supabase_client_mock(mock_methods: list[str], mock_attrs: list[str]) -> MagicMock:
+def create_supabase_client_mock(
+    mock_methods: list[str] = [],
+    mock_attrs: list[str] = []
+) -> MagicMock:
     mock_supabase_client = MagicMock()
     for method in mock_methods:
         getattr(mock_supabase_client, method).return_value = mock_supabase_client
@@ -61,11 +64,9 @@ def test_calculate_similarity():
 
 def test_get_vocabulary_by_level():
     # Mock client and chain of calls
-    mock_supabase_client = MagicMock()
-    mock_supabase_client.table.return_value = mock_supabase_client
-    mock_supabase_client.select.return_value = mock_supabase_client
-    mock_supabase_client.eq.return_value = mock_supabase_client
-
+    mock_supabase_client = create_supabase_client_mock(
+        ["table", "select", "eq"]
+    )
     mock_clients.__getitem__.return_value = mock_supabase_client
 
     test_client.get(
@@ -79,11 +80,9 @@ def test_get_vocabulary_by_level():
 
 def test_get_vocabulary_by_id():
     # Mock client and chain of calls
-    mock_supabase_client = MagicMock()
-    mock_supabase_client.table.return_value = mock_supabase_client
-    mock_supabase_client.select.return_value = mock_supabase_client
-    mock_supabase_client.eq.return_value = mock_supabase_client
-
+    mock_supabase_client = create_supabase_client_mock(
+        ["table", "select", "eq"]
+    )
     mock_clients.__getitem__.return_value = mock_supabase_client
 
     test_client.get(
