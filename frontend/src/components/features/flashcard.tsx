@@ -5,57 +5,11 @@ import { Button } from "../ui/button";
 import { Input } from "../ui/input";
 
 
-type Mode = "typing" | "multiple-choice";
+/*
+    Flashcard UI Components
+*/
 
-export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }) {
-    const {
-        index,
-        current,
-        mode,
-        choices,
-        isCorrect,
-        next,
-        prev,
-        check,
-    } = useFlashcardController(vocabulary);
-
-    return (
-        <div className="flex flex-col items-center p-6 gap-6">
-            <Flashcard item={current} />
-
-            {mode === "typing" ? (
-                <TypingAnswer vocab={current} onCheck={check} />
-            ) : (
-                <MultipleChoiceAnswer
-                    choices={choices}
-                    correctValue={current.english}
-                    onCheck={check}
-                    isCorrect={isCorrect}
-                />
-            )}
-
-            {isCorrect !== null && (
-                <p
-                    className={`mt-2 font-medium ${
-                        isCorrect ? "text-green-600" : "text-red-600"
-                    }`}
-                >
-                    {isCorrect ? "Correct!" : "Incorrect"}
-                </p>
-            )}
-
-            <FlashcardControls
-                onNext={next}
-                onPrev={prev}
-                disablePrev={index === 0}
-                disableNext={index === vocabulary.length - 1}
-            />
-        </div>
-    );
-}
-
-
-export function FlashcardControls({
+function FlashcardControls({
     onNext,
     onPrev,
     disableNext,
@@ -76,62 +30,6 @@ export function FlashcardControls({
             </Button>
         </div>
     );
-}
-
-
-export function useFlashcardController(vocabulary: Vocabulary[]) {
-    const [index, setIndex] = useState(0);
-    const [mode, setMode] = useState<Mode>("typing");
-    const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-    const [choices, setChoices] = useState<string[]>([]);
-    const current = vocabulary[index];
-
-    const next = () =>
-        setIndex((prev) => Math.min(prev + 1, vocabulary.length - 1));
-
-    const prev = () =>
-        setIndex((prev) => Math.max(prev - 1, 0));
-
-    function check(answer: string) {
-        const expected =
-            mode === "typing" ? current.traditional : current.english;
-
-        const correct = answer.trim() === expected;
-        setIsCorrect(correct);
-        return correct;
-    }
-
-    useEffect(() => {
-        setIsCorrect(null);
-
-        const random: Mode = Math.random() < 0.5 ? "typing" : "multiple-choice";
-        setMode(random);
-
-        if (random === "multiple-choice") {
-            const wrongAnswers = vocabulary
-                .filter((v) => v.id !== current.id)
-                .sort(() => 0.5 - Math.random())
-                .slice(0, 3)
-                .map((v) => v.english);
-
-            const opts = [...wrongAnswers, current.english].sort(
-                () => 0.5 - Math.random()
-            );
-
-            setChoices(opts);
-        }
-    }, [index]);
-
-    return {
-        index,
-        current,
-        mode,
-        isCorrect,
-        choices,
-        next,
-        prev,
-        check,
-    };
 }
 
 
@@ -216,4 +114,114 @@ function Flashcard({ item }: { item: Vocabulary }) {
             )}
         </Card>
     );
+}
+
+
+/*
+    Standard vocabulary flashcard
+*/
+
+type Mode = "typing" | "multiple-choice";
+
+export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }) {
+    const {
+        index,
+        current,
+        mode,
+        choices,
+        isCorrect,
+        next,
+        prev,
+        check,
+    } = useFlashcardController(vocabulary);
+
+    return (
+        <div className="flex flex-col items-center p-6 gap-6">
+            <Flashcard item={current} />
+
+            {mode === "typing" ? (
+                <TypingAnswer vocab={current} onCheck={check} />
+            ) : (
+                <MultipleChoiceAnswer
+                    choices={choices}
+                    correctValue={current.english}
+                    onCheck={check}
+                    isCorrect={isCorrect}
+                />
+            )}
+
+            {isCorrect !== null && (
+                <p
+                    className={`mt-2 font-medium ${
+                        isCorrect ? "text-green-600" : "text-red-600"
+                    }`}
+                >
+                    {isCorrect ? "Correct!" : "Incorrect"}
+                </p>
+            )}
+
+            <FlashcardControls
+                onNext={next}
+                onPrev={prev}
+                disablePrev={index === 0}
+                disableNext={index === vocabulary.length - 1}
+            />
+        </div>
+    );
+}
+
+
+export function useFlashcardController(vocabulary: Vocabulary[]) {
+    const [index, setIndex] = useState(0);
+    const [mode, setMode] = useState<Mode>("typing");
+    const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+    const [choices, setChoices] = useState<string[]>([]);
+    const current = vocabulary[index];
+
+    const next = () =>
+        setIndex((prev) => Math.min(prev + 1, vocabulary.length - 1));
+
+    const prev = () =>
+        setIndex((prev) => Math.max(prev - 1, 0));
+
+    function check(answer: string) {
+        const expected =
+            mode === "typing" ? current.traditional : current.english;
+
+        const correct = answer.trim() === expected;
+        setIsCorrect(correct);
+        return correct;
+    }
+
+    useEffect(() => {
+        setIsCorrect(null);
+
+        const random: Mode = Math.random() < 0.5 ? "typing" : "multiple-choice";
+        setMode(random);
+
+        if (random === "multiple-choice") {
+            const wrongAnswers = vocabulary
+                .filter((v) => v.id !== current.id)
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 3)
+                .map((v) => v.english);
+
+            const opts = [...wrongAnswers, current.english].sort(
+                () => 0.5 - Math.random()
+            );
+
+            setChoices(opts);
+        }
+    }, [index]);
+
+    return {
+        index,
+        current,
+        mode,
+        isCorrect,
+        choices,
+        next,
+        prev,
+        check,
+    };
 }
