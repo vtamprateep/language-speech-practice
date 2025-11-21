@@ -8,139 +8,182 @@ import { Input } from "../ui/input";
 type Mode = "typing" | "multiple-choice";
 
 export function VocabularyFlashcard({ vocabulary }: { vocabulary: Vocabulary[] }) {
-    const [index, setIndex] = useState<number>(0);
-    const [mode, setMode] = useState<Mode>("multiple-choice");
-    const [currentItem, setCurrentItem] = useState<Vocabulary>(vocabulary[index]);
-    const [userInput, setUserInput] = useState<string>("");
-    const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
-    const [choices, setChoices] = useState<string[]>([]);
-
-    function nextCard() {
-        const nextIndex = (index + 1) % vocabulary.length;
-        setIndex(nextIndex);
-        setCurrentItem(vocabulary[nextIndex]);
-    }
-
-    function prevCard() {
-        const nextIndex = (index - 1) % vocabulary.length;
-        setIndex(nextIndex);
-        setCurrentItem(vocabulary[nextIndex]);
-    }
-
-    function checkAnswer(userInput: string) {
-        const expectedAnswer = 
-            mode === "typing" ? currentItem.traditional : currentItem.english;
-
-        if (userInput.trim() === expectedAnswer) {
-            setIsCorrect(true);
-        } else {
-            setIsCorrect(false);
-        }
-    }
-
-    useEffect(() => {
-        // Reset input and feedback on card change
-        setUserInput("");
-        setIsCorrect(null);
-
-        // Randomly pick mode to keep things interesting
-        const randomMode: Mode = Math.random() < 0.5 ? "typing" : "multiple-choice";
-        setMode(randomMode);
-
-        if (randomMode === "multiple-choice") {
-            const wrongAnswers = vocabulary
-                .filter((v) => v.id !== currentItem.id)
-                .sort(() => 0.5 - Math.random()) // shuffle
-                .slice(0, 3)
-                .map((v) => v.english);
-
-            const allOptions = [...wrongAnswers, currentItem.english]
-                .sort(() => 0.5 - Math.random()); // shuffle again
-
-            setChoices(allOptions);
-        }
-    }, [index]);
+    const {
+        index,
+        current,
+        mode,
+        choices,
+        isCorrect,
+        next,
+        prev,
+        check,
+    } = useFlashcardController(vocabulary);
 
     return (
         <div className="flex flex-col items-center p-6 gap-6">
-            <div>
-                <Flashcard item={vocabulary[index]} />
-            </div>
+            <Flashcard item={current} />
 
-            {/* User Interaction */}
             {mode === "typing" ? (
-                <div className="flex flex-col items-center gap-2">
-                    <Input
-                        type="text"
-                        value={userInput}
-                        onChange={(e) => setUserInput(e.target.value)}
-                        onKeyDown={(e) => e.key === "Enter" && checkAnswer(userInput)}
-                        placeholder="Type the character here"
-                    />
-                    <Button onClick={() => checkAnswer(userInput)}>Check Answer</Button>
-
-                    {/* Feedback */}
-                    {isCorrect !== null && (
-                        <p className={`mt-2 font-medium ${isCorrect ? "text-green-600" : "text-red-600"}`}>
-                            {isCorrect ? "Correct!" : `Incorrect. Here's the pinyin: ${currentItem.pinyin}`}
-                        </p>
-                    )}
-                </div>
+                <TypingAnswer vocab={current} onCheck={check} />
             ) : (
-                // --- Multiple Choice Mode ---
-                <div className="flex flex-col gap-2 w-72">
-                    {choices.map((choice) => (
-                        <Button
-                            key={choice}
-                            variant={
-                                isCorrect === null
-                                    ? "outline"
-                                    : choice === currentItem.english
-                                    ? "default"
-                                    : "outline"
-                            }
-                            onClick={() => checkAnswer(choice)}
-                            disabled={isCorrect !== null}
-                            className={`text-left ${
-                                isCorrect !== null && choice === currentItem.english
-                                    ? "border-green-500 text-green-700"
-                                    : ""
-                            }`}
-                        >
-                            {choice}
-                        </Button>
-                    ))}
-
-                    {isCorrect !== null && (
-                        <p
-                            className={`mt-2 text-center font-medium ${
-                                isCorrect ? "text-green-600" : "text-red-600"
-                            }`}
-                        >
-                            {isCorrect ? "Correct!" : "Incorrect"}
-                        </p>
-                    )}
-                </div>
+                <MultipleChoiceAnswer
+                    choices={choices}
+                    correctValue={current.english}
+                    onCheck={check}
+                    isCorrect={isCorrect}
+                />
             )}
-            
 
-            {/* Controls */}
-            <div className="flex gap-4">
-                <Button
-                    onClick={prevCard}
-                    disabled={index == 0}
+            {isCorrect !== null && (
+                <p
+                    className={`mt-2 font-medium ${
+                        isCorrect ? "text-green-600" : "text-red-600"
+                    }`}
                 >
-                    Back
-                </Button>
-                <Button
-                    onClick={nextCard}
-                    disabled={index == vocabulary.length - 1}
-                >
-                    Next
-                </Button>
-            </div>
+                    {isCorrect ? "Correct!" : "Incorrect"}
+                </p>
+            )}
+
+            <FlashcardControls
+                onNext={next}
+                onPrev={prev}
+                disablePrev={index === 0}
+                disableNext={index === vocabulary.length - 1}
+            />
         </div>
-        
+    );
+}
+
+
+export function FlashcardControls({
+    onNext,
+    onPrev,
+    disableNext,
+    disablePrev,
+}: {
+    onNext: () => void;
+    onPrev: () => void;
+    disableNext?: boolean;
+    disablePrev?: boolean;
+}) {
+    return (
+        <div className="flex gap-4">
+            <Button onClick={onPrev} disabled={disablePrev}>
+                Back
+            </Button>
+            <Button onClick={onNext} disabled={disableNext}>
+                Next
+            </Button>
+        </div>
+    );
+}
+
+
+export function useFlashcardController(vocabulary: Vocabulary[]) {
+    const [index, setIndex] = useState(0);
+    const [mode, setMode] = useState<Mode>("typing");
+    const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
+    const [choices, setChoices] = useState<string[]>([]);
+    const current = vocabulary[index];
+
+    const next = () =>
+        setIndex((prev) => Math.min(prev + 1, vocabulary.length - 1));
+
+    const prev = () =>
+        setIndex((prev) => Math.max(prev - 1, 0));
+
+    function check(answer: string) {
+        const expected =
+            mode === "typing" ? current.traditional : current.english;
+
+        const correct = answer.trim() === expected;
+        setIsCorrect(correct);
+        return correct;
+    }
+
+    useEffect(() => {
+        setIsCorrect(null);
+
+        const random: Mode = Math.random() < 0.5 ? "typing" : "multiple-choice";
+        setMode(random);
+
+        if (random === "multiple-choice") {
+            const wrongAnswers = vocabulary
+                .filter((v) => v.id !== current.id)
+                .sort(() => 0.5 - Math.random())
+                .slice(0, 3)
+                .map((v) => v.english);
+
+            const opts = [...wrongAnswers, current.english].sort(
+                () => 0.5 - Math.random()
+            );
+
+            setChoices(opts);
+        }
+    }, [index]);
+
+    return {
+        index,
+        current,
+        mode,
+        isCorrect,
+        choices,
+        next,
+        prev,
+        check,
+    };
+}
+
+
+function TypingAnswer({ vocab, onCheck }: {
+    vocab: Vocabulary,
+    onCheck: (answer: string) => void
+}) {
+    const [value, setValue] = useState("");
+
+    return (
+        <div className="flex flex-col items-center gap-2">
+            <Input
+                type="text"
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && onCheck(value)}
+                placeholder="Type the character"
+            />
+            <Button onClick={() => onCheck(value)}>Check Answer</Button>
+        </div>
+    );
+}
+
+
+function MultipleChoiceAnswer({
+    choices,
+    onCheck,
+    isCorrect,
+    correctValue,
+}: {
+    choices: string[];
+    onCheck: (answer: string) => void;
+    isCorrect: boolean | null;
+    correctValue: string;
+}) {
+    return (
+        <div className="flex flex-col gap-2 w-72">
+            {choices.map((choice) => (
+                <Button
+                    key={choice}
+                    onClick={() => onCheck(choice)}
+                    disabled={isCorrect !== null}
+                    className={
+                        isCorrect !== null && choice === correctValue
+                            ? "border-green-500 text-green-700"
+                            : ""
+                    }
+                >
+                    {choice}
+                </Button>
+            ))}
+        </div>
     );
 }
 
