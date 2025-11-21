@@ -21,7 +21,11 @@ export function TypedResponse({ callback }: {
                 }}
                 placeholder="Type the character"
             />
-            <Button onClick={() => callback?(value.trim()) : null}>Check Answer</Button>
+            <Button onClick={() => {
+                callback ? callback(value.trim()) : null
+            }}>
+                Check Answer
+            </Button>
         </div>
     );
 }
