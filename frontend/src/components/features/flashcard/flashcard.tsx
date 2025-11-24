@@ -3,7 +3,7 @@ import { Vocabulary } from "@/lib/backend";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { TypedResponse, MultipleChoiceResponse } from "./response";
-import { useFlashcardController } from "./controller";
+import { useFlashcardController, useFlashcardMasteryController } from "./controller";
 
 
 export function VocabularyFlashcardContainer({ vocabulary }: { vocabulary: Vocabulary[] }) {
@@ -57,7 +57,59 @@ export function VocabularyFlashcardContainer({ vocabulary }: { vocabulary: Vocab
 }
 
 
-export function Flashcard({ item }: { item: Vocabulary }) {
+export function VocabularyFlashcardMasteryContainer({ vocabulary }: { vocabulary: Vocabulary[] }) {
+    const {
+        currentVocabulary,
+        mode,
+        choices,
+        isCorrect,
+        endSession,
+        renderTick,
+        next,
+        checkResponse,
+    } = useFlashcardMasteryController(vocabulary);
+
+    return (
+        <div className="flex flex-col items-center p-6 gap-6">
+            <Flashcard 
+                key={renderTick}
+                item={currentVocabulary} 
+            />
+
+            {mode === "typing" ? (
+                <TypedResponse 
+                    resetSignal={renderTick}
+                    callback={checkResponse}
+                />
+            ) : (
+                <MultipleChoiceResponse
+                    choices={choices}
+                    callback={checkResponse}
+                />
+            )}
+
+            {isCorrect !== null && (
+                <p
+                    className={`mt-2 font-medium ${
+                        isCorrect ? "text-green-600" : "text-red-600"
+                    }`}
+                >
+                    {isCorrect ? "Correct!" : "Incorrect"}
+                </p>
+            )}
+
+            {/* Navigation */}
+            <div className="flex gap-4">
+                <Button onClick={next}>
+                    Next
+                </Button>
+            </div>
+        </div>
+    );
+}
+
+
+function Flashcard({ item }: { item: Vocabulary }) {
     const [flipped, setFlipped] = useState(false);
     
     useEffect(() => {

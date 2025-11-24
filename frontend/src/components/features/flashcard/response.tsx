@@ -1,12 +1,17 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 
-export function TypedResponse({ callback }: {
-    callback?: (userInput: string) => void
+export function TypedResponse({ callback, resetSignal }: {
+    callback?: (userInput: string) => void,
+    resetSignal?: unknown,
 }) {
     const [value, setValue] = useState("");
+
+    useEffect(() => {
+        setValue("");
+    }, [resetSignal]);
 
     return (
         <div className="flex flex-col items-center gap-2">
