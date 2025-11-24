@@ -5,7 +5,7 @@ import { Vocabulary, getVocabularyByLevel } from '@/lib/backend';
 import { VocabularyFlashcardContainer } from '@/components/features/flashcard/flashcard';
 
 
-export default function FlashcardsPage({ params }: { params: Promise<{ level: string }>}) {
+export default function FlashcardsLevelsPage({ params }: { params: Promise<{ level: string }>}) {
     const { level } = React.use(params);
     const [readyToRender, setReadyToRender] = useState<boolean>(false);
     const [vocabulary, setVocabulary] = useState<Vocabulary[]>([]);
