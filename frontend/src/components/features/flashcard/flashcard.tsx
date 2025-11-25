@@ -57,7 +57,10 @@ export function VocabularyFlashcardContainer({ vocabulary }: { vocabulary: Vocab
 }
 
 
-export function VocabularyFlashcardMasteryContainer({ vocabulary }: { vocabulary: Vocabulary[] }) {
+export function VocabularyFlashcardMasteryContainer({ vocabulary, callbackOnComplete }: {
+    vocabulary: Vocabulary[],
+    callbackOnComplete?: () => void,
+}) {
     const {
         currentVocabulary,
         mode,
@@ -68,6 +71,13 @@ export function VocabularyFlashcardMasteryContainer({ vocabulary }: { vocabulary
         next,
         checkResponse,
     } = useFlashcardMasteryController(vocabulary);
+
+    // Use effect to trigger callback when session ends
+    useEffect(() => {
+        if (endSession) {
+            callbackOnComplete?.();
+        }
+    }, [endSession, callbackOnComplete]);
 
     return (
         <div className="flex flex-col items-center p-6 gap-6">
