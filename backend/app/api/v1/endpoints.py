@@ -118,6 +118,7 @@ async def get_vocabulary_top_n_frequency(n: int = 10, client=Depends(get_clients
         client.table("vocabulary")
         .select("*")
         .not_.is_("relative_freq_pct", "null")
+        .order("level", desc=False)
         .order("relative_freq_pct", desc=True)
         .limit(n)
         .execute()
