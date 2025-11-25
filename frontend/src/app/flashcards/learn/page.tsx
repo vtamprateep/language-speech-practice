@@ -13,7 +13,7 @@ function HomeButton() {
     return (
         <div className="flex flex-col items-center p-10 gap-6">
             <h2 className="text-2xl font-semibold">
-                🎉 You've mastered all vocabulary in this set!
+                🎉 You have mastered all vocabulary in this set!
             </h2>
 
             <Button 
