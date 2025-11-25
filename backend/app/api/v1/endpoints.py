@@ -109,3 +109,22 @@ async def get_vocabulary_by_id(arr_id: list[int] = Query(...), client=Depends(ge
         {to_camel_case(k): v for k, v in entry.items()}
         for entry in output
     ]
+
+
+@router.get("/api/v1/get_vocabulary_top_n_frequency")
+async def get_vocabulary_top_n_frequency(n: int = 10, client=Depends(get_clients)):
+    client = client["SupabaseClient"]
+    response = (
+        client.table("vocabulary")
+        .select("*")
+        .not_.is_("relative_freq_pct", "null")
+        .order("level", desc=False)
+        .order("relative_freq_pct", desc=True)
+        .limit(n)
+        .execute()
+    )
+
+    return [
+        {to_camel_case(k): v for k, v in entry.items()}
+        for entry in response.data
+    ]

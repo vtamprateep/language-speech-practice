@@ -102,3 +102,13 @@ export async function getVocabularyById(arrId: number[]): Promise<Vocabulary[]> 
   if (!res.ok) throw new Error(`Failed to get vocabulary: ${res.statusText}`);
   return res.json();
 }
+
+// GET /get_vocabulary_top_n_frequency
+export async function getVocabularyTopNFrequency(n: number = 10): Promise<Vocabulary[]> {
+  const res = await fetch(`${API_BASE}/api/v1/get_vocabulary_top_n_frequency?n=${n}`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" }
+  });
+  if (!res.ok) throw new Error(`Failed to get vocabulary: ${res.statusText}`);
+  return res.json();
+}

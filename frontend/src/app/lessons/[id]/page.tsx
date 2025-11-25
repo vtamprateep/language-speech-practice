@@ -3,7 +3,7 @@
 import { useState, useEffect, use } from "react";
 
 // Components
-import { VocabularyFlashcard } from "@/components/features/flashcard";
+import { VocabularyFlashcardContainer } from "@/components/features/flashcard/flashcard";
 import { GuidedDialogueText } from "@/components/features/dialogue";
 import { GrammarDetail } from "@/components/features/grammar";
 
@@ -32,7 +32,7 @@ export default function LessonPage({ params }: { params: Promise<{ id: string }>
             ? {
                 id: "vocabulary",
                 label: "Vocabulary",
-                content: <VocabularyFlashcard vocabulary={vocabulary} />,
+                content: <VocabularyFlashcardContainer vocabulary={vocabulary} />,
             }
             : null,
         grammar && grammar.length > 0

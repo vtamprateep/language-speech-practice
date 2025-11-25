@@ -1,11 +1,11 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { VocabularyFlashcard } from '@/components/features/flashcard';
 import { Vocabulary, getVocabularyByLevel } from '@/lib/backend';
+import { VocabularyFlashcardContainer } from '@/components/features/flashcard/flashcard';
 
 
-export default function FlashcardsPage({ params }: { params: Promise<{ level: string }>}) {
+export default function FlashcardsLevelsPage({ params }: { params: Promise<{ level: string }>}) {
     const { level } = React.use(params);
     const [readyToRender, setReadyToRender] = useState<boolean>(false);
     const [vocabulary, setVocabulary] = useState<Vocabulary[]>([]);
@@ -42,7 +42,7 @@ export default function FlashcardsPage({ params }: { params: Promise<{ level: st
         <div className="flex flex-col items-center p-6 gap-6">
             <h1 className="text-2xl font-bold">Level {level} Flashcards</h1>
             <div>
-                <VocabularyFlashcard vocabulary={vocabulary} />
+                <VocabularyFlashcardContainer vocabulary={vocabulary} />
             </div>
         </div>
     );
