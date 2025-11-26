@@ -123,3 +123,29 @@ def test_get_vocabulary_top_n_frequency():
     )
 
     mock_supabase_client.limit.assert_called_with(5)
+
+
+def test_get_vocabulary_progress():
+    # Mock client and chain of calls
+    mock_supabase_client = create_supabase_client_mock([
+        "table",
+        "select",
+        "eq",
+        "in_",
+        "execute"
+    ])
+
+    mock_clients.__getitem__.return_value = mock_supabase_client
+
+    test_client.get(
+        url="/api/v1/get_vocabulary_progress",
+        params={
+            "user_id": "test",
+            "arr_id": [0]
+        }
+    )
+
+    mock_supabase_client.table.assert_called_with("vocabulary_progress")
+    mock_supabase_client.select.assert_called_with("vocabulary_id", "count_wrong", "count_correct")
+    mock_supabase_client.eq.assert_called_with("user_id", "test")
+    mock_supabase_client.in_.assert_called_with("vocabulary_id", [0])

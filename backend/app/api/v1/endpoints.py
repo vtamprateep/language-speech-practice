@@ -140,6 +140,7 @@ async def get_vocabulary_progress(
     response = (
         client.table("vocabulary_progress")
         .select("vocabulary_id", "count_wrong", "count_correct")
+        .eq("user_id", user_id)
         .in_("vocabulary_id", arr_id)
         .execute()
     )
