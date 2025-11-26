@@ -2,46 +2,53 @@
 
 import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
-import { LogIn, LogOut, User } from "lucide-react";
+import { LogIn, LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
 
 export function LoginButton() {
-  const supabase = createClient();
-  const [user, setUser] = useState<any>(null);
-  const router = useRouter();
+    const supabase = createClient();
+    const [user, setUser] = useState<any>(null);
+    const router = useRouter();
 
-  useEffect(() => {
-    supabase.auth.getUser().then(({ data }) => setUser(data.user));
-  }, [supabase]);
+    useEffect(() => {
+        // Get initial user data
+        supabase.auth.getUser().then(({ data }) => setUser(data.user));
 
-  function handleLoginRedirect() {
-    router.push("/auth/login"); // <-- redirect to your shadcn/Supabase login page
-  }
+        // Set-up listen to track when state changes
+        supabase.auth.onAuthStateChange(
+            (_event, session) => {
+                setUser(session?.user ?? null);
+            }
+        );
+    }, []);
 
-  async function handleLogout() {
-    await supabase.auth.signOut();
-    router.refresh();
-  }
+    function handleLoginRedirect() {
+        router.push("/auth/login");
+    }
 
-  if (!user) {
+    async function handleLogout() {
+        await supabase.auth.signOut();
+    }
+
+    if (!user) {
+        return (
+        <button
+            onClick={handleLoginRedirect}
+            className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-gray-100"
+        >
+            <LogIn size={18} />
+            <span>Log in</span>
+        </button>
+        );
+    }
+
     return (
-      <button
-        onClick={handleLoginRedirect}
-        className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-gray-100"
-      >
-        <LogIn size={18} />
-        <span>Log in</span>
-      </button>
+        <button
+            onClick={handleLogout}
+            className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-gray-100"
+        >
+            <LogOut size={18} />
+            <span>Log out</span>
+        </button>
     );
-  }
-
-  return (
-    <button
-      onClick={handleLogout}
-      className="flex items-center gap-2 px-3 py-2 rounded-xl hover:bg-gray-100"
-    >
-      <User size={18} />
-      <span>Log out</span>
-    </button>
-  );
 }
