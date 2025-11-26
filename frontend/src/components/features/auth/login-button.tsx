@@ -4,10 +4,12 @@ import { useEffect, useState } from "react";
 import { createClient } from "@/lib/supabase/client";
 import { LogIn, LogOut } from "lucide-react";
 import { useRouter } from "next/navigation";
+import type { User } from "@supabase/supabase-js";
+
 
 export function LoginButton() {
     const supabase = createClient();
-    const [user, setUser] = useState<any>(null);
+    const [user, setUser] = useState<User | null>(null);
     const router = useRouter();
 
     useEffect(() => {
