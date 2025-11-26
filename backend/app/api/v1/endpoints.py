@@ -128,3 +128,39 @@ async def get_vocabulary_top_n_frequency(n: int = 10, client=Depends(get_clients
         {to_camel_case(k): v for k, v in entry.items()}
         for entry in response.data
     ]
+
+
+@router.get("/api/v1/get_vocabulary_progress")
+async def get_vocabulary_progress(
+    user_id: str,
+    arr_id: list[int] = Query(...),
+    client=Depends(get_clients)
+):
+    client = client["SupabaseClient"]
+    response = (
+        client.table("vocabulary_progress")
+        .select("vocabulary_id", "count_wrong", "count_correct")
+        .in_("vocabulary_id", arr_id)
+        .execute()
+    )
+
+    # Identify missing vocabulary IDs
+    retrieved_vocab_id = set([
+        entry["vocabulary_id"]
+        for entry in response.data
+    ])
+    missing_vocab_id = set(arr_id).difference(retrieved_vocab_id)
+    
+    # Add missing vocabulary ID entries with defaults
+    for id in missing_vocab_id:
+        response.data.append({
+            "vocabulary_id": id,
+            "count_wrong": 0,
+            "count_correct": 0
+        })
+
+    # Format and return response
+    return [
+        {to_camel_case(k): v for k, v in entry.items()}
+        for entry in response.data
+    ]
