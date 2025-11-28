@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { Vocabulary, getVocabularyByLevel } from '@/lib/backend';
+import { Vocabulary, getVocabularyByLevel } from '@/lib/backend/backend';
 import { VocabularyFlashcardContainer } from '@/components/features/flashcard/flashcard';
 
 

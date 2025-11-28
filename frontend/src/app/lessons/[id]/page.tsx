@@ -9,7 +9,7 @@ import { GrammarDetail } from "@/components/features/grammar";
 
 // Data imports
 import { LessonModule, allLessons } from "@/data/lessons";
-import { Vocabulary, getVocabularyById } from "@/lib/backend";
+import { Vocabulary, getVocabularyById } from "@/lib/backend/backend";
 import { GrammarRule, grammarRules } from "@/data/grammar";
 import { DialogueTurn, allDialogue } from "@/data/dialogue";
 import { Button } from "@/components/ui/button";

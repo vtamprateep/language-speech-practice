@@ -1,4 +1,4 @@
-import { Vocabulary } from "@/lib/backend";
+import { Vocabulary } from "@/lib/backend/backend";
 import { useState, useEffect } from "react";
 
 
