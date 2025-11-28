@@ -1,7 +1,6 @@
 "use client"
 
 import Link from "next/link"
-import { allDialogue } from "@/data/dialogue"
 import { lessonKeys } from "@/data/lessons";
 
 export default function LessonHomePage() {
