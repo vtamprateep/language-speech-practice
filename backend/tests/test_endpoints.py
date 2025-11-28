@@ -120,7 +120,7 @@ def test_get_vocabulary_progress():
 
     mock_supabase_client.table.assert_called_with("vocabulary_progress")
     mock_supabase_client.select.assert_called_with(
-        "id", "vocabulary_id", "count_wrong", "count_correct"
+        "id", "user_id", "vocabulary_id", "count_wrong", "count_correct"
     )
     mock_supabase_client.eq.assert_called_with("user_id", "test")
     mock_supabase_client.in_.assert_called_with("vocabulary_id", [0])
@@ -154,12 +154,14 @@ def test_put_vocabulary_progress_update_records():
         json=[
             {
                 "id": 1,
+                "user_id": "test1",
                 "vocabulary_id": 1,
                 "count_wrong": 1,
                 "count_correct": 1,
             },
             {
                 "id": 2,
+                "user_id": "test2",
                 "vocabulary_id": 2,
                 "count_wrong": 2,
                 "count_correct": 2,
@@ -173,6 +175,7 @@ def test_put_vocabulary_progress_update_records():
             call(
                 {
                     "id": 1,
+                    "user_id": "test1",
                     "vocabulary_id": 1,
                     "count_wrong": 1,
                     "count_correct": 1,
@@ -181,6 +184,7 @@ def test_put_vocabulary_progress_update_records():
             call(
                 {
                     "id": 2,
+                    "user_id": "test2",
                     "vocabulary_id": 2,
                     "count_wrong": 2,
                     "count_correct": 2,
