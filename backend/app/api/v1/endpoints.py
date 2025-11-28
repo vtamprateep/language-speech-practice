@@ -1,7 +1,7 @@
-
 import logging
 
 from fastapi import APIRouter, Depends, Query
+from fastapi.encoders import jsonable_encoder
 from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
@@ -25,11 +25,7 @@ async def translate_text(body: TextTranslate, model=Depends(get_models)):
         text=body.text, source=body.sourceLang, target=body.targetLang
     )
     LOG.info(f"text: {translated_text}")
-    return JSONResponse(
-        content={
-            "text": translated_text
-        }
-    )
+    return JSONResponse(content={"text": translated_text})
 
 
 class TextComparison(BaseModel):
@@ -41,16 +37,10 @@ class TextComparison(BaseModel):
 async def calculate_similarity(body: TextComparison, client=Depends(get_clients)):
     client = client["HFInferenceClient"]
     score = client.sentence_similarity(
-        body.text_1,
-        [body.text_2],
-        model="sentence-transformers/all-MiniLM-L6-v2"
+        body.text_1, [body.text_2], model="sentence-transformers/all-MiniLM-L6-v2"
     )
     LOG.info(f"score: {str(score[0])}")
-    return JSONResponse(
-        content={
-            "score": str(score[0])
-        }
-    )
+    return JSONResponse(content={"score": str(score[0])})
 
 
 @router.get("/api/v1/get_vocabulary_by_level")
@@ -76,14 +66,13 @@ async def get_vocabulary_by_level(level: int, client=Depends(get_clients)):
         range_start += 1000
 
     # Format to camelCase
-    return [
-        {to_camel_case(k): v for k, v in entry.items()}
-        for entry in output
-    ]
+    return [{to_camel_case(k): v for k, v in entry.items()} for entry in output]
 
 
 @router.get("/api/v1/get_vocabulary_by_id")
-async def get_vocabulary_by_id(arr_id: list[int] = Query(...), client=Depends(get_clients)):
+async def get_vocabulary_by_id(
+    arr_id: list[int] = Query(...), client=Depends(get_clients)
+):
     range_start = 0
     client = client["SupabaseClient"]
     output = []
@@ -105,10 +94,7 @@ async def get_vocabulary_by_id(arr_id: list[int] = Query(...), client=Depends(ge
         range_start += 1000
 
     # Format to camelCase
-    return [
-        {to_camel_case(k): v for k, v in entry.items()}
-        for entry in output
-    ]
+    return [{to_camel_case(k): v for k, v in entry.items()} for entry in output]
 
 
 @router.get("/api/v1/get_vocabulary_top_n_frequency")
@@ -124,7 +110,69 @@ async def get_vocabulary_top_n_frequency(n: int = 10, client=Depends(get_clients
         .execute()
     )
 
-    return [
-        {to_camel_case(k): v for k, v in entry.items()}
-        for entry in response.data
-    ]
+    return [{to_camel_case(k): v for k, v in entry.items()} for entry in response.data]
+
+
+@router.get("/api/v1/get_vocabulary_progress")
+async def get_vocabulary_progress(
+    user_id: str, arr_id: list[int] = Query(...), client=Depends(get_clients)
+):
+    client = client["SupabaseClient"]
+    response = (
+        client.table("vocabulary_progress")
+        .select("id", "vocabulary_id", "count_wrong", "count_correct")
+        .eq("user_id", user_id)
+        .in_("vocabulary_id", arr_id)
+        .execute()
+    )
+
+    return [{to_camel_case(k): v for k, v in entry.items()} for entry in response.data]
+
+
+class VocabularyProgressNewRecords(BaseModel):
+    vocabulary_id: list[int]
+
+
+@router.put("/api/v1/put_vocabulary_progress_new_records/{user_id}")
+def put_vocabulary_progress_new_records(
+    user_id: str, body: VocabularyProgressNewRecords, client=Depends(get_clients)
+):
+    """Creates new records in vocabulary_progress table for each arr_id representing
+    a new vocabulary_id."""
+
+    client = client["SupabaseClient"]
+
+    # Format data to be inserted
+    data = [{"user_id": user_id, "vocabulary_id": id} for id in body.vocabulary_id]
+
+    response = client.table("vocabulary_progress").insert(data).execute()
+
+    return response.data
+
+
+class VocabularyProgress(BaseModel):
+    id: int | None
+    vocabulary_id: int
+    count_wrong: int
+    count_correct: int
+
+
+@router.put("/api/v1/put_vocabulary_progress_update_records")
+def put_vocabulary_progress_update_records(
+    body: list[VocabularyProgress], client=Depends(get_clients)
+):
+    """Update track record of getting a vocabulary correct or wrong. Returns
+    last record udpated."""
+    client = client["SupabaseClient"]
+
+    # Perform update
+    for entry in body:
+        json_entry = jsonable_encoder(entry)
+        response = (
+            client.table("vocabulary_progress")
+            .update(json_entry)
+            .eq("id", entry.id)
+            .execute()
+        )
+
+    return response.data

@@ -20,9 +20,11 @@ async def lifespan(app: FastAPI):
     try:
         settings = await fastenv.load_dotenv(".env")
     except:
-        settings = { # type: ignore
+        settings = {  # type: ignore
             "SUPABASE_DATABASE_URL": os.environ["SUPABASE_DATABASE_URL"],
-            "SUPABASE_DATABASE_SERVICE_KEY": os.environ["SUPABASE_DATABASE_SERVICE_KEY"],
+            "SUPABASE_DATABASE_SERVICE_KEY": os.environ[
+                "SUPABASE_DATABASE_SERVICE_KEY"
+            ],
             "HF_TOKEN": os.environ["HF_TOKEN"],
         }
 
@@ -31,13 +33,11 @@ async def lifespan(app: FastAPI):
     }
     app.state.clients = {
         "HFInferenceClient": InferenceClient(
-            provider="hf-inference",
-            api_key=settings["HF_TOKEN"]
+            provider="hf-inference", api_key=settings["HF_TOKEN"]
         ),
         "SupabaseClient": create_client(
-            settings["SUPABASE_DATABASE_URL"],
-            settings["SUPABASE_DATABASE_SERVICE_KEY"]
-        )
+            settings["SUPABASE_DATABASE_URL"], settings["SUPABASE_DATABASE_SERVICE_KEY"]
+        ),
     }
     yield
     app.state.model.clear()
@@ -52,6 +52,7 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
 
 @app.get("/health")
 def health():

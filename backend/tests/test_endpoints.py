@@ -1,4 +1,4 @@
-from unittest.mock import MagicMock
+from unittest.mock import MagicMock, call
 
 from fastapi.testclient import TestClient
 
@@ -15,8 +15,7 @@ test_client = TestClient(app)
 
 # Utility function to mock chain of calls in supabase client
 def create_supabase_client_mock(
-    mock_methods: list[str] = [],
-    mock_attrs: list[str] = []
+    mock_methods: list[str] = [], mock_attrs: list[str] = []
 ) -> MagicMock:
     mock_supabase_client = MagicMock()
     for method in mock_methods:
@@ -64,15 +63,10 @@ def test_calculate_similarity():
 
 def test_get_vocabulary_by_level():
     # Mock client and chain of calls
-    mock_supabase_client = create_supabase_client_mock(
-        ["table", "select", "eq"]
-    )
+    mock_supabase_client = create_supabase_client_mock(["table", "select", "eq"])
     mock_clients.__getitem__.return_value = mock_supabase_client
 
-    test_client.get(
-        url="/api/v1/get_vocabulary_by_level",
-        params={"level": 1}
-    )
+    test_client.get(url="/api/v1/get_vocabulary_by_level", params={"level": 1})
 
     mock_supabase_client.table.assert_called_with("vocabulary")
     mock_supabase_client.eq.assert_called_with("level", 1)
@@ -80,15 +74,10 @@ def test_get_vocabulary_by_level():
 
 def test_get_vocabulary_by_id():
     # Mock client and chain of calls
-    mock_supabase_client = create_supabase_client_mock(
-        ["table", "select", "eq"]
-    )
+    mock_supabase_client = create_supabase_client_mock(["table", "select", "eq"])
     mock_clients.__getitem__.return_value = mock_supabase_client
 
-    test_client.get(
-        url="/api/v1/get_vocabulary_by_id",
-        params={"arr_id": [0, 1]}
-    )
+    test_client.get(url="/api/v1/get_vocabulary_by_id", params={"arr_id": [0, 1]})
 
     mock_supabase_client.table.assert_called_with("vocabulary")
     mock_supabase_client.in_.assert_called_with("id", [0, 1])
@@ -96,14 +85,9 @@ def test_get_vocabulary_by_id():
 
 def test_get_vocabulary_top_n_frequency():
     # Mock client and chain of calls
-    mock_supabase_client = create_supabase_client_mock([
-        "table",
-        "select",
-        "is_",
-        "order",
-        "limit",
-        "execute"
-    ], ["not_"])
+    mock_supabase_client = create_supabase_client_mock(
+        ["table", "select", "is_", "order", "limit", "execute"], ["not_"]
+    )
 
     mock_clients.__getitem__.return_value = mock_supabase_client
 
@@ -117,9 +101,91 @@ def test_get_vocabulary_top_n_frequency():
     mock_supabase_client.order.assert_called_with("relative_freq_pct", desc=True)
 
     # Call with value sets n appropriately
-    test_client.get(
-        url="/api/v1/get_vocabulary_top_n_frequency",
-        params={"n": 5}
-    )
+    test_client.get(url="/api/v1/get_vocabulary_top_n_frequency", params={"n": 5})
 
     mock_supabase_client.limit.assert_called_with(5)
+
+
+def test_get_vocabulary_progress():
+    # Mock client and chain of calls
+    mock_supabase_client = create_supabase_client_mock(
+        ["table", "select", "eq", "in_", "execute"]
+    )
+
+    mock_clients.__getitem__.return_value = mock_supabase_client
+
+    test_client.get(
+        url="/api/v1/get_vocabulary_progress", params={"user_id": "test", "arr_id": [0]}
+    )
+
+    mock_supabase_client.table.assert_called_with("vocabulary_progress")
+    mock_supabase_client.select.assert_called_with(
+        "id", "vocabulary_id", "count_wrong", "count_correct"
+    )
+    mock_supabase_client.eq.assert_called_with("user_id", "test")
+    mock_supabase_client.in_.assert_called_with("vocabulary_id", [0])
+
+
+def test_put_vocabulary_progress_new_records():
+    # Mock client and chain of calls
+    mock_supabase_client = create_supabase_client_mock(["table", "insert", "execute"])
+
+    mock_clients.__getitem__.return_value = mock_supabase_client
+
+    test_client.put(
+        url="/api/v1/put_vocabulary_progress_new_records/test_id",
+        json={"vocabulary_id": [0]},
+    )
+
+    mock_supabase_client.table.assert_called_with("vocabulary_progress")
+    mock_supabase_client.insert.assert_called_with(
+        [{"user_id": "test_id", "vocabulary_id": 0}]
+    )
+
+
+def test_put_vocabulary_progress_update_records():
+    # Mock client and chain of calls
+    mock_supabase_client = create_supabase_client_mock(["table", "update", "eq"])
+
+    mock_clients.__getitem__.return_value = mock_supabase_client
+
+    test_client.put(
+        url="/api/v1/put_vocabulary_progress_update_records",
+        json=[
+            {
+                "id": 1,
+                "vocabulary_id": 1,
+                "count_wrong": 1,
+                "count_correct": 1,
+            },
+            {
+                "id": 2,
+                "vocabulary_id": 2,
+                "count_wrong": 2,
+                "count_correct": 2,
+            },
+        ],
+    )
+
+    mock_supabase_client.table.assert_called_with("vocabulary_progress")
+    mock_supabase_client.update.assert_has_calls(
+        [
+            call(
+                {
+                    "id": 1,
+                    "vocabulary_id": 1,
+                    "count_wrong": 1,
+                    "count_correct": 1,
+                }
+            ),
+            call(
+                {
+                    "id": 2,
+                    "vocabulary_id": 2,
+                    "count_wrong": 2,
+                    "count_correct": 2,
+                }
+            ),
+        ]
+    )
+    mock_supabase_client.eq.assert_has_calls([call("id", 1), call("id", 2)])
