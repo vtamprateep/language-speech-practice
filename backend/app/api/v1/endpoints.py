@@ -1,8 +1,8 @@
 import logging
 
 from fastapi import APIRouter, Depends, Query
-from fastapi.responses import JSONResponse
 from fastapi.encoders import jsonable_encoder
+from fastapi.responses import JSONResponse
 from pydantic import BaseModel
 
 from app.dependencies import get_clients, get_models
