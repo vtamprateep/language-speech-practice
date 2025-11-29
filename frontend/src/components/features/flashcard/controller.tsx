@@ -1,8 +1,8 @@
-import { Vocabulary } from "@/lib/backend/backend";
+import { Vocabulary } from "@/lib/backend/types";
 import { useState, useEffect } from "react";
+import { Mode } from "./types";
+import { VocabularyPerformance } from "./types";
 
-
-type Mode = "typing" | "multiple-choice";
 
 export function useFlashcardController(vocabularyArr: Vocabulary[]) {
     const [index, setIndex] = useState(0);
@@ -56,13 +56,6 @@ export function useFlashcardController(vocabularyArr: Vocabulary[]) {
         prev,
         checkResponse,
     };
-}
-
-
-type VocabularyPerformance  = {
-    correct: number;
-    wrong: number;
-    mastered: boolean;
 }
 
 export function useFlashcardMasteryController(vocabularyArr: Vocabulary[]) {
