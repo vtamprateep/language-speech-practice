@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Vocabulary } from "@/lib/backend/backend";
+import { Vocabulary } from "@/lib/backend/types";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { TypedResponse, MultipleChoiceResponse } from "./response";

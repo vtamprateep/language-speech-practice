@@ -4,6 +4,11 @@ import { Mode } from "./types";
 import { VocabularyPerformance } from "./types";
 
 
+function chooseRandom(options: string[]): string {
+    return options[Math.floor(Math.random() * options.length)];
+}
+
+
 export function useFlashcardController(vocabularyArr: Vocabulary[]) {
     const [index, setIndex] = useState(0);
     const [mode, setMode] = useState<Mode>("typing");
@@ -27,12 +32,11 @@ export function useFlashcardController(vocabularyArr: Vocabulary[]) {
     }
 
     useEffect(() => {
+        const mode = chooseRandom(["typing", "multiple-choice"]) as Mode;
         setIsCorrect(null);
+        setMode(mode);
 
-        const random: Mode = Math.random() < 0.5 ? "typing" : "multiple-choice";
-        setMode(random);
-
-        if (random === "multiple-choice") {
+        if (mode === "multiple-choice") {
             const wrongAnswers = vocabularyArr
                 .filter((v) => v.id !== currentVocabulary.id)
                 .sort(() => 0.5 - Math.random())
@@ -101,8 +105,6 @@ export function useFlashcardMasteryController(vocabularyArr: Vocabulary[]) {
         return correct;
     }
 
-    const randMode = () => Math.random() < 0.5 ? "typing" : "multiple-choice";
-
     const updateChoices = () => {
         // Pick out 3 other vocabulary as wrong options
         const wrongAnswers = vocabularyArr
@@ -154,9 +156,9 @@ export function useFlashcardMasteryController(vocabularyArr: Vocabulary[]) {
         setIsCorrect(null);
         
         // Randomly select mode for next flashcard
-        const nextMode = randMode();
-        setMode(nextMode);
-        if (nextMode === "multiple-choice") updateChoices();
+        const mode = chooseRandom(["typing", "multiple-choice"]) as Mode;
+        setMode(mode);
+        if (mode === "multiple-choice") updateChoices();
 
     }, [index]);
 
