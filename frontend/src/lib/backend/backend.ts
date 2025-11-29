@@ -3,7 +3,7 @@ import {
   TextComparison,
   TTSRequest,
   Vocabulary,
-  VocabularyProgress
+  VocabularyProgressRecord
 } from "./types";
 
 
@@ -95,7 +95,7 @@ export async function getVocabularyTopNFrequency(n: number = 10): Promise<Vocabu
 export async function getVocabularyProgress(
   userId: string,
   arrId: number[]
-): Promise<VocabularyProgress[]> {
+): Promise<VocabularyProgressRecord[]> {
   // Format query parameter
   const queryParameter = arrId.flatMap((entry) => `arr_id=${entry}`);
   let queryParameterString = queryParameter.join("&");
@@ -110,13 +110,7 @@ export async function getVocabularyProgress(
 }
 
 // PUT /put_vocabulary_progress_new_records
-export interface VocabularyProgressRecord {
-  id: number;
-  userId: string;
-  vocabularyId: number;
-  countCorrect: number;
-  countWrong: number;
-}
+
 
 export async function putVocabularyProgressNewRecords(
   userId: string,

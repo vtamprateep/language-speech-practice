@@ -29,9 +29,10 @@ export interface Vocabulary {
   relativeFreqPct: number;
 }
 
-export interface VocabularyProgress {
+export interface VocabularyProgressRecord {
   id: number;
+  userId: string;
   vocabularyId: number;
-  countWrong: number;
   countCorrect: number;
+  countWrong: number;
 }
