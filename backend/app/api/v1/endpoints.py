@@ -166,7 +166,7 @@ def put_vocabulary_progress_update_records(
     body: list[VocabularyProgress], client=Depends(get_clients)
 ):
     """Update track record of getting a vocabulary correct or wrong. Returns
-    last record udpated."""
+    last record updated."""
     client = client["SupabaseClient"]
 
     # Perform update

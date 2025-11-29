@@ -99,7 +99,7 @@ export async function getVocabularyProgress(
   // Format query parameter
   const queryParameter = arrId.flatMap((entry) => `arr_id=${entry}`);
   let queryParameterString = queryParameter.join("&");
-  queryParameterString = `user_id=${userId}` + queryParameterString;
+  queryParameterString = `user_id=${userId}&` + queryParameterString;
 
   const res = await fetch(`${API_BASE}/api/v1/get_vocabulary_progress?${queryParameterString}`, {
     method: "GET",
@@ -132,10 +132,20 @@ export async function putVocabularyProgressNewRecords(
 export async function putVocabularyProgressUpdateRecords(
   records: VocabularyProgressRecord[]
 ): Promise<VocabularyProgressRecord[]> {
+  // Format body
+  const body = records.map((entry) => {
+    return {
+      id: entry.id,
+      user_id: entry.userId,
+      vocabulary_id: entry.vocabularyId,
+      count_wrong: entry.countWrong,
+      count_correct: entry.countCorrect
+    }
+  })
   const res = await fetch(`${API_BASE}/api/v1/put_vocabulary_progress_update_records`, {
     method: "PUT",
     headers: { "Content-Type": "application/json" },
-    body: JSON.stringify(records)
+    body: JSON.stringify(body)
   });
   if (!res.ok) throw new Error(`Failed to get vocabulary: ${res.statusText}`);
   return res.json();

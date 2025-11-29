@@ -30,8 +30,8 @@ export interface Vocabulary {
 }
 
 export interface VocabularyProgressRecord {
-  id: number;
-  userId: string;
+  id?: number;
+  userId?: string;
   vocabularyId: number;
   countCorrect: number;
   countWrong: number;
