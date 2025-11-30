@@ -10,6 +10,7 @@ import {
 import { useUserContext } from "@/context/user";
 
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function chooseRandom(options: any[]): any {
     return options[Math.floor(Math.random() * options.length)];
 }
@@ -21,6 +22,7 @@ function generateChoices(vocabularyArr: Vocabulary[], skipId: number): Vocabular
         .slice(0, 3)
 }
 
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
 function shuffle(arr: any[]): any[] {
     return arr.sort(() => 0.5 - Math.random());
 }
