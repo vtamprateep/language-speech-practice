@@ -5,7 +5,7 @@ import { Button } from '@/components/ui/button';
 import React, { useState, useEffect } from 'react';
 import { Vocabulary } from '@/lib/backend/types';
 import { getVocabularyTopNFrequency } from '@/lib/backend/backend';
-import { VocabularyFlashcardMasteryContainer } from '@/components/features/flashcard/flashcard';
+import { VocabularyFlashcardMasteryContainer } from '@/components/features/flashcard/container';
 
 
 function HomeButton() {

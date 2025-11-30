@@ -3,7 +3,7 @@
 import React, { useState, useEffect } from 'react';
 import { getVocabularyByLevel } from '@/lib/backend/backend';
 import { Vocabulary } from '@/lib/backend/types';
-import { VocabularyFlashcardContainer } from '@/components/features/flashcard/flashcard';
+import { VocabularyFlashcardContainer } from '@/components/features/flashcard/container';
 
 
 export default function FlashcardsLevelsPage({ params }: { params: Promise<{ level: string }>}) {
