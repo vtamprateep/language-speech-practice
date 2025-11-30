@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { Vocabulary } from "@/lib/backend/types";
 import { Button } from "@/components/ui/button";
 import { TypedResponse, MultipleChoiceResponse } from "./response";
