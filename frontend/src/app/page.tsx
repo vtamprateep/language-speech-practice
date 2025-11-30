@@ -1,105 +1,44 @@
 'use client';
 
-import Link from "next/link"
-import { allDialogue } from "@/data/dialogue"
-import { lessonKeys } from "@/data/lessons";
+import Link from "next/link";
 
 export default function HomePage() {
-
-    const vocabLevels = ["1", "2", "3", "4", "5"]
-
     return (
-        <main className="min-h-screen flex flex-col items-center p-8 bg-gradient-to-b from-gray-50 to-gray-100 text-gray-900">
-            {/* ===== Hero / Lesson Modules ===== */}
-            <section className="w-full max-w-5xl text-center mb-16">
-                <h1 className="text-4xl font-bold mb-4">Choose a lesson to get started</h1>
-                <p className="text-gray-600 mb-10 text-lg">
-                    Follow structured lessons to build vocabulary, grammar, and real conversation skills.
-                </p>
+        <main className="min-h-screen flex flex-col items-center justify-center p-10 bg-gradient-to-b from-gray-50 to-gray-100 text-gray-900">
+            <div className="w-full max-w-xl space-y-10 text-center">
 
-                <div
-                    className="
-                        grid gap-6 
-                        grid-cols-[repeat(auto-fit,minmax(18rem,1fr))]
-                        justify-center
-                    "
-                >
-                    {lessonKeys.map((lesson, index) => (
-                        <Link
-                            key={lesson.id}
-                            href={`/lessons/${lesson.id}`}
-                            className="bg-white border border-blue-500 rounded-xl p-6 shadow-sm hover:shadow-md transition text-left"
-                        >
-                            <h2 className="text-xl font-semibold mb-2 text-blue-600">
-                                Lesson {index + 1}: {lesson.title}
-                            </h2>
-                            <p className="text-gray-600 text-sm">
-                                {lesson.description}
-                            </p>
-                        </Link>
-                    ))}
-                    
+                {/* Start a new lesson */}
+                <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+                    <h2 className="text-3xl font-bold mb-3">Start a New Lesson</h2>
+                    <p className="text-gray-600 mb-6">
+                        Begin your next guided Mandarin lesson.
+                    </p>
+                    <Link
+                        href="/learn"
+                        className="inline-block px-6 py-3 rounded-lg bg-emerald-600 text-white font-medium hover:bg-emerald-700 transition"
+                    >
+                        Start Learning
+                    </Link>
                 </div>
-            </section>
 
-            {/* ===== Practice Modules ===== */}
-            <section className="w-full text-center max-w-5xl">
-                <h2 className="text-3xl font-bold text-center mb-4">Practice Modules</h2>
-                <p className="text-gray-600 mb-10 text-lg">Sharpen your skills by focusing on specific areas.</p>
-                <div className="grid gap-10 md:grid-cols-3">
-                    {/* Vocabulary */}
-                    <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition text-center">
-                        <h3 className="text-lg font-semibold mb-3 text-emerald-700">Vocabulary Flashcards</h3>
-                        <p className="text-gray-600 text-sm mb-4">
-                            Refresh on old or learn new vocabulary.
-                        </p>
-                        <div className="flex flex-wrap justify-center gap-3">
-                            {vocabLevels.map((level) => (
-                                <Link
-                                    key={level}
-                                    href={`/flashcards/${level}`}
-                                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition"
-                                >
-                                    Level {level}
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
+                {/* Practice Modules */}
+                <div className="bg-white border border-gray-200 rounded-2xl p-8 shadow-sm hover:shadow-md transition">
+                    <h2 className="text-3xl font-bold mb-3">Practice Modules</h2>
+                    <p className="text-gray-600 mb-6">
+                        Sharpen specific skills with focused practice.
+                    </p>
 
-                    {/* Grammar */}
-                    <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition text-center">
-                        <h3 className="text-lg font-semibold mb-3 text-indigo-700">Grammar Rules</h3>
-                        <p className="text-gray-600 text-sm mb-4">
-                            Explore explanations, examples, and practice sentences.
-                        </p>
+                    <div className="grid gap-4">
                         <Link
-                            href="/grammar"
-                            className="inline-block px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition"
+                            href="/practice"
+                            className="block px-5 py-3 rounded-lg border border-gray-300 hover:bg-gray-50 transition"
                         >
-                            Browse Grammar
+                            Explore Practice Modules
                         </Link>
                     </div>
-
-                    {/* Guided Dialogues */}
-                    <div className="bg-white border border-gray-200 rounded-xl p-6 shadow-sm hover:shadow-md transition text-center">
-                        <h3 className="text-lg font-semibold mb-3 text-sky-700">Guided Dialogues</h3>
-                        <p className="text-gray-600 text-sm mb-4">
-                            Practice natural conversations through guided scenarios.
-                        </p>
-                        <div className="flex justify-center gap-3 flex-wrap">
-                            {allDialogue.map((dialogue) => (
-                                <Link
-                                    key={dialogue.id}
-                                    href={`/guided_dialogue/text/${dialogue.id}`}
-                                    className="px-4 py-2 border border-gray-300 rounded-lg text-sm text-gray-700 hover:bg-gray-50 transition"
-                                >
-                                    {dialogue.title}
-                                </Link>
-                            ))}
-                        </div>
-                    </div>
                 </div>
-            </section>
+
+            </div>
         </main>
     );
 }

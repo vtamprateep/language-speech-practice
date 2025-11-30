@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { Vocabulary } from "@/lib/backend";
+import { Vocabulary } from "@/lib/backend/types";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { TypedResponse, MultipleChoiceResponse } from "./response";
@@ -67,7 +67,6 @@ export function VocabularyFlashcardMasteryContainer({ vocabulary, callbackOnComp
         choices,
         isCorrect,
         endSession,
-        renderTick,
         next,
         checkResponse,
     } = useFlashcardMasteryController(vocabulary);
@@ -81,14 +80,12 @@ export function VocabularyFlashcardMasteryContainer({ vocabulary, callbackOnComp
 
     return (
         <div className="flex flex-col items-center p-6 gap-6">
-            <Flashcard 
-                key={renderTick}
+            <Flashcard
                 item={currentVocabulary} 
             />
 
             {mode === "typing" ? (
-                <TypedResponse 
-                    resetSignal={renderTick}
+                <TypedResponse
                     callback={checkResponse}
                 />
             ) : (

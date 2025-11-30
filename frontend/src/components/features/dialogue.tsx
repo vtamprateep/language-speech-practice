@@ -8,7 +8,7 @@ import { Card, CardContent } from '../ui/card';
 import { Input } from '../ui/input';
 import { Button } from '../ui/button';
 
-import { translateText, transcribeAudio, calculateSimilarity, generateAudio } from '@/lib/backend';
+import { translateText, transcribeAudio, calculateSimilarity, generateAudio } from '@/lib/backend/backend';
 
 interface VoiceMessage {
     sender: 'user' | 'bot';

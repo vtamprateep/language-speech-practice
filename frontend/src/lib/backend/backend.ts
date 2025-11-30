@@ -1,35 +1,13 @@
-export const API_BASE = process.env.NEXT_PUBLIC_BACKEND_SERVER_URL || "http://localhost:8000";
+import {
+  TextTranslate,
+  TextComparison,
+  TTSRequest,
+  Vocabulary,
+  VocabularyProgressRecord
+} from "./types";
 
-export type Language = string; // adjust if you have enums on frontend
 
-export interface TextTranslate {
-  text: string;
-  sourceLang: Language;
-  targetLang: Language;
-}
-
-export interface TextComparison {
-  text_1: string;
-  text_2: string;
-}
-
-export interface TTSRequest {
-  text: string;
-  language: string;
-}
-
-export interface Vocabulary {
-  topic: string | null;
-  traditional: string;
-  simplified: string;
-  pinyin: string;
-  partOfSpeech: string | null;
-  level: number;
-  topicEnglish: string | null;
-  english: string;
-  id: number;
-  relativeFreqPct: number;
-}
+const API_BASE = process.env.NEXT_PUBLIC_BACKEND_SERVER_URL || "http://localhost:8000";
 
 
 // POST /translate_text
@@ -108,6 +86,66 @@ export async function getVocabularyTopNFrequency(n: number = 10): Promise<Vocabu
   const res = await fetch(`${API_BASE}/api/v1/get_vocabulary_top_n_frequency?n=${n}`, {
     method: "GET",
     headers: { "Content-Type": "application/json" }
+  });
+  if (!res.ok) throw new Error(`Failed to get vocabulary: ${res.statusText}`);
+  return res.json();
+}
+
+// GET /get_vocabulary_progress
+export async function getVocabularyProgress(
+  userId: string,
+  arrId: number[]
+): Promise<VocabularyProgressRecord[]> {
+  // Format query parameter
+  const queryParameter = arrId.flatMap((entry) => `arr_id=${entry}`);
+  let queryParameterString = queryParameter.join("&");
+  queryParameterString = `user_id=${userId}&` + queryParameterString;
+
+  const res = await fetch(`${API_BASE}/api/v1/get_vocabulary_progress?${queryParameterString}`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" },
+  });
+  if (!res.ok) throw new Error(`Failed to get vocabulary: ${res.statusText}`);
+  return res.json();
+}
+
+// PUT /put_vocabulary_progress_new_records
+
+
+export async function putVocabularyProgressNewRecords(
+  userId: string,
+  vocabularyId: number[]
+): Promise<VocabularyProgressRecord[]> {
+  const res = await fetch(`${API_BASE}/api/v1/put_vocabulary_progress_new_records/${userId}`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      "vocabulary_id": vocabularyId
+    })
+  });
+  if (!res.ok) throw new Error(`Failed to get vocabulary: ${res.statusText}`);
+  return res.json();
+}
+
+
+// PUT /put_vocabulary_progress_update_records
+export async function putVocabularyProgressUpdateRecords(
+  records: VocabularyProgressRecord[]
+): Promise<VocabularyProgressRecord[]> {
+  // Format body
+  const body = records.map((entry) => {
+    return {
+      id: entry.id,
+      user_id: entry.userId,
+      vocabulary_id: entry.vocabularyId,
+      count_wrong: entry.countWrong,
+      count_correct: entry.countCorrect
+    }
+  })
+  const res = await fetch(`${API_BASE}/api/v1/put_vocabulary_progress_update_records`, {
+    method: "PUT",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(body)
   });
   if (!res.ok) throw new Error(`Failed to get vocabulary: ${res.statusText}`);
   return res.json();

@@ -120,7 +120,7 @@ async def get_vocabulary_progress(
     client = client["SupabaseClient"]
     response = (
         client.table("vocabulary_progress")
-        .select("id", "vocabulary_id", "count_wrong", "count_correct")
+        .select("id", "user_id", "vocabulary_id", "count_wrong", "count_correct")
         .eq("user_id", user_id)
         .in_("vocabulary_id", arr_id)
         .execute()
@@ -147,11 +147,15 @@ def put_vocabulary_progress_new_records(
 
     response = client.table("vocabulary_progress").insert(data).execute()
 
-    return response.data
+    return [
+        {to_camel_case(k): v for k, v in entry.items()}
+        for entry in response.data
+    ]
 
 
 class VocabularyProgress(BaseModel):
-    id: int | None
+    id: int
+    user_id: str
     vocabulary_id: int
     count_wrong: int
     count_correct: int
@@ -162,7 +166,7 @@ def put_vocabulary_progress_update_records(
     body: list[VocabularyProgress], client=Depends(get_clients)
 ):
     """Update track record of getting a vocabulary correct or wrong. Returns
-    last record udpated."""
+    last record updated."""
     client = client["SupabaseClient"]
 
     # Perform update
@@ -175,4 +179,7 @@ def put_vocabulary_progress_update_records(
             .execute()
         )
 
-    return response.data
+    return [
+        {to_camel_case(k): v for k, v in entry.items()}
+        for entry in response.data
+    ]

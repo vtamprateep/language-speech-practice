@@ -1,8 +1,70 @@
-import { Vocabulary } from "@/lib/backend";
+import { Vocabulary } from "@/lib/backend/types";
 import { useState, useEffect } from "react";
+import { Mode } from "./types";
+import { VocabularyProgressRecord } from "@/lib/backend/types";
+import {
+    getVocabularyProgress,
+    putVocabularyProgressNewRecords,
+    putVocabularyProgressUpdateRecords
+} from "@/lib/backend/backend";
+import { useUserContext } from "@/context/user";
 
 
-type Mode = "typing" | "multiple-choice";
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function chooseRandom(options: any[]): any {
+    return options[Math.floor(Math.random() * options.length)];
+}
+
+function generateChoices(vocabularyArr: Vocabulary[], skipId: number): Vocabulary[] {
+    return vocabularyArr
+        .filter((v) => v.id !== skipId)
+        .sort(() => 0.5 - Math.random())
+        .slice(0, 3)
+}
+
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+function shuffle(arr: any[]): any[] {
+    return arr.sort(() => 0.5 - Math.random());
+}
+
+async function loadVocabularyProgress(
+    vocabularyIdArr: number[],
+    userId?: string
+): Promise<VocabularyProgressRecord[]> {
+    // If userId is not provided, give blank progress for all vocabulary
+    if (!userId) {
+        const vocabProgress = vocabularyIdArr.map((id) => {
+            return {
+                vocabularyId: id,
+                countCorrect: 0,
+                countWrong: 0
+            }
+        });
+        return vocabProgress;
+    }
+
+    // Otherwise, get vocabulary progress records from database
+    const vocabularyProgressRecord = await getVocabularyProgress(
+        userId,
+        vocabularyIdArr
+    )
+    const foundVocabId = vocabularyProgressRecord.map((v) => v.vocabularyId);
+
+    // For new vocab, existing record may not exists. Create those records.
+    const missingVocabIds = vocabularyIdArr.filter((v) => !foundVocabId.includes(v));
+
+    // If none were missing, return. Otherwise, create those records
+    if (missingVocabIds.length == 0) return vocabularyProgressRecord;
+    const newRecords = await putVocabularyProgressNewRecords(userId, missingVocabIds);
+    return [...vocabularyProgressRecord, ...newRecords];
+}
+
+async function commitVocabularyProgress(
+    vocabularyProgressArr: VocabularyProgressRecord[],
+): Promise<void> {
+    putVocabularyProgressUpdateRecords(vocabularyProgressArr);
+}
+
 
 export function useFlashcardController(vocabularyArr: Vocabulary[]) {
     const [index, setIndex] = useState(0);
@@ -27,24 +89,22 @@ export function useFlashcardController(vocabularyArr: Vocabulary[]) {
     }
 
     useEffect(() => {
+        const mode = chooseRandom(["typing", "multiple-choice"]) as Mode;
         setIsCorrect(null);
+        setMode(mode);
 
-        const random: Mode = Math.random() < 0.5 ? "typing" : "multiple-choice";
-        setMode(random);
+        if (mode === "typing") return;
 
-        if (random === "multiple-choice") {
-            const wrongAnswers = vocabularyArr
-                .filter((v) => v.id !== currentVocabulary.id)
-                .sort(() => 0.5 - Math.random())
-                .slice(0, 3)
-                .map((v) => v.english);
+        // Logic to select other choices for "multiple-choice"
+        const wrongAnswers = generateChoices(
+            vocabularyArr, currentVocabulary.id
+        ).map((v) => v.english);
 
-            const opts = [...wrongAnswers, currentVocabulary.english].sort(
-                () => 0.5 - Math.random()
-            );
+        const opts = [...wrongAnswers, currentVocabulary.english].sort(
+            () => 0.5 - Math.random()
+        );
 
-            setChoices(opts);
-        }
+        setChoices(opts);
     }, [index]);
 
     return {
@@ -58,44 +118,58 @@ export function useFlashcardController(vocabularyArr: Vocabulary[]) {
     };
 }
 
-
-type VocabularyPerformance  = {
-    correct: number;
-    wrong: number;
-    mastered: boolean;
-}
-
 export function useFlashcardMasteryController(vocabularyArr: Vocabulary[]) {
     const [index, setIndex] = useState<number>(0);
     const [mode, setMode] = useState<Mode>("typing");
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
     const [choices, setChoices] = useState<string[]>([]);
-    const [trackRecord, setTrackRecord] = useState<Record<number, VocabularyPerformance>>();
+    const [progress, setProgress] = useState<VocabularyProgressRecord[]>();
     const [endSession, setEndSession] = useState<boolean>(false);
-
-    const [renderTick, setRenderTick] = useState<number>(0);
-
     const currentVocabulary = vocabularyArr[index];
 
+    const { user } = useUserContext();
+
     const next = () => {
-        if (!trackRecord) return;
+        // Block going to next vocab until user has answered
+        if (isCorrect == undefined) return;
 
-        // Collect ID of unmastered vocabulary
-        const notMastered = vocabularyArr
-            .filter((v) => !trackRecord![v.id].mastered
-        );
+        // Update progress
+        setProgress(prev => {
+            const updated = structuredClone(prev);
+            updateProgress(progress!, currentVocabulary, isCorrect);
+            return updated
+        })
 
-        if (notMastered.length == 0) {
+        // Get ID of vocabulary to quiz
+        const remainingVocabId = progress!.map((v) => {
+            if (v.countCorrect < 5) return v.vocabularyId
+        })
+        const remainingVocab = vocabularyArr.filter((v) => remainingVocabId.includes(v.id));
+
+        // If none, lesson complete, return
+        if (remainingVocab.length == 0) {
             setEndSession(true);
+            commitVocabularyProgress(progress!);
             return;
         }
 
-        // Select random unmastered vocab and set
-        const randomVocab = notMastered[Math.floor(Math.random() * notMastered.length)];
-        const randomIndex = vocabularyArr.findIndex((v) => v.id == randomVocab.id);
+        // Update states for next flashcard
+        setIsCorrect(null);
 
+        const mode = chooseRandom(["typing", "multiple-choice"]) as Mode;
+        setMode(mode);
+        if (mode === "multiple-choice") {
+            const wrongAnswers = generateChoices(
+                vocabularyArr, currentVocabulary.id
+            ).map((v) => v.english);
+            setChoices(shuffle([...wrongAnswers, currentVocabulary.english]));
+        };
+
+
+        // Select random unmastered vocab and set
+        const randomVocab = chooseRandom(remainingVocab);
+        const randomIndex = vocabularyArr.findIndex((v) => v.id == randomVocab.id);
         setIndex(randomIndex);
-        setRenderTick(renderTick => renderTick + 1);
     }
 
     const checkResponse = (answer: string) => {
@@ -104,68 +178,35 @@ export function useFlashcardMasteryController(vocabularyArr: Vocabulary[]) {
 
         const correct = answer.trim() === expected;
         setIsCorrect(correct);
-        updatePerformance(currentVocabulary, correct);
+        
         return correct;
     }
 
-    const randMode = () => Math.random() < 0.5 ? "typing" : "multiple-choice";
-
-    const updateChoices = () => {
-        // Pick out 3 other vocabulary as wrong options
-        const wrongAnswers = vocabularyArr
-                .filter((v) => v.id !== currentVocabulary.id)
-                .sort(() => 0.5 - Math.random())
-                .slice(0, 3)
-                .map((v) => v.english);
-
-        // Debug
-        console.log(wrongAnswers);
-
-        // Gather options and randomize
-        const opts = [...wrongAnswers, currentVocabulary.english].sort(
-            () => 0.5 - Math.random()
-        );
-
-        setChoices(opts);
-    }
-
-    const updatePerformance = (vocabulary: Vocabulary, answerdCorrectly: boolean) => {
-        const vocabularyId = vocabulary.id;
-        if (answerdCorrectly) {
-            trackRecord![vocabularyId].correct ++
+    const updateProgress = (
+        progress: VocabularyProgressRecord[],
+        vocabulary: Vocabulary,
+        answerdCorrectly: boolean
+    ) => {
+        const vocabProgress = progress.find((v) => v.vocabularyId == vocabulary.id);
+        if (!vocabProgress) {
+            return;
+        } else if (answerdCorrectly) {
+            vocabProgress.countCorrect ++
         } else {
-            trackRecord![vocabularyId].wrong ++
-        }
-
-        // Debug
-        console.log(trackRecord![vocabularyId]);
-
-        // Basic policy - if you get it right at least 5 times, you're good
-        if (trackRecord![vocabularyId].correct >= 3) {
-            trackRecord![vocabularyId].mastered = true;
+            vocabProgress.countWrong ++
         }
     }
 
     useEffect(() => {
-        // Set-up performance tracking
-        const performanceRecord = Object.fromEntries(
-            vocabularyArr.map(v => [
-                v.id,
-                { correct: 0, wrong: 0, mastered: false }
-            ])
-        );
-        setTrackRecord(performanceRecord);
-    }, [])
-
-    useEffect(() => {
-        setIsCorrect(null);
+        loadVocabularyProgress(
+            vocabularyArr.map((v) => v.id),
+            user?.id
+        )
+            .then((response) => {
+                setProgress(response);
+            })
         
-        // Randomly select mode for next flashcard
-        const nextMode = randMode();
-        setMode(nextMode);
-        if (nextMode === "multiple-choice") updateChoices();
-
-    }, [index]);
+    }, [])
 
     return {
         currentVocabulary,
@@ -173,9 +214,7 @@ export function useFlashcardMasteryController(vocabularyArr: Vocabulary[]) {
         isCorrect,
         choices,
         endSession,
-        renderTick,
         next,
-        checkResponse,
-        setRenderTick
+        checkResponse
     };
 }
