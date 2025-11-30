@@ -1,17 +1,12 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 
-export function TypedResponse({ callback, resetSignal }: {
+export function TypedResponse({ callback }: {
     callback?: (userInput: string) => void,
-    resetSignal?: unknown,
 }) {
     const [value, setValue] = useState("");
-
-    useEffect(() => {
-        setValue("");
-    }, [resetSignal]);
 
     return (
         <div className="flex flex-col items-center gap-2">
@@ -22,6 +17,7 @@ export function TypedResponse({ callback, resetSignal }: {
                 onKeyDown={(e) => {
                     if (e.key === "Enter" && callback) {
                         callback(value.trim());
+                        setValue("");
                     }
                 }}
                 placeholder="Type the character"

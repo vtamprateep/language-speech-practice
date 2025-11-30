@@ -3,7 +3,7 @@
 import { useState, useEffect, use } from "react";
 
 // Components
-import { VocabularyFlashcardContainer } from "@/components/features/flashcard/flashcard";
+import { VocabularyFlashcardContainer } from "@/components/features/flashcard/container";
 import { GuidedDialogueText } from "@/components/features/dialogue";
 import { GrammarDetail } from "@/components/features/grammar";
 

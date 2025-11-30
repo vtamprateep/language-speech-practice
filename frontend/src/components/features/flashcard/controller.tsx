@@ -8,12 +8,8 @@ import {
     putVocabularyProgressUpdateRecords
 } from "@/lib/backend/backend";
 import { useUserContext } from "@/context/user";
+import { chooseRandom, shuffle } from "@/lib/utils";
 
-
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function chooseRandom(options: any[]): any {
-    return options[Math.floor(Math.random() * options.length)];
-}
 
 function generateChoices(vocabularyArr: Vocabulary[], skipId: number): Vocabulary[] {
     return vocabularyArr
@@ -22,9 +18,10 @@ function generateChoices(vocabularyArr: Vocabulary[], skipId: number): Vocabular
         .slice(0, 3)
 }
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-function shuffle(arr: any[]): any[] {
-    return arr.sort(() => 0.5 - Math.random());
+async function commitVocabularyProgress(
+    vocabularyProgressArr: VocabularyProgressRecord[],
+): Promise<void> {
+    putVocabularyProgressUpdateRecords(vocabularyProgressArr);
 }
 
 async function loadVocabularyProgress(
@@ -57,12 +54,6 @@ async function loadVocabularyProgress(
     if (missingVocabIds.length == 0) return vocabularyProgressRecord;
     const newRecords = await putVocabularyProgressNewRecords(userId, missingVocabIds);
     return [...vocabularyProgressRecord, ...newRecords];
-}
-
-async function commitVocabularyProgress(
-    vocabularyProgressArr: VocabularyProgressRecord[],
-): Promise<void> {
-    putVocabularyProgressUpdateRecords(vocabularyProgressArr);
 }
 
 
