@@ -14,14 +14,12 @@ class SRSItem:
 
 
 class ExponentialSRSPolicy:
-
     @staticmethod
     def retrieve_items(
-        self, 
-        items: list[SRSItem], 
+        items: list[SRSItem],
         smooth_factor: int = 5,
         score_threshold: float | int = 30,
-        N: int = 6
+        N: int = 6,
     ) -> list[int]:
         """Given number of times the item has been answered correctly / incorrectly,
         calculate score and return N ids that need to be studied."""
@@ -39,5 +37,5 @@ class ExponentialSRSPolicy:
         # Sort by score descending, throw out high scorers, get top N, return ID
         df_filtered = df[df["score"] < score_threshold].sort_values("score")
         df_top_N = df_filtered.head(N)
-        
+
         return df_top_N["id"].to_list()
