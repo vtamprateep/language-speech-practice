@@ -180,8 +180,8 @@ def put_vocabulary_progress_update_records(
     return [{to_camel_case(k): v for k, v in entry.items()} for entry in response.data]
 
 
-@router.get("/api/v1/get_vocabulary_review_by_policy/{user_id}")
-def get_vocabulary_id_review_by_policy(user_id: str, client=Depends(get_clients)):
+@router.get("/api/v1/get_vocabulary_id_by_policy/{user_id}")
+def get_vocabulary_id_by_policy(user_id: str, client=Depends(get_clients)):
     """Returns array of vocabulary ID that user should review next. For vocabulary seen, passes
     through policy to see if they have been mastered. Pads vocabulary ID arr with new vocabulary
     up to 8 total entries."""

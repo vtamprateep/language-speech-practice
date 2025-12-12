@@ -150,3 +150,15 @@ export async function putVocabularyProgressUpdateRecords(
   if (!res.ok) throw new Error(`Failed to get vocabulary: ${res.statusText}`);
   return res.json();
 }
+
+// GET /get_vocabulary_id_by_policy/{user_id}
+export async function getVocabularyIdByPolicy(
+  userId: string
+): Promise<number[]> {
+  const res = await fetch(`${API_BASE}/api/v1/get_vocabulary_id_by_policy/${userId}`, {
+    method: "GET",
+    headers: { "Content-Type": "application/json" }
+  });
+  if (!res.ok) throw new Error(`Failed to get vocabulary: ${res.statusText}`);
+  return res.json();
+}
