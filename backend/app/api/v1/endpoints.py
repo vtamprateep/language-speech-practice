@@ -8,6 +8,7 @@ from pydantic import BaseModel
 from app.dependencies import get_clients, get_models
 from app.util.format import to_camel_case
 from app.util.languages import Language
+from app.util.srs.policy import ExponentialSRSPolicy, SRSItem
 
 LOG = logging.getLogger(__name__)
 router = APIRouter()
@@ -147,10 +148,7 @@ def put_vocabulary_progress_new_records(
 
     response = client.table("vocabulary_progress").insert(data).execute()
 
-    return [
-        {to_camel_case(k): v for k, v in entry.items()}
-        for entry in response.data
-    ]
+    return [{to_camel_case(k): v for k, v in entry.items()} for entry in response.data]
 
 
 class VocabularyProgress(BaseModel):
@@ -179,7 +177,49 @@ def put_vocabulary_progress_update_records(
             .execute()
         )
 
-    return [
-        {to_camel_case(k): v for k, v in entry.items()}
-        for entry in response.data
-    ]
+    return [{to_camel_case(k): v for k, v in entry.items()} for entry in response.data]
+
+
+@router.get("/api/v1/get_vocabulary_review_by_policy/{user_id}")
+def get_vocabulary_id_review_by_policy(user_id: str, client=Depends(get_clients)):
+    """Returns array of vocabulary ID that user should review next. For vocabulary seen, passes
+    through policy to see if they have been mastered. Pads vocabulary ID arr with new vocabulary
+    up to 8 total entries."""
+    client = client["SupabaseClient"]
+    TARGET_VOCABULARY = 8
+
+    # Get all vocabulary progress for a user
+    response = (
+        client.table("vocabulary_progress")
+        .select("id", "user_id", "vocabulary_id", "count_wrong", "count_correct")
+        .eq("user_id", user_id)
+        .execute()
+    )
+
+    # Determine which vocabulary needs review
+    vocabulary_id_arr = ExponentialSRSPolicy.retrieve_items(
+        [
+            SRSItem(
+                id=entry["id"],
+                count_correct=entry["count_correct"],
+                count_wrong=entry["count_wrong"],
+            )
+            for entry in response.data
+        ],
+        N=TARGET_VOCABULARY,
+    )
+
+    # Pad remaining vocabulary
+    pad_vocab = TARGET_VOCABULARY - len(vocabulary_id_arr)
+    response = (
+        client.table("vocabulary")
+        .select("id")
+        .not_.is_("relative_freq_pct", "null")
+        .not_.in_("id", vocabulary_id_arr)
+        .order("level", desc=False)
+        .order("relative_freq_pct", desc=True)
+        .limit(pad_vocab)
+        .execute()
+    )
+
+    return [entry["id"] for entry in response.data] + vocabulary_id_arr
