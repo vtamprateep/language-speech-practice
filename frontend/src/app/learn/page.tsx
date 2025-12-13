@@ -4,8 +4,10 @@ import { useRouter } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import React, { useState, useEffect } from 'react';
 import { Vocabulary } from '@/lib/backend/types';
-import { getVocabularyTopNFrequency } from '@/lib/backend/backend';
+import { getVocabularyById, getVocabularyIdByPolicy, getVocabularyTopNFrequency } from '@/lib/backend/backend';
 import { VocabularyFlashcardMasteryContainer } from '@/components/features/flashcard/container';
+import { useUserContext } from '@/context/user';
+import { shuffle } from '@/lib/utils';
 
 
 function HomeButton() {
@@ -14,7 +16,7 @@ function HomeButton() {
     return (
         <div className="flex flex-col items-center p-10 gap-6">
             <h2 className="text-2xl font-semibold">
-                🎉 You have mastered all vocabulary in this set!
+                🎉 You have completed this vocabulary set!
             </h2>
 
             <Button 
@@ -34,24 +36,25 @@ export default function FlashcardsLearnPage({ params }: { params: Promise<{ leve
     const [vocabulary, setVocabulary] = useState<Vocabulary[]>([]);
     const [renderHome, setRenderHome] = useState<boolean>(false);
 
-    function loadAndShuffle<T>(arr: T[]) {
-        for (let i = arr.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            const temp = arr[i];
-            arr[i] = arr[j];
-            arr[j] = temp;
-        }
+    const { user } = useUserContext();
 
-        return arr;        
-    }
+    async function loadVocabulary(userId?: string): Promise<Vocabulary[]> {
+        if (userId) {
+            const vocabIdArr = await getVocabularyIdByPolicy(userId)
+            const vocabArr = await getVocabularyById(vocabIdArr);
+            return vocabArr;                
+        } else {
+            const vocabArr = await getVocabularyTopNFrequency(8);
+            return shuffle(vocabArr);
+        }
+    } 
 
     useEffect(() => {
-        getVocabularyTopNFrequency(2)
+        loadVocabulary(user?.id)
             .then((data) => {
-                loadAndShuffle(data);
                 setVocabulary(data);
-            })
-            .finally(() => setReadyToRender(true));
+                setReadyToRender(true);
+            });
     }, [])
 
     if (!readyToRender) {
