@@ -2,11 +2,6 @@ import { Vocabulary } from "@/lib/backend/types";
 import { useState, useEffect } from "react";
 import { Mode } from "./types";
 import { VocabularyProgressRecord } from "@/lib/backend/types";
-import {
-    getVocabularyProgress,
-    putVocabularyProgressNewRecords,
-    putVocabularyProgressUpdateRecords
-} from "@/lib/backend/backend";
 import { useUserContext } from "@/context/user";
 import { chooseRandom, shuffle } from "@/lib/utils";
 
@@ -16,44 +11,6 @@ function generateChoices(vocabularyArr: Vocabulary[], skipId: number): Vocabular
         .filter((v) => v.id !== skipId)
         .sort(() => 0.5 - Math.random())
         .slice(0, 3)
-}
-
-async function commitVocabularyProgress(
-    vocabularyProgressArr: VocabularyProgressRecord[],
-): Promise<void> {
-    putVocabularyProgressUpdateRecords(vocabularyProgressArr);
-}
-
-async function loadVocabularyProgress(
-    vocabularyIdArr: number[],
-    userId?: string
-): Promise<VocabularyProgressRecord[]> {
-    // If userId is not provided, give blank progress for all vocabulary
-    if (!userId) {
-        const vocabProgress = vocabularyIdArr.map((id) => {
-            return {
-                vocabularyId: id,
-                countCorrect: 0,
-                countWrong: 0
-            }
-        });
-        return vocabProgress;
-    }
-
-    // Otherwise, get vocabulary progress records from database
-    const vocabularyProgressRecord = await getVocabularyProgress(
-        userId,
-        vocabularyIdArr
-    )
-    const foundVocabId = vocabularyProgressRecord.map((v) => v.vocabularyId);
-
-    // For new vocab, existing record may not exists. Create those records.
-    const missingVocabIds = vocabularyIdArr.filter((v) => !foundVocabId.includes(v));
-
-    // If none were missing, return. Otherwise, create those records
-    if (missingVocabIds.length == 0) return vocabularyProgressRecord;
-    const newRecords = await putVocabularyProgressNewRecords(userId, missingVocabIds);
-    return [...vocabularyProgressRecord, ...newRecords];
 }
 
 
@@ -109,12 +66,15 @@ export function useFlashcardController(vocabularyArr: Vocabulary[]) {
     };
 }
 
-export function useFlashcardMasteryController(vocabularyArr: Vocabulary[]) {
+export function useFlashcardMasteryController(
+    vocabularyArr: Vocabulary[],
+    vocabularyProgress: VocabularyProgressRecord[]
+) {
     const [index, setIndex] = useState<number>(0);
     const [mode, setMode] = useState<Mode>("typing");
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
     const [choices, setChoices] = useState<string[]>([]);
-    const [progress, setProgress] = useState<VocabularyProgressRecord[]>();
+    const [progress, setProgress] = useState<VocabularyProgressRecord[]>(vocabularyProgress);
     const [endSession, setEndSession] = useState<boolean>(false);
     const currentVocabulary = vocabularyArr[index];
 
@@ -140,7 +100,6 @@ export function useFlashcardMasteryController(vocabularyArr: Vocabulary[]) {
         // If none, lesson complete, return
         if (remainingVocab.length == 0) {
             setEndSession(true);
-            commitVocabularyProgress(progress!);
             return;
         }
 
@@ -187,17 +146,6 @@ export function useFlashcardMasteryController(vocabularyArr: Vocabulary[]) {
             vocabProgress.countWrong ++
         }
     }
-
-    useEffect(() => {
-        loadVocabularyProgress(
-            vocabularyArr.map((v) => v.id),
-            user?.id
-        )
-            .then((response) => {
-                setProgress(response);
-            })
-        
-    }, [])
 
     return {
         currentVocabulary,

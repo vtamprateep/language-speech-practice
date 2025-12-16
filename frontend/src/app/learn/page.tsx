@@ -9,7 +9,8 @@ import {
     getVocabularyIdByPolicy,
     getVocabularyTopNFrequency,
     getVocabularyProgress,
-    putVocabularyProgressNewRecords
+    putVocabularyProgressNewRecords,
+    putVocabularyProgressUpdateRecords
 } from '@/lib/backend/backend';
 import { VocabularyFlashcardMasteryContainer } from '@/components/features/flashcard/container';
 import { useUserContext } from '@/context/user';
@@ -59,7 +60,7 @@ async function loadVocabulary(userId?: string): Promise<Vocabulary[]> {
         const vocabArr = await getVocabularyTopNFrequency(8);
         return shuffle(vocabArr);
     }
-} 
+}
 
 
 function HomeButton() {
@@ -91,7 +92,7 @@ export default function FlashcardsLearnPage({ params }: { params: Promise<{ leve
 
     const { user } = useUserContext();
 
-    const loadData = async () => {
+    const setup = async () => {
         // Load vocabulary
         const vocabArr = await loadVocabulary(user?.id);
         setVocabulary(vocabArr);
@@ -104,8 +105,13 @@ export default function FlashcardsLearnPage({ params }: { params: Promise<{ leve
         setReadyToRender(true);
     }
 
+    const cleanup = () => {
+        putVocabularyProgressUpdateRecords(vocabularyProgress);
+        setRenderHome(true);
+    }
+
     useEffect(() => {
-        loadData();
+        setup();
     }, [])
 
     if (!readyToRender) {
@@ -125,7 +131,8 @@ export default function FlashcardsLearnPage({ params }: { params: Promise<{ leve
                 <div>
                     <VocabularyFlashcardMasteryContainer 
                         vocabulary={vocabulary}
-                        callbackOnComplete={() => setRenderHome(true)}
+                        vocabularyProgress={vocabularyProgress}
+                        callbackOnComplete={() => cleanup()}
                     />
                 </div>
             </div>

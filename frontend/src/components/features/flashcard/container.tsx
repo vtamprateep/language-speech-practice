@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { Vocabulary } from "@/lib/backend/types";
+import { Vocabulary, VocabularyProgressRecord } from "@/lib/backend/types";
 import { Button } from "@/components/ui/button";
 import { TypedResponse, MultipleChoiceResponse } from "./response";
 import { useFlashcardController, useFlashcardMasteryController } from "./controller";
@@ -57,8 +57,13 @@ export function VocabularyFlashcardContainer({ vocabulary }: { vocabulary: Vocab
 }
 
 
-export function VocabularyFlashcardMasteryContainer({ vocabulary, callbackOnComplete }: {
+export function VocabularyFlashcardMasteryContainer({ 
+    vocabulary,
+    vocabularyProgress,
+    callbackOnComplete
+}: {
     vocabulary: Vocabulary[],
+    vocabularyProgress: VocabularyProgressRecord[],
     callbackOnComplete?: () => void,
 }) {
     const {
@@ -69,7 +74,7 @@ export function VocabularyFlashcardMasteryContainer({ vocabulary, callbackOnComp
         endSession,
         next,
         checkResponse,
-    } = useFlashcardMasteryController(vocabulary);
+    } = useFlashcardMasteryController(vocabulary, vocabularyProgress);
 
     // Use effect to trigger callback when session ends
     useEffect(() => {
