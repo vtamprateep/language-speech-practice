@@ -75,6 +75,9 @@ export function useFlashcardMasteryController(
     const [choices, setChoices] = useState<string[]>([]);
     const [progress, setProgress] = useState<VocabularyProgressRecord[]>(vocabularyProgress);
     const [endSession, setEndSession] = useState<boolean>(false);
+    const [iterationCount, setIterationCount] = useState<number>(1);
+
+    const maxIteration = 24;
     const currentVocabulary = vocabularyArr[index];
 
     const next = () => {
@@ -88,20 +91,18 @@ export function useFlashcardMasteryController(
             return updated
         })
 
-        // Get ID of vocabulary to quiz
-        const remainingVocabId = progress!.map((v) => {
-            if (v.countCorrect < 5) return v.vocabularyId
-        })
-        const remainingVocab = vocabularyArr.filter((v) => remainingVocabId.includes(v.id));
-
-        // If none, lesson complete, return
-        if (remainingVocab.length == 0) {
+        // Increment number of flashcards seen or terminate session
+        if (iterationCount == maxIteration) {
             setEndSession(true);
             return;
         }
+        setIterationCount(prev => prev + 1);
 
         // Update states for next flashcard
         setIsCorrect(null);
+        const randomVocab = chooseRandom(vocabularyArr);
+        const randomIndex = vocabularyArr.findIndex((v) => v.id == randomVocab.id);
+        setIndex(randomIndex);
 
         const mode = chooseRandom(["typing", "multiple-choice"]) as Mode;
         setMode(mode);
@@ -111,12 +112,6 @@ export function useFlashcardMasteryController(
             ).map((v) => v.english);
             setChoices(shuffle([...wrongAnswers, currentVocabulary.english]));
         };
-
-
-        // Select random unmastered vocab and set
-        const randomVocab = chooseRandom(remainingVocab);
-        const randomIndex = vocabularyArr.findIndex((v) => v.id == randomVocab.id);
-        setIndex(randomIndex);
     }
 
     const checkResponse = (answer: string) => {
