@@ -2,7 +2,6 @@ import { Vocabulary } from "@/lib/backend/types";
 import { useState, useEffect } from "react";
 import { Mode } from "./types";
 import { VocabularyProgressRecord } from "@/lib/backend/types";
-import { useUserContext } from "@/context/user";
 import { chooseRandom, shuffle } from "@/lib/utils";
 
 
@@ -77,8 +76,6 @@ export function useFlashcardMasteryController(
     const [progress, setProgress] = useState<VocabularyProgressRecord[]>(vocabularyProgress);
     const [endSession, setEndSession] = useState<boolean>(false);
     const currentVocabulary = vocabularyArr[index];
-
-    const { user } = useUserContext();
 
     const next = () => {
         // Block going to next vocab until user has answered
