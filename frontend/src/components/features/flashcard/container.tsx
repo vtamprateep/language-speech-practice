@@ -91,11 +91,13 @@ export function VocabularyFlashcardMasteryContainer({
 
             {mode === "typing" ? (
                 <TypedResponse
+                    disabled={isCorrect != undefined}
                     callback={checkResponse}
                 />
             ) : (
                 <MultipleChoiceResponse
                     choices={choices}
+                    disabled={isCorrect != undefined}
                     callback={checkResponse}
                 />
             )}

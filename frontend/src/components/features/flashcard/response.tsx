@@ -3,7 +3,8 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 
 
-export function TypedResponse({ callback }: {
+export function TypedResponse({ disabled, callback }: {
+    disabled?: boolean,
     callback?: (userInput: string) => void,
 }) {
     const [value, setValue] = useState("");
@@ -13,6 +14,7 @@ export function TypedResponse({ callback }: {
             <Input
                 type="text"
                 value={value}
+                disabled={disabled}
                 onChange={(e) => setValue(e.target.value)}
                 onKeyDown={(e) => {
                     if (e.key === "Enter" && callback) {
@@ -22,10 +24,13 @@ export function TypedResponse({ callback }: {
                 }}
                 placeholder="Type the character"
             />
-            <Button onClick={() => {
-                callback ? callback(value.trim()) : null
-                setValue("");
-            }}>
+            <Button 
+                disabled={disabled}
+                onClick={() => {
+                    callback ? callback(value.trim()) : null
+                    setValue("");
+                }}
+            >
                 Check Answer
             </Button>
         </div>
@@ -35,9 +40,11 @@ export function TypedResponse({ callback }: {
 
 export function MultipleChoiceResponse({
     choices,
+    disabled,
     callback
 }: {
     choices: Record<number, string>,
+    disabled?: boolean,
     callback?: (userInput: string) => void
 }) {
     return (
@@ -46,6 +53,7 @@ export function MultipleChoiceResponse({
                 Object.entries(choices).map(([key, value]) => (
                     <Button
                         key={key}
+                        disabled={disabled}
                         onClick={() => {
                             callback ? callback(value) : null
                         }}
