@@ -1,4 +1,4 @@
-from unittest.mock import MagicMock, call
+from unittest.mock import MagicMock, call, patch
 
 from fastapi.testclient import TestClient
 
@@ -193,3 +193,90 @@ def test_put_vocabulary_progress_update_records():
         ]
     )
     mock_supabase_client.eq.assert_has_calls([call("id", 1), call("id", 2)])
+
+
+@patch("app.util.srs.policy.ExponentialSRSPolicy")
+def test_get_vocabulary_id_by_policy(mock_policy):
+    # Create mock responses
+    mock_progress_response = MagicMock()
+    mock_progress_response.data = [
+        {
+            "id": 10,
+            "user_id": "test_user",
+            "vocabulary_id": 100,
+            "count_wrong": 1,
+            "count_correct": 3,
+        },
+        {
+            "id": 11,
+            "user_id": "test_user",
+            "vocabulary_id": 101,
+            "count_wrong": 0,
+            "count_correct": 5,
+        },
+    ]
+
+    # Second supabase call: vocabulary (padding)
+    mock_vocab_response = MagicMock()
+    mock_vocab_response.data = [
+        {"id": 200},
+        {"id": 201},
+        {"id": 202},
+        {"id": 203},
+        {"id": 204},
+        {"id": 205},
+    ]
+
+    # Mock client and chain of calls
+    mock_supabase_client = create_supabase_client_mock(
+        ["table", "select", "eq", "is_", "in_", "order", "limit", "execute"],
+        ["not_"]
+    )
+
+    mock_supabase_client.execute.side_effect = [
+        mock_progress_response,
+        mock_vocab_response,
+    ]
+
+    mock_clients.__getitem__.return_value = mock_supabase_client
+
+    # Mock policy response
+    mock_policy.retrieve_items.return_value = [entry["vocabulary_id"] for entry in mock_progress_response.data]
+
+    # Run test with non-zero vocabulary in progress
+    resp = test_client.get("/api/v1/get_vocabulary_id_by_policy/test_user")
+    assert resp.status_code == 200
+    assert resp.json() == [200, 201, 202, 203, 204, 205, 100, 101]
+
+    mock_supabase_client.table.assert_any_call("vocabulary_progress")
+    mock_supabase_client.table.assert_called_with("vocabulary")
+
+    mock_policy.retrieve_items.is_called()
+
+    # Run test with zero vocabulary in progress
+    mock_progress_response.data = []
+    mock_vocab_response.data = [
+        {"id": 200},
+        {"id": 201},
+        {"id": 202},
+        {"id": 203},
+        {"id": 204},
+        {"id": 205},
+        {"id": 206},
+        {"id": 207},
+    ]
+
+    # Reset mocks
+    mock_policy.reset_mock()
+    mock_policy.retrieve_items.return_value = [entry["vocabulary_id"] for entry in mock_progress_response.data]
+    mock_supabase_client.execute.side_effect = [
+        mock_progress_response,
+        mock_vocab_response,
+    ]
+
+    resp = test_client.get("/api/v1/get_vocabulary_id_by_policy/test_user")
+    assert resp.status_code == 200
+    assert resp.json() == [200, 201, 202, 203, 204, 205, 206, 207]
+
+    mock_policy.retrieve_items.is_not_called()
+

@@ -180,8 +180,8 @@ def put_vocabulary_progress_update_records(
     return [{to_camel_case(k): v for k, v in entry.items()} for entry in response.data]
 
 
-@router.get("/api/v1/get_vocabulary_review_by_policy/{user_id}")
-def get_vocabulary_id_review_by_policy(user_id: str, client=Depends(get_clients)):
+@router.get("/api/v1/get_vocabulary_id_by_policy/{user_id}")
+def get_vocabulary_id_by_policy(user_id: str, client=Depends(get_clients)):
     """Returns array of vocabulary ID that user should review next. For vocabulary seen, passes
     through policy to see if they have been mastered. Pads vocabulary ID arr with new vocabulary
     up to 8 total entries."""
@@ -196,18 +196,21 @@ def get_vocabulary_id_review_by_policy(user_id: str, client=Depends(get_clients)
         .execute()
     )
 
-    # Determine which vocabulary needs review
-    vocabulary_id_arr = ExponentialSRSPolicy.retrieve_items(
-        [
-            SRSItem(
-                id=entry["id"],
-                count_correct=entry["count_correct"],
-                count_wrong=entry["count_wrong"],
-            )
-            for entry in response.data
-        ],
-        N=TARGET_VOCABULARY,
-    )
+    if response.data != []:
+        # Determine which vocabulary needs review
+        vocabulary_id_arr = ExponentialSRSPolicy.retrieve_items(
+            [
+                SRSItem(
+                    id=entry["vocabulary_id"],
+                    count_correct=entry["count_correct"],
+                    count_wrong=entry["count_wrong"],
+                )
+                for entry in response.data
+            ],
+            N=TARGET_VOCABULARY,
+        )
+    else:
+        vocabulary_id_arr = []
 
     # Pad remaining vocabulary
     pad_vocab = TARGET_VOCABULARY - len(vocabulary_id_arr)
@@ -216,7 +219,6 @@ def get_vocabulary_id_review_by_policy(user_id: str, client=Depends(get_clients)
         .select("id")
         .not_.is_("relative_freq_pct", "null")
         .not_.in_("id", vocabulary_id_arr)
-        .order("level", desc=False)
         .order("relative_freq_pct", desc=True)
         .limit(pad_vocab)
         .execute()
