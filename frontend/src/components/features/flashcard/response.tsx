@@ -24,6 +24,7 @@ export function TypedResponse({ callback }: {
             />
             <Button onClick={() => {
                 callback ? callback(value.trim()) : null
+                setValue("");
             }}>
                 Check Answer
             </Button>
