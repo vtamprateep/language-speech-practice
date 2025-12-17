@@ -36,21 +36,23 @@ export function MultipleChoiceResponse({
     choices,
     callback
 }: {
-    choices: string[],
+    choices: Record<number, string>,
     callback?: (userInput: string) => void
 }) {
     return (
         <div className="flex flex-col gap-2 w-72">
-            {choices.map((choice) => (
-                <Button
-                    key={choice}
-                    onClick={() => {
-                        callback ? callback(choice) : null
-                    }}
-                >
-                    {choice}
-                </Button>
-            ))}
+            {
+                Object.entries(choices).map(([key, value]) => (
+                    <Button
+                        key={key}
+                        onClick={() => {
+                            callback ? callback(value) : null
+                        }}
+                    >
+                        {value}
+                    </Button>
+                ))
+            }
         </div>
     );
 }

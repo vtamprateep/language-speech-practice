@@ -73,23 +73,19 @@ export function useFlashcardMasteryController(
     const [mode, setMode] = useState<Mode>("typing");
     const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
     const [choices, setChoices] = useState<string[]>([]);
-    const [progress, setProgress] = useState<VocabularyProgressRecord[]>(vocabularyProgress);
     const [endSession, setEndSession] = useState<boolean>(false);
     const [iterationCount, setIterationCount] = useState<number>(1);
 
-    const maxIteration = 24;
+    const maxIteration = 10;
     const currentVocabulary = vocabularyArr[index];
+    const progress = vocabularyProgress;
 
     const next = () => {
         // Block going to next vocab until user has answered
         if (isCorrect == undefined) return;
 
         // Update progress
-        setProgress(prev => {
-            const updated = structuredClone(prev);
-            updateProgress(progress!, currentVocabulary, isCorrect);
-            return updated
-        })
+        updateProgress(progress!, currentVocabulary, isCorrect);
 
         // Increment number of flashcards seen or terminate session
         if (iterationCount == maxIteration) {
@@ -108,9 +104,9 @@ export function useFlashcardMasteryController(
         setMode(mode);
         if (mode === "multiple-choice") {
             const wrongAnswers = generateChoices(
-                vocabularyArr, currentVocabulary.id
+                vocabularyArr, randomVocab.id
             ).map((v) => v.english);
-            setChoices(shuffle([...wrongAnswers, currentVocabulary.english]));
+            setChoices(shuffle([...wrongAnswers, randomVocab.english]));
         };
     }
 
