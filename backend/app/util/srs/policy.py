@@ -19,7 +19,7 @@ class ExponentialSRSPolicy:
         items: list[SRSItem],
         smooth_factor: int = 5,
         score_threshold: float | int = 15,
-        N: int = 6,
+        N: int = 8,
     ) -> list[int]:
         """Given number of times the item has been answered correctly / incorrectly,
         calculate score and return N ids that need to be studied."""
