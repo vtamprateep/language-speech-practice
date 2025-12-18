@@ -18,7 +18,7 @@ class ExponentialSRSPolicy:
     def retrieve_items(
         items: list[SRSItem],
         smooth_factor: int = 5,
-        score_threshold: float | int = 30,
+        score_threshold: float | int = 15,
         N: int = 6,
     ) -> list[int]:
         """Given number of times the item has been answered correctly / incorrectly,
