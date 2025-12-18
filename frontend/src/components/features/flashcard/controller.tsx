@@ -76,7 +76,7 @@ export function useFlashcardMasteryController(
     const [endSession, setEndSession] = useState<boolean>(false);
     const [iterationCount, setIterationCount] = useState<number>(1);
 
-    const maxIteration = 10;
+    const maxIteration = 15;
     const currentVocabulary = vocabularyArr[index];
     const progress = vocabularyProgress;
 
