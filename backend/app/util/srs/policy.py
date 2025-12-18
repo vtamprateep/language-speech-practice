@@ -37,5 +37,6 @@ class ExponentialSRSPolicy:
         # Sort by score descending, throw out high scorers, get top N, return ID
         df_filtered = df[df["score"] < score_threshold].sort_values("score")
         df_top_N = df_filtered.head(N)
+        print(df_top_N)
 
         return df_top_N["id"].to_list()

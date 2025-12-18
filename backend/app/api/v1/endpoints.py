@@ -195,8 +195,13 @@ def get_vocabulary_id_by_policy(user_id: str, client=Depends(get_clients)):
         .eq("user_id", user_id)
         .execute()
     )
+    vocab_progress_all = response.data
+    vocab_progress_all_id = [
+        entry["vocabulary_id"]
+        for entry in vocab_progress_all
+    ]
 
-    if response.data != []:
+    if vocab_progress_all != []:
         # Determine which vocabulary needs review
         vocabulary_id_arr = ExponentialSRSPolicy.retrieve_items(
             [
@@ -205,7 +210,7 @@ def get_vocabulary_id_by_policy(user_id: str, client=Depends(get_clients)):
                     count_correct=entry["count_correct"],
                     count_wrong=entry["count_wrong"],
                 )
-                for entry in response.data
+                for entry in vocab_progress_all
             ],
             N=TARGET_VOCABULARY,
         )
@@ -218,7 +223,7 @@ def get_vocabulary_id_by_policy(user_id: str, client=Depends(get_clients)):
         client.table("vocabulary")
         .select("id")
         .not_.is_("relative_freq_pct", "null")
-        .not_.in_("id", vocabulary_id_arr)
+        .not_.in_("id", vocab_progress_all_id)
         .order("relative_freq_pct", desc=True)
         .limit(pad_vocab)
         .execute()
