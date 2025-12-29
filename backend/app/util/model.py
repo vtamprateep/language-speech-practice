@@ -1,6 +1,7 @@
 from enum import Enum
 
 from deep_translator import GoogleTranslator  # type: ignore
+
 from .languages import Language
 
 
