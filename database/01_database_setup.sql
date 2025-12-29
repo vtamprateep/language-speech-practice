@@ -1,103 +1,92 @@
--- ======================================================
---  Language Learning App: Database Schema (PostgreSQL)
---  Safe to run multiple times (idempotent)
--- ======================================================
+/* Set-up Script */
 
 -- =======================
--- Vocabulary Table
+-- vocabulary
 -- =======================
-CREATE TABLE IF NOT EXISTS vocabulary (
-    id SERIAL PRIMARY KEY,
-    vocabulary TEXT NOT NULL,                  -- e.g., 名字
-    pinyin TEXT,                               -- e.g., míngzi
-    vocabulary_english TEXT,                   -- e.g., name
-    topic TEXT,                                -- e.g., 個人資料
-    topic_english TEXT,                        -- e.g., personal information
-    part_of_speech TEXT,                       -- e.g., (N)
-    level INTEGER,                             -- HSK level or custom level
-);
+create table public.vocabulary (
+  id serial not null,
+  traditional text not null,
+  pinyin text null,
+  english text null,
+  topic text null,
+  topic_english text null,
+  part_of_speech text null,
+  level integer null,
+  simplified text null,
+  relative_freq_pct real null,
+  constraint vocabulary_pkey primary key (id)
+) TABLESPACE pg_default;
 
 -- =======================
--- Grammar Table
+-- grammar
 -- =======================
-CREATE TABLE IF NOT EXISTS grammar (
-    id SERIAL PRIMARY KEY,
-    title TEXT NOT NULL,                       -- e.g., "Basic sentence order"
-    description TEXT,                          -- explanation
-    examples JSONB,                            -- array of example sentences
-    practice JSONB,                            -- array of GrammarPracticeItem objects
-);
+create table public.grammar (
+  id serial not null,
+  title text not null,
+  description text null,
+  examples jsonb null,
+  practice jsonb null,
+  constraint grammar_pkey primary key (id)
+) TABLESPACE pg_default;
 
 -- =======================
--- Dialogue Table
+-- dialogue
 -- =======================
-CREATE TABLE IF NOT EXISTS dialogue (
-    id SERIAL PRIMARY KEY,
-    path TEXT UNIQUE NOT NULL,                 -- e.g., "at-a-restaurant"
-    title TEXT NOT NULL,                       -- human-readable title
-    description TEXT,                          -- scenario summary
-);
+create table public.dialogue (
+  id serial not null,
+  path text not null,
+  title text not null,
+  description text null,
+  constraint dialogue_pkey primary key (id),
+  constraint dialogue_path_key unique (path)
+) TABLESPACE pg_default;
 
 
 -- =======================
--- Dialogue Turn Table
+-- dialogue_turn
 -- =======================
-CREATE TABLE IF NOT EXISTS dialogue_turn (
-    id SERIAL PRIMARY KEY,
-    dialogue_id INTEGER NOT NULL REFERENCES dialogue(id) ON DELETE CASCADE,
-    turn INTEGER NOT NULL,                     -- turn number in dialogue
-    speaker TEXT,                              -- e.g., "Server", "User"
-    mandarin TEXT,                             -- Mandarin text
-    pinyin TEXT,                               -- pinyin text
-    english TEXT,                              -- English translation
-    user_prompt TEXT,                          -- instruction to user
-    target_sentence TEXT,                      -- expected user response
-    hint TEXT,                                 -- helpful hint
-    UNIQUE(dialogue_id, turn)
-);
+create table public.dialogue_turn (
+  id serial not null,
+  dialogue_id integer not null,
+  turn integer not null,
+  speaker text null,
+  mandarin text null,
+  pinyin text null,
+  english text null,
+  user_prompt text null,
+  target_sentence text null,
+  hint text null,
+  constraint dialogue_turn_pkey primary key (id),
+  constraint dialogue_turn_dialogue_id_turn_key unique (dialogue_id, turn),
+  constraint dialogue_turn_dialogue_id_fkey foreign KEY (dialogue_id) references dialogue (id) on delete CASCADE
+) TABLESPACE pg_default;
 
 -- =======================
--- Lesson Table
+-- lesson
 -- =======================
-CREATE TABLE IF NOT EXISTS lesson (
-    id SERIAL PRIMARY KEY,
-    title TEXT NOT NULL,
-    description TEXT,
-    -- We'll store related vocab, grammar, and dialogue references in arrays for flexibility
-    vocabulary_id INTEGER[] DEFAULT '{}',
-    grammar_id INTEGER[] DEFAULT '{}',
-    dialogue_id INTEGER,  -- each lesson can optionally link to one dialogue
-    created_at TIMESTAMPTZ DEFAULT NOW(),
-    updated_at TIMESTAMPTZ DEFAULT NOW()
-);
+create table public.lesson (
+  id serial not null,
+  title text not null,
+  description text null,
+  vocabulary_id integer[] null default '{}'::integer[],
+  grammar_id integer[] null default '{}'::integer[],
+  dialogue_id integer null,
+  created_at timestamp with time zone null default now(),
+  updated_at timestamp with time zone null default now(),
+  constraint lesson_pkey primary key (id)
+) TABLESPACE pg_default;
 
 -- =======================
--- Trigger: Auto-update updated_at
+-- vocabulary_progress
 -- =======================
-CREATE OR REPLACE FUNCTION update_timestamp()
-RETURNS TRIGGER AS $$
-BEGIN
-    NEW.updated_at = NOW();
-    RETURN NEW;
-END;
-$$ LANGUAGE plpgsql;
-
--- Attach trigger to all tables that have updated_at
-DO $$
-DECLARE
-    tbl RECORD;
-BEGIN
-    FOR tbl IN SELECT tablename FROM pg_tables WHERE schemaname = 'public' LOOP
-        EXECUTE format(
-            'DROP TRIGGER IF EXISTS update_%I_timestamp ON %I;',
-            tbl.tablename, tbl.tablename
-        );
-        EXECUTE format(
-            'CREATE TRIGGER update_%I_timestamp
-             BEFORE UPDATE ON %I
-             FOR EACH ROW
-             EXECUTE FUNCTION update_timestamp();',
-            tbl.tablename, tbl.tablename
-        );
-    END LOOP;
-END $$;
+create table public.vocabulary_progress (
+  id serial not null,
+  user_id uuid not null,
+  vocabulary_id integer not null,
+  count_correct integer null default 0,
+  count_wrong integer null default 0,
+  constraint vocabulary_progress_pkey primary key (id),
+  constraint vocabulary_progress_user_vocab_unique unique (user_id, vocabulary_id),
+  constraint vocabulary_progress_user_id_fkey foreign KEY (user_id) references auth.users (id),
+  constraint vocabulary_progress_vocabulary_id_fkey foreign KEY (vocabulary_id) references vocabulary (id)
+) TABLESPACE pg_default;
