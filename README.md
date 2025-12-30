@@ -27,3 +27,10 @@ This repository is organized as a mono-repo containing the frontend, backend, an
 - Frontend Framework: Next.js
 - Backend Framework: FastAPI
 - Database: Supabase
+
+## Screenshots
+<img width="677" height="539" alt="image" src="https://github.com/user-attachments/assets/a0db8039-af14-45be-8dd7-765a4be2bed8" />
+
+<img width="1124" height="426" alt="image" src="https://github.com/user-attachments/assets/dcb21d9e-c299-4bd5-ab95-56a2ee68d82f" />
+
+<img width="577" height="529" alt="image" src="https://github.com/user-attachments/assets/fe0cd401-07fe-483a-a22f-69becf03ccdf" />
